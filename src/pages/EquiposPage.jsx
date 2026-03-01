@@ -32,11 +32,10 @@ export default function EquiposPage() {
     fetchData()
   }, [])
 
-  // Función para abrir el equipo con filtrado robusto de IDs
+  // FUNCIÓN CORREGIDA: Filtrado robusto para evitar fallos de ID
   const handleOpenTeam = (team) => {
-    // Comparamos IDs convirtiendo ambos a String para evitar errores de tipo ObjectId
     const teamMembers = allPlayers.filter(player => 
-      team.player_ids?.some(id => String(id) === String(player._id))
+      team.player_ids?.some(id => String(id).trim() === String(player._id).trim())
     )
     
     setSelectedTeam({
@@ -64,9 +63,9 @@ export default function EquiposPage() {
 
       <div className={styles.grid}>
         {teams.map(team => {
-          // Filtrado corregido también para la previsualización de la tarjeta
+          // Filtrado para la previsualización de la tarjeta
           const membersPreview = allPlayers.filter(p => 
-            team.player_ids?.some(id => String(id) === String(p._id))
+            team.player_ids?.some(id => String(id).trim() === String(p._id).trim())
           )
           
           return (
@@ -114,34 +113,46 @@ export default function EquiposPage() {
 
             <div 
               className={styles.modalHeaderInfo} 
-              style={{ background: `linear-gradient(135deg, ${selectedTeam.color_primary || '#1e293b'}EE, #0f172a)` }}
+              style={{ background: `linear-gradient(135deg, ${selectedTeam.color_primary || '#1e293b'}DD, #0f172a)` }}
             >
-              <img src={selectedTeam.image?.url} className={styles.modalLogo} alt="" />
+              <img src={selectedTeam.image?.url} className={styles.modalLogo} alt={selectedTeam.name} />
               <div className={styles.modalHeaderText}>
                 <h2 className={styles.modalTitle}>{selectedTeam.name}</h2>
                 <div className={styles.modalBadges}>
                   <span><Shield size={14}/> {selectedTeam.academy}</span>
-                  <span><MapPin size={14}/> {selectedTeam.country}</span>
+                  <span><MapPin size={14}/> {selectedTeam.country || 'Japan'}</span>
+                  <span className={styles.countBadge}>{selectedTeam.fullMembers.length} Jugadores</span>
                 </div>
               </div>
             </div>
 
             <div className={styles.modalBody}>
               <h4 className={styles.sectionTitle}><Users size={16} /> PLANTILLA DEL EQUIPO</h4>
+              
               <div className={styles.fullPlayerList}>
                 {selectedTeam.fullMembers && selectedTeam.fullMembers.length > 0 ? (
                   selectedTeam.fullMembers.map((player, index) => (
-                    <Link key={player._id} to={`/personajes/${player._id}`} className={styles.playerRow}>
+                    <Link 
+                      key={player._id} 
+                      to={`/personajes/${player._id}`} 
+                      className={styles.playerRow}
+                    >
                       <div className={styles.playerMain}>
                         <span className={styles.playerIndex}>{String(index + 1).padStart(2, '0')}</span>
                         <div className={styles.playerThumbWrapper}>
-                          <img src={player.image?.url} className={styles.playerThumb} alt={player.name} />
+                          <img 
+                            src={player.image?.url} 
+                            className={styles.playerThumb} 
+                            alt={player.name}
+                            onError={(e) => { e.target.src = 'https://via.placeholder.com/40?text=?' }} 
+                          />
                         </div>
                         <div className={styles.playerMeta}>
                           <p className={styles.pName}>{player.name}</p>
                           <p className={styles.pPos}>{player.position || 'Jugador'}</p>
                         </div>
                       </div>
+
                       <div className={styles.playerPowerBadge}>
                         <Zap size={12} fill="#fbbf24" />
                         <span>{player.basePower || 0}</span>
@@ -150,8 +161,8 @@ export default function EquiposPage() {
                   ))
                 ) : (
                   <div className={styles.noPlayersBox}>
-                    <p className={styles.noPlayers}>No se encontraron jugadores vinculados.</p>
-                    <small>Verifica que los IDs en la base de datos coincidan.</small>
+                    <p>No se han encontrado jugadores vinculados.</p>
+                    <small>ID Zeus en equipo debe coincidir con ID en jugadores.</small>
                   </div>
                 )}
               </div>
