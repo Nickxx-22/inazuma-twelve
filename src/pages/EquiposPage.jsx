@@ -13,7 +13,6 @@ export default function EquiposPage() {
       try {
         const res = await fetch('http://127.0.0.1:5000/equipos')
         const data = await res.json()
-        // Nos aseguramos de capturar el array correctamente
         setTeams(Array.isArray(data) ? data : (data.teams || []))
       } catch (err) {
         console.error("Error cargando equipos:", err)
@@ -46,6 +45,7 @@ export default function EquiposPage() {
         ))}
       </div>
 
+      {/* --- MODAL DETALLADO --- */}
       {selectedTeam && (
         <div className={styles.modalOverlay} onClick={() => setSelectedTeam(null)}>
           <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
@@ -57,7 +57,7 @@ export default function EquiposPage() {
                 <h2 className={styles.modalTitle}>{selectedTeam.name}</h2>
                 <div className={styles.modalBadges}>
                   <span><Shield size={14}/> {selectedTeam.academy}</span>
-                  <span className={styles.countBadge}><Users size={12} /> {selectedTeam.players?.length || 0} Jugadores</span>
+                  <span className={styles.countBadge}><Users size={12} /> {selectedTeam.players?.length || 0} Fichas</span>
                 </div>
               </div>
             </div>
@@ -65,17 +65,29 @@ export default function EquiposPage() {
             <div className={styles.modalBody}>
               <div className={styles.fullPlayerList}>
                 {selectedTeam.players && selectedTeam.players.length > 0 ? (
-                  selectedTeam.players.map((player, index) => (
-                    <div key={index} className={styles.playerRow}>
+                  selectedTeam.players.map((player) => (
+                    /* Cambiado a Link y usando el player.id real del backend */
+                    <Link 
+                      key={player.id} 
+                      to={`/personajes/${player.id}`} 
+                      className={styles.playerRow}
+                    >
                       <div className={styles.playerMain}>
+                        {/* Mostramos el dorsal real (number) en lugar del índice del array */}
+                        <span className={styles.playerIndex}>
+                          {player.number ? String(player.number).padStart(2, '0') : '??'}
+                        </span>
+                        
                         <div className={styles.playerThumbWrapper}>
                           <img src={player.image_url} className={styles.playerThumb} alt={player.name} />
                         </div>
+                        
                         <div className={styles.playerMeta}>
                           <p className={styles.pName}>{player.name}</p>
                           <p className={styles.pPos}>{player.element}</p>
                         </div>
                       </div>
+
                       <div className={styles.playerStatsSide}>
                         <div className={styles.playerPowerBadge}>
                           <Zap size={12} fill="#fbbf24" color="#fbbf24" />
@@ -86,7 +98,7 @@ export default function EquiposPage() {
                           <span>{player.matchStats?.tension || 0}</span>
                         </div>
                       </div>
-                    </div>
+                    </Link>
                   ))
                 ) : (
                   <div className={styles.noPlayersBox}>
