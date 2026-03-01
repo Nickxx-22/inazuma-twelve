@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "push-all": "git add . && git commit -m \"update inazuma project\" && git push origin master && npm run deploy"
   },
   "dependencies": {
     "chart.js": "^4.5.1",

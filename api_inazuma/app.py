@@ -273,6 +273,59 @@ def get_all_techniques():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+
+#---------------- EQUIPOS --------------------------
+@app.route('/equipos', methods=['GET'])
+def get_all_teams():
+    try:
+        equipos_db = list(db.equipos.find())
+        base_url = "http://127.0.0.1:5000"
+        
+        for team in equipos_db:
+            team['_id'] = str(team['_id'])
+            # Construir URL de la imagen del equipo
+            if 'image' in team and team['image'].get('url'):
+                team['image']['url'] = f"{base_url}{team['image']['url']}"
+        
+        return jsonify(equipos_db), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route('/equipos/<team_id>', methods=['GET'])
+def get_team_by_id(team_id):
+    try:
+        team = db.equipos.find_one({"_id": team_id})
+        if not team:
+            return jsonify({"error": "Equipo no encontrado"}), 404
+        
+        base_url = "http://127.0.0.1:5000"
+        team['_id'] = str(team['_id'])
+        
+        # 1. Imagen del equipo
+        if 'image' in team and team['image'].get('url'):
+            team['image']['url'] = f"{base_url}{team['image']['url']}"
+
+        # 2. BUSCAR JUGADORES COMPLETOS
+        # Buscamos en la colección 'jugadores' todos los que coincidan con la lista de IDs
+        player_ids = team.get('player_ids', [])
+        players_db = list(db.jugadores.find({"_id": {"$in": player_ids}}))
+        
+        # Procesamos a los jugadores (URLs de sus fotos, matchStats, etc.)
+        for p in players_db:
+            p['_id'] = str(p['_id'])
+            if 'image' in p and p['image'].get('url'):
+                p['image']['url'] = f"{base_url}{p['image']['url']}"
+            
+            # Recordar incluir matchStats según tus instrucciones
+            if 'matchStats' not in p:
+                p['matchStats'] = {}
+
+        team['players'] = players_db # Reemplazamos/Añadimos la lista completa
+        return jsonify(team), 200
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500        
+
 # ----------------- RUN -----------------
 if __name__ == "__main__":
     app.run(debug=True)

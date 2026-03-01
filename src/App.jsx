@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom' // <-- Cambiado aquí
 import Layout from './components/layout/Layout'
 import HomePage from './pages/HomePage'
 import PersonajesPage from './pages/PersonajesPage'
@@ -9,7 +9,6 @@ import MiEquipoPage from './pages/MiEquipoPage'
 import LoginPage from './pages/LoginPage'
 import RegistroPage from './pages/RegistroPage'
 
-// Protege rutas que requieren login
 function PrivateRoute({ children }) {
   const user = localStorage.getItem('inazuma-user')
   return user ? children : <Navigate to="/login" replace />
@@ -17,7 +16,7 @@ function PrivateRoute({ children }) {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter> {/* <-- Cambiado aquí */}
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
@@ -32,6 +31,6 @@ export default function App() {
           <Route path="registro" element={<RegistroPage />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter> // <-- Cambiado aquí
   )
 }
