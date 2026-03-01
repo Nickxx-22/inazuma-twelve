@@ -17,7 +17,7 @@ const datos = [
 {
   _id: "Raimon_T1",
   name: "Raimon",
-  image: {"url": "/img/jugadores/raimon.png"},
+  image: {"url": "/img/equipos/raimon.png"},
   country: "Japan",
   academy: "Instituto Raimon",
   category: "Junior",
@@ -51,7 +51,7 @@ const datos = [
 {
   _id: "Occult_T1",
   name: "Occult",
-  image: {"url": "/img/jugadores/occult.png"},
+  image: {"url": "/img/equipos/occult.png"},
   country: "Japan",
   academy: "Instituto Occult",
   category: "Junior",
@@ -78,7 +78,7 @@ const datos = [
 {
   _id: "Wild_T1",
   name: "Wild",
-  image: {"url": "/img/jugadores/wild.png"},
+  image: {"url": "/img/equipos/wild.png"},
   country: "Japan",
   academy: "Instituto Wild",
   category: "Junior",
@@ -105,7 +105,7 @@ const datos = [
 {
   _id: "Brain_T1",
   name: "Brain",
-  image: {"url": "/img/jugadores/brain.png"},
+  image: {"url": "/img/equipos/brain.png"},
   country: "Japan",
   academy: "Instituto Brain",
   category: "Junior",
@@ -132,7 +132,7 @@ const datos = [
 {
   _id: "Royal_Academy_T1",
   name: "Royal Academy",
-  image: {"url": "/img/jugadores/royal_t1.png"},
+  image: {"url": "/img/equipos/royal_t1.png"},
   country: "Japan",
   academy: "Teikoku Gakuen",
   category: "Junior",
@@ -160,7 +160,7 @@ const datos = [
 {
   _id: "Shuriken_T1",
   name: "Shuriken",
-  image: {"url": "/img/jugadores/shuriken.png"},
+  image: {"url": "/img/equipos/shuriken.png"},
   country: "Japan",
   academy: "Instituto Shuriken",
   category: "Junior",
@@ -186,7 +186,7 @@ const datos = [
 {
   _id: "Kirkwood_T1",
   name: "Kirkwood",
-  image: {"url": "/img/jugadores/kirkwood.png"},
+  image: {"url": "/img/equipos/kirkwood.png"},
   country: "Japan",
   academy: "Instituto Kirkwood",
   category: "Junior",
@@ -213,7 +213,7 @@ const datos = [
 {
   _id: "Zeus_T1",
   name: "Zeus",
-  image: {"url": "/img/jugadores/zeus.png"},
+  image: {"url": "/img/equipos/zeus.png"},
   country: "Japan",
   academy: "Instituto Zeus",
   category: "Junior",
@@ -240,7 +240,7 @@ const datos = [
 {
   _id: "Ogre_T1",
   name: "La Ogre",
-  image: {"url": "/img/jugadores/ogre.png"},
+  image: {"url": "/img/equipos/ogre.png"},
   country: "Japan",
   academy: "Instituto Ogre",
   category: "Junior",
@@ -267,9 +267,9 @@ const datos = [
 {
   _id: "Inazuma_Eleven_Veterans",
   name: "Veteranos del Inazuma Eleven",
-  image: {"url": "/img/jugadores/veteran_inazuma.png"},
+  image: {"url": "/img/equipos/veteran_inazuma.png"},
   country: "Japan",
-  academy: "Exjugadores Inazuma Eleven",
+  academy: "Exequipos Inazuma Eleven",
   category: "Senior",
   color_primary: "#00008B",
   coach_id: null,
@@ -294,7 +294,7 @@ const datos = [
 {
   _id: "Alpine_T2",
   name: "Alpine",
-  image: {"url": "/img/jugadores/alpine.png"},
+  image: {"url": "/img/equipos/alpine.png"},
   country: "Japan",
   academy: "Instituto Alpine",
   category: "Junior",
@@ -321,7 +321,7 @@ const datos = [
 {
   _id: "Tormenta_de_Geminis",
   name: "Tormenta de Géminis",
-  image: {"url": "/img/jugadores/tormenta_geminis.png"},
+  image: {"url": "/img/equipos/tormenta_geminis.png"},
   country: "Japan",
   academy: "Instituto Tormenta de Géminis",
   category: "Junior",
@@ -348,7 +348,7 @@ const datos = [
 {
   _id: "Epsilon_T2",
   name: "Epsilon",
-  image: {"url": "/img/jugadores/epsilon.png"},
+  image: {"url": "/img/equipos/epsilon.png"},
   country: "Japan",
   academy: "Instituto Epsilon",
   category: "Junior",
@@ -375,7 +375,7 @@ const datos = [
 {
   _id: "Royal_Academy_RX",
   name: "Royal Academy Redux",
-  image: {"url": "/img/jugadores/royal_rx.png"},
+  image: {"url": "/img/equipos/royal_rx.png"},
   country: "Japan",
   academy: "Teikoku Gakuen",
   category: "Junior",
@@ -402,7 +402,7 @@ const datos = [
 {
   _id: "Diamond",
   name: "Diamond",
-  image: {"url": "/img/jugadores/diamond.png"},
+  image: {"url": "/img/equipos/diamond.png"},
   country: "Japan",
   academy: "Instituto Diamond",
   category: "Junior",
@@ -429,7 +429,7 @@ const datos = [
 {
   _id: "Prominence",
   name: "Prominence",
-  image: {"url": "/img/jugadores/prominence.png"},
+  image: {"url": "/img/equipos/prominence.png"},
   country: "Japan",
   academy: "Instituto Prominence",
   category: "Junior",
@@ -456,7 +456,7 @@ const datos = [
 {
   _id: "Caos",
   name: "Caos",
-  image: {"url": "/img/jugadores/caos.png"},
+  image: {"url": "/img/equipos/caos.png"},
   country: "Japan",
   academy: "Instituto Caos",
   category: "Junior",
@@ -484,7 +484,7 @@ const datos = [
 {
   _id: "Raimon_T2",
   name: "Raimon",
-  image: {"url": "/img/jugadores/raimon_t2.png"},
+  image: {"url": "/img/equipos/raimon_t2.png"},
   country: "Japan",
   academy: "Instituto Raimon",
   category: "Junior",
@@ -516,7 +516,7 @@ const datos = [
 {
   _id: "Genesis",
   name: "Genesis",
-  image: {"url": "/img/jugadores/genesis.png"},
+  image: {"url": "/img/equipos/genesis.png"},
   country: "Japan",
   academy: "Instituto Genesis",
   category: "Junior",
@@ -543,7 +543,7 @@ const datos = [
 {
   _id: "Emperadores_Oscuros",
   name: "Emperadores Oscuros",
-  image: {"url": "/img/jugadores/emperadores_oscuros.png"},
+  image: {"url": "/img/equipos/emperadores_oscuros.png"},
   country: "Japan",
   academy: "Instituto Emperadores Oscuros",
   category: "Junior",
@@ -570,7 +570,7 @@ const datos = [
 {
   _id: "Inazuma_Japan",
   name: "Inazuma Japon",
-  image: {"url": "/img/jugadores/inazuma_japon.png"},
+  image: {"url": "/img/equipos/inazuma_japon.png"},
   country: "Japan",
   academy: "Instituto Inazuma Japon",
   category: "Junior",
@@ -601,7 +601,7 @@ const datos = [
 {
   _id: "Fire_Dragons",
   name: "Dragones de Fuego",
-  image: {"url": "/img/jugadores/fire_dragons.png"},
+  image: {"url": "/img/equipos/fire_dragons.png"},
   country: "Corea del Sur",
   academy: "Instituto Dragones de Fuego",
   category: "Junior",
@@ -629,7 +629,7 @@ const datos = [
 {
   _id: "Knights_of_Queen",
   name: "Knights of Queen",
-  image: {"url": "/img/jugadores/knights_of_queen.png"},
+  image: {"url": "/img/equipos/knights_of_queen.png"},
   country: "Inglaterra",
   academy: "Instituto Knights of Queen",
   category: "Junior",
@@ -657,7 +657,7 @@ const datos = [
 {
   _id: "Los_Emperadores",
   name: "Los Emperadores",
-  image: {"url": "/img/jugadores/emperadores.png"},
+  image: {"url": "/img/equipos/emperadores.png"},
   country: "Argrentina",
   academy: "Instituto Los Emperadores",
   category: "Junior",
@@ -684,7 +684,7 @@ const datos = [
 {
   _id: "Unicorn",
   name: "Unicorns",
-  image: {"url": "/img/jugadores/unicorn.png"},
+  image: {"url": "/img/equipos/unicorn.png"},
   country: "EEUU",
   academy: "Instituto Unicorns",
   category: "Junior",
@@ -711,7 +711,7 @@ const datos = [
 {
   _id: "Orfeo",
   name: "Orfeo",
-  image: {"url": "/img/jugadores/orfeo.png"},
+  image: {"url": "/img/equipos/orfeo.png"},
   country: "Italia",
   academy: "Instituto Orfeo",
   category: "Junior",
@@ -738,7 +738,7 @@ const datos = [
 {
   _id: "Os_Reis",
   name: "Os Reis",
-  image: {"url": "/img/jugadores/os_reis.png"},
+  image: {"url": "/img/equipos/os_reis.png"},
   country: "Brasil",
   academy: "Instituto Os Reis",
   category: "Junior",
@@ -765,7 +765,7 @@ const datos = [
 {
   _id: "Little_Giants",
   name: "The little Giants",
-  image: {"url": "/img/jugadores/little_giants.png"},
+  image: {"url": "/img/equipos/little_giants.png"},
   country: "Costail",
   academy: "Instituto The little Giants",
   category: "Junior",
@@ -792,7 +792,7 @@ const datos = [
 {
   _id: "Neo_Japon",
   name: "Neo Japon",
-  image: {"url": "/img/jugadores/neo_japon.png"},
+  image: {"url": "/img/equipos/neo_japon.png"},
   country: "Japan",
   academy: "Instituto Neo Japon",
   category: "Junior",
@@ -819,7 +819,7 @@ const datos = [
 {
   _id: "Sky_Team",
   name: "Sky Team",
-  image: {"url": "/img/jugadores/sky.png"},
+  image: {"url": "/img/equipos/sky.png"},
   country: "Isla Liocott",
   academy: "Sky Team",
   category: "Junior",
@@ -846,7 +846,7 @@ const datos = [
 {
   _id: "Dark_Team",
   name: "Dark Team",
-  image: {"url": "/img/jugadores/dark.png"},
+  image: {"url": "/img/equipos/dark.png"},
   country: "Isla Liocott",
   academy: "Dark Team",
   category: "Junior",
@@ -873,7 +873,7 @@ const datos = [
 {
   _id: "",
   name: "Dark angels",
-  image: {"url": "/img/jugadores/dark_angels.png"},
+  image: {"url": "/img/equipos/dark_angels.png"},
   country: "Isla Liocott",
   academy: "Dark angels",
   category: "Junior",

@@ -115,32 +115,49 @@ export default function EquiposPage() {
               <X size={20} />
             </button>
 
-            <div className={styles.modalHeaderInfo} style={{ background: `linear-gradient(135deg, ${selectedTeam.color_primary}CC, #0f172a)` }}>
-              <img src={selectedTeam.image?.url} className={styles.modalLogo} alt="" />
+            {/* Cabecera con el color del equipo */}
+            <div className={styles.modalHeaderInfo} style={{ background: `linear-gradient(135deg, ${selectedTeam.color_primary}DD, #0f172a)` }}>
+              <img src={selectedTeam.image?.url} className={styles.modalLogo} alt={selectedTeam.name} />
               <div>
                 <h2 className={styles.modalTitle}>{selectedTeam.name}</h2>
                 <div className={styles.modalBadges}>
-                  <span><MapPin size={14}/> {selectedTeam.country}</span>
                   <span><Shield size={14}/> {selectedTeam.academy}</span>
+                  <span><MapPin size={14}/> {selectedTeam.country}</span>
                 </div>
               </div>
             </div>
 
             <div className={styles.modalBody}>
-              <h4 className={styles.sectionTitle}><Users size={16} /> PLANTILLA COMPLETA</h4>
+              <h4 className={styles.sectionTitle}><Users size={16} /> PLANTILLA DEL EQUIPO</h4>
+              
               <div className={styles.fullPlayerList}>
                 {selectedTeam.fullMembers.map((player, index) => (
-                  <Link key={player._id} to={`/personajes/${player._id}`} className={styles.playerRow}>
+                  <Link 
+                    key={player._id} 
+                    to={`/personajes/${player._id}`} 
+                    className={styles.playerRow}
+                  >
                     <div className={styles.playerMain}>
-                      <span className={styles.playerIndex}>#{index + 1}</span>
-                      <img src={player.image?.url} className={styles.playerThumb} alt="" />
-                      <div>
+                      <span className={styles.playerIndex}>{String(index + 1).padStart(2, '0')}</span>
+                      
+                      {/* Contenedor de la imagen del jugador */}
+                      <div className={styles.playerThumbContainer}>
+                        <img 
+                          src={player.image?.url} 
+                          className={styles.playerThumb} 
+                          alt={player.name}
+                          onError={(e) => { e.target.src = 'https://via.placeholder.com/40?text=?' }} 
+                        />
+                      </div>
+
+                      <div className={styles.playerMeta}>
                         <p className={styles.pName}>{player.name}</p>
                         <p className={styles.pPos}>{player.position || 'Jugador'}</p>
                       </div>
                     </div>
-                    <div className={styles.playerStat}>
-                      <Zap size={12} />
+
+                    <div className={styles.playerPowerBadge}>
+                      <Zap size={12} fill="#fbbf24" />
                       <span>{player.basePower || 0}</span>
                     </div>
                   </Link>
