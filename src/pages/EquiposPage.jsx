@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Swords, Users, Loader2, X, MapPin, Shield, Zap } from 'lucide-react'
 import EmptyState from '../components/common/EmptyState'
@@ -6,7 +6,7 @@ import styles from './EquiposPage.module.css'
 
 export default function EquiposPage() {
   const [teams, setTeams] = useState([])
-  const [allPlayers, setAllPlayers] = useState([]) // Todos los jugadores de la DB
+  const [allPlayers, setAllPlayers] = useState([])
   const [loading, setLoading] = useState(true)
   const [selectedTeam, setSelectedTeam] = useState(null)
 
@@ -21,9 +21,6 @@ export default function EquiposPage() {
         const teamsData = await teamsRes.json()
         const playersData = await playersRes.json()
 
-        console.log("Equipos cargados:", teamsData)
-        console.log("Jugadores cargados:", playersData)
-
         setTeams(teamsData)
         setAllPlayers(playersData)
       } catch (err) {
@@ -35,11 +32,11 @@ export default function EquiposPage() {
     fetchData()
   }, [])
 
-  // Función para abrir el equipo y filtrar sus jugadores
+  // Función para abrir el equipo con filtrado robusto de IDs
   const handleOpenTeam = (team) => {
-    // IMPORTANTE: Buscamos qué jugadores de 'allPlayers' están en la lista 'player_ids' del equipo
-    const teamMembers = allPlayers.filter(p => 
-      team.player_ids && team.player_ids.includes(p._id)
+    // Comparamos IDs convirtiendo ambos a String para evitar errores de tipo ObjectId
+    const teamMembers = allPlayers.filter(player => 
+      team.player_ids?.some(id => String(id) === String(player._id))
     )
     
     setSelectedTeam({
@@ -67,8 +64,10 @@ export default function EquiposPage() {
 
       <div className={styles.grid}>
         {teams.map(team => {
-          // Filtrado rápido para la previsualización de la tarjeta (chips)
-          const membersPreview = allPlayers.filter(p => team.player_ids?.includes(p._id))
+          // Filtrado corregido también para la previsualización de la tarjeta
+          const membersPreview = allPlayers.filter(p => 
+            team.player_ids?.some(id => String(id) === String(p._id))
+          )
           
           return (
             <div 
@@ -105,42 +104,55 @@ export default function EquiposPage() {
         })}
       </div>
 
-      {/* --- MODAL CON LA LISTA DE JUGADORES (CORREGIDO) --- */}
+      {/* --- MODAL DETALLADO --- */}
       {selectedTeam && (
         <div className={styles.modalOverlay} onClick={() => setSelectedTeam(null)}>
           <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
-            <button className={styles.closeBtn} onClick={() => setSelectedTeam(null)}><X size={20} /></button>
+            <button className={styles.closeBtn} onClick={() => setSelectedTeam(null)}>
+              <X size={20} />
+            </button>
 
-            <div className={styles.modalHeaderInfo} style={{ backgroundColor: selectedTeam.color_primary || '#1e293b' }}>
+            <div 
+              className={styles.modalHeaderInfo} 
+              style={{ background: `linear-gradient(135deg, ${selectedTeam.color_primary || '#1e293b'}EE, #0f172a)` }}
+            >
               <img src={selectedTeam.image?.url} className={styles.modalLogo} alt="" />
               <div className={styles.modalHeaderText}>
                 <h2 className={styles.modalTitle}>{selectedTeam.name}</h2>
-                <p className={styles.modalSub}>{selectedTeam.academy}</p>
+                <div className={styles.modalBadges}>
+                  <span><Shield size={14}/> {selectedTeam.academy}</span>
+                  <span><MapPin size={14}/> {selectedTeam.country}</span>
+                </div>
               </div>
             </div>
 
             <div className={styles.modalBody}>
+              <h4 className={styles.sectionTitle}><Users size={16} /> PLANTILLA DEL EQUIPO</h4>
               <div className={styles.fullPlayerList}>
-                {selectedTeam.fullMembers.length > 0 ? (
+                {selectedTeam.fullMembers && selectedTeam.fullMembers.length > 0 ? (
                   selectedTeam.fullMembers.map((player, index) => (
                     <Link key={player._id} to={`/personajes/${player._id}`} className={styles.playerRow}>
                       <div className={styles.playerMain}>
-                        <span className={styles.playerIndex}>{index + 1}</span>
+                        <span className={styles.playerIndex}>{String(index + 1).padStart(2, '0')}</span>
                         <div className={styles.playerThumbWrapper}>
                           <img src={player.image?.url} className={styles.playerThumb} alt={player.name} />
                         </div>
-                        <div>
+                        <div className={styles.playerMeta}>
                           <p className={styles.pName}>{player.name}</p>
                           <p className={styles.pPos}>{player.position || 'Jugador'}</p>
                         </div>
                       </div>
-                      <div className={styles.playerPower}>
-                        <Zap size={12} /> {player.basePower || 0}
+                      <div className={styles.playerPowerBadge}>
+                        <Zap size={12} fill="#fbbf24" />
+                        <span>{player.basePower || 0}</span>
                       </div>
                     </Link>
                   ))
                 ) : (
-                  <p className={styles.noPlayers}>No hay datos de jugadores para este equipo.</p>
+                  <div className={styles.noPlayersBox}>
+                    <p className={styles.noPlayers}>No se encontraron jugadores vinculados.</p>
+                    <small>Verifica que los IDs en la base de datos coincidan.</small>
+                  </div>
                 )}
               </div>
             </div>
