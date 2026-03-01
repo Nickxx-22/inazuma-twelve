@@ -278,17 +278,49 @@ def get_all_techniques():
 @app.route('/equipos', methods=['GET'])
 def get_all_teams():
     try:
-        equipos_db = list(db.equipos.find())
-        base_url = "http://127.0.0.1:5000"
+        teams_db = list(db.equipos.find())
+        base_url = "http://127.0.0.1:5000" 
         
-        for team in equipos_db:
+        for team in teams_db:
             team['_id'] = str(team['_id'])
-            # Construir URL de la imagen del equipo
+            
+            # 1. Imagen del equipo
             if 'image' in team and team['image'].get('url'):
-                team['image']['url'] = f"{base_url}{team['image']['url']}"
+                if not team['image']['url'].startswith('http'):
+                    team['image']['url'] = f"{base_url}{team['image']['url']}"
+
+            # 2. BUSCAR JUGADORES DE ESTE EQUIPO
+            player_ids = team.get('player_ids', [])
+            players_db = list(db.jugadores.find({"_id": {"$in": player_ids}}))
+            
+            processed_players = []
+            for p in players_db:
+                # Extraemos: nombre, elemento, matchStats e imagen
+                player_data = {
+                    "name": p.get("name"),
+                    "element": p.get("element"),
+                    "matchStats": p.get("matchStats", {
+                        "stamina": 0,
+                        "tension": 0
+                    })
+                }
+                
+                # Procesar imagen del jugador
+                if 'image' in p and p['image'].get('url'):
+                    url = p['image']['url']
+                    player_data["image_url"] = f"{base_url}{url}" if not url.startswith('http') else url
+                else:
+                    player_data["image_url"] = f"{base_url}/img/jugadores/default.png"
+
+                processed_players.append(player_data)
+
+            # Inyectamos el array procesado en el equipo
+            team['players'] = processed_players 
+            
+        return jsonify(teams_db), 200
         
-        return jsonify(equipos_db), 200
     except Exception as e:
+        print(f"Error: {e}")
         return jsonify({"error": str(e)}), 500
 #---------------------LLAMADA JUGADORES EQUIPOS--------------
 @app.route('/equipos/<team_id>', methods=['GET'])
