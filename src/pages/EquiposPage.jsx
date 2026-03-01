@@ -11,10 +11,12 @@ export default function EquiposPage() {
   useEffect(() => {
     const fetchTeams = async () => {
       try {
-        // Solo necesitamos llamar a /equipos porque ya trae a los jugadores dentro
         const res = await fetch('http://127.0.0.1:5000/equipos')
         const data = await res.json()
-        setTeams(data)
+        
+        // Si tu API devuelve { teams: [...] } en lugar de [...]
+        const finalData = Array.isArray(data) ? data : (data.teams || [])
+        setTeams(finalData)
       } catch (err) {
         console.error("Error cargando equipos:", err)
       } finally {
@@ -23,13 +25,6 @@ export default function EquiposPage() {
     }
     fetchTeams()
   }, [])
-
-  if (loading) return (
-    <div className={styles.loadingState}>
-      <Loader2 className={styles.spinner} /> 
-      <p>Cargando liga Inazuma...</p>
-    </div>
-  )
 
   return (
     <div className={styles.page}>
@@ -50,7 +45,12 @@ export default function EquiposPage() {
           >
             <div className={styles.cardHeader} style={{ borderLeft: `4px solid ${team.color_primary || '#3d7eff'}` }}>
               <div className={styles.headerMain}>
-                <img src={team.image?.url} alt="" className={styles.teamIcon} />
+                <img 
+                  src={team.image?.url || team.image} 
+                  alt="" 
+                  className={styles.teamIcon} 
+                  onError={(e) => e.target.src = 'https://via.placeholder.com/50?text=Team'}
+                />
                 <div>
                   <h3 className={styles.teamName}>{team.name}</h3>
                   <p className={styles.captain}>Plantilla: {team.players?.length || 0} jugadores</p>
@@ -61,11 +61,10 @@ export default function EquiposPage() {
 
             <div className={styles.cardBody}>
               <div className={styles.memberList}>
-                {/* Usamos team.players que ya viene del backend */}
                 {team.players?.slice(0, 4).map((p, idx) => (
                   <div key={idx} className={styles.memberChip}>
                     <img src={p.image_url} className={styles.memberAvatarImg} alt="" />
-                    <span className={styles.memberNameText}>{p.name.split(' ')[0]}</span>
+                    <span className={styles.memberNameText}>{p.name?.split(' ')[0]}</span>
                   </div>
                 ))}
                 {team.players?.length > 4 && (
@@ -87,15 +86,22 @@ export default function EquiposPage() {
 
             <div 
               className={styles.modalHeaderInfo} 
-              style={{ background: `linear-gradient(135deg, ${selectedTeam.color_primary || '#1e293b'}DD, #0f172a)` }}
+              style={{ background: `linear-gradient(135deg, ${selectedTeam.color_primary || '#1e293b'}CC, #0f172a)` }}
             >
-              <img src={selectedTeam.image?.url} className={styles.modalLogo} alt="" />
+              <img 
+                src={selectedTeam.image?.url || selectedTeam.image} 
+                className={styles.modalLogo} 
+                alt="" 
+                onError={(e) => e.target.src = 'https://via.placeholder.com/80?text=Logo'}
+              />
               <div className={styles.modalHeaderText}>
                 <h2 className={styles.modalTitle}>{selectedTeam.name}</h2>
                 <div className={styles.modalBadges}>
                   <span><Shield size={14}/> {selectedTeam.academy}</span>
-                  <span><MapPin size={14}/> {selectedTeam.country}</span>
-                  <span className={styles.countBadge}>{selectedTeam.players?.length || 0} Jugadores</span>
+                  <span><MapPin size={14}/> {selectedTeam.country || 'Japan'}</span>
+                  <span className={styles.countBadge}>
+                    <Users size={12} /> {selectedTeam.players?.length || 0} Fichas
+                  </span>
                 </div>
               </div>
             </div>
@@ -106,11 +112,9 @@ export default function EquiposPage() {
               <div className={styles.fullPlayerList}>
                 {selectedTeam.players && selectedTeam.players.length > 0 ? (
                   selectedTeam.players.map((player, index) => (
-                    /* Nota: Como el backend no manda el _id del jugador en el array players, 
-                       usamos el player_ids[index] para el link */
                     <Link 
                       key={index} 
-                      to={`/personajes/${selectedTeam.player_ids[index]}`} 
+                      to={`/personajes/${selectedTeam.player_ids ? selectedTeam.player_ids[index] : ''}`} 
                       className={styles.playerRow}
                     >
                       <div className={styles.playerMain}>
@@ -125,7 +129,7 @@ export default function EquiposPage() {
                         </div>
                         <div className={styles.playerMeta}>
                           <p className={styles.pName}>{player.name}</p>
-                          <p className={styles.pPos}>{player.element}</p> {/* Mostramos el elemento como posición/info */}
+                          <p className={styles.pPos}>{player.element || 'Jugador'}</p>
                         </div>
                       </div>
 
@@ -133,20 +137,23 @@ export default function EquiposPage() {
                         {/* Stamina */}
                         <div className={styles.playerPowerBadge}>
                           <Zap size={12} fill="#fbbf24" color="#fbbf24" />
-                          <span>{player.matchStats?.stamina || 0} ST</span>
+                          <span>{player.matchStats?.stamina || 0}</span>
                         </div>
                         
                         {/* Tensión */}
-                        <div className={styles.playerTensionBadge} style={{ color: '#60a5fa', display: 'flex', alignItems: 'center', gap: '4px', fontSize: '0.8rem', fontWeight: 'bold' }}>
-                          <Activity size={12} />
-                          <span>{player.matchStats?.tension || 0} TSN</span>
-                        </div>
+                        {player.matchStats?.tension && (
+                          <div className={styles.playerTensionBadge} style={{ display: 'flex', alignItems: 'center', gap: '4px', color: '#60a5fa', fontWeight: 'bold', fontSize: '0.85rem' }}>
+                            <Activity size={12} />
+                            <span>{player.matchStats.tension}</span>
+                          </div>
+                        )}
                       </div>
                     </Link>
                   ))
                 ) : (
                   <div className={styles.noPlayersBox}>
-                    <p>No hay jugadores cargados en este equipo.</p>
+                    <p>No se han encontrado datos en <code>selectedTeam.players</code>.</p>
+                    <p style={{ fontSize: '0.8rem', opacity: 0.7 }}>Verifica que tu API de Flask esté enviando el array de jugadores correctamente.</p>
                   </div>
                 )}
               </div>
