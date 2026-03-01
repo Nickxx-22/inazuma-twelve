@@ -295,20 +295,14 @@ def get_all_teams():
             
             processed_players = []
             for p in players_db:
-                # BUSCAR EL DORSAL: Como 'teams' es un array, buscamos el que coincida con este equipo
-                dorsal = None
-                if 'teams' in p:
-                    for t_info in p['teams']:
-                        if t_info.get('team_id') == team['_id']: # Comparamos con Zeus_T1
-                            dorsal = t_info.get('number')
-                            break
-
+                # Extraemos: nombre, elemento, matchStats e imagen
                 player_data = {
-                    "id": str(p.get("_id")), # Guardamos el ID real para el Link
                     "name": p.get("name"),
-                    "number": dorsal, # Usamos el dorsal de la relación del equipo
                     "element": p.get("element"),
-                    "matchStats": p.get("matchStats", {"stamina": 0, "tension": 0})
+                    "matchStats": p.get("matchStats", {
+                        "stamina": 0,
+                        "tension": 0
+                    })
                 }
                 
                 # Procesar imagen del jugador
@@ -316,15 +310,12 @@ def get_all_teams():
                     url = p['image']['url']
                     player_data["image_url"] = f"{base_url}{url}" if not url.startswith('http') else url
                 else:
-                    player_data["image_url"] = None
+                    player_data["image_url"] = f"{base_url}/img/jugadores/default.png"
 
                 processed_players.append(player_data)
 
-            # ORDENAR POR DORSAL (de menor a mayor)
-            # Usamos 999 como fallback si no tiene número para que se vayan al final
-            processed_players.sort(key=lambda x: x['number'] if x['number'] is not None else 999)
-
-            team['players'] = processed_players
+            # Inyectamos el array procesado en el equipo
+            team['players'] = processed_players 
             
         return jsonify(teams_db), 200
         
