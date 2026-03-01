@@ -1,0 +1,175 @@
+.link { text-decoration: none; display: block; }
+
+.card {
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  overflow: hidden;
+  animation: fadeInUp 280ms ease both;
+}
+
+/* Image area */
+.imageArea {
+  position: relative;
+  width: 100%;
+  /* CAMBIO CLAVE: 1/1 hará que la zona de imagen sea un cuadrado perfecto, 
+     acortando mucho la altura total de la carta. */
+  aspect-ratio: 1 / 1; 
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1a1a2e;
+}
+
+.imageBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center top; /* Centrado en la cara */
+  background-repeat: no-repeat;
+  /* Esto mantiene la nitidez del pixel art */
+  image-rendering: pixelated; 
+  transition: transform 0.5s ease;
+}
+
+.characterImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* 'cover' suele quedar mejor en formato cuadrado para que 
+     la cara llene más espacio, pero 'contain' asegura ver todo. */
+  object-fit: cover; 
+  object-position: center top; /* Centramos en la cara */
+  image-rendering: pixelated; 
+  z-index: 1;
+}
+
+.card:hover .imageBg {
+  transform: scale(1.1); /* Efecto zoom suave al pasar el ratón */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* Sobre la imagen pero bajo los badges */
+  pointer-events: none; /* Deja pasar los clics */
+}
+
+/* Ajuste del Avatar para que flote sobre la imagen */
+.avatar {
+  position: relative;
+  z-index: 2;
+  width: 50px; /* Un poco más pequeño para que no tape toda la cara */
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+
+.topBadges {
+  position: absolute;
+  top: 8px; left: 8px; right: 8px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 3; /* Sobre todo */
+}
+
+.bottomRow {
+  position: absolute;
+  bottom: 8px; left: 8px; right: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 3; /* Sobre todo */
+}
+
+
+.badge {
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+}
+.badgePrimary { background: var(--primary) !important; }
+
+.avatar {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #fff;
+  transition: transform 300ms ease;
+}
+.card:hover .avatar { transform: scale(1.07); }
+
+
+.elementDot {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: #fff;
+}
+.powerBadge {
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+/* Info */
+.info { padding: 6px  10px ; }
+.name {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--foreground);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 150ms;
+}
+.card:hover .name { color: var(--primary); }
+.jaName {
+  font-size: 0.6rem;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.meta {
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.55rem;
+  color: var(--muted);
+}
+.sep { color: var(--border); }

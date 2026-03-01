@@ -1,0 +1,82 @@
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 75vh;
+  padding: 32px 16px;
+}
+.card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px;
+}
+.logoWrap { text-align: center; margin-bottom: 24px; }
+.logoIcon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  background: var(--primary);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+.logoIconOrange { background: var(--neon-orange); }
+.heading { font-size: 1.375rem; font-weight: 700; }
+.sub     { font-size: 0.8125rem; color: var(--muted); margin-top: 4px; }
+
+.error {
+  background: rgba(239,68,68,0.1);
+  border: 1px solid rgba(239,68,68,0.3);
+  color: var(--destructive-fg);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.875rem;
+  margin-bottom: 16px;
+}
+
+.form { display: flex; flex-direction: column; gap: 14px; }
+.field { display: flex; flex-direction: column; gap: 5px; }
+.label { font-size: 0.875rem; font-weight: 500; }
+.inputWrap { position: relative; }
+.inputIcon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none; }
+.input { width: 100%; padding: 10px 14px 10px 36px; border-radius: 8px; }
+
+.submitBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 11px;
+  border-radius: 8px;
+  border: none;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: opacity 150ms;
+}
+.submitBtn:hover    { opacity: 0.88; }
+.submitBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+.submitBtnOrange    { background: var(--neon-orange); }
+
+.switchText { text-align: center; font-size: 0.875rem; color: var(--muted); margin-top: 16px; }
+.switchLink { color: var(--primary); text-decoration: none; font-weight: 500; }
+.switchLink:hover { text-decoration: underline; }
+
+.demo {
+  margin-top: 14px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 0.6875rem;
+  color: var(--muted);
+  line-height: 1.6;
+}

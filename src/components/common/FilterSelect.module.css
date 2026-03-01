@@ -1,0 +1,15 @@
+.wrapper { display: flex; flex-direction: column; gap: 4px; }
+.label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.select {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  cursor: pointer;
+}

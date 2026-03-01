@@ -1,0 +1,14 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  animation: fadeInUp 250ms ease;
+}
+.icon { color: var(--muted); margin-bottom: 12px; }
+.title { font-size: 1rem; font-weight: 600; color: var(--foreground); }
+.desc  { font-size: 0.875rem; color: var(--muted); margin-top: 4px; }
