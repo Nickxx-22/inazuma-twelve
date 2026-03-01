@@ -7,24 +7,40 @@ export default function EquiposPage() {
   const [teams, setTeams] = useState([])
   const [loading, setLoading] = useState(true)
   const [selectedTeam, setSelectedTeam] = useState(null)
+  const [loadingPlayers, setLoadingPlayers] = useState(false); // Nuevo estado de carga para el modal
 
   useEffect(() => {
     const fetchTeams = async () => {
       try {
         const res = await fetch('http://127.0.0.1:5000/equipos')
         const data = await res.json()
-        
-        // Si tu API devuelve { teams: [...] } en lugar de [...]
         const finalData = Array.isArray(data) ? data : (data.teams || [])
         setTeams(finalData)
       } catch (err) {
-        console.error("Error cargando equipos:", err)
+        console.error("Error cargando lista de equipos:", err)
       } finally {
         setLoading(false)
       }
     }
     fetchTeams()
   }, [])
+
+  const handleSelectTeam = async (team) => {
+    setLoadingPlayers(true)
+    setSelectedTeam(team) // Abrimos el modal rápido con lo que tenemos
+    
+    try {
+      const res = await fetch(`http://127.0.0.1:5000/equipos/${team._id}`)
+      if (res.ok) {
+        const fullTeamData = await res.json()
+        setSelectedTeam(fullTeamData) // Actualizamos el modal con los jugadores reales
+      }
+    } catch (err) {
+      console.error("Error al obtener detalles del equipo:", err)
+    } finally {
+      setLoadingPlayers(false)
+    }
+  }
 
   return (
     <div className={styles.page}>

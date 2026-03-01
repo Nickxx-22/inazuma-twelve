@@ -290,7 +290,7 @@ def get_all_teams():
         return jsonify(equipos_db), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-
+#---------------------LLAMADA JUGADORES EQUIPOS--------------
 @app.route('/equipos/<team_id>', methods=['GET'])
 def get_team_by_id(team_id):
     try:
