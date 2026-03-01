@@ -1,51 +1,28 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Swords, Users, Loader2, X, MapPin, Shield, Zap, Activity } from 'lucide-react'
-import EmptyState from '../components/common/EmptyState'
 import styles from './EquiposPage.module.css'
 
 export default function EquiposPage() {
   const [teams, setTeams] = useState([])
-  const [allPlayers, setAllPlayers] = useState([])
   const [loading, setLoading] = useState(true)
   const [selectedTeam, setSelectedTeam] = useState(null)
 
-  // Definimos la base de la API para las imágenes
-  const API_BASE = 'http://127.0.0.1:5000'
-
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchTeams = async () => {
       try {
-        const [teamsRes, playersRes] = await Promise.all([
-          fetch(`${API_BASE}/equipos`),
-          fetch(`${API_BASE}/jugadores`)
-        ])
-        
-        const teamsData = await teamsRes.json()
-        const playersData = await playersRes.json()
-
-        setTeams(teamsData)
-        setAllPlayers(playersData)
+        // Solo necesitamos llamar a /equipos porque ya trae a los jugadores dentro
+        const res = await fetch('http://127.0.0.1:5000/equipos')
+        const data = await res.json()
+        setTeams(data)
       } catch (err) {
-        console.error("Error en la API:", err)
+        console.error("Error cargando equipos:", err)
       } finally {
         setLoading(false)
       }
     }
-    fetchData()
+    fetchTeams()
   }, [])
-
-  // Función para abrir el equipo con filtrado robusto de IDs (Sincronizado con tu BBDD)
-  const handleOpenTeam = (team) => {
-    const teamMembers = allPlayers.filter(player => 
-      team.player_ids?.some(id => String(id).trim() === String(player._id).trim())
-    )
-    
-    setSelectedTeam({
-      ...team,
-      fullMembers: teamMembers
-    })
-  }
 
   if (loading) return (
     <div className={styles.loadingState}>
@@ -65,47 +42,42 @@ export default function EquiposPage() {
       </div>
 
       <div className={styles.grid}>
-        {teams.map(team => {
-          const membersPreview = allPlayers.filter(p => 
-            team.player_ids?.some(id => String(id).trim() === String(p._id).trim())
-          )
-          
-          return (
-            <div 
-              key={team._id} 
-              className={`${styles.card} card-hover`}
-              onClick={() => handleOpenTeam(team)}
-            >
-              <div className={styles.cardHeader} style={{ borderLeft: `4px solid ${team.color_primary || '#3d7eff'}` }}>
-                <div className={styles.headerMain}>
-                  <img src={`${API_BASE}${team.image?.url}`} alt="" className={styles.teamIcon} />
-                  <div>
-                    <h3 className={styles.teamName}>{team.name}</h3>
-                    <p className={styles.captain}>Plantilla: {team.player_ids?.length || 0} jugadores</p>
-                  </div>
+        {teams.map(team => (
+          <div 
+            key={team._id} 
+            className={`${styles.card} card-hover`}
+            onClick={() => setSelectedTeam(team)}
+          >
+            <div className={styles.cardHeader} style={{ borderLeft: `4px solid ${team.color_primary || '#3d7eff'}` }}>
+              <div className={styles.headerMain}>
+                <img src={team.image?.url} alt="" className={styles.teamIcon} />
+                <div>
+                  <h3 className={styles.teamName}>{team.name}</h3>
+                  <p className={styles.captain}>Plantilla: {team.players?.length || 0} jugadores</p>
                 </div>
-                <span className={styles.season}>{team.category || "Junior"}</span>
               </div>
+              <span className={styles.season}>{team.category || "Junior"}</span>
+            </div>
 
-              <div className={styles.cardBody}>
-                <div className={styles.memberList}>
-                  {membersPreview.slice(0, 4).map(m => (
-                    <div key={m._id} className={styles.memberChip}>
-                      <img src={`${API_BASE}${m.image?.url}`} className={styles.memberAvatarImg} alt="" />
-                      <span className={styles.memberNameText}>{m.name.split(' ')[0]}</span>
-                    </div>
-                  ))}
-                  {membersPreview.length > 4 && (
-                    <div className={styles.memberMore}>+{membersPreview.length - 4}</div>
-                  )}
-                </div>
+            <div className={styles.cardBody}>
+              <div className={styles.memberList}>
+                {/* Usamos team.players que ya viene del backend */}
+                {team.players?.slice(0, 4).map((p, idx) => (
+                  <div key={idx} className={styles.memberChip}>
+                    <img src={p.image_url} className={styles.memberAvatarImg} alt="" />
+                    <span className={styles.memberNameText}>{p.name.split(' ')[0]}</span>
+                  </div>
+                ))}
+                {team.players?.length > 4 && (
+                  <div className={styles.memberMore}>+{team.players.length - 4}</div>
+                )}
               </div>
             </div>
-          )
-        })}
+          </div>
+        ))}
       </div>
 
-      {/* --- MODAL DETALLADO DEL EQUIPO --- */}
+      {/* --- MODAL DETALLADO --- */}
       {selectedTeam && (
         <div className={styles.modalOverlay} onClick={() => setSelectedTeam(null)}>
           <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
@@ -113,21 +85,17 @@ export default function EquiposPage() {
               <X size={20} />
             </button>
 
-            {/* Cabecera estilizada con Contador */}
             <div 
               className={styles.modalHeaderInfo} 
               style={{ background: `linear-gradient(135deg, ${selectedTeam.color_primary || '#1e293b'}DD, #0f172a)` }}
             >
-              <img src={`${API_BASE}${selectedTeam.image?.url}`} className={styles.modalLogo} alt={selectedTeam.name} />
+              <img src={selectedTeam.image?.url} className={styles.modalLogo} alt="" />
               <div className={styles.modalHeaderText}>
                 <h2 className={styles.modalTitle}>{selectedTeam.name}</h2>
                 <div className={styles.modalBadges}>
                   <span><Shield size={14}/> {selectedTeam.academy}</span>
-                  <span><MapPin size={14}/> {selectedTeam.country || 'Japan'}</span>
-                  {/* Contador de jugadores encontrados */}
-                  <span className={styles.playerCounter}>
-                    <Users size={14} /> {selectedTeam.fullMembers.length} / {selectedTeam.player_ids?.length || 0}
-                  </span>
+                  <span><MapPin size={14}/> {selectedTeam.country}</span>
+                  <span className={styles.countBadge}>{selectedTeam.players?.length || 0} Jugadores</span>
                 </div>
               </div>
             </div>
@@ -136,52 +104,49 @@ export default function EquiposPage() {
               <h4 className={styles.sectionTitle}><Users size={16} /> PLANTILLA DEL EQUIPO</h4>
               
               <div className={styles.fullPlayerList}>
-                {selectedTeam.fullMembers && selectedTeam.fullMembers.length > 0 ? (
-                  selectedTeam.fullMembers.map((player, index) => (
+                {selectedTeam.players && selectedTeam.players.length > 0 ? (
+                  selectedTeam.players.map((player, index) => (
+                    /* Nota: Como el backend no manda el _id del jugador en el array players, 
+                       usamos el player_ids[index] para el link */
                     <Link 
-                      key={player._id} 
-                      to={`/personajes/${player._id}`} 
+                      key={index} 
+                      to={`/personajes/${selectedTeam.player_ids[index]}`} 
                       className={styles.playerRow}
                     >
                       <div className={styles.playerMain}>
                         <span className={styles.playerIndex}>{String(index + 1).padStart(2, '0')}</span>
-                        
                         <div className={styles.playerThumbWrapper}>
                           <img 
-                            src={`${API_BASE}${player.image?.url}`} 
+                            src={player.image_url} 
                             className={styles.playerThumb} 
                             alt={player.name}
                             onError={(e) => { e.target.src = 'https://via.placeholder.com/45?text=?' }} 
                           />
                         </div>
-
                         <div className={styles.playerMeta}>
                           <p className={styles.pName}>{player.name}</p>
-                          <p className={styles.pPos}>{player.position || 'Jugador'}</p>
+                          <p className={styles.pPos}>{player.element}</p> {/* Mostramos el elemento como posición/info */}
                         </div>
                       </div>
 
                       <div className={styles.playerStatsSide}>
-                        {/* Poder Base desde stats.power */}
+                        {/* Stamina */}
                         <div className={styles.playerPowerBadge}>
                           <Zap size={12} fill="#fbbf24" color="#fbbf24" />
-                          <span>{player.stats?.power || 0}</span>
+                          <span>{player.matchStats?.stamina || 0} ST</span>
                         </div>
                         
-                        {/* Tensión desde matchStats.tension */}
-                        {player.matchStats && (
-                          <div className={styles.playerTensionBadge}>
-                            <Activity size={10} />
-                            <span>{player.matchStats.tension} TSN</span>
-                          </div>
-                        )}
+                        {/* Tensión */}
+                        <div className={styles.playerTensionBadge} style={{ color: '#60a5fa', display: 'flex', alignItems: 'center', gap: '4px', fontSize: '0.8rem', fontWeight: 'bold' }}>
+                          <Activity size={12} />
+                          <span>{player.matchStats?.tension || 0} TSN</span>
+                        </div>
                       </div>
                     </Link>
                   ))
                 ) : (
                   <div className={styles.noPlayersBox}>
-                    <p>No se han encontrado jugadores vinculados a este equipo.</p>
-                    <small>ID del equipo buscado: <strong>{selectedTeam._id}</strong></small>
+                    <p>No hay jugadores cargados en este equipo.</p>
                   </div>
                 )}
               </div>
