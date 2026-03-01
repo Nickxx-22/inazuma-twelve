@@ -32,10 +32,11 @@ export default function EquiposPage() {
     fetchData()
   }, [])
 
-  // FUNCIÓN CORREGIDA: Filtrado robusto para evitar fallos de ID
+  // Función para abrir el equipo con filtrado robusto de IDs
   const handleOpenTeam = (team) => {
+    // Comparamos IDs convirtiendo ambos a String para evitar errores de tipo ObjectId
     const teamMembers = allPlayers.filter(player => 
-      team.player_ids?.some(id => String(id).trim() === String(player._id).trim())
+      team.player_ids?.some(id => String(id) === String(player._id))
     )
     
     setSelectedTeam({
@@ -63,9 +64,9 @@ export default function EquiposPage() {
 
       <div className={styles.grid}>
         {teams.map(team => {
-          // Filtrado para la previsualización de la tarjeta
+          // Filtrado corregido también para la previsualización de la tarjeta
           const membersPreview = allPlayers.filter(p => 
-            team.player_ids?.some(id => String(id).trim() === String(p._id).trim())
+            team.player_ids?.some(id => String(id) === String(p._id))
           )
           
           return (
@@ -103,7 +104,7 @@ export default function EquiposPage() {
         })}
       </div>
 
-      {/* --- MODAL DETALLADO --- */}
+      {/* --- MODAL DETALLADO DEL EQUIPO --- */}
       {selectedTeam && (
         <div className={styles.modalOverlay} onClick={() => setSelectedTeam(null)}>
           <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
@@ -111,6 +112,7 @@ export default function EquiposPage() {
               <X size={20} />
             </button>
 
+            {/* Cabecera estilizada */}
             <div 
               className={styles.modalHeaderInfo} 
               style={{ background: `linear-gradient(135deg, ${selectedTeam.color_primary || '#1e293b'}DD, #0f172a)` }}
@@ -121,7 +123,6 @@ export default function EquiposPage() {
                 <div className={styles.modalBadges}>
                   <span><Shield size={14}/> {selectedTeam.academy}</span>
                   <span><MapPin size={14}/> {selectedTeam.country || 'Japan'}</span>
-                  <span className={styles.countBadge}>{selectedTeam.fullMembers.length} Jugadores</span>
                 </div>
               </div>
             </div>
@@ -130,6 +131,7 @@ export default function EquiposPage() {
               <h4 className={styles.sectionTitle}><Users size={16} /> PLANTILLA DEL EQUIPO</h4>
               
               <div className={styles.fullPlayerList}>
+                {/* Verificamos si hay miembros para listar */}
                 {selectedTeam.fullMembers && selectedTeam.fullMembers.length > 0 ? (
                   selectedTeam.fullMembers.map((player, index) => (
                     <Link 
@@ -139,6 +141,8 @@ export default function EquiposPage() {
                     >
                       <div className={styles.playerMain}>
                         <span className={styles.playerIndex}>{String(index + 1).padStart(2, '0')}</span>
+                        
+                        {/* Imagen del Jugador */}
                         <div className={styles.playerThumbWrapper}>
                           <img 
                             src={player.image?.url} 
@@ -147,6 +151,8 @@ export default function EquiposPage() {
                             onError={(e) => { e.target.src = 'https://via.placeholder.com/40?text=?' }} 
                           />
                         </div>
+
+                        {/* Nombre y Posición */}
                         <div className={styles.playerMeta}>
                           <p className={styles.pName}>{player.name}</p>
                           <p className={styles.pPos}>{player.position || 'Jugador'}</p>
@@ -160,9 +166,10 @@ export default function EquiposPage() {
                     </Link>
                   ))
                 ) : (
+                  /* Este es el mensaje que te salía antes, ahora con un diseño más limpio por si falla la carga */
                   <div className={styles.noPlayersBox}>
-                    <p>No se han encontrado jugadores vinculados.</p>
-                    <small>ID Zeus en equipo debe coincidir con ID en jugadores.</small>
+                    <p>No se han encontrado jugadores vinculados a este equipo.</p>
+                    <small>Revisa que los IDs en el backend coincidan exactamente.</small>
                   </div>
                 )}
               </div>
