@@ -298,33 +298,45 @@ def get_team_by_id(team_id):
         if not team:
             return jsonify({"error": "Equipo no encontrado"}), 404
         
-        base_url = "http://127.0.0.1:5000"
+        # IMPORTANTE: En producción, base_url debería ser la URL de tu backend real
+        # Si usas rutas relativas en el frontend, a veces es mejor enviar solo el path
+        base_url = "http://127.0.0.1:5000" 
+        
         team['_id'] = str(team['_id'])
         
         # 1. Imagen del equipo
         if 'image' in team and team['image'].get('url'):
-            team['image']['url'] = f"{base_url}{team['image']['url']}"
+            if not team['image']['url'].startswith('http'):
+                team['image']['url'] = f"{base_url}{team['image']['url']}"
 
-        # 2. BUSCAR JUGADORES COMPLETOS
-        # Buscamos en la colección 'jugadores' todos los que coincidan con la lista de IDs
+        # 2. BUSCAR JUGADORES Y FILTRAR SOLO LO QUE PIDES
         player_ids = team.get('player_ids', [])
         players_db = list(db.jugadores.find({"_id": {"$in": player_ids}}))
         
-        # Procesamos a los jugadores (URLs de sus fotos, matchStats, etc.)
+        processed_players = []
         for p in players_db:
-            p['_id'] = str(p['_id'])
-            if 'image' in p and p['image'].get('url'):
-                p['image']['url'] = f"{base_url}{p['image']['url']}"
+            # Solo extraemos lo que necesitas: nombre, dorsal, elemento e imagen
+            player_data = {
+                "name": p.get("name"),
+                "number": p.get("number"),
+                "element": p.get("element"),
+                "matchStats": p.get("matchStats", {}) # Mantengo esto por tus instrucciones previas
+            }
             
-            # Recordar incluir matchStats según tus instrucciones
-            if 'matchStats' not in p:
-                p['matchStats'] = {}
+            # Procesar imagen del jugador
+            if 'image' in p and p['image'].get('url'):
+                url = p['image']['url']
+                player_data["image_url"] = f"{base_url}{url}" if not url.startswith('http') else url
+            else:
+                player_data["image_url"] = None
 
-        team['players'] = players_db # Reemplazamos/Añadimos la lista completa
+            processed_players.append(player_data)
+
+        team['players'] = processed_players 
         return jsonify(team), 200
         
     except Exception as e:
-        return jsonify({"error": str(e)}), 500        
+        return jsonify({"error": str(e)}), 500      
 
 # ----------------- RUN -----------------
 if __name__ == "__main__":
