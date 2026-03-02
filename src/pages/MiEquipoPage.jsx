@@ -87,6 +87,22 @@ function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, on
   );
 }
 
+// ── HELPER: obtener el ID del usuario de forma fiable ──
+function getUserId(user) {
+  // Primero intenta desde el hook useAuth
+  if (user?.id) return user.id;
+  if (user?._id) return user._id;
+  // Fallback: leer directo desde localStorage (igual que PrivateRoute)
+  try {
+    const stored = localStorage.getItem('inazuma-user');
+    if (stored) {
+      const parsed = JSON.parse(stored);
+      return parsed?.id || parsed?._id || null;
+    }
+  } catch { /* ignore */ }
+  return null;
+}
+
 // ── PÁGINA PRINCIPAL ────────────────────────────────────────────────
 export default function MiEquipoPage() {
   const { user } = useAuth()
@@ -110,15 +126,16 @@ export default function MiEquipoPage() {
 
   const [slots, setSlots] = useState(FORMATION.map(s => ({ ...s, characterId: null })));
 
-  // ── FIX: Carga inicial con recarga al volver a la página ──
+  // ── FIX: Carga inicial — usa getUserId para no depender solo de useAuth ──
   useEffect(() => {
     async function loadData() {
-      if (!user?.id) return;
+      const userId = getUserId(user);
+      if (!userId) return;
       try {
         setLoading(true);
         const [players, userRes] = await Promise.all([
           getAllPlayers(),
-          fetch(`http://127.0.0.1:5000/obtener_usuario/${user.id}`)
+          fetch(`http://127.0.0.1:5000/obtener_usuario/${userId}`)
         ]);
         
         setCharacters(players);
@@ -142,7 +159,7 @@ export default function MiEquipoPage() {
     }
     loadData();
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user?.id]);
+  }, [user?.id, user?._id]);
 
   const handleSelectTeam = (nombre) => {
     setEquipoSeleccionado(nombre);
@@ -157,14 +174,15 @@ export default function MiEquipoPage() {
   };
 
   const handleSave = async () => {
-    if (!user?.id || !nombreTemp.trim()) return;
+    const userId = getUserId(user);
+    if (!userId || !nombreTemp.trim()) return;
     setIsSaving(true);
     const equipoIds = slots.map(s => s.characterId);
     try {
       const res = await fetch('http://127.0.0.1:5000/guardar_equipo', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ user_id: user.id, equipo: equipoIds, nombre_equipo: nombreTemp })
+        body: JSON.stringify({ user_id: userId, equipo: equipoIds, nombre_equipo: nombreTemp })
       });
       if (res.ok) {
         setMisEquipos(prev => ({ ...prev, [nombreTemp]: equipoIds }));
@@ -177,14 +195,15 @@ export default function MiEquipoPage() {
   };
 
   const handleDeleteTeam = async () => {
-    if (!equipoSeleccionado || !user?.id) return;
+    const userId = getUserId(user);
+    if (!equipoSeleccionado || !userId) return;
     if (!window.confirm(`¿Eliminar el equipo "${equipoSeleccionado}"?`)) return;
     setIsDeleting(true);
     try {
       const res = await fetch('http://127.0.0.1:5000/eliminar_equipo', {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ user_id: user.id, nombre_equipo: equipoSeleccionado })
+        body: JSON.stringify({ user_id: userId, nombre_equipo: equipoSeleccionado })
       });
       if (res.ok) {
         const nuevos = { ...misEquipos };
