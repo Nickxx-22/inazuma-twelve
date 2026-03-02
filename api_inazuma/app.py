@@ -431,7 +431,45 @@ def eliminar_equipo():
         return jsonify({"message": str(e)}), 500
 
 
-#------------------- OBTENER EQUIPO -----------------
+#------------------- HELPER: verificar token JWT -----------------
+def verify_token(req):
+    """Extrae y valida el JWT del header Authorization. Devuelve el user_id o None."""
+    auth_header = req.headers.get('Authorization', '')
+    if not auth_header.startswith('Bearer '):
+        return None
+    token = auth_header.split(' ', 1)[1]
+    try:
+        payload = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
+        return payload.get('sub')  # 'sub' es el string del ObjectId
+    except (jwt.ExpiredSignatureError, jwt.InvalidTokenError):
+        return None
+
+#------------------- OBTENER USUARIO (equipos + favoritos) -----------------
+@app.route('/obtener_usuario/<user_id>', methods=['GET'])
+def obtener_usuario(user_id):
+    """Devuelve los datos del usuario incluyendo todos sus equipos guardados."""
+    try:
+        usuario = usuarios.find_one(
+            {"_id": ObjectId(user_id)},
+            {"password": 0}  # nunca devolvemos la contraseña
+        )
+        if not usuario:
+            return jsonify({"message": "Usuario no encontrado"}), 404
+
+        usuario_info = {
+            "id":        str(usuario["_id"]),
+            "username":  usuario.get("username", ""),
+            "email":     usuario.get("email", ""),
+            "favoritos": usuario.get("favoritos", []),
+            "equipo":    usuario.get("equipo", []),
+            "equipos":   usuario.get("equipos", {}),  # ← diccionario de equipos guardados
+        }
+        return jsonify({"usuario": usuario_info}), 200
+
+    except Exception as e:
+        return jsonify({"message": f"Error: {str(e)}"}), 500
+
+#------------------- OBTENER EQUIPO (legacy) -----------------
 @app.route('/obtener_equipo/<user_id>', methods=['GET'])
 def obtener_equipo(user_id):
     try:
