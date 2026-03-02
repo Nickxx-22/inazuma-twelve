@@ -412,21 +412,23 @@ def eliminar_equipo():
     user_id = data.get('user_id')
     nombre = data.get('nombre_equipo')
 
-    if not user_id or not nombre:
-        return jsonify({"message": "Faltan datos"}), 400
-
     try:
-        # Usamos $unset para borrar la propiedad específica del diccionario 'equipos'
-        resultado = usuarios.update_one(
+        # 1. Eliminamos el equipo específico usando $unset
+        usuarios.update_one(
             {"_id": ObjectId(user_id)},
             {"$unset": { f"equipos.{nombre}": "" }}
         )
         
-        if resultado.modified_count > 0:
-            return jsonify({"message": "✅ Equipo eliminado de la base de datos"}), 200
-        return jsonify({"message": "⚠️ No se encontró el equipo"}), 404
+        # 2. Buscamos al usuario de nuevo para devolver la lista actualizada
+        user_actualizado = usuarios.find_one({"_id": ObjectId(user_id)})
+        equipos_restantes = user_actualizado.get('equipos', {})
+        
+        return jsonify({
+            "message": "Eliminado",
+            "equipos": equipos_restantes  # Enviamos la lista real que queda
+        }), 200
     except Exception as e:
-        return jsonify({"message": f"❌ Error: {str(e)}"}), 500
+        return jsonify({"message": str(e)}), 500
 
 
 #------------------- OBTENER EQUIPO -----------------
