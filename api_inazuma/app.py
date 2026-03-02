@@ -379,6 +379,34 @@ def get_team_by_id(team_id):
     except Exception as e:
         return jsonify({"error": str(e)}), 500     
 
+#----------------- GURDAR EQUIPOS ------------------
+from flask import request, jsonify
+# ... otros imports
+
+@app.route('/guardar_equipo', methods=['POST'])
+def guardar_equipo():
+    token = request.headers.get('Authorization')
+    if not token:
+        return jsonify({"message": "⚠️ No autorizado"}), 401
+    
+    try:
+        # Aquí decodificarías el token para sacar el user_id
+        # Por simplicidad, asumimos que envías el user_id en el body por ahora
+        data = request.get_json()
+        user_id = data.get('user_id')
+        nuevo_equipo = data.get('equipo') # El array de 11 IDs
+        nombre_equipo = data.get('nombre_equipo', 'Mi Equipo Ideal')
+
+        usuarios.update_one(
+            {"_id": ObjectId(user_id)},
+            {"$set": {
+                "equipo": nuevo_equipo,
+                "nombre_equipo": nombre_equipo
+            }}
+        )
+        return jsonify({"message": "✅ Equipo guardado en la nube"}), 200
+    except Exception as e:
+        return jsonify({"message": f"❌ Error: {str(e)}"}), 500
     
      
 
