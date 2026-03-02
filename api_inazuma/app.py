@@ -7,6 +7,7 @@ from datetime import datetime, timedelta
 import jwt
 import re
 import random
+from werkzeug.security import check_password_hash
 
 # ----------------- APP -----------------
 app = Flask(__name__)
@@ -110,7 +111,7 @@ def iniciar_sesion():
         return jsonify({"message": "⚠️ Se requiere nombre de usuario y contraseña"}), 400
 
     usuario = usuarios.find_one({"username": username})
-    if usuario and usuario['password'] == password:
+    if usuario and check_password_hash(usuario['password'], password):
         payload = {
             "sub": str(usuario["_id"]),
             "exp": datetime.utcnow() + timedelta(hours=1)

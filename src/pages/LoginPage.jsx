@@ -49,7 +49,7 @@ export default function LoginPage() {
                 type="text" 
                 value={username} 
                 onChange={e => setUsername(e.target.value)} 
-                placeholder="nico" 
+                placeholder="username" 
                 className={styles.input} 
                 required 
               />
