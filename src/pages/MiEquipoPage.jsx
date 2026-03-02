@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
-import { Plus, X, Save, Trash2, Search, Loader2, Users, Check } from 'lucide-react'
+import { Plus, X, Save, Trash2, Search, Loader2, Users, Check, ChevronDown, Folder, PlusCircle } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { getElementColor } from '../utils/colors'
 import { getAllPlayers } from '../services/playerService'
@@ -103,9 +103,11 @@ export default function MiEquipoPage() {
   const { user } = useAuth()
   const [characters, setCharacters] = useState([])
   const [loading, setLoading] = useState(true)
-  const [selectingSlot, setSelectingSlot] = useState(null)
   const [isSaving, setIsSaving] = useState(false)
-  const [saveStatus, setSaveStatus] = useState('idle') // idle, success, error
+  
+  const [misEquipos, setMisEquipos] = useState({}) 
+  const [equipoSeleccionado, setEquipoSeleccionado] = useState("Nuevo Equipo")
+  const [selectingSlot, setSelectingSlot] = useState(null)
 
   const DEFAULT_FORMATION = [
     { position: 'Portero' }, { position: 'Defensa' }, { position: 'Defensa' },
@@ -116,17 +118,24 @@ export default function MiEquipoPage() {
 
   const [slots, setSlots] = useState(DEFAULT_FORMATION.map(s => ({ ...s, characterId: null })));
 
+  // Carga inicial
   useEffect(() => {
     async function init() {
       try {
         setLoading(true)
         const allPlayers = await getAllPlayers()
         setCharacters(allPlayers)
+        
         if (user?.id) {
-          const res = await fetch(`http://127.0.0.1:5000/obtener_equipo/${user.id}`)
+          const res = await fetch(`http://127.0.0.1:5000/obtener_usuario/${user.id}`)
           const data = await res.json()
-          if (res.ok && data.equipo) {
-             setSlots(prev => prev.map((s, i) => ({ ...s, characterId: data.equipo[i] || null })));
+          // Asumimos que en el usuario guardas un objeto 'equipos'
+          if (res.ok && data.usuario.equipos) {
+            setMisEquipos(data.usuario.equipos)
+            const nombres = Object.keys(data.usuario.equipos)
+            if (nombres.length > 0) {
+              cargarEquipo(nombres[0], data.usuario.equipos[nombres[0]])
+            }
           }
         }
       } catch (err) { console.error(err) } finally { setLoading(false) }
@@ -134,81 +143,109 @@ export default function MiEquipoPage() {
     init()
   }, [user?.id])
 
-  // --- FUNCIÓN PARA GUARDAR EN EL BACKEND ---
-  const handleSaveTeam = async () => {
-    if (!user?.id) return alert("Inicia sesión para guardar");
-    
-    setIsSaving(true);
-    setSaveStatus('idle');
+  const cargarEquipo = (nombre, ids) => {
+    setEquipoSeleccionado(nombre)
+    setSlots(DEFAULT_FORMATION.map((s, i) => ({ ...s, characterId: ids[i] || null })))
+  }
 
+  const handleNewTeam = () => {
+    const nuevoNombre = prompt("Nombre del nuevo equipo:")
+    if (nuevoNombre && nuevoNombre.trim()) {
+      setEquipoSeleccionado(nuevoNombre)
+      setSlots(DEFAULT_FORMATION.map(s => ({ ...s, characterId: null })))
+    }
+  }
+
+  const handleSaveTeam = async () => {
+    if (!user?.id) return alert("Inicia sesión para guardar")
+    setIsSaving(true)
     try {
-      const equipoIds = slots.map(s => s.characterId);
+      const equipoIds = slots.map(s => s.characterId)
       const res = await fetch('http://127.0.0.1:5000/guardar_equipo', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           user_id: user.id,
           equipo: equipoIds,
-          nombre_equipo: "Mi Equipo Real" // Puedes hacerlo dinámico después
+          nombre_equipo: equipoSeleccionado
         })
+      })
+      if (res.ok) {
+        setMisEquipos(prev => ({ ...prev, [equipoSeleccionado]: equipoIds }))
+        alert("✅ Equipo guardado correctamente")
+      }
+    } catch (e) { console.error(e) } finally { setIsSaving(false) }
+  }
+
+  const handleDeleteTeam = async () => {
+    if (equipoSeleccionado === "Nuevo Equipo") return
+    if (!confirm(`¿Estás seguro de borrar "${equipoSeleccionado}"?`)) return
+    
+    try {
+      // Opcional: Llamada al backend para eliminar del objeto
+      await fetch('http://127.0.0.1:5000/eliminar_equipo', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ user_id: user.id, nombre_equipo: equipoSeleccionado })
       });
 
-      if (res.ok) {
-        setSaveStatus('success');
-        setTimeout(() => setSaveStatus('idle'), 3000);
+      const nuevosEquipos = { ...misEquipos }
+      delete nuevosEquipos[equipoSeleccionado]
+      setMisEquipos(nuevosEquipos)
+      
+      const restantes = Object.keys(nuevosEquipos)
+      if (restantes.length > 0) {
+        cargarEquipo(restantes[0], nuevosEquipos[restantes[0]])
       } else {
-        setSaveStatus('error');
+        setEquipoSeleccionado("Nuevo Equipo")
+        setSlots(DEFAULT_FORMATION.map(s => ({ ...s, characterId: null })))
       }
-    } catch (error) {
-      console.error("Error guardando:", error);
-      setSaveStatus('error');
-    } finally {
-      setIsSaving(false);
-    }
-  };
+    } catch (e) { console.error(e) }
+  }
 
-  const usedIds = slots.filter(s => s.characterId).map(s => s.characterId);
-  const filledSlots = usedIds.length;
+  // Lógica de poder (Reglas de usuario aplicadas)
+  const usedIds = slots.filter(s => s.characterId).map(s => s.characterId)
   const totalPower = slots.reduce((sum, slot) => {
-    const c = characters.find(ch => (ch.id === slot.characterId || ch._id === slot.characterId));
-    if (!c) return sum;
-    let pwr = c.power || 0;
-    if (c.relation === 'heredero') pwr *= 0.5;
-    if (c.isCopy) pwr *= 0.3;
-    return sum + pwr;
-  }, 0);
+    const c = characters.find(ch => (ch.id === slot.characterId || ch._id === slot.characterId))
+    if (!c) return sum
+    let pwr = c.power || 0
+    if (c.relation === 'heredero') pwr *= 0.5 // [cite: 2026-02-27]
+    if (c.isCopy) pwr *= 0.3 // [cite: 2026-02-11]
+    return sum + pwr
+  }, 0)
 
   if (loading) return <div className={styles.loadingState}><Loader2 className={styles.spinner} /></div>
 
   return (
     <div className={styles.page}>
       <div className={styles.pageTop}>
-        <div className={styles.titleRow}>
-          <h1 className={styles.title}>Mi Equipo</h1>
-          <div className={styles.topBadge}><Users size={14}/> {filledSlots}/11</div>
-        </div>
-        <div className={styles.topActions}>
-          <button 
-            className={styles.btnSecondary} 
-            onClick={() => setSlots(DEFAULT_FORMATION.map(s => ({ ...s, characterId: null })))}
-            disabled={isSaving}
-          >
-            <Trash2 size={15} />
+        <div className={styles.teamSelectorSection}>
+          <div className={styles.selectWrapper}>
+            <Folder size={18} className={styles.folderIcon} />
+            <select 
+              value={equipoSeleccionado} 
+              onChange={(e) => cargarEquipo(e.target.value, misEquipos[e.target.value])}
+              className={styles.teamDropdown}
+            >
+              <option value="Nuevo Equipo" disabled>Seleccionar equipo...</option>
+              {Object.keys(misEquipos).map(nom => (
+                <option key={nom} value={nom}>{nom}</option>
+              ))}
+            </select>
+            <ChevronDown size={16} className={styles.chevronIcon} />
+          </div>
+          <button onClick={handleNewTeam} className={styles.btnIcon} title="Crear nuevo equipo">
+            <PlusCircle size={22} />
           </button>
-          
-          <button 
-            className={`${styles.btnSave} ${saveStatus === 'success' ? styles.btnSuccess : ''}`} 
-            onClick={handleSaveTeam}
-            disabled={isSaving}
-          >
-            {isSaving ? (
-              <Loader2 size={15} className={styles.spinner} />
-            ) : saveStatus === 'success' ? (
-              <Check size={15} />
-            ) : (
-              <Save size={15} />
-            )}
-            <span>{saveStatus === 'success' ? '¡Guardado!' : 'Guardar'}</span>
+        </div>
+
+        <div className={styles.topActions}>
+          <button className={styles.btnDanger} onClick={handleDeleteTeam} title="Borrar equipo actual">
+            <Trash2 size={18} />
+          </button>
+          <button className={styles.btnSave} onClick={handleSaveTeam} disabled={isSaving}>
+            {isSaving ? <Loader2 className={styles.spinner} size={18}/> : <Save size={18}/>}
+            <span>Guardar</span>
           </button>
         </div>
       </div>
@@ -235,10 +272,13 @@ export default function MiEquipoPage() {
                     <div className={styles.playerPosTag} style={{background: getElementColor(char.element)}}>{slot.position.substring(0,2).toUpperCase()}</div>
                   </div>
                 ) : (
-                  <div className={styles.emptyNode}><Plus size={16} /><small>{slot.position.substring(0,2)}</small></div>
+                  <div className={styles.emptyNode}>
+                    <Plus size={16} />
+                    <small>{slot.position.substring(0,2)}</small>
+                  </div>
                 )}
               </div>
-            );
+            )
           })}
         </div>
       </div>
@@ -249,8 +289,12 @@ export default function MiEquipoPage() {
           <small>POTENCIA TOTAL</small>
         </div>
         <div className={styles.summaryBox}>
-          <span>{filledSlots > 0 ? Math.round(totalPower/filledSlots) : 0}</span>
-          <small>MEDIA PWR</small>
+          <span>{usedIds.length > 0 ? Math.round(totalPower/usedIds.length) : 0}</span>
+          <small>MEDIA EQUIPO</small>
+        </div>
+        <div className={styles.summaryBox}>
+          <span>{usedIds.length}/11</span>
+          <small>JUGADORES</small>
         </div>
       </div>
 

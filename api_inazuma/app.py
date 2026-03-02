@@ -385,29 +385,41 @@ def get_team_by_id(team_id):
 def guardar_equipo():
     data = request.get_json()
     user_id = data.get('user_id')
-    nuevo_equipo = data.get('equipo')  # El array de 11 IDs
+    nuevo_equipo = data.get('equipo')  # Array de 11 IDs
     nombre = data.get('nombre_equipo', 'Mi Equipo')
 
     if not user_id or not nuevo_equipo:
         return jsonify({"message": "⚠️ Faltan datos"}), 400
 
     try:
-        # Actualizamos el documento del usuario nico
+        # Usamos notación de puntos para guardar múltiples equipos en un objeto 'equipos'
         resultado = usuarios.update_one(
             {"_id": ObjectId(user_id)},
             {"$set": {
-                "equipo": nuevo_equipo,
-                "nombre_equipo": nombre
+                f"equipos.{nombre}": nuevo_equipo,
+                "ultimo_equipo_editado": nombre
             }}
         )
         
-        if resultado.modified_count > 0:
-            return jsonify({"message": "✅ Equipo guardado correctamente"}), 200
-        else:
-            return jsonify({"message": "ℹ️ El equipo ya estaba actualizado"}), 200
+        return jsonify({"message": "✅ Equipo guardado correctamente"}), 200
             
     except Exception as e:
         return jsonify({"message": f"❌ Error en DB: {str(e)}"}), 500
+
+@app.route('/eliminar_equipo', methods=['POST'])
+def eliminar_equipo():
+    data = request.get_json()
+    user_id = data.get('user_id')
+    nombre = data.get('nombre_equipo')
+
+    try:
+        usuarios.update_one(
+            {"_id": ObjectId(user_id)},
+            {"$unset": { f"equipos.{nombre}": "" }}
+        )
+        return jsonify({"message": "✅ Equipo eliminado"}), 200
+    except Exception as e:
+        return jsonify({"message": "Error al eliminar"}), 500
 
 
 #------------------- OBTENER EQUIPO -----------------

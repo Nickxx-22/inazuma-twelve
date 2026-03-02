@@ -18,7 +18,7 @@ export function getNatureColor(nature) {
     Contraataque:  '#f97316',
     Afinidad:      '#ec4899',
     Brecha:        '#8b5cf6',
-    'Juego Sucio': '#6b7280',
+    'Juego Sucio': '#4b4e53',
   }
   return colors[nature] ?? '#6b7280'
 }
