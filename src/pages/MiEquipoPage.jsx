@@ -94,13 +94,20 @@ function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, on
                 className={styles.pickerRow}
                 onClick={() => onSelect(slotIndex, char._id || char.id)}
               >
+                {/* El borde de color ahora lo manejamos con un div decorativo o el propio avatar */}
                 <div className={styles.pickerAvatar} style={{ borderLeft: `4px solid ${getElementColor(char.element)}` }}>
-                  {char.image ? <img src={char.image} alt={char.name} /> : <div className={styles.charInitial}>{char.name[0]}</div>}
+                  {char.image ? (
+                    <img src={char.image} alt={char.name} />
+                  ) : (
+                    <div className={styles.charInitial}>{char.name[0]}</div>
+                  )}
                 </div>
+
                 <div className={styles.pickerInfo}>
-                  <div className={styles.pickerName}>{char.name}</div>
-                  <div className={styles.pickerMeta}>{char.position} • {char.element}</div>
+                  <span className={styles.pickerName}>{char.name}</span>
+                  <span className={styles.pickerMeta}>{char.position} • {char.element}</span>
                 </div>
+
                 <div className={styles.pickerPower}>
                   <span className={styles.pwrVal}>{char.power || 0}</span>
                   <span className={styles.pwrLabel}>PWR</span>
