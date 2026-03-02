@@ -4205,6 +4205,7 @@ async function insertarTecnicas() {
 {
   "_id": "Omnisabiduria_divina",
   "name": "Omnisabiduría Divina",
+  "videoUrl": {"url": "/tecnicas/Omnisabiduria_divina.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
@@ -4220,6 +4221,7 @@ async function insertarTecnicas() {
 {
   "_id": "Remate_Caotico",
   "name": "Remate Caótico",
+  "videoUrl": {"url": "/tecnicas/Remate_Caotico.mp4"},
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Bosque",
@@ -5029,11 +5031,28 @@ async function insertarTecnicas() {
 
 ];
 
-    const resultado = await tecnicas.insertMany(datos);
+    console.log(`Iniciando el proceso para ${datos.length} técnicas...`);
+    
+    let procesadas = 0;
 
-    console.log("Técnicas insertadas:", resultado.insertedCount);
+    for (const tech of datos) {
+      try {
+        await tecnicas.updateOne(
+          { _id: tech._id },    
+          { $set: tech },      
+          { upsert: true }      
+        );
+        procesadas++;
+      } catch (err) {
+        console.error(`❌ Error en la técnica ${tech._id}:`, err.message);
+      }
+    }
+
+    console.log("✅ Proceso finalizado correctamente.");
+    console.log("Total de técnicas procesadas (insertadas o actualizadas):", procesadas);
+
   } catch (error) {
-    console.error("Error al insertar técnicas:", error);
+    console.error("Error crítico en la conexión:", error);
   } finally {
     await client.close();
   }

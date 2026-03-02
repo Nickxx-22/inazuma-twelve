@@ -212,27 +212,27 @@ def detalle_jugador(id):
             info_tech = tecnicas.find_one({"_id": t_id})
             
             if info_tech:
-                # Modificadores de poder recordados
+                # Modificadores recordados
                 mod = 1.0
-                if relacion == "heredero": mod = 0.5 # [2026-02-27]
-                elif relacion == "copia": mod = 0.3 # [2026-02-11]
+                if relacion == "heredero": mod = 0.5 #[cite: 2026-02-27]
+                elif relacion == "copia": mod = 0.3 #[cite: 2026-02-11]
                 
-                # Procesar URL del video
                 video_raw = info_tech.get("videoUrl", {}).get("url", "")
                 video_url = f"{base_url}{video_raw}" if video_raw else None
 
-                base_pwr = info_tech.get("basePower", 0)
-                
                 tech_data.append({
                     "id": t_id,
                     "name": info_tech.get("name"),
                     "type": info_tech.get("type"),
                     "element": info_tech.get("element"),
                     "relation": relacion,
-                    "finalPower": int(base_pwr * mod),
-                    "videoUrl": video_url, # <--- IMPORTANTE PARA EL FRONTEND
-                    "cost": info_tech.get("cost", {"stamina": 0, "tension": 0}) # <--- PARA LOS CUADROS PE/PT
+                    "finalPower": int(info_tech.get("basePower", 0) * mod),
+                    "videoUrl": video_url,
+                    "cost": info_tech.get("cost", {"stamina": 0, "tension": 0})
                 })
+            else:
+                # ESTO TE DIRÁ QUÉ TÉCNICA FALTA EN TU CONSOLA
+                print(f"ALERTA: La técnica '{t_id}' no existe en la colección 'tecnicas'")
 
         return jsonify({
             "character": character,
@@ -377,7 +377,10 @@ def get_team_by_id(team_id):
         return jsonify(team), 200
         
     except Exception as e:
-        return jsonify({"error": str(e)}), 500      
+        return jsonify({"error": str(e)}), 500     
+
+    
+     
 
 # ----------------- RUN -----------------
 if __name__ == "__main__":
