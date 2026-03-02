@@ -1,22 +1,94 @@
 import { useState, useEffect, useMemo } from 'react'
-import { Plus, X, Save, Trash2, Search, Loader2, ChevronDown, Folder, PlusCircle, Edit3, Check } from 'lucide-react'
+import { Plus, X, Save, Trash2, Search, Loader2, ChevronDown, Folder, PlusCircle, Edit3 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { getElementColor } from '../utils/colors'
 import { getAllPlayers } from '../services/playerService'
 import styles from './MiEquipoPage.module.css'
 
-// (CharacterPickerModal se mantiene igual que en tu código previo)
+// ── PICKER MODAL (Diseño Premium) ──────────────────────────────────
+function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, onSelect, onClose }) {
+  const [search, setSearch] = useState('')
+  const [elFilter, setElFilter] = useState('')
+  const getInitialPos = (pos) => {
+    const p = pos.toLowerCase();
+    if (p.includes('portero')) return 'GK';
+    if (p.includes('defensa')) return 'DF';
+    if (p.includes('centro')) return 'MD';
+    if (p.includes('delantero')) return 'FW';
+    return '';
+  };
+  const [posFilter, setPosFilter] = useState(getInitialPos(slotPosition))
 
+  const available = useMemo(() => {
+    return characters.filter(c => {
+      const isUsed = usedIds.some(id => id === c._id || id === c.id);
+      if (isUsed) return false;
+      const q = search.toLowerCase();
+      const matchesSearch = !search || c.name.toLowerCase().includes(q) || (c.japaneseName && c.japaneseName.toLowerCase().includes(q));
+      const matchesElement = !elFilter || c.element === elFilter;
+      const matchesPosition = !posFilter || c.position === posFilter;
+      return matchesSearch && matchesElement && matchesPosition;
+    }).sort((a, b) => (b.power || 0) - (a.power || 0));
+  }, [characters, usedIds, search, elFilter, posFilter]);
+
+  return (
+    <div className={styles.overlay} onClick={onClose}>
+      <div className={styles.pickerModal} onClick={e => e.stopPropagation()}>
+        <div className={styles.pickerHeader}>
+          <div>
+            <h3 className={styles.pickerTitle}>Fichar {slotPosition}</h3>
+            <span className={styles.pickerCount}>{available.length} candidatos</span>
+          </div>
+          <button onClick={onClose} className={styles.closeBtn}><X size={20} /></button>
+        </div>
+        <div className={styles.pickerSearch}>
+          <Search size={18} className={styles.pickerSearchIcon} />
+          <input type="text" placeholder="Buscar jugador..." className={styles.pickerSearchInput} value={search} onChange={e => setSearch(e.target.value)} autoFocus />
+        </div>
+        <div className={styles.pickerFilters}>
+          <select value={elFilter} onChange={e => setElFilter(e.target.value)} className={styles.pickerSelect}>
+            <option value="">Cualquier Elemento</option>
+            {["Fuego", "Bosque", "Aire", "Montaña"].map(el => <option key={el} value={el}>{el}</option>)}
+          </select>
+          <select value={posFilter} onChange={e => setPosFilter(e.target.value)} className={styles.pickerSelect}>
+            <option value="GK">Portero (GK)</option>
+            <option value="DF">Defensa (DF)</option>
+            <option value="MD">Medio (MD)</option>
+            <option value="FW">Delantero (FW)</option>
+          </select>
+        </div>
+        <div className={styles.pickerList}>
+          {available.map(char => (
+            <button key={char._id || char.id} className={styles.pickerRow} onClick={() => onSelect(slotIndex, char._id || char.id)}>
+              <div className={styles.pickerAvatar} style={{ border: `2px solid ${getElementColor(char.element)}` }}>
+                {char.image ? <img src={char.image} alt="" /> : <div className={styles.charInitial}>{char.name[0]}</div>}
+              </div>
+              <div className={styles.pickerInfo}>
+                <span className={styles.pickerName}>{char.name}</span>
+                <span className={styles.pickerMeta}>{char.position} • {char.element?.toUpperCase()}</span>
+              </div>
+              <div className={styles.pickerPower}>
+                <span className={styles.pwrVal}>{char.power || 0}</span>
+                <span className={styles.pwrLabel}>PWR</span>
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── PÁGINA PRINCIPAL ────────────────────────────────────────────────
 export default function MiEquipoPage() {
   const { user } = useAuth()
   const [characters, setCharacters] = useState([])
   const [loading, setLoading] = useState(true)
   const [isSaving, setIsSaving] = useState(false)
   const [isDeleting, setIsDeleting] = useState(false)
-  
   const [misEquipos, setMisEquipos] = useState({}) 
   const [equipoSeleccionado, setEquipoSeleccionado] = useState("Nuevo Equipo")
-  const [nombreTemporal, setNombreTemporal] = useState("") // Para editar el nombre
+  const [nombreTemporal, setNombreTemporal] = useState("")
   const [selectingSlot, setSelectingSlot] = useState(null)
 
   const DEFAULT_FORMATION = [
@@ -34,7 +106,6 @@ export default function MiEquipoPage() {
         setLoading(true)
         const allPlayers = await getAllPlayers()
         setCharacters(allPlayers)
-        
         if (user?.id) {
           const res = await fetch(`http://127.0.0.1:5000/obtener_usuario/${user.id}`)
           const data = await res.json()
@@ -55,6 +126,7 @@ export default function MiEquipoPage() {
   }, [user?.id])
 
   const cargarEquipo = (nombre) => {
+    if (nombre === "No hay equipos") return;
     setEquipoSeleccionado(nombre)
     setNombreTemporal(nombre)
     const ids = misEquipos[nombre] || []
@@ -62,73 +134,49 @@ export default function MiEquipoPage() {
   }
 
   const handleNewTeam = () => {
-    const nuevo = "Nuevo Equipo " + (Object.keys(misEquipos).length + 1)
+    const nuevo = `Nuevo Equipo ${Object.keys(misEquipos).length + 1}`
     setEquipoSeleccionado(nuevo)
     setNombreTemporal(nuevo)
     setSlots(DEFAULT_FORMATION.map(s => ({ ...s, characterId: null })))
   }
 
   const handleSaveTeam = async () => {
-    if (!user?.id) return
+    if (!user?.id || !nombreTemporal.trim()) return
     setIsSaving(true)
     const equipoIds = slots.map(s => s.characterId)
     try {
       const res = await fetch('http://127.0.0.1:5000/guardar_equipo', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          user_id: user.id,
-          equipo: equipoIds,
-          nombre_equipo: nombreTemporal // Usamos el nombre del input
-        })
+        body: JSON.stringify({ user_id: user.id, equipo: equipoIds, nombre_equipo: nombreTemporal })
       })
       if (res.ok) {
         setMisEquipos(prev => ({ ...prev, [nombreTemporal]: equipoIds }))
         setEquipoSeleccionado(nombreTemporal)
-        alert("Equipo guardado con éxito")
+        alert("✅ Equipo guardado")
       }
     } catch (e) { console.error(e) } finally { setIsSaving(false) }
   }
 
   const handleDeleteTeam = async () => {
-  if (!user?.id || equipoSeleccionado === "Nuevo Equipo") return;
-  if (!confirm(`¿Borrar definitivamente "${equipoSeleccionado}"?`)) return;
-  
-  setIsDeleting(true);
-  try {
-    const res = await fetch('http://127.0.0.1:5000/eliminar_equipo', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ user_id: user.id, nombre_equipo: equipoSeleccionado })
-    });
-
-    const data = await res.json();
-
-    if (res.ok) {
-      // Usamos directamente lo que nos diga la DB que queda
-      const restantes = data.equipos || {};
-      setMisEquipos(restantes);
-      
-      const nombres = Object.keys(restantes);
-      if (nombres.length > 0) {
-        // Si quedan equipos, cargamos el primero de la lista
-        cargarEquipo(nombres[0]);
-      } else {
-        // Si no queda nada, limpiamos el campo y volvemos al estado inicial
-        setEquipoSeleccionado("Nuevo Equipo");
-        setNombreTemporal("");
-        setSlots(DEFAULT_FORMATION.map(s => ({ ...s, characterId: null })));
+    if (!user?.id || equipoSeleccionado === "Nuevo Equipo") return
+    if (!confirm(`¿Borrar definitivamente "${equipoSeleccionado}"?`)) return
+    setIsDeleting(true)
+    try {
+      const res = await fetch('http://127.0.0.1:5000/eliminar_equipo', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ user_id: user.id, nombre_equipo: equipoSeleccionado })
+      })
+      if (res.ok) {
+        const nuevos = { ...misEquipos }; delete nuevos[equipoSeleccionado];
+        setMisEquipos(nuevos)
+        const restantes = Object.keys(nuevos)
+        restantes.length > 0 ? cargarEquipo(restantes[0]) : handleNewTeam()
       }
-      alert("Equipo eliminado correctamente");
-    }
-  } catch (e) { 
-    console.error("Error al eliminar:", e);
-  } finally { 
-    setIsDeleting(false); 
+    } catch (e) { console.error(e) } finally { setIsDeleting(false) }
   }
-};
 
-  // Reglas de poder: 0.3 copia, 0.5 heredero
   const usedIds = slots.filter(s => s.characterId).map(s => s.characterId)
   const totalPower = slots.reduce((sum, slot) => {
     const c = characters.find(ch => (ch.id === slot.characterId || ch._id === slot.characterId))
@@ -143,43 +191,24 @@ export default function MiEquipoPage() {
 
   return (
     <div className={styles.page}>
-      {/* HEADER REDISEÑADO */}
       <div className={styles.pageTop}>
         <div className={styles.managementCard}>
           <div className={styles.selectorArea}>
             <div className={styles.customSelect}>
               <Folder size={16} className={styles.iconMuted} />
-              <select 
-                value={equipoSeleccionado} 
-                onChange={(e) => cargarEquipo(e.target.value)}
-              >
-                {Object.keys(misEquipos).length === 0 && <option>No hay equipos</option>}
-                {Object.keys(misEquipos).map(nom => (
-                  <option key={nom} value={nom}>{nom}</option>
-                ))}
+              <select value={equipoSeleccionado} onChange={(e) => cargarEquipo(e.target.value)}>
+                {Object.keys(misEquipos).length === 0 ? <option>No hay equipos</option> : Object.keys(misEquipos).map(nom => <option key={nom} value={nom}>{nom}</option>)}
               </select>
               <ChevronDown size={14} />
             </div>
-            <button onClick={handleNewTeam} className={styles.actionCircle} title="Nuevo equipo">
-              <PlusCircle size={20} />
-            </button>
+            <button onClick={handleNewTeam} className={styles.actionCircle}><PlusCircle size={20} /></button>
           </div>
-
           <div className={styles.nameArea}>
             <Edit3 size={14} className={styles.iconMuted} />
-            <input 
-              type="text" 
-              className={styles.nameInput}
-              value={nombreTemporal}
-              onChange={(e) => setNombreTemporal(e.target.value)}
-              placeholder="Nombre del equipo..."
-            />
+            <input type="text" className={styles.nameInput} value={nombreTemporal} onChange={(e) => setNombreTemporal(e.target.value)} placeholder="Nombre del equipo..." />
           </div>
-
           <div className={styles.buttonGroup}>
-            <button className={styles.btnTrash} onClick={handleDeleteTeam} disabled={isDeleting}>
-              {isDeleting ? <Loader2 size={18} className={styles.spinner} /> : <Trash2 size={18} />}
-            </button>
+            <button className={styles.btnTrash} onClick={handleDeleteTeam} disabled={isDeleting}><Trash2 size={18} /></button>
             <button className={styles.btnPrimary} onClick={handleSaveTeam} disabled={isSaving}>
               {isSaving ? <Loader2 size={18} className={styles.spinner} /> : <Save size={18} />}
               <span>Guardar</span>
@@ -189,23 +218,41 @@ export default function MiEquipoPage() {
       </div>
 
       <div className={styles.fieldContainer}>
-        {/* (Aquí va tu soccerField igual que antes) */}
+        <div className={styles.soccerField}>
+          <div className={styles.areaTop}></div>
+          <div className={styles.circleCenter}></div>
+          <div className={styles.areaBottom}></div>
+          {slots.map((slot, index) => {
+            const char = characters.find(c => (c._id === slot.characterId || c.id === slot.characterId));
+            return (
+              <div key={index} className={`${styles.fieldSlot} ${styles['pos' + index]}`} onClick={() => !char && setSelectingSlot(index)}>
+                {char ? (
+                  <div className={styles.playerNode}>
+                    <div className={styles.playerArt} style={{ borderColor: getElementColor(char.element) }}>
+                      {char.image ? <img src={char.image} alt="" /> : <div className={styles.placeholderArt}>{char.name[0]}</div>}
+                    </div>
+                    <button className={styles.miniRemove} onClick={(e) => { e.stopPropagation(); setSlots(prev => prev.map((s, i) => i === index ? { ...s, characterId: null } : s)); }}>
+                      <X size={10} />
+                    </button>
+                    <div className={styles.playerNameTag}>{char.name.split(' ')[0]}</div>
+                    <div className={styles.playerPosTag} style={{background: getElementColor(char.element)}}>{slot.position.substring(0,2).toUpperCase()}</div>
+                  </div>
+                ) : (
+                  <div className={styles.emptyNode}><Plus size={16} /><small>{slot.position.substring(0,2)}</small></div>
+                )}
+              </div>
+            )
+          })}
+        </div>
       </div>
 
       <div className={styles.summaryGrid}>
-        {/* (Aquí van tus summaryBox igual que antes) */}
+        <div className={styles.summaryBox}><span>{Math.round(totalPower)}</span><small>POTENCIA TOTAL</small></div>
+        <div className={styles.summaryBox}><span>{usedIds.length}/11</span><small>JUGADORES</small></div>
       </div>
 
       {selectingSlot !== null && (
-        <CharacterPickerModal 
-          slotIndex={selectingSlot} slotPosition={slots[selectingSlot].position}
-          usedIds={usedIds} characters={characters}
-          onSelect={(idx, id) => { 
-            setSlots(prev => prev.map((s, i) => i === idx ? { ...s, characterId: id } : s));
-            setSelectingSlot(null); 
-          }}
-          onClose={() => setSelectingSlot(null)}
-        />
+        <CharacterPickerModal slotIndex={selectingSlot} slotPosition={slots[selectingSlot].position} usedIds={usedIds} characters={characters} onSelect={(idx, id) => { setSlots(prev => prev.map((s, i) => i === idx ? { ...s, characterId: id } : s)); setSelectingSlot(null); }} onClose={() => setSelectingSlot(null)} />
       )}
     </div>
   )
