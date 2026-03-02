@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { ArrowLeft, Zap, Heart, Activity, Play, X, ExternalLink } from 'lucide-react' 
+import { ArrowLeft, Zap, Heart, Activity, Play, X, ExternalLink, Loader2 } from 'lucide-react' 
+import { useAuth } from '../hooks/useAuth' // Importamos tu hook de auth
 import { getElementColor, getNatureColor } from '../utils/colors'
 import styles from './PersonajeDetailPage.module.css'
 
@@ -19,23 +20,35 @@ ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, 
 
 export default function PersonajeDetailPage() {
   const { id } = useParams()
+  const { user } = useAuth() // Obtenemos el usuario global
   const [character, setCharacter] = useState(null)
   const [techniques, setTechniques] = useState([])
   const [loading, setLoading] = useState(true)
-  
-  const [selectedTech, setSelectedTech] = useState(null);
-  
-  const [isLoggedIn, setIsLoggedIn] = useState(false) 
+  const [selectedTech, setSelectedTech] = useState(null)
   const [isFavorite, setIsFavorite] = useState(false)
+  const [isLiking, setIsLiking] = useState(false)
 
+  // 1. Cargar datos del personaje y verificar si es favorito
   useEffect(() => {
     async function fetchCharacter() {
       try {
         const res = await fetch(`http://127.0.0.1:5000/jugadores/${id}`)
         if (!res.ok) throw new Error("Error al cargar el jugador")
         const data = await res.json()
+        
         setCharacter(data.character)
         setTechniques(data.techniques)
+
+        // Verificamos si ya es favorito en los datos del usuario
+        if (user && data.character) {
+            const userId = user.id || user._id;
+            const userRes = await fetch(`http://127.0.0.1:5000/obtener_usuario/${userId}`);
+            const userData = await userRes.json();
+            if (userRes.ok) {
+                const favs = userData.usuario.favoritos || [];
+                setIsFavorite(favs.includes(id));
+            }
+        }
       } catch (err) { 
         console.error("Error fetch:", err) 
       } finally { 
@@ -43,26 +56,55 @@ export default function PersonajeDetailPage() {
       }
     }
     fetchCharacter()
-  }, [id])
+  }, [id, user])
 
-  const handleLike = () => {
-    if (!isLoggedIn) {
+  // 2. Manejar el click en Favoritos (Toggle)
+  const handleLike = async () => {
+    if (!user) {
       alert("Debes iniciar sesión para añadir a favoritos")
       return
     }
-    setIsFavorite(!isFavorite)
+
+    const token = localStorage.getItem('inazuma-token');
+    const userId = user.id || user._id;
+    
+    setIsLiking(true);
+    try {
+      const res = await fetch('http://127.0.0.1:5000/toggle_favorito', {
+        method: 'POST',
+        headers: { 
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ user_id: userId, personaje_id: id })
+      });
+
+      if (res.ok) {
+        setIsFavorite(!isFavorite);
+      }
+    } catch (err) {
+      console.error("Error al actualizar favoritos:", err);
+    } finally {
+      setIsLiking(false);
+    }
   }
 
-  if (loading || !character) return <p className={styles.loading}>Cargando personaje...</p>
+  if (loading || !character) return (
+    <div className={styles.loadingCenter}>
+        <Loader2 className={styles.spin} size={40} />
+        <p>Buscando en los archivos de la Royal Academy...</p>
+    </div>
+  )
 
   const elColor  = getElementColor(character.element)
   const natColor = getNatureColor(character.nature)
 
+  // Configuración del Radar (usando stats del JSON)
   const radarData = {
     labels: ['Tiro', 'Físico', 'Control', 'Defensa', 'Velocidad', 'Técnica'],
     datasets: [
       {
-        label: 'Stats',
+        label: 'Stats Base',
         data: [
           character.stats?.kicking || 0,
           character.stats?.physique || 0,
@@ -80,7 +122,16 @@ export default function PersonajeDetailPage() {
   }
 
   const radarOptions = {
-    scales: { r: { angleLines: { color: 'rgba(255,255,255,0.1)' }, grid: { color: 'rgba(255,255,255,0.1)' }, pointLabels: { color: '#94a3b8', font: { size: 11 } }, ticks: { display: false }, suggestedMin: 0, suggestedMax: 140, }, },
+    scales: { 
+        r: { 
+            angleLines: { color: 'rgba(255,255,255,0.1)' }, 
+            grid: { color: 'rgba(255,255,255,0.1)' }, 
+            pointLabels: { color: '#94a3b8', font: { size: 11 } }, 
+            ticks: { display: false }, 
+            suggestedMin: 0, 
+            suggestedMax: 140 
+        } 
+    },
     plugins: { legend: { display: false } },
   }
 
@@ -103,11 +154,11 @@ export default function PersonajeDetailPage() {
       </Link>
 
       <div className={styles.layout}>
-        {/* PANEL IZQUIERDO */}
+        {/* PANEL IZQUIERDO: Info Básica */}
         <aside className={styles.aside}>
           <div className={styles.card}>
             <div className={styles.avatarArea} style={{ background: `linear-gradient(135deg, ${elColor}33, ${natColor}33)` }}>
-              <img src={character.image} alt={character.name} className={styles.characterImg} onError={(e) => { e.target.src = "https://via.placeholder.com/400?text=No+Image" }} />
+              <img src={character.image} alt={character.name} className={styles.characterImg} />
               <div className={styles.topBadges}>
                 <span className={styles.badge} style={{ background: natColor }}>{character.nature?.toUpperCase()}</span>
                 <span className={styles.badge} style={{ background: 'var(--primary)' }}>{character.position}</span>
@@ -119,36 +170,49 @@ export default function PersonajeDetailPage() {
               <div className={styles.tags}>
                 <span className={styles.tag} style={{ background: elColor }}>{character.element}</span>
                 <span className={`${styles.tag} ${styles.tagSecondary}`}>{character.role}</span>
-                <span className={`${styles.tag} ${styles.tagSecondary}`}>{character.season}</span>
               </div>
               <p className={styles.desc}>{character.description}</p>
+              
               <div className={styles.powerRow}>
                 <div className={styles.powerBox}>
                   <span className={styles.powerNum}>{character.power}</span>
                   <small>POTENCIA</small>
                 </div>
-                <button className={`${styles.iconBtn} ${!isLoggedIn ? styles.disabled : ''} ${isFavorite ? styles.activeLike : ''}`} onClick={handleLike}>
-                  <Heart size={20} fill={isFavorite ? "currentColor" : "none"} />
+                {/* Botón de Like con feedback de carga */}
+                <button 
+                    className={`${styles.iconBtn} ${!user ? styles.disabled : ''} ${isFavorite ? styles.activeLike : ''}`} 
+                    onClick={handleLike}
+                    disabled={isLiking}
+                >
+                  {isLiking ? <Loader2 size={20} className={styles.spin} /> : <Heart size={20} fill={isFavorite ? "currentColor" : "none"} />}
                 </button>
               </div>
             </div>
           </div>
         </aside>
 
-        {/* PANEL DERECHO */}
+        {/* PANEL DERECHO: Stats y Técnicas */}
         <div className={styles.main}>
           <div className={styles.statsCard}>
             <h2 className={styles.cardTitle}>Estadísticas</h2>
             <div className={styles.radarWrapper}><Radar data={radarData} options={radarOptions} /></div>
+            
+            {/* Campo matchStats requerido */}
             <div className={styles.matchStatsRow}>
-              <div className={styles.matchStatCard}><Activity size={16} /> PE: <strong>{character.matchStats?.stamina}</strong></div>
-              <div className={styles.matchStatCard}><Zap size={16} /> PT: <strong>{character.matchStats?.tension}</strong></div>
+              <div className={styles.matchStatCard}><Activity size={16} /> PE: <strong>{character.matchStats?.stamina || 100}</strong></div>
+              <div className={styles.matchStatCard}><Zap size={16} /> PT: <strong>{character.matchStats?.tension || 80}</strong></div>
             </div>
+
             <div className={styles.statsGrid}>
               {statEntries.map(stat => (
                 <div key={stat.name} className={styles.statBox}>
-                  <div className={styles.statHeader}><span className={styles.statName}>{stat.name}</span><span className={styles.statValue}>{stat.value ?? '—'}</span></div>
-                  <div className={styles.statBarBg}><div className={styles.statBar} style={{ width: `${Math.min((stat.value / 150) * 100, 100)}%`, background: elColor }} /></div>
+                  <div className={styles.statHeader}>
+                    <span className={styles.statName}>{stat.name}</span>
+                    <span className={styles.statValue}>{stat.value ?? '—'}</span>
+                  </div>
+                  <div className={styles.statBarBg}>
+                    <div className={styles.statBar} style={{ width: `${Math.min((stat.value / 150) * 100, 100)}%`, background: elColor }} />
+                  </div>
                 </div>
               ))}
             </div>
@@ -157,7 +221,7 @@ export default function PersonajeDetailPage() {
           <div className={styles.techCard}>
             <div className={styles.techHeader}>
               <Zap size={18} style={{ color: '#ffaa00' }} />
-              <h2 className={styles.cardTitle}>Técnicas ({techniques.length})</h2>
+              <h2 className={styles.cardTitle}>Técnicas Especiales</h2>
             </div>
             <div className={styles.techList}>
               {techniques.map(tech => (
@@ -165,14 +229,12 @@ export default function PersonajeDetailPage() {
                   <div 
                     className={`${styles.techItem} ${tech.videoUrl ? styles.hasVideo : ''}`}
                     onClick={() => tech.videoUrl && setSelectedTech(tech)}
-                    title={tech.videoUrl ? 'Haz clic para ver detalles' : ''}
                   >
                     <div className={styles.techMainInfo}>
                       <span className={styles.techName}>{tech.name}</span>
                       <span className={styles.techSub}>{tech.type} | {tech.element}</span>
                     </div>
                     <div className={styles.techRight}>
-                      {tech.relation !== 'creador' && <span className={styles.relationTag}>{tech.relation}</span>}
                       <span className={styles.finalPower}>{tech.finalPower} <small>PWR</small></span>
                       {tech.videoUrl && <Play size={14} className={styles.playIcon} fill="currentColor" />}
                     </div>
@@ -184,61 +246,24 @@ export default function PersonajeDetailPage() {
         </div>
       </div>
 
-      {/* --- MODAL DE DETALLES DE TÉCNICA (Similitud con la imagen) --- */}
+      {/* MODAL DE VIDEO (Igual que antes pero limpio) */}
       {selectedTech && (
         <div className={styles.modalOverlay} onClick={() => setSelectedTech(null)}>
           <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-            
-            <button className={styles.closeModal} onClick={() => setSelectedTech(null)}>
-              <X size={20} />
-            </button>
-
+            <button className={styles.closeModal} onClick={() => setSelectedTech(null)}><X size={20} /></button>
             <div className={styles.modalHeader} style={{ background: `linear-gradient(135deg, ${getElementColor(selectedTech.element)}CC, #1a1a2e)` }}>
-              <div className={styles.headerInfo}>
-                <span className={styles.techTypeBadge}>
-                  {selectedTech.element} | {selectedTech.type.toUpperCase()}
-                </span>
                 <h2 className={styles.modalTechName}>{selectedTech.name}</h2>
-                <p className={styles.modalTechSub}>{selectedTech.japaneseName || 'God Knows • ゴッドノウズ'}</p>
-              </div>
-              <div className={styles.headerOrb} style={{ background: getElementColor(selectedTech.element), boxShadow: `0 0 30px ${getElementColor(selectedTech.element)}` }}></div>
             </div>
-
             <div className={styles.modalBody}>
-              <div className={styles.videoPlayerContainer}>
-                {/* REPRODUCTOR EN BUCLE Y AUTO-PLAY */}
-                <video 
-                  key={selectedTech.videoUrl} 
-                  autoPlay 
-                  loop 
-                  playsInline 
-                  className={styles.modalVideo}
-                >
+                <video key={selectedTech.videoUrl} autoPlay loop playsInline className={styles.modalVideo}>
                   <source src={selectedTech.videoUrl} type="video/mp4" />
-                  Tu navegador no soporta videos.
                 </video>
-                <a href={selectedTech.videoUrl} target="_blank" rel="noopener noreferrer" className={styles.externalLink}>
-                  <ExternalLink size={12} /> Abrir video en nueva pestaña
-                </a>
-              </div>
-
-              <div className={styles.modalStatsSection}>
-                <h3 className={styles.sectionTitle}><Zap size={16} /> ESTADÍSTICAS</h3>
-                <div className={styles.modalStatsGrid}>
-                  <div className={styles.modalStatBox}>
-                    <span className={styles.modalStatValue}>{selectedTech.finalPower}</span>
-                    <span className={styles.modalStatLabel}>POTENCIA</span>
-                  </div>
-                  <div className={styles.modalStatBox}>
-                    <span className={styles.modalStatValue}>{selectedTech.cost?.tension || 0}</span>
-                    <span className={styles.modalStatLabel}>TENSIÓN</span>
-                  </div>
+                <div className={styles.modalStatsSection}>
+                    <div className={styles.modalStatBox}>
+                        <span className={styles.modalStatValue}>{selectedTech.finalPower}</span>
+                        <span className={styles.modalStatLabel}>POTENCIA TÉCNICA</span>
+                    </div>
                 </div>
-              </div>
-              
-              <div className={styles.peCostInfo}>
-                <Activity size={14} /> Requiere {selectedTech.cost?.stamina || 0} PE de Resistencia
-              </div>
             </div>
           </div>
         </div>
