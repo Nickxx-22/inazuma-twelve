@@ -1,176 +1,205 @@
-import { useState, useEffect } from 'react'
-import { Shield, Plus, X, Save, Trash2, Search, Loader2 } from 'lucide-react'
+import { useState } from 'react'
+import { Shield, Plus, X, Save, Trash2, Search } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { useMyTeam } from '../hooks/useMyTeam'
 import { getElementColor } from '../utils/colors'
 import { elements, positions } from '../data/constants'
-import { getAllPlayers } from '../services/playerService'
 import styles from './MiEquipoPage.module.css'
 
-// --- Picker Modal (Sin cambios, solo corrección de id/_id) ---
+// ── Picker Modal ────────────────────────────────────────────────────
 function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, onSelect, onClose }) {
-  const [search, setSearch] = useState('')
+  const [search,  setSearch]  = useState('')
   const [elFilter, setElFilter] = useState('')
-  const [posFilter, setPosFilter] = useState(slotPosition || '')
+  const [posFilter, setPosFilter] = useState('')
 
   const available = characters
-    .filter(c => !usedIds.includes(c._id) && !usedIds.includes(c.id)) // Doble check de ID
+    .filter(c => !usedIds.includes(c.id))
     .filter(c => {
       const q = search.toLowerCase()
       return (
-        (!search || c.name.toLowerCase().includes(q)) &&
-        (!elFilter || c.element === elFilter) &&
+        (!search    || c.name.toLowerCase().includes(q) || c.japaneseName?.toLowerCase().includes(q)) &&
+        (!elFilter  || c.element  === elFilter) &&
         (!posFilter || c.position === posFilter)
       )
     })
-    .sort((a, b) => (b.power || 0) - (a.power || 0))
+    .sort((a, b) => b.power - a.power)
 
   return (
     <div className={styles.overlay} onClick={onClose}>
       <div className={styles.pickerModal} onClick={e => e.stopPropagation()}>
         <div className={styles.pickerHeader}>
-          <h3>Seleccionar {slotPosition}</h3>
+          <div>
+            <h3 className={styles.pickerTitle}>Seleccionar Jugador</h3>
+            <p className={styles.pickerSub}>Slot {slotIndex + 1} — {slotPosition}</p>
+          </div>
           <button onClick={onClose} className={styles.closeBtn}><X size={18} /></button>
         </div>
+
+        {/* Search */}
         <div className={styles.pickerSearch}>
-          <Search size={14} />
-          <input type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder="Buscar..." />
+          <Search size={14} className={styles.pickerSearchIcon} />
+          <input
+            type="text"
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+            placeholder="Buscar jugador..."
+            className={styles.pickerSearchInput}
+            autoFocus
+          />
         </div>
+
+        {/* Filters */}
+        <div className={styles.pickerFilters}>
+          <select value={elFilter}  onChange={e => setElFilter(e.target.value)}  className={styles.pickerSelect}>
+            <option value="">Elemento</option>
+            {elements.map(el => <option key={el} value={el}>{el}</option>)}
+          </select>
+          <select value={posFilter} onChange={e => setPosFilter(e.target.value)} className={styles.pickerSelect}>
+            <option value="">Posición</option>
+            {positions.map(p => <option key={p} value={p}>{p}</option>)}
+          </select>
+        </div>
+        <p className={styles.pickerCount}>{available.length} jugadores disponibles</p>
+
+        {/* List */}
         <div className={styles.pickerList}>
-          {available.map(char => (
-            <button key={char._id || char.id} onClick={() => onSelect(slotIndex, char._id || char.id)} className={styles.pickerRow}>
-              <div className={styles.pickerAvatar} style={{ background: getElementColor(char.element) }}>
-                {char.image ? <img src={char.image} alt="" /> : char.name[0]}
-              </div>
-              <div className={styles.pickerInfo}>
-                <span className={styles.pickerName}>{char.name}</span>
-                <span className={styles.pickerMeta}>{char.element} · PWR {char.power}</span>
-              </div>
-            </button>
-          ))}
+          {available.length === 0
+            ? <p className={styles.noAvail}>No se encontraron jugadores</p>
+            : available.map(char => (
+              <button key={char.id} onClick={() => onSelect(slotIndex, char.id)} className={styles.pickerRow}>
+                <div className={styles.pickerAvatar} style={{ background: getElementColor(char.element) }}>
+                  {char.name.charAt(0)}
+                </div>
+                <div className={styles.pickerInfo}>
+                  <span className={styles.pickerName}>{char.name}</span>
+                  <span className={styles.pickerMeta}>{char.position} — {char.element}</span>
+                </div>
+                <div className={styles.pickerPower}>
+                  <span>{char.power}</span><small>PWR</small>
+                </div>
+              </button>
+            ))
+          }
         </div>
       </div>
     </div>
   )
 }
 
+// ── Página principal ────────────────────────────────────────────────
 export default function MiEquipoPage() {
   const { user } = useAuth()
-  const [characters, setCharacters] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [selectingSlot, setSelectingSlot] = useState(null)
-  const [isSaving, setIsSaving] = useState(false)
 
-  // Extraemos las funciones del Hook
+  // TODO: Reemplaza con tu fetch de personajes
+  // Ejemplo: const { data: characters = [] } = useCharacters()
+  const characters = []  // <- aquí irán los personajes de la API
+
   const {
-    teamName, setTeamName, slots, addPlayer, removePlayer,
-    handleSave: saveLocal, handleClear, loadTeamFromDB,
+    teamName, setTeamName,
+    slots,
+    addPlayer, removePlayer,
+    handleSave, handleClear,
     saved, usedIds, filledSlots, totalPower,
   } = useMyTeam(characters)
 
-  // ÚNICO useEffect para cargar todo al inicio
-  useEffect(() => {
-    async function cargarTodo() {
-      try {
-        setLoading(true)
-        // 1. Cargar Jugadores
-        const todos = await getAllPlayers()
-        setCharacters(todos)
+  const [selectingSlot, setSelectingSlot] = useState(null)
 
-        // 2. Cargar Equipo del Usuario
-        if (user?.id) {
-          const res = await fetch(`http://127.0.0.1:5000/obtener_equipo/${user.id}`)
-          if (res.ok) {
-            const data = await res.json()
-            if (data.equipo) {
-              loadTeamFromDB(data.equipo, data.nombre_equipo)
-            }
-          }
-        }
-      } catch (err) {
-        console.error("Error inicial:", err)
-      } finally {
-        setLoading(false)
-      }
-    }
-    cargarTodo()
-  }, [user?.id]) // Solo se ejecuta cuando el usuario cambia o entra
-
-  async function handleCloudSave() {
-    if (!user) return alert("Inicia sesión")
-    setIsSaving(true)
-    try {
-      const response = await fetch('http://127.0.0.1:5000/guardar_equipo', {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Authorization': localStorage.getItem('inazuma-token')
-        },
-        body: JSON.stringify({
-          user_id: user.id,
-          nombre_equipo: teamName,
-          equipo: slots.map(s => s.characterId)
-        })
-      })
-      if (response.ok) saveLocal()
-    } catch (err) {
-      alert("Error al guardar")
-    } finally { setIsSaving(false) }
+  function handleSelect(slotIndex, characterId) {
+    addPlayer(slotIndex, characterId)
+    setSelectingSlot(null)
   }
 
-  if (loading) return <div className={styles.loadingState}><Loader2 className="spinner" /></div>
-
   const GROUPS = [
-    { label: 'Portero', slots: slots.map((s, i) => ({ ...s, index: i })).filter(s => s.position === 'Portero') },
-    { label: 'Defensa', slots: slots.map((s, i) => ({ ...s, index: i })).filter(s => s.position === 'Defensa') },
+    { label: 'Portero',        slots: slots.map((s, i) => ({ ...s, index: i })).filter(s => s.position === 'Portero') },
+    { label: 'Defensa',        slots: slots.map((s, i) => ({ ...s, index: i })).filter(s => s.position === 'Defensa') },
     { label: 'Centrocampista', slots: slots.map((s, i) => ({ ...s, index: i })).filter(s => s.position === 'Centrocampista') },
-    { label: 'Delantero', slots: slots.map((s, i) => ({ ...s, index: i })).filter(s => s.position === 'Delantero') },
+    { label: 'Delantero',      slots: slots.map((s, i) => ({ ...s, index: i })).filter(s => s.position === 'Delantero') },
   ]
 
   return (
     <div className={styles.page}>
-      <header className={styles.pageTop}>
-        <h1>Mi Equipo</h1>
-        <div className={styles.topActions}>
-          <button onClick={handleClear} className={styles.btnSecondary}><Trash2 size={15}/> Limpiar</button>
-          <button onClick={handleCloudSave} className={styles.btnSave} disabled={isSaving}>
-            <Save size={15}/> {saved ? '¡Guardado!' : 'Guardar en Nube'}
-          </button>
+      {/* Header */}
+      <div className={styles.pageTop}>
+        <div>
+          <div className={styles.titleRow}>
+            <Shield size={22} style={{ color: 'var(--neon-pink)' }} />
+            <h1 className={styles.title}>Mi Equipo</h1>
+          </div>
+          <p className={styles.subtitle}>Hola, {user?.name}! Crea tu equipo ideal</p>
         </div>
-      </header>
-
-      {/* Resumen de Potencia */}
-      <div className={styles.summaryGrid}>
-        <div className={styles.summaryBox}>
-            <span>{totalPower}</span>
-            <small>POTENCIA TOTAL</small>
+        <div className={styles.topActions}>
+          <button onClick={handleClear} className={styles.btnSecondary}>
+            <Trash2 size={15} /> Limpiar
+          </button>
+          <button onClick={handleSave} className={`${styles.btnSave} ${saved ? styles.btnSaved : ''}`}>
+            <Save size={15} /> {saved ? '¡Guardado!' : 'Guardar'}
+          </button>
         </div>
       </div>
 
-      <input 
-        className={styles.nameInput} 
-        value={teamName} 
-        onChange={e => setTeamName(e.target.value)} 
-        placeholder="Nombre del equipo"
-      />
+      {/* Stats */}
+      <div className={styles.summaryGrid}>
+        <div className={styles.summaryBox}>
+          <span>{filledSlots}<span className={styles.divider}>/11</span></span>
+          <small>Jugadores</small>
+        </div>
+        <div className={styles.summaryBox}>
+          <span style={{ color: 'var(--neon-orange)' }}>{totalPower}</span>
+          <small>Potencia Total</small>
+        </div>
+        <div className={styles.summaryBox}>
+          <span style={{ color: 'var(--neon-blue)' }}>
+            {filledSlots > 0 ? Math.round(totalPower / filledSlots) : 0}
+          </span>
+          <small>Media PWR</small>
+        </div>
+      </div>
 
+      {/* Nombre */}
+      <div className={styles.nameBox}>
+        <label className={styles.nameLabel}>Nombre del equipo</label>
+        <input
+          type="text"
+          value={teamName}
+          onChange={e => setTeamName(e.target.value)}
+          className={styles.nameInput}
+        />
+      </div>
+
+      {/* Formación */}
       {GROUPS.map(group => (
         <div key={group.label} className={styles.group}>
-          <h3 className={styles.groupLabel}>{group.label}</h3>
+          <h3 className={styles.groupLabel}>
+            {group.label} ({group.slots.filter(s => s.characterId).length}/{group.slots.length})
+          </h3>
           <div className={styles.groupGrid}>
             {group.slots.map(slot => {
-              // Buscamos el personaje por ID o _ID
-              const char = characters.find(c => c._id === slot.characterId || c.id === slot.characterId)
+              const char = slot.characterId ? characters.find(c => c.id === slot.characterId) : null
               return (
                 <div key={slot.index} className={styles.slot}>
                   {char ? (
                     <div className={styles.filledSlot}>
-                      <span>{char.name}</span>
-                      <button onClick={() => removePlayer(slot.index)}><X size={12}/></button>
+                      <div className={styles.filledAvatar} style={{ background: getElementColor(char.element) }}>
+                        {char.name.charAt(0)}
+                      </div>
+                      <div className={styles.filledInfo}>
+                        <span className={styles.filledName}>{char.name}</span>
+                        <span className={styles.filledMeta}>{char.element} · PWR {char.power}</span>
+                      </div>
+                      <button
+                        onClick={() => removePlayer(slot.index)}
+                        className={styles.removeBtn}
+                        aria-label={`Quitar ${char.name}`}
+                      >
+                        <X size={14} />
+                      </button>
                     </div>
                   ) : (
-                    <button className={styles.emptySlot} onClick={() => setSelectingSlot(slot.index)}>
-                      <Plus size={16}/> Añadir
+                    <button
+                      onClick={() => setSelectingSlot(slot.index)}
+                      className={styles.emptySlot}
+                    >
+                      <Plus size={16} /> Añadir {group.label}
                     </button>
                   )}
                 </div>
@@ -180,13 +209,14 @@ export default function MiEquipoPage() {
         </div>
       ))}
 
+      {/* Picker Modal */}
       {selectingSlot !== null && (
         <CharacterPickerModal
           slotIndex={selectingSlot}
           slotPosition={slots[selectingSlot].position}
           usedIds={usedIds}
           characters={characters}
-          onSelect={(idx, id) => { addPlayer(idx, id); setSelectingSlot(null); }}
+          onSelect={handleSelect}
           onClose={() => setSelectingSlot(null)}
         />
       )}
