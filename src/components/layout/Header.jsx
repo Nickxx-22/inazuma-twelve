@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { Zap, Home, Users, Shield, Swords, Menu, X, LogIn, LogOut, Settings } from 'lucide-react'
+import { Zap, Home, Users, Shield, Swords, Menu, X, LogIn, LogOut, Settings, User } from 'lucide-react'
 import { useAuth } from '../../hooks/useAuth'
 import { logoutUser } from '../../services/authService'
 import styles from './Header.module.css'
 
 const NAV_ITEMS = [
-  { href: '/',           label: 'Inicio',    icon: Home },
+  { href: '/',          label: 'Inicio',    icon: Home },
   { href: '/personajes', label: 'Jugadores', icon: Users },
   { href: '/tecnicas',   label: 'Técnicas',  icon: Zap },
   { href: '/equipos',    label: 'Equipos',   icon: Swords },
@@ -22,6 +22,7 @@ export default function Header() {
   function handleLogout() {
     logoutUser()
     refresh()
+    setOpen(false) // Cerramos el menú móvil si estuviera abierto
     navigate('/')
   }
 
@@ -34,7 +35,7 @@ export default function Header() {
       <div className={styles.inner}>
 
         {/* Logo */}
-        <Link to="/" className={styles.logo}>
+        <Link to="/" className={styles.logo} onClick={() => setOpen(false)}>
           <div className={styles.logoIcon}><Zap size={18} /></div>
           <span className={`${styles.logoText} neon-text-blue`}>INAZUMA</span>
         </Link>
@@ -64,12 +65,15 @@ export default function Header() {
         {/* Actions */}
         <div className={styles.actions}>
           {user ? (
-            <>
-              <span className={styles.userName}>{user.name}</span>
+            <div className={styles.userControls}>
+              <div className={styles.userLabel}>
+                <User size={14} />
+                <span className={styles.userName}>{user.username}</span>
+              </div>
               <button onClick={handleLogout} className={styles.btnSecondary}>
                 <LogOut size={15} /> <span>Salir</span>
               </button>
-            </>
+            </div>
           ) : (
             <Link to="/login" className={styles.btnPrimary}>
               <LogIn size={15} /> <span>Acceder</span>
@@ -96,6 +100,11 @@ export default function Header() {
               <Icon size={16} /> {label}
             </Link>
           ))}
+          {user && (
+            <button onClick={handleLogout} className={styles.mobileLogoutBtn}>
+              <LogOut size={16} /> Cerrar Sesión
+            </button>
+          )}
         </nav>
       )}
     </header>
