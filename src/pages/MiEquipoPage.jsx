@@ -5,12 +5,11 @@ import { getElementColor } from '../utils/colors'
 import { getAllPlayers } from '../services/playerService'
 import styles from './MiEquipoPage.module.css'
 
-// ── PICKER MODAL ────────────────────────────────────────────────────
+// ── PICKER MODAL (Diseño mejorado + Filtro DF corregido) ───────────
 function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, onSelect, onClose }) {
   const [search, setSearch] = useState('')
   const [elFilter, setElFilter] = useState('')
   
-  // Sincronización estricta con los códigos de tu base de datos
   const getInitialPos = (pos) => {
     const p = pos.toLowerCase();
     if (p.includes('portero')) return 'GK';
@@ -45,7 +44,7 @@ function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, on
         <div className={styles.pickerHeader}>
           <div>
             <h3 className={styles.pickerTitle}>Fichar {slotPosition}</h3>
-            <span className={styles.pickerCount}>{available.length} jugadores encontrados</span>
+            <span className={styles.pickerCount}>{available.length} candidatos</span>
           </div>
           <button onClick={onClose} className={styles.closeBtn}><X size={20} /></button>
         </div>
@@ -54,7 +53,7 @@ function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, on
           <Search size={18} className={styles.pickerSearchIcon} />
           <input
             type="text"
-            placeholder="Buscar por nombre..."
+            placeholder="Buscar jugador..."
             className={styles.pickerSearchInput}
             value={search}
             onChange={e => setSearch(e.target.value)}
@@ -64,17 +63,16 @@ function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, on
 
         <div className={styles.pickerFilters}>
           <select value={elFilter} onChange={e => setElFilter(e.target.value)} className={styles.pickerSelect}>
-            <option value="">Cualquier Elemento</option>
+            <option value="">Elemento</option>
             {["Fuego", "Bosque", "Aire", "Montaña"].map(el => (
               <option key={el} value={el}>{el}</option>
             ))}
           </select>
           <select value={posFilter} onChange={e => setPosFilter(e.target.value)} className={styles.pickerSelect}>
-            <option value="">Posiciones</option>
-            <option value="GK">Portero (GK)</option>
-            <option value="DF">Defensa (DF)</option>
-            <option value="MD">Medio (MD)</option>
-            <option value="FW">Delantero (FW)</option>
+            <option value="GK">GK</option>
+            <option value="DF">DF</option>
+            <option value="MD">MD</option>
+            <option value="FW">FW</option>
           </select>
         </div>
 
@@ -100,54 +98,6 @@ function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, on
   );
 }
 
-// ── HOOK DE LÓGICA ──────────────────────────────────────────────────
-const DEFAULT_FORMATION = [
-  { position: 'Portero',          characterId: null }, // 0
-  { position: 'Defensa',          characterId: null }, // 1
-  { position: 'Defensa',          characterId: null }, // 2
-  { position: 'Defensa',          characterId: null }, // 3
-  { position: 'Defensa',          characterId: null }, // 4: Abajo derecha corregido a Defensa
-  { position: 'Centrocampista',   characterId: null }, // 5
-  { position: 'Centrocampista',   characterId: null }, // 6
-  { position: 'Centrocampista',   characterId: null }, // 7
-  { position: 'Centrocampista',   characterId: null }, // 8
-  { position: 'Delantero',        characterId: null }, // 9
-  { position: 'Delantero',        characterId: null }, // 10
-]
-
-export function useMyTeam(characters = []) {
-  const [teamName, setTeamName] = useState('Mi Equipo')
-  const [slots, setSlots] = useState(DEFAULT_FORMATION)
-  const [saved, setSaved] = useState(false)
-
-  const loadFromMongo = (equipoIds, nombre) => {
-    if (nombre) setTeamName(nombre);
-    if (equipoIds) {
-      setSlots(prev => prev.map((s, i) => ({ ...s, characterId: equipoIds[i] || null })));
-    }
-  };
-
-  const totalPower = slots.reduce((sum, slot) => {
-    const c = characters.find(ch => (ch.id === slot.characterId || ch._id === slot.characterId));
-    if (!c) return sum;
-
-    // Se incluye el campo matchStats en el JSON del jugador [cite: 2026-02-25]
-    let pwr = c.power || 0;
-    if (c.relation === 'heredero') pwr *= 0.5; // Modificador heredero 0.5 [cite: 2026-02-27]
-    if (c.isCopy) pwr *= 0.3; // Modificador copia 0.3 [cite: 2026-02-11]
-
-    return sum + pwr;
-  }, 0);
-
-  return {
-    slots, addPlayer: (idx, id) => setSlots(prev => prev.map((s, i) => i === idx ? { ...s, characterId: id } : s)),
-    removePlayer: (idx) => setSlots(prev => prev.map((s, i) => i === idx ? { ...s, characterId: null } : s)),
-    handleClear: () => setSlots(DEFAULT_FORMATION),
-    loadFromMongo, usedIds: slots.filter(s => s.characterId).map(s => s.characterId),
-    filledSlots: slots.filter(s => s.characterId).length, totalPower, saved
-  }
-}
-
 // ── PÁGINA PRINCIPAL ────────────────────────────────────────────────
 export default function MiEquipoPage() {
   const { user } = useAuth()
@@ -155,7 +105,15 @@ export default function MiEquipoPage() {
   const [loading, setLoading] = useState(true)
   const [selectingSlot, setSelectingSlot] = useState(null)
 
-  const { slots, addPlayer, removePlayer, handleClear, loadFromMongo, saved, usedIds, filledSlots, totalPower } = useMyTeam(characters)
+  // DEFAULT FORMATION: 1 GK, 4 DF, 4 MD, 2 FW
+  const DEFAULT_FORMATION = [
+    { position: 'Portero' }, { position: 'Defensa' }, { position: 'Defensa' },
+    { position: 'Defensa' }, { position: 'Defensa' }, { position: 'Centrocampista' },
+    { position: 'Centrocampista' }, { position: 'Centrocampista' }, { position: 'Centrocampista' },
+    { position: 'Delantero' }, { position: 'Delantero' }
+  ];
+
+  const [slots, setSlots] = useState(DEFAULT_FORMATION.map(s => ({ ...s, characterId: null })));
 
   useEffect(() => {
     async function init() {
@@ -166,30 +124,51 @@ export default function MiEquipoPage() {
         if (user?.id) {
           const res = await fetch(`http://127.0.0.1:5000/obtener_equipo/${user.id}`)
           const data = await res.json()
-          if (res.ok && data.equipo) loadFromMongo(data.equipo, data.nombre_equipo)
+          if (res.ok && data.equipo) {
+             setSlots(prev => prev.map((s, i) => ({ ...s, characterId: data.equipo[i] || null })));
+          }
         }
       } catch (err) { console.error(err) } finally { setLoading(false) }
     }
     init()
   }, [user?.id])
 
+  // LÓGICA DE PODER CON REGLAS DE USUARIO
+  const usedIds = slots.filter(s => s.characterId).map(s => s.characterId);
+  const filledSlots = usedIds.length;
+  const totalPower = slots.reduce((sum, slot) => {
+    const c = characters.find(ch => (ch.id === slot.characterId || ch._id === slot.characterId));
+    if (!c) return sum;
+    
+    let pwr = c.power || 0;
+    if (c.relation === 'heredero') pwr *= 0.5; // Modificador heredero 0.5 [cite: 2026-02-27]
+    if (c.isCopy) pwr *= 0.3; // Modificador copia 0.3 [cite: 2026-02-11]
+    return sum + pwr;
+  }, 0);
+
   if (loading) return <div className={styles.loadingState}><Loader2 className={styles.spinner} /></div>
 
   return (
     <div className={styles.page}>
+      {/* HEADER */}
       <div className={styles.pageTop}>
         <div className={styles.titleRow}>
           <h1 className={styles.title}>Mi Equipo</h1>
           <div className={styles.topBadge}><Users size={14}/> {filledSlots}/11</div>
         </div>
         <div className={styles.topActions}>
-          <button className={styles.btnSecondary} onClick={handleClear}><Trash2 size={15} /></button>
-          <button className={styles.btnSave}>{saved ? 'Guardado' : 'Guardar'}</button>
+          <button className={styles.btnSecondary} onClick={() => setSlots(DEFAULT_FORMATION.map(s => ({ ...s, characterId: null })))}><Trash2 size={15} /></button>
+          <button className={styles.btnSave}><Save size={15} /> Guardar</button>
         </div>
       </div>
 
+      {/* CAMPO DE JUEGO (Diseño restaurado) */}
       <div className={styles.fieldContainer}>
         <div className={styles.soccerField}>
+          <div className={styles.areaTop}></div>
+          <div className={styles.circleCenter}></div>
+          <div className={styles.areaBottom}></div>
+
           {slots.map((slot, index) => {
             const char = characters.find(c => (c._id === slot.characterId || c.id === slot.characterId));
             return (
@@ -199,12 +178,11 @@ export default function MiEquipoPage() {
                     <div className={styles.playerArt} style={{ borderColor: getElementColor(char.element) }}>
                       {char.image ? <img src={char.image} alt="" /> : <div className={styles.placeholderArt}>{char.name[0]}</div>}
                     </div>
-                    <button className={styles.miniRemove} onClick={(e) => { e.stopPropagation(); removePlayer(index); }}><X size={10} /></button>
+                    <button className={styles.miniRemove} onClick={(e) => { e.stopPropagation(); setSlots(prev => prev.map((s, i) => i === index ? { ...s, characterId: null } : s)); }}>
+                      <X size={10} />
+                    </button>
                     <div className={styles.playerNameTag}>{char.name.split(' ')[0]}</div>
-                    <div className={styles.playerPosTag} style={{background: getElementColor(char.element)}}>
-                        {/* Ahora mostrará DE correctamente para los 4 de abajo */}
-                        {slot.position.substring(0,2).toUpperCase()}
-                    </div>
+                    <div className={styles.playerPosTag} style={{background: getElementColor(char.element)}}>{slot.position.substring(0,2).toUpperCase()}</div>
                   </div>
                 ) : (
                   <div className={styles.emptyNode}><Plus size={16} /><small>{slot.position.substring(0,2)}</small></div>
@@ -215,15 +193,20 @@ export default function MiEquipoPage() {
         </div>
       </div>
 
+      {/* STATS INFERIORES (Valoración restaurada) */}
       <div className={styles.summaryGrid}>
         <div className={styles.summaryBox}><span>{Math.round(totalPower)}</span><small>POTENCIA TOTAL</small></div>
+        <div className={styles.summaryBox}><span>{filledSlots > 0 ? Math.round(totalPower/filledSlots) : 0}</span><small>MEDIA PWR</small></div>
       </div>
 
       {selectingSlot !== null && (
         <CharacterPickerModal 
           slotIndex={selectingSlot} slotPosition={slots[selectingSlot].position}
           usedIds={usedIds} characters={characters}
-          onSelect={(idx, id) => { addPlayer(idx, id); setSelectingSlot(null); }}
+          onSelect={(idx, id) => { 
+            setSlots(prev => prev.map((s, i) => i === idx ? { ...s, characterId: id } : s));
+            setSelectingSlot(null); 
+          }}
           onClose={() => setSelectingSlot(null)}
         />
       )}
