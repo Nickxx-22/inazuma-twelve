@@ -1,11 +1,11 @@
 import { useState, useEffect, useMemo } from 'react'
-import { Plus, X, Save, Trash2, Search, Loader2, Users } from 'lucide-react'
+import { Plus, X, Save, Trash2, Search, Loader2, Users, Check } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { getElementColor } from '../utils/colors'
 import { getAllPlayers } from '../services/playerService'
 import styles from './MiEquipoPage.module.css'
 
-// ── PICKER MODAL (Diseño mejorado + Filtro DF corregido) ───────────
+// ── PICKER MODAL ──────────────────────────────────────────────────
 function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, onSelect, onClose }) {
   const [search, setSearch] = useState('')
   const [elFilter, setElFilter] = useState('')
@@ -104,8 +104,9 @@ export default function MiEquipoPage() {
   const [characters, setCharacters] = useState([])
   const [loading, setLoading] = useState(true)
   const [selectingSlot, setSelectingSlot] = useState(null)
+  const [isSaving, setIsSaving] = useState(false)
+  const [saveStatus, setSaveStatus] = useState('idle') // idle, success, error
 
-  // DEFAULT FORMATION: 1 GK, 4 DF, 4 MD, 2 FW
   const DEFAULT_FORMATION = [
     { position: 'Portero' }, { position: 'Defensa' }, { position: 'Defensa' },
     { position: 'Defensa' }, { position: 'Defensa' }, { position: 'Centrocampista' },
@@ -133,16 +134,47 @@ export default function MiEquipoPage() {
     init()
   }, [user?.id])
 
-  // LÓGICA DE PODER CON REGLAS DE USUARIO
+  // --- FUNCIÓN PARA GUARDAR EN EL BACKEND ---
+  const handleSaveTeam = async () => {
+    if (!user?.id) return alert("Inicia sesión para guardar");
+    
+    setIsSaving(true);
+    setSaveStatus('idle');
+
+    try {
+      const equipoIds = slots.map(s => s.characterId);
+      const res = await fetch('http://127.0.0.1:5000/guardar_equipo', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          user_id: user.id,
+          equipo: equipoIds,
+          nombre_equipo: "Mi Equipo Real" // Puedes hacerlo dinámico después
+        })
+      });
+
+      if (res.ok) {
+        setSaveStatus('success');
+        setTimeout(() => setSaveStatus('idle'), 3000);
+      } else {
+        setSaveStatus('error');
+      }
+    } catch (error) {
+      console.error("Error guardando:", error);
+      setSaveStatus('error');
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
   const usedIds = slots.filter(s => s.characterId).map(s => s.characterId);
   const filledSlots = usedIds.length;
   const totalPower = slots.reduce((sum, slot) => {
     const c = characters.find(ch => (ch.id === slot.characterId || ch._id === slot.characterId));
     if (!c) return sum;
-    
     let pwr = c.power || 0;
-    if (c.relation === 'heredero') pwr *= 0.5; // Modificador heredero 0.5 [cite: 2026-02-27]
-    if (c.isCopy) pwr *= 0.3; // Modificador copia 0.3 [cite: 2026-02-11]
+    if (c.relation === 'heredero') pwr *= 0.5;
+    if (c.isCopy) pwr *= 0.3;
     return sum + pwr;
   }, 0);
 
@@ -150,19 +182,37 @@ export default function MiEquipoPage() {
 
   return (
     <div className={styles.page}>
-      {/* HEADER */}
       <div className={styles.pageTop}>
         <div className={styles.titleRow}>
           <h1 className={styles.title}>Mi Equipo</h1>
           <div className={styles.topBadge}><Users size={14}/> {filledSlots}/11</div>
         </div>
         <div className={styles.topActions}>
-          <button className={styles.btnSecondary} onClick={() => setSlots(DEFAULT_FORMATION.map(s => ({ ...s, characterId: null })))}><Trash2 size={15} /></button>
-          <button className={styles.btnSave}><Save size={15} /> Guardar</button>
+          <button 
+            className={styles.btnSecondary} 
+            onClick={() => setSlots(DEFAULT_FORMATION.map(s => ({ ...s, characterId: null })))}
+            disabled={isSaving}
+          >
+            <Trash2 size={15} />
+          </button>
+          
+          <button 
+            className={`${styles.btnSave} ${saveStatus === 'success' ? styles.btnSuccess : ''}`} 
+            onClick={handleSaveTeam}
+            disabled={isSaving}
+          >
+            {isSaving ? (
+              <Loader2 size={15} className={styles.spinner} />
+            ) : saveStatus === 'success' ? (
+              <Check size={15} />
+            ) : (
+              <Save size={15} />
+            )}
+            <span>{saveStatus === 'success' ? '¡Guardado!' : 'Guardar'}</span>
+          </button>
         </div>
       </div>
 
-      {/* CAMPO DE JUEGO (Diseño restaurado) */}
       <div className={styles.fieldContainer}>
         <div className={styles.soccerField}>
           <div className={styles.areaTop}></div>
@@ -193,10 +243,15 @@ export default function MiEquipoPage() {
         </div>
       </div>
 
-      {/* STATS INFERIORES (Valoración restaurada) */}
       <div className={styles.summaryGrid}>
-        <div className={styles.summaryBox}><span>{Math.round(totalPower)}</span><small>POTENCIA TOTAL</small></div>
-        <div className={styles.summaryBox}><span>{filledSlots > 0 ? Math.round(totalPower/filledSlots) : 0}</span><small>MEDIA PWR</small></div>
+        <div className={styles.summaryBox}>
+          <span>{Math.round(totalPower)}</span>
+          <small>POTENCIA TOTAL</small>
+        </div>
+        <div className={styles.summaryBox}>
+          <span>{filledSlots > 0 ? Math.round(totalPower/filledSlots) : 0}</span>
+          <small>MEDIA PWR</small>
+        </div>
       </div>
 
       {selectingSlot !== null && (
