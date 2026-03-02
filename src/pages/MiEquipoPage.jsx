@@ -67,7 +67,7 @@ export default function MiEquipoPage() {
           <div className={styles.circleCenter}></div>
           <div className={styles.areaBottom}></div>
 
-          {/* Renderizado de Slots por Posición */}
+          {/* ... dentro de soccerField ... */}
           {slots.map((slot, index) => {
             const char = slot.characterId ? characters.find(c => (c._id === slot.characterId || c.id === slot.characterId)) : null;
             return (
@@ -78,17 +78,25 @@ export default function MiEquipoPage() {
               >
                 {char ? (
                   <div className={styles.playerNode}>
-                    <div className={styles.playerArt} style={{ borderBottomColor: getElementColor(char.element) }}>
+                    {/* Círculo con borde de color de elemento */}
+                    <div className={styles.playerArt} style={{ borderColor: getElementColor(char.element) }}>
                       {char.image ? <img src={char.image} alt="" /> : <div className={styles.placeholderArt}>{char.name[0]}</div>}
-                      <button className={styles.miniRemove} onClick={(e) => { e.stopPropagation(); removePlayer(index); }}>
-                        <X size={10} />
-                      </button>
                     </div>
+                    {/* Botón eliminar mini, ahora fuera de playerArt para mejor hover */}
+                    <button className={styles.miniRemove} onClick={(e) => { e.stopPropagation(); removePlayer(index); }}>
+                      <X size={10} />
+                    </button>
+                    
+                    {/* Etiquetas de texto debajo */}
                     <div className={styles.playerNameTag}>{char.name.split(' ')[0]}</div>
                     <div className={styles.playerPosTag} style={{background: getElementColor(char.element)}}>{slot.position.substring(0,2).toUpperCase()}</div>
                   </div>
                 ) : (
-                  <div className={styles.emptyNode}><Plus size={20} /><small>{slot.position.substring(0,2)}</small></div>
+                  // Nodo vacío ajustado
+                  <div className={styles.emptyNode}>
+                    <Plus size={16} />
+                    <small>{slot.position.substring(0,2)}</small>
+                  </div>
                 )}
               </div>
             );
