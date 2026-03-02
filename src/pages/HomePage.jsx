@@ -1,10 +1,12 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Users, Zap, Swords, Shield, ArrowRight, Star, TrendingUp } from 'lucide-react'
+import { Users, Zap, Swords, Shield, ArrowRight, Star, Loader2, Heart } from 'lucide-react'
+import { useAuth } from '../hooks/useAuth'
+import { getAllPlayers } from '../services/playerService'
 import SectionHeader from '../components/common/SectionHeader'
 import CharacterCard from '../components/players/CharacterCard'
 import styles from './HomePage.module.css'
 
-// ─── Datos de navegación de sección ─────────────────────────────
 const SECTIONS = [
   { title: 'Jugadores',  desc: 'Explora todos los personajes',      href: '/personajes', icon: Users,  color: '#3d7eff', bg: 'rgba(61,126,255,0.1)'  },
   { title: 'Técnicas',   desc: 'Descubre todas las supertécnicas',  href: '/tecnicas',   icon: Zap,    color: '#ff6b35', bg: 'rgba(255,107,53,0.1)'  },
@@ -13,10 +15,47 @@ const SECTIONS = [
 ]
 
 export default function HomePage() {
-  // TODO: Reemplaza estos arrays con datos reales de tu API
-  // Ejemplo: const { data: featuredCharacters } = useFeaturedCharacters()
-  const featuredCharacters = []  // <- aquí irán los personajes destacados
-  const topTechniques      = []  // <- aquí irán las técnicas top
+  const { user } = useAuth()
+  const [favoriteCharacters, setFavoriteCharacters] = useState([])
+  const [loadingFavs, setLoadingFavs] = useState(true)
+
+  useEffect(() => {
+    async function loadFavorites() {
+      // Si no hay usuario, no buscamos favoritos
+      if (!user) {
+        setLoadingFavs(false)
+        return
+      }
+
+      try {
+        setLoadingFavs(true)
+        const userId = user.id || user._id
+        
+        // Cargamos todos los jugadores y los datos del usuario para cruzar los IDs
+        const [allPlayers, userRes] = await Promise.all([
+          getAllPlayers(),
+          fetch(`http://127.0.0.1:5000/obtener_usuario/${userId}`)
+        ])
+
+        const userData = await userRes.json()
+        
+        if (userRes.ok && userData.usuario?.favoritos) {
+          const favIds = userData.usuario.favoritos
+          // Filtramos los jugadores que están en la lista de favoritos del usuario
+          const filtered = allPlayers.filter(char => 
+            favIds.includes(char._id) || favIds.includes(char.id)
+          )
+          setFavoriteCharacters(filtered)
+        }
+      } catch (err) {
+        console.error("Error cargando favoritos en Home:", err)
+      } finally {
+        setLoadingFavs(false)
+      }
+    }
+
+    loadFavorites()
+  }, [user])
 
   return (
     <div className={styles.page}>
@@ -37,8 +76,8 @@ export default function HomePage() {
           <Link to="/personajes" className={styles.btnPrimary}>
             <Users size={16} /> Ver Jugadores
           </Link>
-          <Link to="/tecnicas" className={styles.btnSecondary}>
-            <Zap size={16} /> Ver Técnicas
+          <Link to="/mi-equipo" className={styles.btnSecondary}>
+            <Shield size={16} /> Mi Equipo
           </Link>
         </div>
       </section>
@@ -59,52 +98,37 @@ export default function HomePage() {
         ))}
       </section>
 
-      {/* ── Personajes Destacados ──────────────────────────────── */}
+      {/* ── Jugadores Favoritos ────────────────────────────────── */}
       <section className={styles.section}>
         <SectionHeader
-          title="Jugadores Destacados"
-          subtitle="Los mejores del universo Inazuma"
+          title="Jugadores Favoritos"
+          subtitle="Tus estrellas personalizadas del campo"
           href="/personajes"
         />
-        {featuredCharacters.length === 0 ? (
+
+        {!user ? (
           <div className={styles.placeholder}>
-            <Users size={32} />
-            <p>Los personajes aparecerán aquí cuando conectes tu API</p>
+            <Heart size={32} style={{ color: '#ff4d4d' }} />
+            <p>Inicia sesión para ver tus jugadores favoritos aquí</p>
+            <Link to="/login" className={styles.miniLink}>Iniciar sesión</Link>
+          </div>
+        ) : loadingFavs ? (
+          <div className={styles.placeholder}>
+            <Loader2 size={32} className={styles.spin} />
+            <p>Cargando tus favoritos...</p>
+          </div>
+        ) : favoriteCharacters.length === 0 ? (
+          <div className={styles.placeholder}>
+            <Heart size={32} />
+            <p>Aún no tienes jugadores favoritos. ¡Explora y añade algunos!</p>
+            <Link to="/personajes" className={styles.btnSecondary} style={{ marginTop: '1rem' }}>
+              Explorar Jugadores
+            </Link>
           </div>
         ) : (
           <div className={styles.characterGrid}>
-            {featuredCharacters.map(char => (
-              <CharacterCard key={char.id} character={char} />
-            ))}
-          </div>
-        )}
-      </section>
-
-      {/* ── Técnicas Top ──────────────────────────────────────── */}
-      <section className={styles.section}>
-        <SectionHeader
-          title="Técnicas Más Poderosas"
-          subtitle="Las supertécnicas con mayor poder"
-          href="/tecnicas"
-        />
-        {topTechniques.length === 0 ? (
-          <div className={styles.placeholder}>
-            <Zap size={32} />
-            <p>Las técnicas aparecerán aquí cuando conectes tu API</p>
-          </div>
-        ) : (
-          <div className={styles.techGrid}>
-            {topTechniques.map((tech, i) => (
-              <Link key={tech.id} to="/tecnicas" className={`${styles.techCard} card-hover`}>
-                <div className={styles.techRank}>{i + 1}</div>
-                <div className={styles.techInfo}>
-                  <span className={styles.techName}>{tech.name}</span>
-                  <span className={styles.techSub}>{tech.type} - {tech.element}</span>
-                </div>
-                <div className={styles.techPower}>
-                  <TrendingUp size={14} /> {tech.basePower}
-                </div>
-              </Link>
+            {favoriteCharacters.map(char => (
+              <CharacterCard key={char._id || char.id} character={char} />
             ))}
           </div>
         )}
