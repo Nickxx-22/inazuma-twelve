@@ -1,29 +1,28 @@
-import { useState, useEffect } from 'react'
-import { Shield, Plus, X, Save, Trash2, Search, Loader2 } from 'lucide-react'
+import { useState } from 'react'
+import { Shield, Plus, X, Save, Trash2, Search } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { useMyTeam } from '../hooks/useMyTeam'
 import { getElementColor } from '../utils/colors'
 import { elements, positions } from '../data/constants'
-import { getAllPlayers } from '../services/playerService' // Crea este servicio si no existe
 import styles from './MiEquipoPage.module.css'
 
 // ── Picker Modal ────────────────────────────────────────────────────
 function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, onSelect, onClose }) {
-  const [search, setSearch] = useState('')
+  const [search,  setSearch]  = useState('')
   const [elFilter, setElFilter] = useState('')
-  const [posFilter, setPosFilter] = useState(slotPosition || '') // Filtro inteligente por defecto
+  const [posFilter, setPosFilter] = useState('')
 
   const available = characters
     .filter(c => !usedIds.includes(c.id))
     .filter(c => {
       const q = search.toLowerCase()
       return (
-        (!search    || c.name.toLowerCase().includes(q) || (c.japaneseName && c.japaneseName.toLowerCase().includes(q))) &&
+        (!search    || c.name.toLowerCase().includes(q) || c.japaneseName?.toLowerCase().includes(q)) &&
         (!elFilter  || c.element  === elFilter) &&
         (!posFilter || c.position === posFilter)
       )
     })
-    .sort((a, b) => (b.power || 0) - (a.power || 0))
+    .sort((a, b) => b.power - a.power)
 
   return (
     <div className={styles.overlay} onClick={onClose}>
@@ -36,6 +35,7 @@ function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, on
           <button onClick={onClose} className={styles.closeBtn}><X size={18} /></button>
         </div>
 
+        {/* Search */}
         <div className={styles.pickerSearch}>
           <Search size={14} className={styles.pickerSearchIcon} />
           <input
@@ -48,8 +48,9 @@ function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, on
           />
         </div>
 
+        {/* Filters */}
         <div className={styles.pickerFilters}>
-          <select value={elFilter} onChange={e => setElFilter(e.target.value)} className={styles.pickerSelect}>
+          <select value={elFilter}  onChange={e => setElFilter(e.target.value)}  className={styles.pickerSelect}>
             <option value="">Elemento</option>
             {elements.map(el => <option key={el} value={el}>{el}</option>)}
           </select>
@@ -60,13 +61,14 @@ function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, on
         </div>
         <p className={styles.pickerCount}>{available.length} jugadores disponibles</p>
 
+        {/* List */}
         <div className={styles.pickerList}>
           {available.length === 0
             ? <p className={styles.noAvail}>No se encontraron jugadores</p>
             : available.map(char => (
               <button key={char.id} onClick={() => onSelect(slotIndex, char.id)} className={styles.pickerRow}>
                 <div className={styles.pickerAvatar} style={{ background: getElementColor(char.element) }}>
-                  {char.image ? <img src={char.image} alt={char.name} /> : char.name.charAt(0)}
+                  {char.name.charAt(0)}
                 </div>
                 <div className={styles.pickerInfo}>
                   <span className={styles.pickerName}>{char.name}</span>
@@ -87,85 +89,24 @@ function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, on
 // ── Página principal ────────────────────────────────────────────────
 export default function MiEquipoPage() {
   const { user } = useAuth()
-  const [characters, setCharacters] = useState([])
-  const [loading, setLoading] = useState(true)
 
-  // Carga real de jugadores desde tu API de Flask
-  useEffect(() => {
-  const cargarDatos = async () => {
-    try {
-      // 1. Cargamos todos los personajes para el Picker
-      const todosLosJugadores = await getAllPlayers();
-      setCharacters(todosLosJugadores);
-
-      // 2. Si hay usuario, traemos su equipo de la DB
-      if (user?.id) {
-        const res = await fetch(`http://127.0.0.1:5000/obtener_equipo/${user.id}`);
-        const data = await res.json();
-        
-        if (res.ok && data.equipo.length > 0) {
-          // Aquí usamos una función de tu hook useMyTeam para "setear" los slots
-          // Asumiendo que tu hook tiene una función llamada 'loadTeam'
-          loadTeam(data.equipo, data.nombre_equipo);
-        }
-      }
-    } catch (error) {
-      console.error("Error cargando datos:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
-  cargarDatos();
-}, [user]);
+  // TODO: Reemplaza con tu fetch de personajes
+  // Ejemplo: const { data: characters = [] } = useCharacters()
+  const characters = []  // <- aquí irán los personajes de la API
 
   const {
     teamName, setTeamName,
     slots,
     addPlayer, removePlayer,
-    handleSave: saveLocal, handleClear,
+    handleSave, handleClear,
     saved, usedIds, filledSlots, totalPower,
   } = useMyTeam(characters)
 
   const [selectingSlot, setSelectingSlot] = useState(null)
-  const [isSaving, setIsSaving] = useState(false)
 
   function handleSelect(slotIndex, characterId) {
     addPlayer(slotIndex, characterId)
     setSelectingSlot(null)
-  }
-
-  // Persistencia en base de datos
-  async function handleCloudSave() {
-    if (!user) {
-      alert("Debes iniciar sesión para guardar tu equipo");
-      return;
-    }
-
-    setIsSaving(true);
-    try {
-      const response = await fetch('http://127.0.0.1:5000/guardar_equipo', {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Authorization': localStorage.getItem('inazuma-token')
-        },
-        body: JSON.stringify({
-          user_id: user.id,
-          nombre_equipo: teamName,
-          equipo: slots.map(s => s.characterId) // Array de IDs
-        })
-      });
-
-      if (response.ok) {
-        saveLocal(); // Actualiza el estado visual de "Guardado"
-      } else {
-        throw new Error("Error al guardar en el servidor");
-      }
-    } catch (err) {
-      alert(err.message);
-    } finally {
-      setIsSaving(false);
-    }
   }
 
   const GROUPS = [
@@ -175,40 +116,28 @@ export default function MiEquipoPage() {
     { label: 'Delantero',      slots: slots.map((s, i) => ({ ...s, index: i })).filter(s => s.position === 'Delantero') },
   ]
 
-  if (loading) {
-    return (
-      <div className={styles.loadingState}>
-        <Loader2 className="spinner" size={40} />
-        <p>Cargando plantilla...</p>
-      </div>
-    )
-  }
-
   return (
     <div className={styles.page}>
+      {/* Header */}
       <div className={styles.pageTop}>
         <div>
           <div className={styles.titleRow}>
             <Shield size={22} style={{ color: 'var(--neon-pink)' }} />
             <h1 className={styles.title}>Mi Equipo</h1>
           </div>
-          <p className={styles.subtitle}>Hola, {user?.username}! Crea tu equipo ideal</p>
+          <p className={styles.subtitle}>Hola, {user?.name}! Crea tu equipo ideal</p>
         </div>
         <div className={styles.topActions}>
           <button onClick={handleClear} className={styles.btnSecondary}>
             <Trash2 size={15} /> Limpiar
           </button>
-          <button 
-            onClick={handleCloudSave} 
-            className={`${styles.btnSave} ${saved ? styles.btnSaved : ''}`}
-            disabled={isSaving}
-          >
-            {isSaving ? <Loader2 size={15} className="spinner" /> : <Save size={15} />}
-            {saved ? '¡Guardado!' : 'Guardar'}
+          <button onClick={handleSave} className={`${styles.btnSave} ${saved ? styles.btnSaved : ''}`}>
+            <Save size={15} /> {saved ? '¡Guardado!' : 'Guardar'}
           </button>
         </div>
       </div>
 
+      {/* Stats */}
       <div className={styles.summaryGrid}>
         <div className={styles.summaryBox}>
           <span>{filledSlots}<span className={styles.divider}>/11</span></span>
@@ -226,6 +155,7 @@ export default function MiEquipoPage() {
         </div>
       </div>
 
+      {/* Nombre */}
       <div className={styles.nameBox}>
         <label className={styles.nameLabel}>Nombre del equipo</label>
         <input
@@ -236,6 +166,7 @@ export default function MiEquipoPage() {
         />
       </div>
 
+      {/* Formación */}
       {GROUPS.map(group => (
         <div key={group.label} className={styles.group}>
           <h3 className={styles.groupLabel}>
@@ -249,7 +180,7 @@ export default function MiEquipoPage() {
                   {char ? (
                     <div className={styles.filledSlot}>
                       <div className={styles.filledAvatar} style={{ background: getElementColor(char.element) }}>
-                         {char.image ? <img src={char.image} alt={char.name} /> : char.name.charAt(0)}
+                        {char.name.charAt(0)}
                       </div>
                       <div className={styles.filledInfo}>
                         <span className={styles.filledName}>{char.name}</span>
@@ -278,6 +209,7 @@ export default function MiEquipoPage() {
         </div>
       ))}
 
+      {/* Picker Modal */}
       {selectingSlot !== null && (
         <CharacterPickerModal
           slotIndex={selectingSlot}
