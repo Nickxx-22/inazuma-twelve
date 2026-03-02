@@ -1,46 +1,44 @@
-import { useState, useEffect } from 'react'
-import { Shield, Plus, X, Save, Trash2, Search, Loader2, Download, Users } from 'lucide-react'
+import { useState, useEffect, useMemo } from 'react'
+import { Plus, X, Save, Trash2, Search, Loader2, Users } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { useMyTeam } from '../hooks/useMyTeam'
 import { getElementColor } from '../utils/colors'
 import { getAllPlayers } from '../services/playerService'
-import { elements, positions } from '../data/constants'
 import styles from './MiEquipoPage.module.css'
 
-// ── PICKER MODAL ────────────────────────────────────────────────────
+// ── PICKER MODAL (Sincronizado con códigos de API) ──────────────────
 function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, onSelect, onClose }) {
   const [search, setSearch] = useState('')
   const [elFilter, setElFilter] = useState('')
   
-  // Mapeo inteligente de posiciones para el filtro inicial
+  // Mapeo para que el modal use FW, MD, DF, GK automáticamente
   const getInitialPos = (pos) => {
-    if (pos.includes('Portero')) return 'Portero';
-    if (pos.includes('Defensa')) return 'Defensa';
-    if (pos.includes('Centrocampista')) return 'Centrocampista';
-    if (pos.includes('Delantero')) return 'Delantero';
+    const p = pos.toLowerCase();
+    if (p.includes('portero')) return 'GK';
+    if (p.includes('defensa')) return 'DF';
+    if (p.includes('centro')) return 'MD';
+    if (p.includes('delantero')) return 'FW';
     return '';
   };
 
   const [posFilter, setPosFilter] = useState(getInitialPos(slotPosition))
 
-  const available = characters.filter(c => {
-    // 1. Verificar que no esté ya seleccionado (usando ambos formatos de ID)
-    const isUsed = usedIds.some(id => id === c._id || id === c.id);
-    if (isUsed) return false;
+  const available = useMemo(() => {
+    return characters.filter(c => {
+      const isUsed = usedIds.some(id => id === c._id || id === c.id);
+      if (isUsed) return false;
 
-    // 2. Filtros de búsqueda y selectores
-    const q = search.toLowerCase();
-    const matchesSearch = !search || 
-                         c.name.toLowerCase().includes(q) || 
-                         (c.japaneseName && c.japaneseName.toLowerCase().includes(q));
-    
-    const matchesElement = !elFilter || c.element === elFilter;
-    
-    // El filtro de posición: si el usuario pone "Todas", mostramos todos
-    const matchesPosition = !posFilter || c.position === posFilter;
+      const q = search.toLowerCase();
+      const matchesSearch = !search || 
+                           c.name.toLowerCase().includes(q) || 
+                           (c.japaneseName && c.japaneseName.toLowerCase().includes(q));
+      
+      const matchesElement = !elFilter || c.element === elFilter;
+      const matchesPosition = !posFilter || c.position === posFilter;
 
-    return matchesSearch && matchesElement && matchesPosition;
-  }).sort((a, b) => (b.power || 0) - (a.power || 0));
+      return matchesSearch && matchesElement && matchesPosition;
+    }).sort((a, b) => (b.power || 0) - (a.power || 0));
+  }, [characters, usedIds, search, elFilter, posFilter]);
 
   return (
     <div className={styles.overlay} onClick={onClose}>
@@ -74,9 +72,10 @@ function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, on
           </select>
           <select value={posFilter} onChange={e => setPosFilter(e.target.value)} className={styles.pickerSelect}>
             <option value="">Todas las Posiciones</option>
-            {["Portero", "Defensa", "Centrocampista", "Delantero"].map(p => (
-              <option key={p} value={p}>{p}</option>
-            ))}
+            <option value="GK">Portero (GK)</option>
+            <option value="DF">Defensa (DF)</option>
+            <option value="MD">Medio (MD)</option>
+            <option value="FW">Delantero (FW)</option>
           </select>
         </div>
 
@@ -84,8 +83,7 @@ function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, on
           {available.length === 0 ? (
             <div className={styles.noAvail}>
               <Users size={40} strokeWidth={1} style={{ marginBottom: 10, opacity: 0.5 }} />
-              <p>No se encontraron jugadores disponibles</p>
-              <small>Prueba a cambiar los filtros de posición o elemento</small>
+              <p>No hay jugadores disponibles</p>
             </div>
           ) : (
             available.map(char => (
@@ -94,10 +92,9 @@ function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, on
                 className={styles.pickerRow}
                 onClick={() => onSelect(slotIndex, char._id || char.id)}
               >
-                {/* El borde de color ahora lo manejamos con un div decorativo o el propio avatar */}
                 <div className={styles.pickerAvatar} style={{ borderLeft: `4px solid ${getElementColor(char.element)}` }}>
                   {char.image ? (
-                    <img src={char.image} alt={char.name} />
+                    <img src={char.image} alt={char.name} style={{ objectFit: 'cover' }} />
                   ) : (
                     <div className={styles.charInitial}>{char.name[0]}</div>
                   )}
@@ -126,11 +123,9 @@ export default function MiEquipoPage() {
   const { user } = useAuth()
   const [characters, setCharacters] = useState([])
   const [loading, setLoading] = useState(true)
-  const [isCloudSaving, setIsCloudSaving] = useState(false)
   const [selectingSlot, setSelectingSlot] = useState(null)
 
   const {
-    teamName, setTeamName,
     slots, addPlayer, removePlayer,
     handleSave: saveLocal, handleClear,
     loadFromMongo,
@@ -157,7 +152,6 @@ export default function MiEquipoPage() {
 
   return (
     <div className={styles.page}>
-      {/* HEADER SUPERIOR */}
       <div className={styles.pageTop}>
         <div className={styles.titleRow}>
           <h1 className={styles.title}>Mi Equipo</h1>
@@ -166,13 +160,12 @@ export default function MiEquipoPage() {
         </div>
         <div className={styles.topActions}>
           <button className={styles.btnSecondary} onClick={handleClear}><Trash2 size={15} /></button>
-          <button className={styles.btnSave} onClick={saveLocal} disabled={isCloudSaving}>
+          <button className={styles.btnSave} onClick={saveLocal}>
             <Save size={15} /> {saved ? 'Guardado' : 'Guardar'}
           </button>
         </div>
       </div>
 
-      {/* CAMPO DE JUEGO */}
       <div className={styles.fieldContainer}>
         <div className={styles.soccerField}>
           <div className={styles.areaTop}></div>
@@ -210,14 +203,12 @@ export default function MiEquipoPage() {
         </div>
       </div>
 
-      {/* STATS INFERIORES */}
       <div className={styles.summaryGrid}>
         <div className={styles.summaryBox}><span>{totalPower}</span><small>POTENCIA TOTAL</small></div>
         <div className={styles.summaryBox}><span>{filledSlots > 0 ? Math.round(totalPower/filledSlots) : 0}</span><small>MEDIA PWR</small></div>
       </div>
 
-      {/* MODAL */}
-      {selectingSlot !== null && slots[selectingSlot] && (
+      {selectingSlot !== null && (
         <CharacterPickerModal 
             slotIndex={selectingSlot} 
             slotPosition={slots[selectingSlot].position}
