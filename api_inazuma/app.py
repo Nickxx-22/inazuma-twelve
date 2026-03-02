@@ -380,35 +380,48 @@ def get_team_by_id(team_id):
         return jsonify({"error": str(e)}), 500     
 
 #----------------- GURDAR EQUIPOS ------------------
-from flask import request, jsonify
-# ... otros imports
-
 @app.route('/guardar_equipo', methods=['POST'])
 def guardar_equipo():
-    token = request.headers.get('Authorization')
-    if not token:
-        return jsonify({"message": "⚠️ No autorizado"}), 401
-    
-    try:
-        # Aquí decodificarías el token para sacar el user_id
-        # Por simplicidad, asumimos que envías el user_id en el body por ahora
-        data = request.get_json()
-        user_id = data.get('user_id')
-        nuevo_equipo = data.get('equipo') # El array de 11 IDs
-        nombre_equipo = data.get('nombre_equipo', 'Mi Equipo Ideal')
+    data = request.get_json()
+    user_id = data.get('user_id')
+    nuevo_equipo = data.get('equipo')  # El array de 11 IDs
+    nombre = data.get('nombre_equipo', 'Mi Equipo')
 
-        usuarios.update_one(
+    if not user_id or not nuevo_equipo:
+        return jsonify({"message": "⚠️ Faltan datos"}), 400
+
+    try:
+        # Actualizamos el documento del usuario nico
+        resultado = usuarios.update_one(
             {"_id": ObjectId(user_id)},
             {"$set": {
                 "equipo": nuevo_equipo,
-                "nombre_equipo": nombre_equipo
+                "nombre_equipo": nombre
             }}
         )
-        return jsonify({"message": "✅ Equipo guardado en la nube"}), 200
+        
+        if resultado.modified_count > 0:
+            return jsonify({"message": "✅ Equipo guardado correctamente"}), 200
+        else:
+            return jsonify({"message": "ℹ️ El equipo ya estaba actualizado"}), 200
+            
     except Exception as e:
-        return jsonify({"message": f"❌ Error: {str(e)}"}), 500
-    
-     
+        return jsonify({"message": f"❌ Error en DB: {str(e)}"}), 500
+
+
+#------------------- OBTENER EQUIPO -----------------
+@app.route('/obtener_equipo/<user_id>', methods=['GET'])
+def obtener_equipo(user_id):
+    try:
+        usuario = usuarios.find_one({"_id": ObjectId(user_id)}, {"equipo": 1, "nombre_equipo": 1})
+        if usuario:
+            return jsonify({
+                "equipo": usuario.get("equipo", []),
+                "nombre_equipo": usuario.get("nombre_equipo", "Mi Equipo")
+            }), 200
+        return jsonify({"message": "Usuario no encontrado"}), 404
+    except Exception as e:
+        return jsonify({"message": str(e)}), 500     
 
 # ----------------- RUN -----------------
 if __name__ == "__main__":

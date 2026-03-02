@@ -92,18 +92,31 @@ export default function MiEquipoPage() {
 
   // Carga real de jugadores desde tu API de Flask
   useEffect(() => {
-    const fetchPlayers = async () => {
-      try {
-        const data = await getAllPlayers()
-        setCharacters(data)
-      } catch (error) {
-        console.error("Error cargando jugadores:", error)
-      } finally {
-        setLoading(false)
+  const cargarDatos = async () => {
+    try {
+      // 1. Cargamos todos los personajes para el Picker
+      const todosLosJugadores = await getAllPlayers();
+      setCharacters(todosLosJugadores);
+
+      // 2. Si hay usuario, traemos su equipo de la DB
+      if (user?.id) {
+        const res = await fetch(`http://127.0.0.1:5000/obtener_equipo/${user.id}`);
+        const data = await res.json();
+        
+        if (res.ok && data.equipo.length > 0) {
+          // Aquí usamos una función de tu hook useMyTeam para "setear" los slots
+          // Asumiendo que tu hook tiene una función llamada 'loadTeam'
+          loadTeam(data.equipo, data.nombre_equipo);
+        }
       }
+    } catch (error) {
+      console.error("Error cargando datos:", error);
+    } finally {
+      setLoading(false);
     }
-    fetchPlayers()
-  }, [])
+  };
+  cargarDatos();
+}, [user]);
 
   const {
     teamName, setTeamName,
