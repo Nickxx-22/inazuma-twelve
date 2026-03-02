@@ -406,29 +406,39 @@ def guardar_equipo():
     except Exception as e:
         return jsonify({"message": f"❌ Error en DB: {str(e)}"}), 500
 
-@app.route('/eliminar_equipo', methods=['POST'])
+@app.route('/eliminar_equipo', methods=['DELETE'])
 def eliminar_equipo():
+    # En DELETE con fetch, el body llega igual por get_json()
     data = request.get_json()
     user_id = data.get('user_id')
     nombre = data.get('nombre_equipo')
 
+    if not user_id or not nombre:
+        return jsonify({"message": "Faltan datos requeridos"}), 400
+
     try:
         # 1. Eliminamos el equipo específico usando $unset
-        usuarios.update_one(
+        # Esto elimina la 'key' dentro del objeto 'equipos'
+        resultado = usuarios.update_one(
             {"_id": ObjectId(user_id)},
             {"$unset": { f"equipos.{nombre}": "" }}
         )
+
+        if resultado.modified_count == 0:
+            return jsonify({"message": "No se encontró el equipo o el usuario"}), 404
         
         # 2. Buscamos al usuario de nuevo para devolver la lista actualizada
         user_actualizado = usuarios.find_one({"_id": ObjectId(user_id)})
         equipos_restantes = user_actualizado.get('equipos', {})
         
         return jsonify({
-            "message": "Eliminado",
-            "equipos": equipos_restantes  # Enviamos la lista real que queda
+            "message": "Eliminado correctamente",
+            "equipos": equipos_restantes
         }), 200
+
     except Exception as e:
-        return jsonify({"message": str(e)}), 500
+        print(f"Error al eliminar: {str(e)}")
+        return jsonify({"message": "Error interno del servidor"}), 500
 
 
 #------------------- HELPER: verificar token JWT -----------------
