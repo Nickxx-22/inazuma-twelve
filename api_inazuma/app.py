@@ -383,11 +383,11 @@ def get_team_by_id(team_id):
 @app.route('/guardar_equipo', methods=['POST'])
 def guardar_equipo():
     data = request.get_json()
-    email = data.get('email')
+    user_id = data.get('user_id')
     nuevo_equipo = data.get('equipo')  # El array de 11 IDs
     nombre = data.get('nombre_equipo', 'Mi Equipo')
 
-    if not email or not nuevo_equipo:
+    if not user_id or not nuevo_equipo:
         return jsonify({"message": "⚠️ Faltan datos"}), 400
 
     try:
