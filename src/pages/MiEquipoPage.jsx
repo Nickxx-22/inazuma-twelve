@@ -11,27 +11,44 @@ import styles from './MiEquipoPage.module.css'
 function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, onSelect, onClose }) {
   const [search, setSearch] = useState('')
   const [elFilter, setElFilter] = useState('')
-  // Filtro inicial por la posición del slot seleccionado
-  const [posFilter, setPosFilter] = useState(slotPosition || '')
+  
+  // Mapeo inteligente de posiciones para el filtro inicial
+  const getInitialPos = (pos) => {
+    if (pos.includes('Portero')) return 'Portero';
+    if (pos.includes('Defensa')) return 'Defensa';
+    if (pos.includes('Centrocampista')) return 'Centrocampista';
+    if (pos.includes('Delantero')) return 'Delantero';
+    return '';
+  };
 
-  const available = characters
-    .filter(c => !usedIds.includes(c._id || c.id))
-    .filter(c => {
-      const q = search.toLowerCase()
-      const matchesSearch = !search || c.name.toLowerCase().includes(q) || c.japaneseName?.toLowerCase().includes(q);
-      const matchesElement = !elFilter || c.element === elFilter;
-      const matchesPosition = !posFilter || c.position === posFilter;
-      return matchesSearch && matchesElement && matchesPosition;
-    })
-    .sort((a, b) => (b.power || 0) - (a.power || 0))
+  const [posFilter, setPosFilter] = useState(getInitialPos(slotPosition))
+
+  const available = characters.filter(c => {
+    // 1. Verificar que no esté ya seleccionado (usando ambos formatos de ID)
+    const isUsed = usedIds.some(id => id === c._id || id === c.id);
+    if (isUsed) return false;
+
+    // 2. Filtros de búsqueda y selectores
+    const q = search.toLowerCase();
+    const matchesSearch = !search || 
+                         c.name.toLowerCase().includes(q) || 
+                         (c.japaneseName && c.japaneseName.toLowerCase().includes(q));
+    
+    const matchesElement = !elFilter || c.element === elFilter;
+    
+    // El filtro de posición: si el usuario pone "Todas", mostramos todos
+    const matchesPosition = !posFilter || c.position === posFilter;
+
+    return matchesSearch && matchesElement && matchesPosition;
+  }).sort((a, b) => (b.power || 0) - (a.power || 0));
 
   return (
     <div className={styles.overlay} onClick={onClose}>
       <div className={styles.pickerModal} onClick={e => e.stopPropagation()}>
         <div className={styles.pickerHeader}>
-          <div>
+          <div className={styles.pickerTitleGroup}>
             <h3 className={styles.pickerTitle}>Seleccionar {slotPosition}</h3>
-            <p className={styles.pickerSub}>Slot {slotIndex + 1} disponible</p>
+            <span className={styles.pickerCount}>{available.length} jugadores encontrados</span>
           </div>
           <button onClick={onClose} className={styles.closeBtn}><X size={20} /></button>
         </div>
@@ -40,40 +57,53 @@ function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, on
           <Search size={16} className={styles.pickerSearchIcon} />
           <input
             type="text"
-            value={search}
-            onChange={e => setSearch(e.target.value)}
             placeholder="Buscar por nombre..."
             className={styles.pickerSearchInput}
+            value={search}
+            onChange={e => setSearch(e.target.value)}
             autoFocus
           />
         </div>
 
         <div className={styles.pickerFilters}>
           <select value={elFilter} onChange={e => setElFilter(e.target.value)} className={styles.pickerSelect}>
-            <option value="">Elementos</option>
-            {elements.map(el => <option key={el} value={el}>{el}</option>)}
+            <option value="">Cualquier Elemento</option>
+            {["Fuego", "Bosque", "Aire", "Montaña", "Nada"].map(el => (
+              <option key={el} value={el}>{el}</option>
+            ))}
           </select>
           <select value={posFilter} onChange={e => setPosFilter(e.target.value)} className={styles.pickerSelect}>
-            <option value="">Posiciones</option>
-            {positions.map(p => <option key={p} value={p}>{p}</option>)}
+            <option value="">Todas las Posiciones</option>
+            {["Portero", "Defensa", "Centrocampista", "Delantero"].map(p => (
+              <option key={p} value={p}>{p}</option>
+            ))}
           </select>
         </div>
 
         <div className={styles.pickerList}>
           {available.length === 0 ? (
-            <div className={styles.noAvail}>No se encontraron jugadores</div>
+            <div className={styles.noAvail}>
+              <Users size={40} strokeWidth={1} style={{ marginBottom: 10, opacity: 0.5 }} />
+              <p>No se encontraron jugadores disponibles</p>
+              <small>Prueba a cambiar los filtros de posición o elemento</small>
+            </div>
           ) : (
             available.map(char => (
-              <button key={char._id || char.id} onClick={() => onSelect(slotIndex, char._id || char.id)} className={styles.pickerRow}>
-                <div className={styles.pickerAvatar} style={{ background: getElementColor(char.element) }}>
-                  {char.image ? <img src={char.image} alt="" /> : char.name.charAt(0)}
+              <button 
+                key={char._id || char.id} 
+                className={styles.pickerRow}
+                onClick={() => onSelect(slotIndex, char._id || char.id)}
+              >
+                <div className={styles.pickerAvatar} style={{ borderLeft: `4px solid ${getElementColor(char.element)}` }}>
+                  {char.image ? <img src={char.image} alt={char.name} /> : <div className={styles.charInitial}>{char.name[0]}</div>}
                 </div>
                 <div className={styles.pickerInfo}>
-                  <span className={styles.pickerName}>{char.name}</span>
-                  <span className={styles.pickerMeta}>{char.position} • {char.element}</span>
+                  <div className={styles.pickerName}>{char.name}</div>
+                  <div className={styles.pickerMeta}>{char.position} • {char.element}</div>
                 </div>
                 <div className={styles.pickerPower}>
-                  <span>{char.power}</span><small>PWR</small>
+                  <span className={styles.pwrVal}>{char.power || 0}</span>
+                  <span className={styles.pwrLabel}>PWR</span>
                 </div>
               </button>
             ))
@@ -81,7 +111,7 @@ function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, on
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 // ── PÁGINA PRINCIPAL ────────────────────────────────────────────────
