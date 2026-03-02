@@ -4,8 +4,87 @@ import { useAuth } from '../hooks/useAuth'
 import { useMyTeam } from '../hooks/useMyTeam'
 import { getElementColor } from '../utils/colors'
 import { getAllPlayers } from '../services/playerService'
+import { elements, positions } from '../data/constants'
 import styles from './MiEquipoPage.module.css'
 
+// ── PICKER MODAL ────────────────────────────────────────────────────
+function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, onSelect, onClose }) {
+  const [search, setSearch] = useState('')
+  const [elFilter, setElFilter] = useState('')
+  // Filtro inicial por la posición del slot seleccionado
+  const [posFilter, setPosFilter] = useState(slotPosition || '')
+
+  const available = characters
+    .filter(c => !usedIds.includes(c._id || c.id))
+    .filter(c => {
+      const q = search.toLowerCase()
+      const matchesSearch = !search || c.name.toLowerCase().includes(q) || c.japaneseName?.toLowerCase().includes(q);
+      const matchesElement = !elFilter || c.element === elFilter;
+      const matchesPosition = !posFilter || c.position === posFilter;
+      return matchesSearch && matchesElement && matchesPosition;
+    })
+    .sort((a, b) => (b.power || 0) - (a.power || 0))
+
+  return (
+    <div className={styles.overlay} onClick={onClose}>
+      <div className={styles.pickerModal} onClick={e => e.stopPropagation()}>
+        <div className={styles.pickerHeader}>
+          <div>
+            <h3 className={styles.pickerTitle}>Seleccionar {slotPosition}</h3>
+            <p className={styles.pickerSub}>Slot {slotIndex + 1} disponible</p>
+          </div>
+          <button onClick={onClose} className={styles.closeBtn}><X size={20} /></button>
+        </div>
+
+        <div className={styles.pickerSearch}>
+          <Search size={16} className={styles.pickerSearchIcon} />
+          <input
+            type="text"
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+            placeholder="Buscar por nombre..."
+            className={styles.pickerSearchInput}
+            autoFocus
+          />
+        </div>
+
+        <div className={styles.pickerFilters}>
+          <select value={elFilter} onChange={e => setElFilter(e.target.value)} className={styles.pickerSelect}>
+            <option value="">Elementos</option>
+            {elements.map(el => <option key={el} value={el}>{el}</option>)}
+          </select>
+          <select value={posFilter} onChange={e => setPosFilter(e.target.value)} className={styles.pickerSelect}>
+            <option value="">Posiciones</option>
+            {positions.map(p => <option key={p} value={p}>{p}</option>)}
+          </select>
+        </div>
+
+        <div className={styles.pickerList}>
+          {available.length === 0 ? (
+            <div className={styles.noAvail}>No se encontraron jugadores</div>
+          ) : (
+            available.map(char => (
+              <button key={char._id || char.id} onClick={() => onSelect(slotIndex, char._id || char.id)} className={styles.pickerRow}>
+                <div className={styles.pickerAvatar} style={{ background: getElementColor(char.element) }}>
+                  {char.image ? <img src={char.image} alt="" /> : char.name.charAt(0)}
+                </div>
+                <div className={styles.pickerInfo}>
+                  <span className={styles.pickerName}>{char.name}</span>
+                  <span className={styles.pickerMeta}>{char.position} • {char.element}</span>
+                </div>
+                <div className={styles.pickerPower}>
+                  <span>{char.power}</span><small>PWR</small>
+                </div>
+              </button>
+            ))
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// ── PÁGINA PRINCIPAL ────────────────────────────────────────────────
 export default function MiEquipoPage() {
   const { user } = useAuth()
   const [characters, setCharacters] = useState([])
@@ -49,9 +128,6 @@ export default function MiEquipoPage() {
           <div className={styles.topBadge}><Users size={14}/> {filledSlots}/11</div>
         </div>
         <div className={styles.topActions}>
-          <button className={styles.btnSecondary} onClick={() => {/* Lógica para ver otros equipos */}}>
-            <Download size={15} /> Importar
-          </button>
           <button className={styles.btnSecondary} onClick={handleClear}><Trash2 size={15} /></button>
           <button className={styles.btnSave} onClick={saveLocal} disabled={isCloudSaving}>
             <Save size={15} /> {saved ? 'Guardado' : 'Guardar'}
@@ -62,12 +138,10 @@ export default function MiEquipoPage() {
       {/* CAMPO DE JUEGO */}
       <div className={styles.fieldContainer}>
         <div className={styles.soccerField}>
-          {/* Líneas del campo (decoración CSS) */}
           <div className={styles.areaTop}></div>
           <div className={styles.circleCenter}></div>
           <div className={styles.areaBottom}></div>
 
-          {/* ... dentro de soccerField ... */}
           {slots.map((slot, index) => {
             const char = slot.characterId ? characters.find(c => (c._id === slot.characterId || c.id === slot.characterId)) : null;
             return (
@@ -78,21 +152,16 @@ export default function MiEquipoPage() {
               >
                 {char ? (
                   <div className={styles.playerNode}>
-                    {/* Círculo con borde de color de elemento */}
                     <div className={styles.playerArt} style={{ borderColor: getElementColor(char.element) }}>
                       {char.image ? <img src={char.image} alt="" /> : <div className={styles.placeholderArt}>{char.name[0]}</div>}
                     </div>
-                    {/* Botón eliminar mini, ahora fuera de playerArt para mejor hover */}
                     <button className={styles.miniRemove} onClick={(e) => { e.stopPropagation(); removePlayer(index); }}>
                       <X size={10} />
                     </button>
-                    
-                    {/* Etiquetas de texto debajo */}
                     <div className={styles.playerNameTag}>{char.name.split(' ')[0]}</div>
                     <div className={styles.playerPosTag} style={{background: getElementColor(char.element)}}>{slot.position.substring(0,2).toUpperCase()}</div>
                   </div>
                 ) : (
-                  // Nodo vacío ajustado
                   <div className={styles.emptyNode}>
                     <Plus size={16} />
                     <small>{slot.position.substring(0,2)}</small>
@@ -110,12 +179,13 @@ export default function MiEquipoPage() {
         <div className={styles.summaryBox}><span>{filledSlots > 0 ? Math.round(totalPower/filledSlots) : 0}</span><small>MEDIA PWR</small></div>
       </div>
 
-      {/* MODAL (mantenemos el anterior) */}
-      {selectingSlot !== null && (
+      {/* MODAL */}
+      {selectingSlot !== null && slots[selectingSlot] && (
         <CharacterPickerModal 
             slotIndex={selectingSlot} 
             slotPosition={slots[selectingSlot].position}
-            usedIds={usedIds} characters={characters}
+            usedIds={usedIds} 
+            characters={characters}
             onSelect={(idx, id) => { addPlayer(idx, id); setSelectingSlot(null); }}
             onClose={() => setSelectingSlot(null)}
         />
