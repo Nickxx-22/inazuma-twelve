@@ -43,19 +43,28 @@ function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, on
   return (
     <div className={styles.overlay} onClick={onClose}>
       <div className={styles.pickerModal} onClick={e => e.stopPropagation()}>
+        
+        {/* HEADER: Título y contador con estilo */}
         <div className={styles.pickerHeader}>
-          <div className={styles.pickerTitleGroup}>
-            <h3 className={styles.pickerTitle}>Seleccionar {slotPosition}</h3>
-            <span className={styles.pickerCount}>{available.length} jugadores encontrados</span>
+          <div>
+            <h3 className={styles.pickerTitle}>Fichar {slotPosition}</h3>
+            <span className={styles.pickerCount}>
+              {available.length === 0 
+                ? 'Sin candidatos' 
+                : `${available.length} jugadores disponibles`}
+            </span>
           </div>
-          <button onClick={onClose} className={styles.closeBtn}><X size={20} /></button>
+          <button onClick={onClose} className={styles.closeBtn}>
+            <X size={20} />
+          </button>
         </div>
 
+        {/* SEARCH: Con icono dentro */}
         <div className={styles.pickerSearch}>
-          <Search size={16} className={styles.pickerSearchIcon} />
+          <Search size={18} className={styles.pickerSearchIcon} />
           <input
             type="text"
-            placeholder="Buscar por nombre..."
+            placeholder="Nombre, apodo o apellido..."
             className={styles.pickerSearchInput}
             value={search}
             onChange={e => setSearch(e.target.value)}
@@ -63,15 +72,25 @@ function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, on
           />
         </div>
 
+        {/* FILTROS: En cuadrícula limpia */}
         <div className={styles.pickerFilters}>
-          <select value={elFilter} onChange={e => setElFilter(e.target.value)} className={styles.pickerSelect}>
+          <select 
+            value={elFilter} 
+            onChange={e => setElFilter(e.target.value)} 
+            className={styles.pickerSelect}
+          >
             <option value="">Cualquier Elemento</option>
             {["Fuego", "Bosque", "Aire", "Montaña", "Nada"].map(el => (
               <option key={el} value={el}>{el}</option>
             ))}
           </select>
-          <select value={posFilter} onChange={e => setPosFilter(e.target.value)} className={styles.pickerSelect}>
-            <option value="">Todas las Posiciones</option>
+          
+          <select 
+            value={posFilter} 
+            onChange={e => setPosFilter(e.target.value)} 
+            className={styles.pickerSelect}
+          >
+            <option value="">Cualquier Posición</option>
             <option value="GK">Portero (GK)</option>
             <option value="DF">Defensa (DF)</option>
             <option value="MD">Medio (MD)</option>

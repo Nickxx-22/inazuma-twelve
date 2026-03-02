@@ -6,11 +6,11 @@ const DEFAULT_FORMATION = [
   { position: 'Defensa',         characterId: null },
   { position: 'Defensa',         characterId: null },
   { position: 'Defensa',         characterId: null },
+  { position: 'Defensa',         characterId: null },
   { position: 'Centrocampista',  characterId: null },
   { position: 'Centrocampista',  characterId: null },
   { position: 'Centrocampista',  characterId: null },
   { position: 'Centrocampista',  characterId: null },
-  { position: 'Delantero',       characterId: null },
   { position: 'Delantero',       characterId: null },
   { position: 'Delantero',       characterId: null },
 ]

@@ -280,3 +280,91 @@
   background: #333;
   border-radius: 10px;
 }
+
+
+/* Cabecera del Modal */
+.pickerHeader {
+  padding: 24px 24px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pickerTitle {
+  font-size: 1.4rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: linear-gradient(to right, #fff, #8a94a6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+.pickerCount {
+  display: block;
+  font-size: 0.75rem;
+  color: #3b82f6; /* Azul brillante */
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+/* Buscador mejorado */
+.pickerSearch {
+  margin: 16px 24px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.pickerSearchIcon {
+  position: absolute;
+  left: 12px;
+  color: #555;
+  pointer-events: none;
+}
+
+.pickerSearchInput {
+  width: 100%;
+  background: #0f1218;
+  border: 1px solid #2d343f;
+  border-radius: 10px;
+  padding: 12px 12px 12px 40px;
+  color: white;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.pickerSearchInput:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+/* Contenedor de Filtros */
+.pickerFilters {
+  padding: 0 24px 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.pickerSelect {
+  background: #1a1f26;
+  border: 1px solid #2d343f;
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: #cbd5e1;
+  font-size: 0.85rem;
+  cursor: pointer;
+  appearance: none; /* Quitamos el estilo por defecto */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23555' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+.pickerSelect:focus {
+  border-color: #3b82f6;
+  outline: none;
+}
