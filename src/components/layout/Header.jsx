@@ -37,7 +37,7 @@ export default function Header() {
         {/* Logo */}
         <Link to="/" className={styles.logo} onClick={() => setOpen(false)}>
           <div className={styles.logoIcon}><Zap size={18} /></div>
-          <span className={`${styles.logoText} neon-text-blue`}>INAZUMA</span>
+          <span className={`${styles.logoText} neon-text-blue`}>INAZUMA-TWELVE</span>
         </Link>
 
         {/* Desktop nav */}

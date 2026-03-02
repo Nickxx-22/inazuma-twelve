@@ -66,8 +66,8 @@ export default function HomePage() {
           <Star size={14} /> Base de Datos Inazuma Eleven
         </div>
         <h1 className={styles.heroTitle}>
-          <span className="neon-text-blue">Descubre</span> el universo{' '}
-          <span className="neon-text-orange">Inazuma</span>
+          <span className="neon-text-yellow">Descubre</span> el universo{' '}
+          <span className="neon-text-blue">Inazuma</span>
         </h1>
         <p className={styles.heroSub}>
           Explora personajes, técnicas y equipos. Crea tu equipo ideal y domina el campo de juego.
