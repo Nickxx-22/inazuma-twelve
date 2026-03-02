@@ -1,96 +1,91 @@
-/* MiEquipoPage.module.css */
+.page { max-width: 1200px; margin: 0 auto; padding: 20px; font-family: 'Inter', sans-serif; }
 
-.page { max-width: 1200px; margin: 0 auto; padding: 20px; color: #fff; }
-
-/* ── CABECERA (Captura 195900) ── */
-.managementCard {
-  background: #1a1f26;
+/* ── MANAGEMENT BAR ── */
+.managementBar {
+  background: #151921;
   border: 1px solid #2d343f;
-  padding: 12px 20px;
-  border-radius: 16px;
+  border-radius: 12px;
+  padding: 10px 20px;
   display: flex;
   align-items: center;
-  gap: 20px;
-  width: 100%;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  gap: 15px;
   margin-bottom: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
-.selectorArea { display: flex; align-items: center; gap: 10px; padding-right: 20px; border-right: 1px solid #2d343f; }
-.customSelect { display: flex; align-items: center; background: #0f1218; border: 1px solid #3f4756; padding: 6px 12px; border-radius: 8px; gap: 8px; }
-.customSelect select { background: transparent; border: none; color: white; font-size: 0.9rem; font-weight: 600; cursor: pointer; outline: none; appearance: none; }
+.teamSelectorGroup { display: flex; align-items: center; gap: 8px; border-right: 1px solid #2d343f; padding-right: 15px; }
+.selectBox { background: #0b0e14; border: 1px solid #3f4756; border-radius: 6px; padding: 5px 10px; display: flex; align-items: center; gap: 8px; }
+.selectBox select { background: none; border: none; color: white; font-weight: 600; cursor: pointer; outline: none; }
 
-.nameArea { flex: 1; display: flex; align-items: center; gap: 10px; background: #0f1218; padding: 8px 15px; border-radius: 8px; border: 1px solid #2d343f; }
-.nameInput { background: transparent; border: none; color: #fff; font-size: 1.1rem; font-weight: 600; width: 100%; outline: none; }
+.addBtn { background: none; border: none; color: #3b82f6; cursor: pointer; display: flex; align-items: center; transition: 0.2s; }
+.addBtn:hover { transform: scale(1.1); }
 
-.btnTrash { background: #2a1a1a; color: #ff4d4d; border: 1px solid #4a2222; padding: 10px; border-radius: 10px; cursor: pointer; transition: 0.2s; }
-.btnPrimary { background: #3b82f6; color: #fff; border: none; padding: 10px 20px; border-radius: 10px; display: flex; align-items: center; gap: 8px; font-weight: 700; cursor: pointer; }
+.nameInputWrapper { flex: 1; }
+.nameInputWrapper input { width: 100%; background: #0b0e14; border: 1px solid #2d343f; padding: 10px 15px; border-radius: 8px; color: white; font-weight: 600; outline: none; }
 
-/* ── CAMPO TÁCTICO ── */
-.fieldContainer { background: #111; padding: 30px; border-radius: 24px; display: flex; justify-content: center; margin-bottom: 30px; border: 1px solid #222; }
-.soccerField { width: 100%; max-width: 480px; aspect-ratio: 3/4.2; background-color: #1a4d2e; border: 2px solid rgba(255,255,255,0.2); border-radius: 12px; position: relative; overflow: hidden; }
+.actionBtns { display: flex; gap: 10px; }
+.saveBtn { background: #3b82f6; border: none; padding: 10px 20px; border-radius: 8px; color: white; display: flex; align-items: center; gap: 8px; font-weight: 700; cursor: pointer; }
+.deleteBtn { background: #2a1a1a; color: #ff4d4d; border: 1px solid #4a2222; padding: 10px; border-radius: 8px; cursor: pointer; }
 
-/* Líneas del campo */
-.areaTop, .areaBottom { position: absolute; left: 15%; width: 70%; height: 18%; border: 1px solid rgba(255,255,255,0.15); }
-.areaTop { top: -1px; border-top: none; }
-.areaBottom { bottom: -1px; border-bottom: none; }
-.circleCenter { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 28%; height: 21%; border: 1px solid rgba(255,255,255,0.15); border-radius: 50%; }
+/* ── PITCH ── */
+.fieldLayout { display: flex; justify-content: center; background: #0a0a0a; padding: 40px; border-radius: 30px; border: 1px solid #1a1a1a; margin-bottom: 30px; }
+.pitch { position: relative; width: 450px; aspect-ratio: 3/4; background: #143d1f; border: 2px solid rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; }
 
-/* Fichas Jugadores */
-.fieldSlot { position: absolute; width: 65px; height: 65px; transform: translate(-50%, -50%); cursor: pointer; z-index: 10; transition: transform 0.2s; }
-.fieldSlot:hover { transform: translate(-50%, -50%) scale(1.08); }
+.pitchLines div { position: absolute; border: 1px solid rgba(255,255,255,0.1); }
+.goalAreaTop { top: 0; left: 20%; width: 60%; height: 15%; border-top: none; }
+.goalAreaBottom { bottom: 0; left: 20%; width: 60%; height: 15%; border-bottom: none; }
+.centerCircle { top: 50%; left: 50%; transform: translate(-50%, -50%); width: 30%; height: 22%; border-radius: 50%; }
 
-.pos0 { bottom: 8%; left: 50%; } .pos1 { bottom: 22%; left: 18%; } .pos2 { bottom: 20%; left: 40%; }
-.pos3 { bottom: 20%; left: 60%; } .pos4 { bottom: 22%; left: 82%; } .pos5 { bottom: 48%; left: 12%; }
-.pos6 { bottom: 46%; left: 38%; } .pos7 { bottom: 46%; left: 62%; } .pos8 { bottom: 48%; left: 88%; }
-.pos9 { top: 18%; left: 32%; } .pos10 { top: 18%; left: 68%; }
+.slot { position: absolute; width: 60px; height: 60px; transform: translate(-50%, -50%); z-index: 5; cursor: pointer; }
+.p0 { bottom: 8%; left: 50%; } .p1 { bottom: 25%; left: 20%; } .p2 { bottom: 25%; left: 40%; }
+.p3 { bottom: 25%; left: 60%; } .p4 { bottom: 25%; left: 80%; } .p5 { bottom: 50%; left: 15%; }
+.p6 { bottom: 50%; left: 38%; } .p7 { bottom: 50%; left: 62%; } .p8 { bottom: 50%; left: 85%; }
+.p9 { top: 20%; left: 35%; } .p10 { top: 20%; left: 65%; }
 
-.playerNode { display: flex; flex-direction: column; align-items: center; position: relative; }
-.playerArt { width: 48px; height: 48px; border-radius: 50%; border: 3px solid #fff; background: #000; overflow: hidden; }
-.playerArt img { width: 100%; height: 100%; object-fit: cover; }
-.playerNameTag { background: rgba(0,0,0,0.85); color: white; font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 4px; margin-top: 6px; text-transform: uppercase; }
-.playerPosTag { font-size: 8px; font-weight: 900; color: #000; padding: 1px 5px; border-radius: 3px; margin-top: 1px; text-transform: uppercase; }
+.playerCard { display: flex; flex-direction: column; align-items: center; }
+.avatarCircle { width: 45px; height: 45px; border-radius: 50%; border: 3px solid #fff; background: #000; position: relative; overflow: hidden; }
+.avatarCircle img { width: 100%; height: 100%; object-fit: cover; }
+.nameTag { background: rgba(0,0,0,0.8); padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 800; margin-top: 4px; text-transform: uppercase; }
+.posTag { font-size: 8px; font-weight: 900; color: #000; padding: 1px 4px; border-radius: 2px; margin-top: 2px; }
 
-.miniRemove { position: absolute; top: -5px; right: -5px; background: #ff4d4d; border-radius: 50%; border: none; width: 18px; height: 18px; color: #fff; cursor: pointer; opacity: 0; transition: 0.2s; z-index: 20; }
-.playerNode:hover .miniRemove { opacity: 1; }
-.emptyNode { width: 42px; height: 42px; border-radius: 50%; border: 2px dashed rgba(255,255,255,0.2); display: flex; flex-direction: column; align-items: center; justify-content: center; color: rgba(255,255,255,0.3); }
+.emptySlot { width: 40px; height: 40px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: rgba(255,255,255,0.3); font-size: 9px; font-weight: 800; }
 
-/* ── MODAL EMERGENTE (Captura 202313) ── */
-.overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.85); display: flex; align-items: center; justify-content: center; z-index: 9999; backdrop-filter: blur(6px); }
-.pickerModal { background: #151921; width: 90%; max-width: 500px; max-height: 80vh; border-radius: 20px; border: 1px solid #2d343f; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.7); animation: modalIn 0.3s ease-out; }
+/* ── MODAL (Captura 203342) ── */
+.overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); z-index: 1000; display: flex; align-items: center; justify-content: center; }
+.pickerModal { background: #151921; width: 90%; max-width: 480px; height: 80vh; border-radius: 20px; border: 1px solid #2d343f; display: flex; flex-direction: column; overflow: hidden; }
 
-.pickerHeader { padding: 24px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); display: flex; justify-content: space-between; align-items: center; }
-.pickerTitle { font-size: 1.4rem; font-weight: 800; text-transform: uppercase; margin: 0; color: #fff; }
-.pickerCount { font-size: 0.8rem; color: #3b82f6; font-weight: 600; }
-.closeBtn { background: transparent; border: none; color: #666; cursor: pointer; }
+.pickerHeader { padding: 20px; border-bottom: 1px solid #2d343f; display: flex; justify-content: space-between; align-items: center; }
+.pickerTitle { font-size: 1.2rem; font-weight: 900; color: white; margin: 0; }
+.pickerCount { font-size: 0.75rem; color: #3b82f6; font-weight: 700; }
 
-.pickerSearch { margin: 15px 24px; position: relative; }
-.pickerSearchIcon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #555; }
-.pickerSearchInput { width: 100%; background: #0f1218; border: 1px solid #2d343f; border-radius: 10px; padding: 12px 12px 12px 40px; color: white; outline: none; }
+.pickerSearchArea { padding: 15px 20px; display: flex; flex-direction: column; gap: 10px; background: #0f1218; }
+.searchWrapper { position: relative; }
+.searchIcon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #4a5568; }
+.pickerSearchInput { width: 100%; background: #1a1f26; border: 1px solid #2d343f; border-radius: 10px; padding: 12px 12px 12px 40px; color: white; outline: none; }
 
-.pickerFilters { padding: 0 24px 15px; }
-.pickerSelect { width: 100%; background: #1a1f26; border: 1px solid #2d343f; border-radius: 8px; padding: 10px; color: #fff; cursor: pointer; }
+.filterRow { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.filterRow select { background: #1a1f26; border: 1px solid #2d343f; padding: 8px; border-radius: 8px; color: white; cursor: pointer; font-weight: 600; }
 
-.pickerList { flex: 1; overflow-y: auto; padding: 15px; display: flex; flex-direction: column; gap: 10px; }
-.pickerRow { display: flex; align-items: center; padding: 12px; background: #1e242e; border: 1px solid #2d343f; border-radius: 12px; cursor: pointer; transition: 0.2s; color: #fff; }
-.pickerRow:hover { background: #2a3240; transform: translateX(5px); }
+.pickerList { flex: 1; overflow-y: auto; padding: 15px; display: flex; flex-direction: column; gap: 8px; }
+.pickerRow { display: flex; align-items: center; background: #1e242e; border: 1px solid #2d343f; border-radius: 12px; padding: 12px; cursor: pointer; transition: 0.2s; }
+.pickerRow:hover { background: #2a3341; transform: translateX(5px); }
 
-.pickerAvatar { width: 45px; height: 45px; border-radius: 8px; overflow: hidden; margin-right: 12px; background: #000; flex-shrink: 0; }
-.pickerAvatar img { width: 100%; height: 100%; object-fit: cover; }
+.pickerAvatarWrapper { width: 45px; height: 45px; border-radius: 8px; background: #000; overflow: hidden; margin-right: 15px; }
+.pickerAvatarImg { width: 100%; height: 100%; object-fit: cover; }
 
 .pickerInfo { flex: 1; }
-.pickerName { display: block; font-weight: 700; font-size: 1rem; }
-.pickerMeta { font-size: 0.75rem; color: #8a94a6; text-transform: uppercase; }
+.pickerName { display: block; font-weight: 700; color: white; }
+.pickerMeta { font-size: 0.75rem; color: #718096; }
 
-.pickerPower { display: flex; flex-direction: column; align-items: flex-end; min-width: 60px; }
-.pwrVal { font-size: 1.1rem; font-weight: 900; color: #f39c12; }
-.pwrLabel { font-size: 0.6rem; color: #555; margin-top: -4px; font-weight: 800; }
+.pickerPower { text-align: right; }
+.pwrVal { display: block; font-size: 1.2rem; font-weight: 900; color: #f6ad55; }
+.pwrLabel { font-size: 0.6rem; color: #4a5568; font-weight: 800; }
 
-.summaryGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 500px; margin: 20px auto; }
-.summaryBox { background: #111; border: 1px solid #222; border-radius: 16px; padding: 20px; text-align: center; }
-.summaryBox span { display: block; font-size: 2rem; font-weight: 900; color: #3b82f6; }
-.summaryBox small { font-size: 0.7rem; color: #666; font-weight: 800; text-transform: uppercase; }
+/* ── STATS ── */
+.summaryRow { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 500px; margin: 0 auto; }
+.statBox { background: #151921; border: 1px solid #2d343f; padding: 20px; border-radius: 16px; text-align: center; }
+.statVal { display: block; font-size: 2.2rem; font-weight: 900; color: #3b82f6; }
+.statLabel { font-size: 0.7rem; color: #718096; font-weight: 800; }
 
-@keyframes modalIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
-@keyframes spin { to { transform: rotate(360deg); } }
-.spinner { animation: spin 1s linear infinite; }
+.spin { animation: spin 1s linear infinite; }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
