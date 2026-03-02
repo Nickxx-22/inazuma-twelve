@@ -126,25 +126,36 @@ export default function MiEquipoPage() {
 
   const [slots, setSlots] = useState(FORMATION.map(s => ({ ...s, characterId: null })));
 
-  // ── FIX: Carga inicial — usa getUserId para no depender solo de useAuth ──
+  // ── Carga inicial: tolerante a useAuth lento y a rerenders por navegación ──
   useEffect(() => {
+    let cancelled = false;
+
     async function loadData() {
+      // Intentamos obtener el userId: primero del hook, luego directo de localStorage
       const userId = getUserId(user);
-      if (!userId) return;
+      if (!userId) {
+        // useAuth aún no hidrato — esperamos un tick y dejamos que la dependencia
+        // [user] vuelva a disparar el effect cuando sí tenga valor
+        setLoading(false);
+        return;
+      }
+
       try {
         setLoading(true);
         const [players, userRes] = await Promise.all([
           getAllPlayers(),
           fetch(`http://127.0.0.1:5000/obtener_usuario/${userId}`)
         ]);
-        
+
+        if (cancelled) return; // componente desmontado mientras esperábamos
+
         setCharacters(players);
         const data = await userRes.json();
-        
+
         if (userRes.ok && data.usuario?.equipos) {
           const fetchedEquipos = data.usuario.equipos;
           setMisEquipos(fetchedEquipos);
-          
+
           const nombres = Object.keys(fetchedEquipos);
           if (nombres.length > 0) {
             const primerNombre = nombres[0];
@@ -154,12 +165,22 @@ export default function MiEquipoPage() {
             setSlots(FORMATION.map((s, i) => ({ ...s, characterId: ids[i] || null })));
           }
         }
-      } catch (e) { console.error("Error cargando datos:", e); } 
-      finally { setLoading(false); }
+      } catch (e) {
+        console.error("Error cargando datos:", e);
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
     }
+
     loadData();
+
+    // Limpieza: evita actualizar estado si el componente se desmontó (p.ej. al navegar)
+    return () => { cancelled = true; };
+
+  // Escuchamos el objeto `user` completo: si useAuth lo actualiza tarde,
+  // el effect se re-dispara y ya encontrará el userId correcto.
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user?.id, user?._id]);
+  }, [user]);
 
   const handleSelectTeam = (nombre) => {
     setEquipoSeleccionado(nombre);
