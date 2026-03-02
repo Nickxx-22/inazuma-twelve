@@ -59,7 +59,7 @@ export default function PersonajeDetailPage() {
   }, [id, user])
 
   // 2. Manejar el click en Favoritos (Toggle)
-  const handleLike = async () => {
+    const handleLike = async () => {
     if (!user) {
       alert("Debes iniciar sesión para añadir a favoritos")
       return
@@ -76,14 +76,19 @@ export default function PersonajeDetailPage() {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({ user_id: userId, personaje_id: id })
+        body: JSON.stringify({ user_id: userId, personaje_id: id }) // id viene de useParams
       });
 
+      const data = await res.json();
+
       if (res.ok) {
-        setIsFavorite(!isFavorite);
+        // Usamos lo que el servidor nos diga que es la realidad
+        setIsFavorite(data.isFavorite);
+      } else {
+        console.error("Error del servidor:", data.message);
       }
     } catch (err) {
-      console.error("Error al actualizar favoritos:", err);
+      console.error("Error de red:", err);
     } finally {
       setIsLiking(false);
     }

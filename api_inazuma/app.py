@@ -492,6 +492,42 @@ def obtener_equipo(user_id):
         return jsonify({"message": "Usuario no encontrado"}), 404
     except Exception as e:
         return jsonify({"message": str(e)}), 500     
+    
+
+#----------------- FAVORITOS -----------------
+@app.route('/toggle_favorito', methods=['POST'])
+def toggle_favorito():
+    data = request.get_json()
+    user_id = data.get('user_id')
+    personaje_id = data.get('personaje_id')
+
+    if not user_id or not personaje_id:
+        return jsonify({"message": "Faltan datos"}), 400
+
+    try:
+        # 1. Buscamos al usuario para ver si ya tiene ese favorito
+        user = usuarios.find_one({"_id": ObjectId(user_id)})
+        favoritos = user.get('favoritos', [])
+
+        if personaje_id in favoritos:
+            # Si ya existe, lo quitamos
+            usuarios.update_one(
+                {"_id": ObjectId(user_id)},
+                {"$pull": {"favoritos": personaje_id}}
+            )
+            accion = "quitado"
+        else:
+            # Si no existe, lo añadimos
+            usuarios.update_one(
+                {"_id": ObjectId(user_id)},
+                {"$addToSet": {"favoritos": personaje_id}}
+            )
+            accion = "añadido"
+
+        return jsonify({"message": f"Personaje {accion}", "isFavorite": accion == "añadido"}), 200
+
+    except Exception as e:
+        return jsonify({"message": str(e)}), 500
 
 # ----------------- RUN -----------------
 if __name__ == "__main__":
