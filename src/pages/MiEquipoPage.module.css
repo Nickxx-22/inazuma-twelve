@@ -2,369 +2,95 @@
 
 .page { max-width: 1200px; margin: 0 auto; padding: 20px; color: #fff; }
 
-/* Header */
-.pageTop { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #333; }
-.titleRow { display: flex; align-items: center; gap: 15px; }
-.title { font-size: 2rem; font-weight: 800; letter-spacing: -0.5px; margin: 0; }
-.formationSelect { background: #222; border: 1px solid #444; color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; cursor: pointer; }
-.topBadge { background: #333; color: #aaa; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; display: flex; align-items: center; gap: 6px; }
-
-.topActions { display: flex; gap: 10px; }
-.btnSecondary, .btnSave { display: flex; align-items: center; gap: 7px; padding: 8px 18px; border-radius: 8px; font-size: 0.9rem; font-weight: 600; border: none; cursor: pointer; transition: background 0.2s; }
-.btnSecondary { background: #333; color: #eee; }
-.btnSecondary:hover { background: #444; }
-.btnSave { background: #007bff; color: #fff; }
-.btnSave:hover { background: #0069d9; }
-.btnSaved { background: #28a745; cursor: default; }
-
-/* Contenedor del Campo - MEJORADO */
-.fieldContainer {
-  background: #111; /* Fondo más oscuro para contraste */
-  padding: 30px;
-  border-radius: 24px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Sombra suave */
+/* ── CABECERA (Captura 195900) ── */
+.managementCard {
+  background: #1a1f26;
+  border: 1px solid #2d343f;
+  padding: 12px 20px;
+  border-radius: 16px;
   display: flex;
-  justify-content: center;
-  margin-bottom: 30px;
-  border: 1px solid #222;
-}
-
-/* Campo de Fútbol - MEJORADO */
-.soccerField {
+  align-items: center;
+  gap: 20px;
   width: 100%;
-  max-width: 480px;
-  aspect-ratio: 3/4;
-  background-color: #1a4d2e; /* Verde más táctico */
-  background-image: 
-    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-    linear-gradient(90px, rgba(255,255,255,0.05) 1px, transparent 1px);
-  background-size: 100% 20px, 20px 100%; /* Patrón de césped sutil */
-  border: 2px solid rgba(255,255,255,0.2); /* Borde más fino */
-  border-radius: 12px;
-  position: relative;
-  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  margin-bottom: 25px;
 }
 
-/* Líneas del campo - MÁS SUTILES */
+.selectorArea { display: flex; align-items: center; gap: 10px; padding-right: 20px; border-right: 1px solid #2d343f; }
+.customSelect { display: flex; align-items: center; background: #0f1218; border: 1px solid #3f4756; padding: 6px 12px; border-radius: 8px; gap: 8px; }
+.customSelect select { background: transparent; border: none; color: white; font-size: 0.9rem; font-weight: 600; cursor: pointer; outline: none; appearance: none; }
+
+.nameArea { flex: 1; display: flex; align-items: center; gap: 10px; background: #0f1218; padding: 8px 15px; border-radius: 8px; border: 1px solid #2d343f; }
+.nameInput { background: transparent; border: none; color: #fff; font-size: 1.1rem; font-weight: 600; width: 100%; outline: none; }
+
+.btnTrash { background: #2a1a1a; color: #ff4d4d; border: 1px solid #4a2222; padding: 10px; border-radius: 10px; cursor: pointer; transition: 0.2s; }
+.btnPrimary { background: #3b82f6; color: #fff; border: none; padding: 10px 20px; border-radius: 10px; display: flex; align-items: center; gap: 8px; font-weight: 700; cursor: pointer; }
+
+/* ── CAMPO TÁCTICO ── */
+.fieldContainer { background: #111; padding: 30px; border-radius: 24px; display: flex; justify-content: center; margin-bottom: 30px; border: 1px solid #222; }
+.soccerField { width: 100%; max-width: 480px; aspect-ratio: 3/4.2; background-color: #1a4d2e; border: 2px solid rgba(255,255,255,0.2); border-radius: 12px; position: relative; overflow: hidden; }
+
+/* Líneas del campo */
 .areaTop, .areaBottom { position: absolute; left: 15%; width: 70%; height: 18%; border: 1px solid rgba(255,255,255,0.15); }
 .areaTop { top: -1px; border-top: none; }
 .areaBottom { bottom: -1px; border-bottom: none; }
-.circleCenter { 
-  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-  width: 28%; height: 21%; border: 1px solid rgba(255,255,255,0.15); border-radius: 50%;
-}
-.circleCenter::after { /* Punto central */
-  content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-  width: 4px; height: 4px; background: rgba(255,255,255,0.2); border-radius: 50%;
-}
+.circleCenter { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 28%; height: 21%; border: 1px solid rgba(255,255,255,0.15); border-radius: 50%; }
 
-/* Slots de Jugador - ESTILO TÁCTICO MEJORADO */
-.fieldSlot {
-  position: absolute;
-  width: 60px; /* Un poco más pequeños */
-  height: 60px;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
-  z-index: 2;
-  transition: transform 0.2s;
-}
-.fieldSlot:hover { transform: translate(-50%, -50%) scale(1.05); }
+/* Fichas Jugadores */
+.fieldSlot { position: absolute; width: 65px; height: 65px; transform: translate(-50%, -50%); cursor: pointer; z-index: 10; transition: transform 0.2s; }
+.fieldSlot:hover { transform: translate(-50%, -50%) scale(1.08); }
 
-/* Posiciones (4-4-2) - Ajustadas ligeramente */
-.pos0 { bottom: 8%; left: 50%; }  /* GK */
-.pos1 { bottom: 22%; left: 18%; } /* LI */
-.pos2 { bottom: 20%; left: 40%; } /* DFC I*/
-.pos3 { bottom: 20%; left: 60%; } /* DFC D*/
-.pos4 { bottom: 22%; left: 82%; } /* LD */
-.pos5 { bottom: 48%; left: 12%; } /* MI */
-.pos6 { bottom: 46%; left: 38%; } /* MC I*/
-.pos7 { bottom: 46%; left: 62%; } /* MC D*/
-.pos8 { bottom: 48%; left: 88%; } /* MD */
-.pos9 { top: 18%; left: 32%; }    /* DC I*/
-.pos10 { top: 18%; left: 68%; }   /* DC D*/
+.pos0 { bottom: 8%; left: 50%; } .pos1 { bottom: 22%; left: 18%; } .pos2 { bottom: 20%; left: 40%; }
+.pos3 { bottom: 20%; left: 60%; } .pos4 { bottom: 22%; left: 82%; } .pos5 { bottom: 48%; left: 12%; }
+.pos6 { bottom: 46%; left: 38%; } .pos7 { bottom: 46%; left: 62%; } .pos8 { bottom: 48%; left: 88%; }
+.pos9 { top: 18%; left: 32%; } .pos10 { top: 18%; left: 68%; }
 
 .playerNode { display: flex; flex-direction: column; align-items: center; position: relative; }
-
-/* Círculo del Jugador ("Chapa") */
-.playerArt { 
-  width: 44px; height: 44px; border-radius: 50%; background: #000; 
-  border: 2px solid #fff; /* Borde blanco nítido */
-  position: relative; overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
+.playerArt { width: 48px; height: 48px; border-radius: 50%; border: 3px solid #fff; background: #000; overflow: hidden; }
 .playerArt img { width: 100%; height: 100%; object-fit: cover; }
-.placeholderArt { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 800; color: #fff; text-transform: uppercase; }
+.playerNameTag { background: rgba(0,0,0,0.85); color: white; font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 4px; margin-top: 6px; text-transform: uppercase; }
+.playerPosTag { font-size: 8px; font-weight: 900; color: #000; padding: 1px 5px; border-radius: 3px; margin-top: 1px; text-transform: uppercase; }
 
-/* Etiquetas de Texto */
-.playerNameTag { 
-  background: rgba(0,0,0,0.75); color: white; font-size: 10px; font-weight: 700;
-  padding: 2px 8px; border-radius: 4px; margin-top: 6px; 
-  white-space: nowrap; max-width: 80px; overflow: hidden; text-overflow: ellipsis;
-}
-.playerPosTag { 
-  font-size: 8px; font-weight: 800; padding: 1px 5px; border-radius: 3px; 
-  color: #000; margin-top: 1px; text-transform: uppercase;
-}
-
-/* Botón Eliminar Mini */
-.miniRemove {
-  position: absolute; top: -6px; right: -6px; background: rgba(255,77,77,0.9); border: none;
-  border-radius: 50%; width: 18px; height: 18px; color: white; 
-  display: flex; align-items: center; justify-content: center; cursor: pointer;
-  opacity: 0; transition: opacity 0.2s; z-index: 3;
-}
+.miniRemove { position: absolute; top: -5px; right: -5px; background: #ff4d4d; border-radius: 50%; border: none; width: 18px; height: 18px; color: #fff; cursor: pointer; opacity: 0; transition: 0.2s; z-index: 20; }
 .playerNode:hover .miniRemove { opacity: 1; }
+.emptyNode { width: 42px; height: 42px; border-radius: 50%; border: 2px dashed rgba(255,255,255,0.2); display: flex; flex-direction: column; align-items: center; justify-content: center; color: rgba(255,255,255,0.3); }
 
-/* Nodo Vacío - MÁS DISCRETO */
-.emptyNode {
-  width: 40px; height: 40px; border-radius: 50%; 
-  border: 1px dashed rgba(255,255,255,0.25); /* Borde punteado suave */
-  background: rgba(255,255,255,0.03);
-  display: flex; flex-direction: column; align-items: center; justify-content: center; color: rgba(255,255,255,0.4);
-}
-.emptyNode small { font-size: 9px; font-weight: 700; text-transform: uppercase; margin-top: -2px; }
+/* ── MODAL EMERGENTE (Captura 202313) ── */
+.overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.85); display: flex; align-items: center; justify-content: center; z-index: 9999; backdrop-filter: blur(6px); }
+.pickerModal { background: #151921; width: 90%; max-width: 500px; max-height: 80vh; border-radius: 20px; border: 1px solid #2d343f; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.7); animation: modalIn 0.3s ease-out; }
 
-/* Stats Inferiores */
-.summaryGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; max-width: 500px; margin: 0 auto; }
-.summaryBox { background: #111; border: 1px solid #222; border-radius: 12px; padding: 15px; text-align: center; }
-.summaryBox span { display: block; font-size: 2rem; font-weight: 800; color: #f39c12; /* Color naranja para la potencia */ }
-.summaryBox small { font-size: 0.75rem; color: #aaa; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+.pickerHeader { padding: 24px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); display: flex; justify-content: space-between; align-items: center; }
+.pickerTitle { font-size: 1.4rem; font-weight: 800; text-transform: uppercase; margin: 0; color: #fff; }
+.pickerCount { font-size: 0.8rem; color: #3b82f6; font-weight: 600; }
+.closeBtn { background: transparent; border: none; color: #666; cursor: pointer; }
 
-/* Loading */
-.loadingState { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 300px; color: #aaa; gap: 10px; }
-.spinner { animation: spin 1s linear infinite; }
+.pickerSearch { margin: 15px 24px; position: relative; }
+.pickerSearchIcon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #555; }
+.pickerSearchInput { width: 100%; background: #0f1218; border: 1px solid #2d343f; border-radius: 10px; padding: 12px 12px 12px 40px; color: white; outline: none; }
+
+.pickerFilters { padding: 0 24px 15px; }
+.pickerSelect { width: 100%; background: #1a1f26; border: 1px solid #2d343f; border-radius: 8px; padding: 10px; color: #fff; cursor: pointer; }
+
+.pickerList { flex: 1; overflow-y: auto; padding: 15px; display: flex; flex-direction: column; gap: 10px; }
+.pickerRow { display: flex; align-items: center; padding: 12px; background: #1e242e; border: 1px solid #2d343f; border-radius: 12px; cursor: pointer; transition: 0.2s; color: #fff; }
+.pickerRow:hover { background: #2a3240; transform: translateX(5px); }
+
+.pickerAvatar { width: 45px; height: 45px; border-radius: 8px; overflow: hidden; margin-right: 12px; background: #000; flex-shrink: 0; }
+.pickerAvatar img { width: 100%; height: 100%; object-fit: cover; }
+
+.pickerInfo { flex: 1; }
+.pickerName { display: block; font-weight: 700; font-size: 1rem; }
+.pickerMeta { font-size: 0.75rem; color: #8a94a6; text-transform: uppercase; }
+
+.pickerPower { display: flex; flex-direction: column; align-items: flex-end; min-width: 60px; }
+.pwrVal { font-size: 1.1rem; font-weight: 900; color: #f39c12; }
+.pwrLabel { font-size: 0.6rem; color: #555; margin-top: -4px; font-weight: 800; }
+
+.summaryGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 500px; margin: 20px auto; }
+.summaryBox { background: #111; border: 1px solid #222; border-radius: 16px; padding: 20px; text-align: center; }
+.summaryBox span { display: block; font-size: 2rem; font-weight: 900; color: #3b82f6; }
+.summaryBox small { font-size: 0.7rem; color: #666; font-weight: 800; text-transform: uppercase; }
+
+@keyframes modalIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
 @keyframes spin { to { transform: rotate(360deg); } }
-
-@keyframes modalIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.pickerList {
-  flex: 1;
-  overflow-y: auto;
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.noAvail {
-  text-align: center;
-  padding: 40px 20px;
-  color: #666;
-  font-size: 0.9rem;
-}
-
-.overlay {
-  position: fixed; /* Cambiado de absolute a fixed */
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.85); /* Fondo más oscuro para resaltar el modal */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999; /* Por encima de todo */
-  backdrop-filter: blur(4px); /* Efecto cristal de la imagen de referencia */
-}
-
-.pickerModal {
-  background: #151921;
-  width: 90%;
-  max-width: 500px;
-  max-height: 80vh;
-  border-radius: 16px;
-  border: 1px solid #2d343f;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-  animation: modalIn 0.2s ease-out;
-}
-
-/* Contenedor de cada fila de jugador */
-.pickerRow {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  padding: 12px 16px;
-  background: #1e242e; /* Fondo ligeramente más claro que el modal */
-  border: 1px solid #2d343f;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  margin-bottom: 8px;
-  color: white;
-  text-align: left;
-}
-
-.pickerRow:hover {
-  background: #2a3240;
-  border-color: #3f4756;
-  transform: translateX(4px); /* Efecto sutil al pasar el ratón */
-}
-
-/* Imagen del jugador */
-.pickerAvatar {
-  width: 50px;
-  height: 50px;
-  border-radius: 10px; /* Bordes redondeados sutiles */
-  overflow: hidden;
-  margin-right: 15px;
-  flex-shrink: 0;
-  background: #111;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.pickerAvatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Esto evita que la imagen de Axel se deforme */
-}
-
-/* Bloque central de información */
-.pickerInfo {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.pickerName {
-  font-weight: 700;
-  font-size: 1rem;
-  color: #fff;
-}
-
-.pickerMeta {
-  font-size: 0.8rem;
-  color: #8a94a6;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-/* Bloque de Potencia a la derecha */
-.pickerPower {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: center;
-  min-width: 60px;
-}
-
-.pwrVal {
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: #f39c12; /* Color naranja/dorado para el poder */
-}
-
-.pwrLabel {
-  font-size: 0.65rem;
-  font-weight: 600;
-  color: #555;
-  margin-top: -4px;
-}
-
-/* Scrollbar personalizada para que no sea fea */
-.pickerList::-webkit-scrollbar {
-  width: 6px;
-}
-.pickerList::-webkit-scrollbar-track {
-  background: transparent;
-}
-.pickerList::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 10px;
-}
-
-
-/* Cabecera del Modal */
-.pickerHeader {
-  padding: 24px 24px 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.pickerTitle {
-  font-size: 1.4rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  background: linear-gradient(to right, #fff, #8a94a6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin: 0;
-}
-
-.pickerCount {
-  display: block;
-  font-size: 0.75rem;
-  color: #3b82f6; /* Azul brillante */
-  font-weight: 600;
-  margin-top: 4px;
-}
-
-/* Buscador mejorado */
-.pickerSearch {
-  margin: 16px 24px;
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.pickerSearchIcon {
-  position: absolute;
-  left: 12px;
-  color: #555;
-  pointer-events: none;
-}
-
-.pickerSearchInput {
-  width: 100%;
-  background: #0f1218;
-  border: 1px solid #2d343f;
-  border-radius: 10px;
-  padding: 12px 12px 12px 40px;
-  color: white;
-  font-size: 0.9rem;
-  transition: all 0.2s ease;
-}
-
-.pickerSearchInput:focus {
-  outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
-}
-
-/* Contenedor de Filtros */
-.pickerFilters {
-  padding: 0 24px 16px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-.pickerSelect {
-  background: #1a1f26;
-  border: 1px solid #2d343f;
-  border-radius: 8px;
-  padding: 8px 12px;
-  color: #cbd5e1;
-  font-size: 0.85rem;
-  cursor: pointer;
-  appearance: none; /* Quitamos el estilo por defecto */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23555' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-}
-
-.pickerSelect:focus {
-  border-color: #3b82f6;
-  outline: none;
-}
+.spinner { animation: spin 1s linear infinite; }
