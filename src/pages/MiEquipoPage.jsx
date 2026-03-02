@@ -1,22 +1,19 @@
 import { useState, useEffect, useMemo } from 'react'
-import { Plus, X, Save, Trash2, Search, Loader2, ChevronDown, Folder, PlusCircle, Edit3, Check } from 'lucide-react'
+import { Plus, X, Save, Trash2, Search, Loader2, Users, Check, ChevronDown, Folder, PlusCircle } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { getElementColor } from '../utils/colors'
 import { getAllPlayers } from '../services/playerService'
 import styles from './MiEquipoPage.module.css'
-
-// (CharacterPickerModal se mantiene igual que en tu código previo)
 
 export default function MiEquipoPage() {
   const { user } = useAuth()
   const [characters, setCharacters] = useState([])
   const [loading, setLoading] = useState(true)
   const [isSaving, setIsSaving] = useState(false)
-  const [isDeleting, setIsDeleting] = useState(false)
   
-  const [misEquipos, setMisEquipos] = useState({}) 
+  // ESTADOS DE EQUIPOS
+  const [misEquipos, setMisEquipos] = useState({}) // { "Equipo A": [ids], "Equipo B": [ids] }
   const [equipoSeleccionado, setEquipoSeleccionado] = useState("Nuevo Equipo")
-  const [nombreTemporal, setNombreTemporal] = useState("") // Para editar el nombre
   const [selectingSlot, setSelectingSlot] = useState(null)
 
   const DEFAULT_FORMATION = [
@@ -28,6 +25,7 @@ export default function MiEquipoPage() {
 
   const [slots, setSlots] = useState(DEFAULT_FORMATION.map(s => ({ ...s, characterId: null })));
 
+  // Carga inicial de jugadores y equipos del usuario
   useEffect(() => {
     async function init() {
       try {
@@ -38,14 +36,12 @@ export default function MiEquipoPage() {
         if (user?.id) {
           const res = await fetch(`http://127.0.0.1:5000/obtener_usuario/${user.id}`)
           const data = await res.json()
-          if (res.ok && data.usuario.equipos) {
-            setMisEquipos(data.usuario.equipos)
-            const nombres = Object.keys(data.usuario.equipos)
+          if (res.ok && data.usuario.equipos_guardados) {
+            setMisEquipos(data.usuario.equipos_guardados)
+            // Si hay equipos, cargar el primero por defecto
+            const nombres = Object.keys(data.usuario.equipos_guardados)
             if (nombres.length > 0) {
-              const inicial = nombres[0]
-              setEquipoSeleccionado(inicial)
-              setNombreTemporal(inicial)
-              setSlots(DEFAULT_FORMATION.map((s, i) => ({ ...s, characterId: data.usuario.equipos[inicial][i] || null })))
+              cargarEquipo(nombres[0], data.usuario.equipos_guardados[nombres[0]])
             }
           }
         }
@@ -54,88 +50,59 @@ export default function MiEquipoPage() {
     init()
   }, [user?.id])
 
-  const cargarEquipo = (nombre) => {
+  const cargarEquipo = (nombre, ids) => {
     setEquipoSeleccionado(nombre)
-    setNombreTemporal(nombre)
-    const ids = misEquipos[nombre] || []
     setSlots(DEFAULT_FORMATION.map((s, i) => ({ ...s, characterId: ids[i] || null })))
   }
 
   const handleNewTeam = () => {
-    const nuevo = "Nuevo Equipo " + (Object.keys(misEquipos).length + 1)
-    setEquipoSeleccionado(nuevo)
-    setNombreTemporal(nuevo)
-    setSlots(DEFAULT_FORMATION.map(s => ({ ...s, characterId: null })))
+    const nuevoNombre = prompt("Nombre del nuevo equipo:")
+    if (nuevoNombre) {
+      setEquipoSeleccionado(nuevoNombre)
+      setSlots(DEFAULT_FORMATION.map(s => ({ ...s, characterId: null })))
+    }
   }
 
   const handleSaveTeam = async () => {
-    if (!user?.id) return
+    if (!user?.id) return alert("Inicia sesión")
     setIsSaving(true)
-    const equipoIds = slots.map(s => s.characterId)
     try {
+      const equipoIds = slots.map(s => s.characterId)
       const res = await fetch('http://127.0.0.1:5000/guardar_equipo', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           user_id: user.id,
           equipo: equipoIds,
-          nombre_equipo: nombreTemporal // Usamos el nombre del input
+          nombre_equipo: equipoSeleccionado
         })
       })
       if (res.ok) {
-        setMisEquipos(prev => ({ ...prev, [nombreTemporal]: equipoIds }))
-        setEquipoSeleccionado(nombreTemporal)
-        alert("Equipo guardado con éxito")
+        setMisEquipos(prev => ({ ...prev, [equipoSeleccionado]: equipoIds }))
+        alert("Equipo guardado!")
       }
     } catch (e) { console.error(e) } finally { setIsSaving(false) }
   }
 
   const handleDeleteTeam = async () => {
-  if (!user?.id || equipoSeleccionado === "Nuevo Equipo") return;
-  if (!confirm(`¿Borrar definitivamente "${equipoSeleccionado}"?`)) return;
-  
-  setIsDeleting(true);
-  try {
-    const res = await fetch('http://127.0.0.1:5000/eliminar_equipo', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ user_id: user.id, nombre_equipo: equipoSeleccionado })
-    });
-
-    const data = await res.json();
-
-    if (res.ok) {
-      // Usamos directamente lo que nos diga la DB que queda
-      const restantes = data.equipos || {};
-      setMisEquipos(restantes);
-      
-      const nombres = Object.keys(restantes);
-      if (nombres.length > 0) {
-        // Si quedan equipos, cargamos el primero de la lista
-        cargarEquipo(nombres[0]);
-      } else {
-        // Si no queda nada, limpiamos el campo y volvemos al estado inicial
-        setEquipoSeleccionado("Nuevo Equipo");
-        setNombreTemporal("");
-        setSlots(DEFAULT_FORMATION.map(s => ({ ...s, characterId: null })));
-      }
-      alert("Equipo eliminado correctamente");
-    }
-  } catch (e) { 
-    console.error("Error al eliminar:", e);
-  } finally { 
-    setIsDeleting(false); 
+    if (!confirm(`¿Borrar "${equipoSeleccionado}"?`)) return
+    // Aquí llamarías a un endpoint de borrado o actualizarías el documento quitando esa clave
+    const nuevosEquipos = { ...misEquipos }
+    delete nuevosEquipos[equipoSeleccionado]
+    setMisEquipos(nuevosEquipos)
+    // Volver al estado inicial
+    setSlots(DEFAULT_FORMATION.map(s => ({ ...s, characterId: null })))
+    setEquipoSeleccionado("Nuevo Equipo")
   }
-};
 
-  // Reglas de poder: 0.3 copia, 0.5 heredero
+  // Lógica de cálculo (0.3 copia, 0.5 heredero)
   const usedIds = slots.filter(s => s.characterId).map(s => s.characterId)
   const totalPower = slots.reduce((sum, slot) => {
     const c = characters.find(ch => (ch.id === slot.characterId || ch._id === slot.characterId))
     if (!c) return sum
     let pwr = c.power || 0
-    if (c.relation === 'heredero') pwr *= 0.5 
-    if (c.isCopy) pwr *= 0.3 
+    if (c.relation === 'heredero') pwr *= 0.5
+    if (c.isCopy) pwr *= 0.3
     return sum + pwr
   }, 0)
 
@@ -143,57 +110,76 @@ export default function MiEquipoPage() {
 
   return (
     <div className={styles.page}>
-      {/* HEADER REDISEÑADO */}
       <div className={styles.pageTop}>
-        <div className={styles.managementCard}>
-          <div className={styles.selectorArea}>
-            <div className={styles.customSelect}>
-              <Folder size={16} className={styles.iconMuted} />
-              <select 
-                value={equipoSeleccionado} 
-                onChange={(e) => cargarEquipo(e.target.value)}
-              >
-                {Object.keys(misEquipos).length === 0 && <option>No hay equipos</option>}
-                {Object.keys(misEquipos).map(nom => (
-                  <option key={nom} value={nom}>{nom}</option>
-                ))}
-              </select>
-              <ChevronDown size={14} />
-            </div>
-            <button onClick={handleNewTeam} className={styles.actionCircle} title="Nuevo equipo">
-              <PlusCircle size={20} />
-            </button>
+        <div className={styles.teamSelectorSection}>
+          <div className={styles.selectWrapper}>
+            <Folder size={18} />
+            <select 
+              value={equipoSeleccionado} 
+              onChange={(e) => cargarEquipo(e.target.value, misEquipos[e.target.value])}
+              className={styles.teamDropdown}
+            >
+              <option value="Nuevo Equipo">Seleccionar equipo...</option>
+              {Object.keys(misEquipos).map(nom => (
+                <option key={nom} value={nom}>{nom}</option>
+              ))}
+            </select>
+            <ChevronDown size={16} />
           </div>
+          <button onClick={handleNewTeam} className={styles.btnIcon} title="Nuevo equipo">
+            <PlusCircle size={20} />
+          </button>
+        </div>
 
-          <div className={styles.nameArea}>
-            <Edit3 size={14} className={styles.iconMuted} />
-            <input 
-              type="text" 
-              className={styles.nameInput}
-              value={nombreTemporal}
-              onChange={(e) => setNombreTemporal(e.target.value)}
-              placeholder="Nombre del equipo..."
-            />
-          </div>
-
-          <div className={styles.buttonGroup}>
-            <button className={styles.btnTrash} onClick={handleDeleteTeam} disabled={isDeleting}>
-              {isDeleting ? <Loader2 size={18} className={styles.spinner} /> : <Trash2 size={18} />}
-            </button>
-            <button className={styles.btnPrimary} onClick={handleSaveTeam} disabled={isSaving}>
-              {isSaving ? <Loader2 size={18} className={styles.spinner} /> : <Save size={18} />}
-              <span>Guardar</span>
-            </button>
-          </div>
+        <div className={styles.topActions}>
+          <button className={styles.btnDanger} onClick={handleDeleteTeam} title="Eliminar equipo actual">
+            <Trash2 size={18} />
+          </button>
+          <button className={styles.btnSave} onClick={handleSaveTeam} disabled={isSaving}>
+            {isSaving ? <Loader2 className={styles.spinner} size={18}/> : <Save size={18}/>}
+            Guardar
+          </button>
         </div>
       </div>
 
       <div className={styles.fieldContainer}>
-        {/* (Aquí va tu soccerField igual que antes) */}
+        <div className={styles.soccerField}>
+          <div className={styles.areaTop}></div>
+          <div className={styles.circleCenter}></div>
+          <div className={styles.areaBottom}></div>
+
+          {slots.map((slot, index) => {
+            const char = characters.find(c => (c._id === slot.characterId || c.id === slot.characterId));
+            return (
+              <div key={index} className={`${styles.fieldSlot} ${styles['pos' + index]}`} onClick={() => !char && setSelectingSlot(index)}>
+                {char ? (
+                  <div className={styles.playerNode}>
+                    <div className={styles.playerArt} style={{ borderColor: getElementColor(char.element) }}>
+                      {char.image ? <img src={char.image} alt="" /> : <div className={styles.placeholderArt}>{char.name[0]}</div>}
+                    </div>
+                    <button className={styles.miniRemove} onClick={(e) => { e.stopPropagation(); setSlots(prev => prev.map((s, i) => i === index ? { ...s, characterId: null } : s)); }}>
+                      <X size={10} />
+                    </button>
+                    <div className={styles.playerNameTag}>{char.name.split(' ')[0]}</div>
+                  </div>
+                ) : (
+                  <div className={styles.emptyNode}><Plus size={16} /></div>
+                )}
+              </div>
+            )
+          })}
+        </div>
       </div>
 
       <div className={styles.summaryGrid}>
-        {/* (Aquí van tus summaryBox igual que antes) */}
+        <div className={styles.summaryBox}>
+          <span>{Math.round(totalPower)}</span>
+          <small>POTENCIA TOTAL</small>
+        </div>
+        <div className={styles.summaryBox}>
+          <span>{usedIds.length > 0 ? Math.round(totalPower/usedIds.length) : 0}</span>
+          <small>MEDIA EQUIPO</small>
+        </div>
       </div>
 
       {selectingSlot !== null && (
