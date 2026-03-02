@@ -1,19 +1,20 @@
-import { useState } from 'react'
-import { Shield, Plus, X, Save, Trash2, Search } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { Shield, Plus, X, Save, Trash2, Search, Loader2 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { useMyTeam } from '../hooks/useMyTeam'
 import { getElementColor } from '../utils/colors'
 import { elements, positions } from '../data/constants'
+import { getAllPlayers } from '../services/playerService' // Asegúrate de que este servicio existe
 import styles from './MiEquipoPage.module.css'
 
 // ── Picker Modal ────────────────────────────────────────────────────
 function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, onSelect, onClose }) {
-  const [search,  setSearch]  = useState('')
+  const [search, setSearch] = useState('')
   const [elFilter, setElFilter] = useState('')
-  const [posFilter, setPosFilter] = useState('')
+  const [posFilter, setPosFilter] = useState(slotPosition || '') 
 
   const available = characters
-    .filter(c => !usedIds.includes(c.id))
+    .filter(c => !usedIds.includes(c._id || c.id))
     .filter(c => {
       const q = search.toLowerCase()
       return (
@@ -22,7 +23,7 @@ function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, on
         (!posFilter || c.position === posFilter)
       )
     })
-    .sort((a, b) => b.power - a.power)
+    .sort((a, b) => (b.power || 0) - (a.power || 0))
 
   return (
     <div className={styles.overlay} onClick={onClose}>
@@ -35,7 +36,6 @@ function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, on
           <button onClick={onClose} className={styles.closeBtn}><X size={18} /></button>
         </div>
 
-        {/* Search */}
         <div className={styles.pickerSearch}>
           <Search size={14} className={styles.pickerSearchIcon} />
           <input
@@ -48,9 +48,8 @@ function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, on
           />
         </div>
 
-        {/* Filters */}
         <div className={styles.pickerFilters}>
-          <select value={elFilter}  onChange={e => setElFilter(e.target.value)}  className={styles.pickerSelect}>
+          <select value={elFilter} onChange={e => setElFilter(e.target.value)} className={styles.pickerSelect}>
             <option value="">Elemento</option>
             {elements.map(el => <option key={el} value={el}>{el}</option>)}
           </select>
@@ -59,16 +58,14 @@ function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, on
             {positions.map(p => <option key={p} value={p}>{p}</option>)}
           </select>
         </div>
-        <p className={styles.pickerCount}>{available.length} jugadores disponibles</p>
 
-        {/* List */}
         <div className={styles.pickerList}>
           {available.length === 0
             ? <p className={styles.noAvail}>No se encontraron jugadores</p>
             : available.map(char => (
-              <button key={char.id} onClick={() => onSelect(slotIndex, char.id)} className={styles.pickerRow}>
+              <button key={char._id || char.id} onClick={() => onSelect(slotIndex, char._id || char.id)} className={styles.pickerRow}>
                 <div className={styles.pickerAvatar} style={{ background: getElementColor(char.element) }}>
-                  {char.name.charAt(0)}
+                  {char.image ? <img src={char.image} alt="" /> : char.name.charAt(0)}
                 </div>
                 <div className={styles.pickerInfo}>
                   <span className={styles.pickerName}>{char.name}</span>
@@ -89,20 +86,66 @@ function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, on
 // ── Página principal ────────────────────────────────────────────────
 export default function MiEquipoPage() {
   const { user } = useAuth()
-
-  // TODO: Reemplaza con tu fetch de personajes
-  // Ejemplo: const { data: characters = [] } = useCharacters()
-  const characters = []  // <- aquí irán los personajes de la API
+  const [characters, setCharacters] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [isCloudSaving, setIsCloudSaving] = useState(false)
 
   const {
     teamName, setTeamName,
     slots,
     addPlayer, removePlayer,
-    handleSave, handleClear,
+    handleSave: saveLocal, handleClear,
+    loadFromMongo, // Función que añadimos al hook useMyTeam anteriormente
     saved, usedIds, filledSlots, totalPower,
   } = useMyTeam(characters)
 
   const [selectingSlot, setSelectingSlot] = useState(null)
+
+  // 1. Cargar datos desde Flask al montar
+  useEffect(() => {
+    async function init() {
+      try {
+        setLoading(true)
+        const allPlayers = await getAllPlayers()
+        setCharacters(allPlayers)
+
+        if (user?.id) {
+          const res = await fetch(`http://127.0.0.1:5000/obtener_equipo/${user.id}`)
+          const data = await res.json()
+          if (res.ok && data.equipo) {
+            loadFromMongo(data.equipo, data.nombre_equipo)
+          }
+        }
+      } catch (err) {
+        console.error("Error inicializando página:", err)
+      } finally {
+        setLoading(false)
+      }
+    }
+    init()
+  }, [user?.id])
+
+  // 2. Guardar en Base de Datos (Cloud)
+  async function handleCloudSave() {
+    if (!user?.id) return alert("Inicia sesión para guardar")
+    setIsCloudSaving(true)
+    try {
+      const response = await fetch('http://127.0.0.1:5000/guardar_equipo', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          user_id: user.id,
+          nombre_equipo: teamName,
+          equipo: slots.map(s => s.characterId) // Enviamos array de IDs
+        })
+      })
+      if (response.ok) saveLocal()
+    } catch (err) {
+      alert("Error al guardar en el servidor")
+    } finally {
+      setIsCloudSaving(false)
+    }
+  }
 
   function handleSelect(slotIndex, characterId) {
     addPlayer(slotIndex, characterId)
@@ -116,28 +159,33 @@ export default function MiEquipoPage() {
     { label: 'Delantero',      slots: slots.map((s, i) => ({ ...s, index: i })).filter(s => s.position === 'Delantero') },
   ]
 
+  if (loading) return <div className={styles.loadingState}><Loader2 className="spinner" size={40} /><p>Cargando plantilla...</p></div>
+
   return (
     <div className={styles.page}>
-      {/* Header */}
       <div className={styles.pageTop}>
         <div>
           <div className={styles.titleRow}>
             <Shield size={22} style={{ color: 'var(--neon-pink)' }} />
             <h1 className={styles.title}>Mi Equipo</h1>
           </div>
-          <p className={styles.subtitle}>Hola, {user?.name}! Crea tu equipo ideal</p>
+          <p className={styles.subtitle}>Hola, {user?.username || 'entrenador'}! Crea tu equipo ideal</p>
         </div>
         <div className={styles.topActions}>
           <button onClick={handleClear} className={styles.btnSecondary}>
             <Trash2 size={15} /> Limpiar
           </button>
-          <button onClick={handleSave} className={`${styles.btnSave} ${saved ? styles.btnSaved : ''}`}>
-            <Save size={15} /> {saved ? '¡Guardado!' : 'Guardar'}
+          <button 
+            onClick={handleCloudSave} 
+            className={`${styles.btnSave} ${saved ? styles.btnSaved : ''}`}
+            disabled={isCloudSaving}
+          >
+            {isCloudSaving ? <Loader2 size={15} className="spinner" /> : <Save size={15} />}
+            {saved ? '¡Guardado!' : 'Guardar'}
           </button>
         </div>
       </div>
 
-      {/* Stats */}
       <div className={styles.summaryGrid}>
         <div className={styles.summaryBox}>
           <span>{filledSlots}<span className={styles.divider}>/11</span></span>
@@ -155,7 +203,6 @@ export default function MiEquipoPage() {
         </div>
       </div>
 
-      {/* Nombre */}
       <div className={styles.nameBox}>
         <label className={styles.nameLabel}>Nombre del equipo</label>
         <input
@@ -166,7 +213,6 @@ export default function MiEquipoPage() {
         />
       </div>
 
-      {/* Formación */}
       {GROUPS.map(group => (
         <div key={group.label} className={styles.group}>
           <h3 className={styles.groupLabel}>
@@ -174,31 +220,26 @@ export default function MiEquipoPage() {
           </h3>
           <div className={styles.groupGrid}>
             {group.slots.map(slot => {
-              const char = slot.characterId ? characters.find(c => c.id === slot.characterId) : null
+              // Búsqueda robusta por id o _id para MongoDB
+              const char = slot.characterId ? characters.find(c => (c._id === slot.characterId || c.id === slot.characterId)) : null
+              
               return (
                 <div key={slot.index} className={styles.slot}>
                   {char ? (
                     <div className={styles.filledSlot}>
                       <div className={styles.filledAvatar} style={{ background: getElementColor(char.element) }}>
-                        {char.name.charAt(0)}
+                        {char.image ? <img src={char.image} alt="" /> : char.name.charAt(0)}
                       </div>
                       <div className={styles.filledInfo}>
                         <span className={styles.filledName}>{char.name}</span>
                         <span className={styles.filledMeta}>{char.element} · PWR {char.power}</span>
                       </div>
-                      <button
-                        onClick={() => removePlayer(slot.index)}
-                        className={styles.removeBtn}
-                        aria-label={`Quitar ${char.name}`}
-                      >
+                      <button onClick={() => removePlayer(slot.index)} className={styles.removeBtn}>
                         <X size={14} />
                       </button>
                     </div>
                   ) : (
-                    <button
-                      onClick={() => setSelectingSlot(slot.index)}
-                      className={styles.emptySlot}
-                    >
+                    <button onClick={() => setSelectingSlot(slot.index)} className={styles.emptySlot}>
                       <Plus size={16} /> Añadir {group.label}
                     </button>
                   )}
@@ -209,7 +250,6 @@ export default function MiEquipoPage() {
         </div>
       ))}
 
-      {/* Picker Modal */}
       {selectingSlot !== null && (
         <CharacterPickerModal
           slotIndex={selectingSlot}

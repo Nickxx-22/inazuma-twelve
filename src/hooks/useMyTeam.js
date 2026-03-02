@@ -20,7 +20,7 @@ export function useMyTeam(characters = []) {
   const [slots, setSlots]       = useState(DEFAULT_FORMATION)
   const [saved, setSaved]       = useState(false)
 
-  // Carga equipo guardado al montar
+  // Carga inicial (LocalStorage)
   useEffect(() => {
     const stored = loadTeam()
     if (stored) {
@@ -29,16 +29,23 @@ export function useMyTeam(characters = []) {
     }
   }, [])
 
+  // NUEVA: Función para cargar desde MongoDB
+  const loadFromMongo = (equipoIds, nombre) => {
+    if (nombre) setTeamName(nombre);
+    if (equipoIds) {
+      setSlots(prev => prev.map((s, i) => ({
+        ...s,
+        characterId: equipoIds[i] || null
+      })));
+    }
+  };
+
   function addPlayer(slotIndex, characterId) {
-    setSlots(prev =>
-      prev.map((s, i) => i === slotIndex ? { ...s, characterId } : s)
-    )
+    setSlots(prev => prev.map((s, i) => i === slotIndex ? { ...s, characterId } : s))
   }
 
   function removePlayer(slotIndex) {
-    setSlots(prev =>
-      prev.map((s, i) => i === slotIndex ? { ...s, characterId: null } : s)
-    )
+    setSlots(prev => prev.map((s, i) => i === slotIndex ? { ...s, characterId: null } : s))
   }
 
   function handleSave() {
@@ -54,16 +61,29 @@ export function useMyTeam(characters = []) {
 
   const usedIds     = slots.filter(s => s.characterId).map(s => s.characterId)
   const filledSlots = usedIds.length
-  const totalPower  = usedIds.reduce((sum, id) => {
-    const c = characters.find(ch => ch.id === id)
-    return sum + (c?.power ?? 0)
-  }, 0)
+
+  // CÁLCULO DE PODER CON MODIFICADORES REQUERIDOS
+  const totalPower = slots.reduce((sum, slot) => {
+    const c = characters.find(ch => (ch.id === slot.characterId || ch._id === slot.characterId));
+    if (!c) return sum;
+
+    let pwr = c.power || 0;
+    
+    // Aplicar modificador heredero: 0.5 [cite: 2026-02-27]
+    if (c.relation === 'heredero') pwr *= 0.5;
+    
+    // Aplicar modificador copia: 0.3 [cite: 2026-02-11]
+    if (c.isCopy) pwr *= 0.3;
+
+    return sum + pwr;
+  }, 0);
 
   return {
     teamName, setTeamName,
     slots,
     addPlayer, removePlayer,
     handleSave, handleClear,
+    loadFromMongo, // Exportamos para usarla en la página
     saved, usedIds, filledSlots, totalPower,
   }
 }
