@@ -17,12 +17,12 @@ const SECTIONS = [
 // ─── Lista de imágenes en public ─────────────────────────────
 // Asegúrate de que los nombres coincidan exactamente con tus archivos
 const SLIDER_IMAGES = [
-  '/axel.png',
-  '/axel_capucha.png',
-  '/byron_love.gif',
-  '/inazuma_japon.png',
-  '/shawn_ventisca.gif',
-  '/xavier_descenso.gif',
+  'axel.png',
+  'axel_capucha.png',
+  'byron_love.gif',
+  'inazuma_japon.png',
+  'shawn_ventisca.gif',
+  'xavier_descenso.gif',
 ]
 
 export default function HomePage() {
