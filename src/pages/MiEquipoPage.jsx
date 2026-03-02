@@ -91,31 +91,42 @@ export default function MiEquipoPage() {
   }
 
   const handleDeleteTeam = async () => {
-    if (!user?.id || equipoSeleccionado === "Nuevo Equipo") return
-    if (!confirm(`¿Borrar definitivamente "${equipoSeleccionado}"?`)) return
-    
-    setIsDeleting(true)
-    try {
-      const res = await fetch('http://127.0.0.1:5000/eliminar_equipo', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ user_id: user.id, nombre_equipo: equipoSeleccionado })
-      })
+  if (!user?.id || equipoSeleccionado === "Nuevo Equipo") return;
+  if (!confirm(`¿Borrar definitivamente "${equipoSeleccionado}"?`)) return;
+  
+  setIsDeleting(true);
+  try {
+    const res = await fetch('http://127.0.0.1:5000/eliminar_equipo', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ user_id: user.id, nombre_equipo: equipoSeleccionado })
+    });
 
-      if (res.ok) {
-        const nuevosEquipos = { ...misEquipos }
-        delete nuevosEquipos[equipoSeleccionado]
-        setMisEquipos(nuevosEquipos)
-        
-        const restantes = Object.keys(nuevosEquipos)
-        if (restantes.length > 0) {
-          cargarEquipo(restantes[0])
-        } else {
-          handleNewTeam()
-        }
+    const data = await res.json();
+
+    if (res.ok) {
+      // Usamos directamente lo que nos diga la DB que queda
+      const restantes = data.equipos || {};
+      setMisEquipos(restantes);
+      
+      const nombres = Object.keys(restantes);
+      if (nombres.length > 0) {
+        // Si quedan equipos, cargamos el primero de la lista
+        cargarEquipo(nombres[0]);
+      } else {
+        // Si no queda nada, limpiamos el campo y volvemos al estado inicial
+        setEquipoSeleccionado("Nuevo Equipo");
+        setNombreTemporal("");
+        setSlots(DEFAULT_FORMATION.map(s => ({ ...s, characterId: null })));
       }
-    } catch (e) { console.error(e) } finally { setIsDeleting(false) }
+      alert("Equipo eliminado correctamente");
+    }
+  } catch (e) { 
+    console.error("Error al eliminar:", e);
+  } finally { 
+    setIsDeleting(false); 
   }
+};
 
   // Reglas de poder: 0.3 copia, 0.5 heredero
   const usedIds = slots.filter(s => s.characterId).map(s => s.characterId)
