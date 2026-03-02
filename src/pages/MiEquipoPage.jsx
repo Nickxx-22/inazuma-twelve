@@ -118,13 +118,20 @@ export default function MiEquipoPage() {
   cargarDatos();
 }, [user]);
 
+  // En MiEquipoPage.jsx
   const {
     teamName, setTeamName,
     slots,
     addPlayer, removePlayer,
     handleSave: saveLocal, handleClear,
+    loadTeamFromDB, // <-- Añade esto aquí
     saved, usedIds, filledSlots, totalPower,
-  } = useMyTeam(characters)
+  } = useMyTeam(characters);
+
+  // Y en el useEffect, cámbialo por:
+  if (res.ok && data.equipo) {
+    loadTeamFromDB(data.equipo, data.nombre_equipo);
+  }
 
   const [selectingSlot, setSelectingSlot] = useState(null)
   const [isSaving, setIsSaving] = useState(false)

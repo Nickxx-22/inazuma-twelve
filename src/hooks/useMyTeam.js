@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { saveTeam, loadTeam } from '../services/teamStorage'
+import { saveTeam } from '../services/teamStorage'
 
 const DEFAULT_FORMATION = [
   { position: 'Portero',         characterId: null },
@@ -20,14 +20,16 @@ export function useMyTeam(characters = []) {
   const [slots, setSlots]       = useState(DEFAULT_FORMATION)
   const [saved, setSaved]       = useState(false)
 
-  // Carga equipo guardado al montar
-  useEffect(() => {
-    const stored = loadTeam()
-    if (stored) {
-      setSlots(stored.slots)
-      setTeamName(stored.name)
+  // 1. Función para cargar datos desde MongoDB
+  function loadTeamFromDB(equipoIds, nombre) {
+    if (nombre) setTeamName(nombre);
+    if (equipoIds && Array.isArray(equipoIds)) {
+      setSlots(prev => prev.map((slot, i) => ({
+        ...slot,
+        characterId: equipoIds[i] || null
+      })));
     }
-  }, [])
+  }
 
   function addPlayer(slotIndex, characterId) {
     setSlots(prev =>
@@ -54,16 +56,37 @@ export function useMyTeam(characters = []) {
 
   const usedIds     = slots.filter(s => s.characterId).map(s => s.characterId)
   const filledSlots = usedIds.length
-  const totalPower  = usedIds.reduce((sum, id) => {
-    const c = characters.find(ch => ch.id === id)
-    return sum + (c?.power ?? 0)
-  }, 0)
+
+  // 2. Cálculo de Poder con Modificadores
+  const totalPower = slots.reduce((sum, slot) => {
+    if (!slot.characterId) return sum;
+    
+    // IMPORTANTE: Buscamos por .id o ._id para evitar fallos de Mongo
+    const c = characters.find(ch => (ch.id === slot.characterId || ch._id === slot.characterId));
+    
+    if (!c) return sum;
+
+    let powerValue = c.power || 0;
+
+    // Modificador Heredero (0.5)
+    if (c.relation === 'heredero') {
+      powerValue *= 0.5;
+    }
+
+    // Modificador Copia (0.3)
+    if (c.isCopy) {
+      powerValue *= 0.3;
+    }
+
+    return sum + powerValue;
+  }, 0);
 
   return {
     teamName, setTeamName,
     slots,
     addPlayer, removePlayer,
     handleSave, handleClear,
+    loadTeamFromDB, // Exportamos esta nueva función
     saved, usedIds, filledSlots, totalPower,
   }
 }
