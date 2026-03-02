@@ -14,6 +14,17 @@ const SECTIONS = [
   { title: 'Mi Equipo',  desc: 'Crea y guarda tu equipo ideal',     href: '/mi-equipo',  icon: Shield, color: '#f471b5', bg: 'rgba(244,113,181,0.1)' },
 ]
 
+// ─── Lista de imágenes en public ─────────────────────────────
+// Asegúrate de que los nombres coincidan exactamente con tus archivos
+const SLIDER_IMAGES = [
+  '/axel.png',
+  '/axel_capucha.png',
+  '/byron_love.gif',
+  '/inazuma_japon.png',
+  '/shawn_ventisca.gif',
+  '/xavier_descenso.gif',
+]
+
 export default function HomePage() {
   const { user } = useAuth()
   const [favoriteCharacters, setFavoriteCharacters] = useState([])
@@ -21,39 +32,28 @@ export default function HomePage() {
 
   useEffect(() => {
     async function loadFavorites() {
-      // Si no hay usuario, no buscamos favoritos
-      if (!user) {
-        setLoadingFavs(false)
-        return
-      }
-
+      if (!user) { setLoadingFavs(false); return; }
       try {
         setLoadingFavs(true)
         const userId = user.id || user._id
-        
-        // Cargamos todos los jugadores y los datos del usuario para cruzar los IDs
         const [allPlayers, userRes] = await Promise.all([
           getAllPlayers(),
           fetch(`http://127.0.0.1:5000/obtener_usuario/${userId}`)
         ])
-
         const userData = await userRes.json()
-        
         if (userRes.ok && userData.usuario?.favoritos) {
           const favIds = userData.usuario.favoritos
-          // Filtramos los jugadores que están en la lista de favoritos del usuario
           const filtered = allPlayers.filter(char => 
             favIds.includes(char._id) || favIds.includes(char.id)
           )
           setFavoriteCharacters(filtered)
         }
       } catch (err) {
-        console.error("Error cargando favoritos en Home:", err)
+        console.error("Error cargando favoritos:", err)
       } finally {
         setLoadingFavs(false)
       }
     }
-
     loadFavorites()
   }, [user])
 
@@ -82,6 +82,18 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Carrusel Infinito ──────────────────────────────────── */}
+      <div className={styles.sliderContainer}>
+        <div className={styles.sliderTrack}>
+          {/* Duplicamos las imágenes para que el scroll sea infinito */}
+          {[...SLIDER_IMAGES, ...SLIDER_IMAGES].map((img, index) => (
+            <div key={index} className={styles.slide}>
+              <img src={img} alt={`Slide ${index}`} />
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* ── Quick Nav ───────────────────────────────────────────── */}
       <section className={styles.quickNav}>
         {SECTIONS.map(({ title, desc, href, icon: Icon, color, bg }) => (
@@ -109,21 +121,16 @@ export default function HomePage() {
         {!user ? (
           <div className={styles.placeholder}>
             <Heart size={32} style={{ color: '#ff4d4d' }} />
-            <p>Inicia sesión para ver tus jugadores favoritos aquí</p>
-            <Link to="/login" className={styles.miniLink}>Iniciar sesión</Link>
+            <p>Inicia sesión para ver tus favoritos</p>
           </div>
         ) : loadingFavs ? (
           <div className={styles.placeholder}>
             <Loader2 size={32} className={styles.spin} />
-            <p>Cargando tus favoritos...</p>
           </div>
         ) : favoriteCharacters.length === 0 ? (
           <div className={styles.placeholder}>
             <Heart size={32} />
-            <p>Aún no tienes jugadores favoritos. ¡Explora y añade algunos!</p>
-            <Link to="/personajes" className={styles.btnSecondary} style={{ marginTop: '1rem' }}>
-              Explorar Jugadores
-            </Link>
+            <p>Aún no tienes favoritos. ¡Añade algunos!</p>
           </div>
         ) : (
           <div className={styles.characterGrid}>
@@ -133,7 +140,6 @@ export default function HomePage() {
           </div>
         )}
       </section>
-
     </div>
   )
 }
