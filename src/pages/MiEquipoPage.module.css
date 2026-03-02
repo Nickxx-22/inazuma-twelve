@@ -421,14 +421,20 @@
   border: 1px solid #2d343f;
 }
 
+.nameArea:focus-within {
+  border-color: #3b82f6; /* Azul como el de tu botón Guardar */
+}
+
+
 .nameInput {
   background: transparent;
   border: none;
-  color: white;
-  font-size: 1rem;
-  font-weight: 700;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
   width: 100%;
   outline: none;
+  padding: 5px 0;
 }
 
 .btnTrash {
