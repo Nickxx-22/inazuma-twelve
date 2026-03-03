@@ -18259,6 +18259,11 @@ const datos = [
       "technique_id": "Tiro_RB6",
       "relation": "creador",
       "power_modifier": 1.0
+    },
+    {
+      "technique_id": "Aprobada Historica",
+      "relation": "real",
+      "power_modifier": 10
     }
   ]
 },
