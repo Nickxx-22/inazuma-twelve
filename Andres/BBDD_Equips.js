@@ -483,8 +483,8 @@ const datos = [
 
 {
   _id: "Raimon_T2",
-  name: "Raimon",
-  image: {"url": "/img/equipos/raimon_t2.png"},
+  name: "Raimon Resistencia",
+  image: {"url": "/img/equipos/raimon.png"},
   country: "Japan",
   academy: "Instituto Raimon",
   category: "Junior",
@@ -664,7 +664,7 @@ const datos = [
   color_primary: "#2e69bb",
   coach_id: null,
   player_ids: [
-    "Los_Emperadores",
+    "Nacho_Ortega",
     "Thiago_Torres",
     "Felipe_Palacios",
     "Miquel_Ros",

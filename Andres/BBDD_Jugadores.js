@@ -20,6 +20,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/mark_evans.png"},
+  "imageDetail": { "url": "/img/jugadoresID/mark_evans.png" },
   "position": "GK",
   "element": "Montaña",
   "nature": "Justicia",
@@ -126,6 +127,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/nathan_swift.png"},
+  "imageDetail": { "url": "/img/jugadoresID/nathan_swift.png" },
   "position": "DF",
   "element": "Aire",
   "nature": "Justicia",
@@ -195,6 +197,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/jack_wallside.png"},
+  "imageDetail": { "url": "/img/jugadoresID/jack_wallside.png" },
   "position": "DF",
   "element": "Montaña",
   "nature": "Justicia",
@@ -272,6 +275,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/jim_wraith.png"},
+  "imageDetail": { "url": "/img/jugadoresID/jim_wraith.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Justicia",
@@ -336,6 +340,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/tod_ironside.png"},
+  "imageDetail": { "url": "/img/jugadoresID/tod_ironside.png" },
   "position": "DF",
   "element": "Fuego",
   "nature": "Contraataque",
@@ -406,6 +411,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/steve_grim.png"},
+  "imageDetail": { "url": "/img/jugadoresID/steve_grim.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Justicia",
@@ -471,6 +477,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/tim_saunders.png"},
+  "imageDetail": { "url": "/img/jugadoresID/tim_saunders.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Afinidad",
@@ -536,6 +543,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/sam_kincaid.png"},
+  "imageDetail": { "url": "/img/jugadoresID/sam_kincaid.png" },
   "position": "MD",
   "element": "Fuego",
   "nature": "Afinidad",
@@ -600,6 +608,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/maxwell_carson.png"},
+  "imageDetail": { "url": "/img/jugadoresID/maxwell_carson.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Tension",
@@ -666,6 +675,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/axel_blaze.png"},
+  "imageDetail": { "url": "/img/jugadoresID/axel_blaze.png" },
   "position": "FW",
   "element": "Fuego",
   "nature": "Justicia",
@@ -779,6 +789,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/kevin_dragonfly.png"},
+  "imageDetail": { "url": "/img/jugadoresID/kevin_dragonfly.png" },
   "position": "FW",
   "element": "Bosque",
   "nature": "Tension",
@@ -851,6 +862,7 @@ const datos = [
   "secondaryRole": ["player"],
   "role": "Gerente",
   "image": {"url": "/img/jugadores/william_glass.png"},
+  "imageDetail": { "url": "/img/jugadoresID/william_glass.png" },
   "position": "FW",
   "element": "Bosque",
   "nature": "Justicia",
@@ -912,6 +924,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/bobby_shearer.png"},
+  "imageDetail": { "url": "/img/jugadoresID/bobby_shearer.png" },
   "position": "DF",
   "secondaryPosition": "MD",
   "element": "Bosque",
@@ -985,6 +998,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/jude_sharp.png"},
+  "imageDetail": { "url": "/img/jugadoresID/jude_sharp.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Justicia",
@@ -1060,6 +1074,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/erik_eagle.png"},
+  "imageDetail": { "url": "/img/jugadoresID/erik_eagle.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Afinidad",
@@ -1134,6 +1149,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/Mask.png"},
+  "imageDetail": { "url": "/img/jugadoresID/mask.png" },
   "position": "GK",
   "element": "Aire",
   "nature": "Juego Sucio",
@@ -1193,6 +1209,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/Styx.png"},
+  "imageDetail": { "url": "/img/jugadoresID/styx.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Justicia",
@@ -1247,6 +1264,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/Creepy.png"},
+  "imageDetail": { "url": "/img/jugadoresID/creepy.png" },
   "position": "DF",
   "element": "Aire",
   "nature": "Afinidad",
@@ -1301,6 +1319,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/Franky.png"},
+  "imageDetail": { "url": "/img/jugadoresID/franky.png" },
   "position": "DF",
   "element": "Montaña",
   "nature": "Juego Sucio",
@@ -1354,6 +1373,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/Undead.png"},
+  "imageDetail": { "url": "/img/jugadoresID/undead.png" },
   "position": "DF",
   "element": "Fuego",
   "nature": "Juego Sucio",
@@ -1408,6 +1428,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/Jiangshi.png"},
+  "imageDetail": { "url": "/img/jugadoresID/jiangshi.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Tension",
@@ -1466,6 +1487,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/Mummy.png"},
+  "imageDetail": { "url": "/img/jugadoresID/mummy.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Tension",
@@ -1530,6 +1552,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/Grave.png"},
+  "imageDetail": { "url": "/img/jugadoresID/grave.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Contraataque",
@@ -1589,6 +1612,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/Talisman.png"},
+  "imageDetail": { "url": "/img/jugadoresID/talisman.png" },
   "position": "FW",
   "element": "Bosque",
   "nature": "Juego Sucio",
@@ -1642,6 +1666,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/Wolfy.png"},
+  "imageDetail": { "url": "/img/jugadoresID/wolfy.png" },
   "position": "MD",
   "element": "Fuego",
   "nature": "Afinidad",
@@ -1696,6 +1721,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/Blood.png"},
+  "imageDetail": { "url": "/img/jugadoresID/blood.png" },
   "position": "MD",
   "element": "Montaña",
   "nature": "Juego Sucio",
@@ -1751,10 +1777,11 @@ const datos = [
 //Charlie Boardfield
 {
   "_id": "Charlie_Boardfield_T1",
-  "name": "Charlie Boardfield",
+  "name": "Boar",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Boar.png"},
+  "imageDetail": { "url": "/img/jugadoresID/boar.png" },
   "position": "GK",
   "element": "Fuego",
   "nature": "Juego Sucio",
@@ -1810,10 +1837,11 @@ const datos = [
 //Hugo Talgeese
 {
   "_id": "Hugo_Talgeese_T1",
-  "name": "Hugo Talgeese",
+  "name": "Chicken",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Chicken.png"},
+  "imageDetail": { "url": "/img/jugadoresID/chicken.png" },
   "position": "MD",
   "element": "Fuego",
   "nature": "Juego Sucio",
@@ -1868,10 +1896,11 @@ const datos = [
 //Wilson Fishman
 {
   "_id": "Wilson_Fishman_T1",
-  "name": "Wilson Fishman",
+  "name": "Fishman",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Fishman.png"},
+  "imageDetail": { "url": "/img/jugadoresID/fishman.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Afinidad",
@@ -1922,10 +1951,11 @@ const datos = [
 //Peter Johnson
 {
   "_id": "Peter_Johnson_T1",
-  "name": "Peter Johnson",
+  "name": "Toad",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Toad.png"},
+  "imageDetail": { "url": "/img/jugadoresID/toad.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Contraataque",
@@ -1980,10 +2010,11 @@ const datos = [
 //Leonard O'Shea
 {
   "_id": "Leonard_OShea_T1",
-  "name": "Leonard O'Shea",
+  "name": "Lion",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Lion.png"},
+  "imageDetail": { "url": "/img/jugadoresID/lion.png" },
   "position": "DF",
   "element": "Montaña",
   "nature": "Juego sucio",
@@ -2033,10 +2064,11 @@ const datos = [
 //Cham Lion
 {
   "_id": "Cham_Lion_T1",
-  "name": "Cham Lion",
+  "name": "Chameleon",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Chameleon.png"},
+  "imageDetail": { "url": "/img/jugadoresID/chameleon.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Brecha",
@@ -2092,10 +2124,11 @@ const datos = [
 //Steve Eagle
 {
   "_id": "Steve_Eagle_T1",
-  "name": "Steve Eagle",
+  "name": "Eagle",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Eagle.png"},
+  "imageDetail": { "url": "/img/jugadoresID/eagle.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Tension",
@@ -2151,10 +2184,11 @@ const datos = [
 //Bruce Monkey
 {
   "_id": "Bruce_Monkey_T1",
-  "name": "Bruce Monkey",
+  "name": "Monkey",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Monkey.png"},
+  "imageDetail": { "url": "/img/jugadoresID/monkey.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Juego Sucio",
@@ -2209,10 +2243,11 @@ const datos = [
 //Gary Lancaster
 {
   "_id": "Gary_Lancaster_T1",
-  "name": "Gary Lancaster",
+  "name": "Gorilla",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Gorilla.png"},
+  "imageDetail": { "url": "/img/jugadoresID/gorilla.png" },
   "position": "FW",
   "element": "Montaña",
   "nature": "Afinidad",
@@ -2268,10 +2303,11 @@ const datos = [
 //Harry Snake
 {
   "_id": "Harry_Snake_T1",
-  "name": "Harry Snake",
+  "name": "Snake",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Snake.png"},
+  "imageDetail": { "url": "/img/jugadoresID/snake.png" },
   "position": "FW",
   "element": "Bosque",
   "nature": "Brecha",
@@ -2328,10 +2364,11 @@ const datos = [
 //Adrian Speed
 {
   "_id": "Adrian_Speed_T1",
-  "name": "Adrian Speed",
+  "name": "Cheetah",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Cheetah.png"},
+  "imageDetail": { "url": "/img/jugadoresID/cheetah.png" },
   "position": "FW",
   "element": "Aire",
   "nature": "Juego Sucio",
@@ -2395,10 +2432,11 @@ const datos = [
 // Thomas Feldt
 {
   "_id": "Thomas_Feldt_T1",
-  "name": "Thomas Feldt",
+  "name": "Feldt",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Feldt.png"},
+  "imageDetail": { "url": "/img/jugadoresID/feldt.png" },
   "position": "GK",
   "element": "Bosque",
   "nature": "Contraataque",
@@ -2453,10 +2491,11 @@ const datos = [
 //Harry Leading
 {
   "_id": "Harry_Leading_T1",
-  "name": "Harry Leading",
+  "name": "Leading",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Leading.png"},
+  "imageDetail": { "url": "/img/jugadoresID/leading.png" },
   "position": "DF",
   "element": "Aire",
   "nature": "Brecha",
@@ -2512,10 +2551,11 @@ const datos = [
 //Terry Stronger
 {
   "_id": "Terry_Stronger_T1",
-  "name": "Terry Stronger",
+  "name": "Stronger",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Stronger.png"},
+  "imageDetail": { "url": "/img/jugadoresID/stronger.png" },
   "position": "DF",
   "element": "Fuego",
   "nature": "Justicia",
@@ -2570,10 +2610,11 @@ const datos = [
 //Philip Marvel
 {
   "_id": "Philip_Marvel_T1",
-  "name": "Philip Marvel",
+  "name": "Marvel",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Marvel.png"},
+  "imageDetail": { "url": "/img/jugadoresID/marvel.png" },
   "position": "DF",
   "element": "Montaña",
   "nature": "Brecha",
@@ -2628,10 +2669,11 @@ const datos = [
 //Noel Good
 {
   "_id": "Noel_Good_T1",
-  "name": "Noel Good",
+  "name": "Good",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Good.png"},
+  "imageDetail": { "url": "/img/jugadoresID/good.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Juego Sucio",
@@ -2686,10 +2728,11 @@ const datos = [
 //Tyron Rock
 {
   "_id": "Tyron_Rock_T1",
-  "name": "Tyron Rock",
+  "name": "Rock",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Rock.png"},
+  "imageDetail": { "url": "/img/jugadoresID/rock.png" },
   "position": "MD",
   "element": "Fuego",
   "nature": "Contraataque",
@@ -2749,10 +2792,11 @@ const datos = [
 //Francis Tell
 {
   "_id": "Francis_Tell_T1",
-  "name": "Francis Tell",
+  "name": "Tell",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Tell.png"},
+  "imageDetail": { "url": "/img/jugadoresID/tell.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Afinidad",
@@ -2807,10 +2851,12 @@ const datos = [
 //Samuel Buster
 {
   "_id": "Samuel_Buster_T1",
-  "name": "Samuel Buster",
+  "name": "Busta",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  
+  "image": {"url": "/img/jugadores/Busta.png"},
+  "imageDetail": { "url": "/img/jugadoresID/busta.png" },
   "position": "MD",
   "element": "Fuego",
   "nature": "Afinidad",
@@ -2865,10 +2911,11 @@ const datos = [
 //Jonathan Seller
 {
   "_id": "Jonathan_Seller_T1",
-  "name": "Jonathan Seller",
+  "name": "Seller",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Seller.png"},
+  "imageDetail": { "url": "/img/jugadoresID/seller.png" },
   "position": "FW",
   "element": "Aire",
   "nature": "Justicia",
@@ -2930,10 +2977,11 @@ const datos = [
 //Victor Kind
 {
   "_id": "Victor_Kind_T1",
-  "name": "Victor Kind",
+  "name": "Kind",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Kind.png"},
+  "imageDetail": { "url": "/img/jugadoresID/kind.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Afinidad",
@@ -2988,10 +3036,11 @@ const datos = [
 //Neil Turner
 {
   "_id": "Neil_Turner_T1",
-  "name": "Neil Turner",
+  "name": "Turner",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Turner.png"},
+  "imageDetail": { "url": "/img/jugadoresID/turner.png" },
   "position": "FW",
   "element": "Fuego",
   "nature": "Tension",
@@ -3057,10 +3106,11 @@ const datos = [
 //Joseph King
 {
   "_id": "Joseph_King_T1",
-  "name": "Joseph King",
+  "name": "King",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/King.png"},
+  "imageDetail": { "url": "/img/jugadoresID/king.png" },
   "position": "GK",
   "element": "Fuego",
   "nature": "Juego Sucio",
@@ -3115,10 +3165,11 @@ const datos = [
 //Peter Drent
 {
   "_id": "Peter_Drent_T1",
-  "name": "Peter Drent",
+  "name": "Drent",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Drent.png"},
+  "imageDetail": { "url": "/img/jugadoresID/drent.png" },
   "position": "DF",
   "element": "Montaña",
   "nature": "Juego Sucio",
@@ -3168,10 +3219,11 @@ const datos = [
 //Ben Simmons
 {
   "_id": "Ben_Simmons_T1",
-  "name": "Ben Simmons",
+  "name": "Simmons",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Simmons.png"},
+  "imageDetail": { "url": "/img/jugadoresID/simmons.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Justicia",
@@ -3221,10 +3273,11 @@ const datos = [
 //Alan Master
 {
   "_id": "Alan_Master_T1",
-  "name": "Alan Master",
+  "name": "Master",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Master.png"},
+  "imageDetail": { "url": "/img/jugadoresID/master.png" },
   "position": "MD",
   "secondaryPosition": "DF",
   "element": "Aire",
@@ -3282,10 +3335,11 @@ const datos = [
 //  Gus Martin
 {
   "_id": "Gus_Martin_T1",
-  "name": "Gus Martin",
+  "name": "Martin",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Martin.png"},
+  "imageDetail": { "url": "/img/jugadoresID/martin.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Juego Sucio",
@@ -3336,10 +3390,11 @@ const datos = [
 //  Bobby Shearer
 {
   "_id": "Bobby_Shearer_T1R",
-  "name": "Bobby Shearer",
+  "name": "Bobby",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Bobby.png"},
+  "imageDetail": { "url": "/img/jugadoresID/bobby_shearer.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Tension",
@@ -3389,10 +3444,11 @@ const datos = [
 //  Herman Waldon
 {
   "_id": "Herman_Waldon_T1",
-  "name": "Herman Waldon",
+  "name": "Waldon",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Waldon.png"},
+  "imageDetail": { "url": "/img/jugadoresID/waldon.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Juego Sucio",
@@ -3442,10 +3498,11 @@ const datos = [
 //  John Bloom
 {
   "_id": "John_Bloom_T1",
-  "name": "John Bloom",
+  "name": "Bloom",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Bloom.png"},
+  "imageDetail": { "url": "/img/jugadoresID/bloom.png" },
   "position": "MD",
   "element": "Fuego",
   "nature": "Tension",
@@ -3495,10 +3552,11 @@ const datos = [
 //  Derek Swing
 {
   "_id": "Derek_Swing_T1",
-  "name": "Derek Swing",
+  "name": "Swing",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Swing.png"},
+  "imageDetail": { "url": "/img/jugadoresID/swing.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Contraataque",
@@ -3548,10 +3606,11 @@ const datos = [
 //  Daniel Hatch
 {
   "_id": "Daniel_Hatch_T1",
-  "name": "Daniel Hatch",
+  "name": "Hatch",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Hatch.png"},
+  "imageDetail": { "url": "/img/jugadoresID/hatch.png" },
   "position": "FW",
   "element": "Bosque",
   "nature": "Juego Sucio",
@@ -3606,10 +3665,11 @@ const datos = [
 //  David Samford
 {
   "_id": "David_Samford_T1",
-  "name": "David Samford",
+  "name": "Samford",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Samford.png"},
+  "imageDetail": { "url": "/img/jugadoresID/samford.png" },
   "position": "FW",
   "element": "Bosque",
   "nature": "Contraataque",
@@ -3662,7 +3722,8 @@ const datos = [
   "name": "Jude Sharp",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Jude.png"},
+  "imageDetail": { "url": "/img/jugadoresID/jude_sharp.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Juego Sucio",
@@ -3720,10 +3781,11 @@ const datos = [
 //Morgan Sanders
 {
   "_id": "Morgan_Sanders_T1",
-  "name": "Morgan Sanders",
+  "name": "Hood",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Hood.png"},
+  "imageDetail": { "url": "/img/jugadoresID/hood.png" },
   "position": "GK",
   "element": "Bosque",
   "nature": "Afinidad",
@@ -3773,10 +3835,11 @@ const datos = [
 //Newton Flust
 {
   "_id": "Newton_Flust_T1",
-  "name": "Newton Flust",
+  "name": "Crackshot",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Crackshot.png"},
+  "imageDetail": { "url": "/img/jugadoresID/crackshot.png" },
   "position": "DF",
   "element": "Montaña",
   "nature": "Tension",
@@ -3832,10 +3895,11 @@ const datos = [
 //Jim Hillfort
 {
   "_id": "Jim_Hillfort_T1",
-  "name": "Jim Hillfort",
+  "name": "Hillfort",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Hillfort.png"},
+  "imageDetail": { "url": "/img/jugadoresID/hillfort.png" },
   "position": "DF",
   "element": "Aire",
   "nature": "Tension",
@@ -3886,10 +3950,11 @@ const datos = [
 //Galen Thumderbird
 {
   "_id": "Galen_Thunderbird_T1",
-  "name": "Galen Thunderbird",
+  "name": "Thunder",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Thunder.png"},
+  "imageDetail": { "url": "/img/jugadoresID/thunder.png" },
   "position": "DF",
   "element": "Montaña",
   "nature": "Afinidad",
@@ -3939,10 +4004,11 @@ const datos = [
 //Finn Stoned
 {
   "_id": "Finn_Stoned_T1",
-  "name": "Finn Stoned",
+  "name": "Bandit",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Bandit.png"},
+  "imageDetail": { "url": "/img/jugadoresID/bandit.png" },
   "position": "DF",
   "element": "Fuego",
   "nature": "Tension",
@@ -3993,10 +4059,11 @@ const datos = [
 //Phil Wingate
 {
   "_id": "Phil_Wingate_T1",
-  "name": "Phil Wingate",
+  "name": "Code",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Code.png"},
+  "imageDetail": { "url": "/img/jugadoresID/code.png" },
   "position": "MD",
   "element": "Montaña",
   "nature": "Afinidad",
@@ -4047,10 +4114,11 @@ const datos = [
 //Jez Shell
 {
   "_id": "Jez_Shell_T1",
-  "name": "Jez Shell",
+  "name": "Star",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Star.png"},
+  "imageDetail": { "url": "/img/jugadoresID/star.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Afinidad",
@@ -4106,10 +4174,11 @@ const datos = [
 //Jupiter Jumper
 {
   "_id": "Jupiter_Jumper_T1",
-  "name": "Jupiter Jumper",
+  "name": "Cleats",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Cleats.png"},
+  "imageDetail": { "url": "/img/jugadoresID/cleats.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Juego Sucio",
@@ -4160,10 +4229,11 @@ const datos = [
 //Sam Samurai
 {
   "_id": "Sam_Samurai_T1",
-  "name": "Sam Samurai",
+  "name": "Samurai",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Samurai.png"},
+  "imageDetail": { "url": "/img/jugadoresID/samurai.png" },
   "position": "FW",
   "element": "Bosque",
   "nature": "Brecha",
@@ -4214,10 +4284,11 @@ const datos = [
 //Hank Sullivan
 {
   "_id": "Hank_Sullivan_T1",
-  "name": "Hank Sullivan",
+  "name": "Hattori",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Hattori.png"},
+  "imageDetail": { "url": "/img/jugadoresID/hattori.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Afinidad",
@@ -4267,10 +4338,11 @@ const datos = [
 //Sail Bluesea
 {
   "_id": "Sail_Bluesea_T1",
-  "name": "Sail Bluesea",
+  "name": "Cloak",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Cloak.png"},
+  "imageDetail": { "url": "/img/jugadoresID/cloak.png" },
   "position": "FW",
   "element": "Fuego",
   "nature": "Brecha",
@@ -4334,10 +4406,11 @@ const datos = [
 //Jhon Neville
 {
   "_id": "John_Neville_T1",
-  "name": "John Neville",
+  "name": "Neville",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Neville.png"},
+  "imageDetail": { "url": "/img/jugadoresID/neville.png" },
   "position": "GK",
   "element": "Fuego",
   "nature": "Contraataque",
@@ -4387,10 +4460,11 @@ const datos = [
 //Malclom 
 {
   "_id": "Malcolm_Night_T1",
-  "name": "Malcolm Night",
+  "name": "Night",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Night.png"},
+  "imageDetail": { "url": "/img/jugadoresID/night.png" },
   "position": "DF",
   "element": "Fuego",
   "nature": "Contraataque",
@@ -4440,10 +4514,11 @@ const datos = [
 //Alfred Meenan
 {
   "_id": "Alfred_Meenan_T1",
-  "name": "Alfred Meenan",
+  "name": "Meenan",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Meenan.png"},
+  "imageDetail": { "url": "/img/jugadoresID/meenan.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Justicia",
@@ -4495,10 +4570,11 @@ const datos = [
 //Dan Mirthul
 {
   "_id": "Dan_Mirthful_T1",
-  "name": "Dan Mirthful",
+  "name": "Mirthful",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Mirthful.png"},
+  "imageDetail": { "url": "/img/jugadoresID/mirthful.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Juego Sucio",
@@ -4548,10 +4624,11 @@ const datos = [
 //Ricky Clover
 {
   "_id": "Ricky_Clover_T1",
-  "name": "Ricky Clover",
+  "name": "Clover",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Clover.png"},
+  "imageDetail": { "url": "/img/jugadoresID/clover.png" },
   "position": "DF",
   "element": "Montaña",
   "nature": "Justicia",
@@ -4601,10 +4678,11 @@ const datos = [
 //Toby Damian
 {
   "_id": "Toby_Damian_T1",
-  "name": "Toby Damian",
+  "name": "Damian",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Damian.png"},
+  "imageDetail": { "url": "/img/jugadoresID/damian.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Afinidad",
@@ -4651,10 +4729,11 @@ const datos = [
 //York Nashmith
 {
   "_id": "York_Nashmith_T1",
-  "name": "York Nashmith",
+  "name": "Nashmith",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Nashmith.png"},
+  "imageDetail": { "url": "/img/jugadoresID/nashmith.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Justicia",
@@ -4706,10 +4785,11 @@ const datos = [
 //Zachary Moore
 {
   "_id": "Zachary_Moore_T1",
-  "name": "Zachary Moore",
+  "name": "Moore",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Moore.png"},
+  "imageDetail": { "url": "/img/jugadoresID/moore.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Brecha",
@@ -4753,10 +4833,11 @@ const datos = [
 //Marvin Murdock
 {
   "_id": "Marvin_Murdock_T1",
-  "name": "Marvin Murdock",
+  "name": "Marvin",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Marvin.png"},
+  "imageDetail": { "url": "/img/jugadoresID/marvin.png" },
   "position": "FW",
   "element": "Fuego",
   "nature": "Juego Sucio",
@@ -4811,10 +4892,11 @@ const datos = [
 //Thomas Murdock 
 {
   "_id": "Thomas_Murdock_T1",
-  "name": "Thomas Murdock",
+  "name": "Thomas",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Thomas.png"},
+  "imageDetail": { "url": "/img/jugadoresID/thomas.png" },
   "position": "FW",
   "element": "Aire",
   "nature": "Juego Sucio",
@@ -4863,10 +4945,11 @@ const datos = [
 //Tyler Murdock
 {
   "_id": "Tyler_Murdock_T1",
-  "name": "Tyler Murdock",
+  "name": "Tyler",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Tyler.png"},
+  "imageDetail": { "url": "/img/jugadoresID/tyler.png" },
   "position": "FW",
   "element": "Montaña",
   "nature": "Justicia",
@@ -4919,10 +5002,11 @@ const datos = [
 //Paul Siddon
 {
   "_id": "Paul_Siddon_T1",
-  "name": "Paul Siddon",
+  "name": "Poseidon",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Poseidon.png"},
+  "imageDetail": { "url": "/img/jugadoresID/poseidon.png" },
   "position": "GK",
   "element": "Montaña",
   "nature": "Brecha",
@@ -4980,10 +5064,11 @@ const datos = [
 //Apollo Light
 {
   "_id": "Apollo_Light_T1",
-  "name": "Apollo Light",
+  "name": "Apollo",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Apollo.png"},
+  "imageDetail": { "url": "/img/jugadoresID/apollo.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Justicia",
@@ -5039,10 +5124,11 @@ const datos = [
 //Jeff Iron
 {
   "_id": "Jeff_Iron_T1",
-  "name": "Jeff Iron",
+  "name": "Hephestus",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Hephestus.png"},
+  "imageDetail": { "url": "/img/jugadoresID/hephestus.png" },
   "position": "DF",
   "element": "Fuego",
   "nature": "Contraataque",
@@ -5093,10 +5179,11 @@ const datos = [
 //Lane War
 {
   "_id": "Lane_War_T1",
-  "name": "Lane War",
+  "name": "Ares",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Ares.png"},
+  "imageDetail": { "url": "/img/jugadoresID/ares.png" },
   "position": "DF",
   "element": "Montaña",
   "nature": "Afinidad",
@@ -5147,10 +5234,11 @@ const datos = [
 //Danny wood
 {
   "_id": "Danny_Wood_T1",
-  "name": "Danny Wood",
+  "name": "Dionysus",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Dionysus.png"},
+  "imageDetail": { "url": "/img/jugadoresID/dionysus.png" },
   "position": "DF",
   "element": "Aire",
   "nature": "Afinidad",
@@ -5203,10 +5291,11 @@ const datos = [
 //Artie Mishman
 {
   "_id": "Artie_Mishman_T1",
-  "name": "Artie Mishman",
+  "name": "Artemis",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Artemis.png"},
+  "imageDetail": { "url": "/img/jugadoresID/artemis.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Juego Sucio",
@@ -5263,10 +5352,11 @@ const datos = [
 //
 {
   "_id": "Arion_Matlock_T1",
-  "name": "Arion Matlock",
+  "name": "Hermes",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Hermes.png"},
+  "imageDetail": { "url": "/img/jugadoresID/hermes.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Juego Sucio",
@@ -5316,10 +5406,11 @@ const datos = [
 //Wesley Knox
 {
   "_id": "Wesley_Knox_T1",
-  "name": "Wesley Knox",
+  "name": "Athena",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Athena.png"},
+  "imageDetail": { "url": "/img/jugadoresID/athena.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Justicia",
@@ -5370,10 +5461,11 @@ const datos = [
 //jonas Demetrius
 {
   "_id": "Jonas_Demetrius_T1",
-  "name": "Jonas Demetrius",
+  "name": "Demeter",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Demeter.png"},
+  "imageDetail": { "url": "/img/jugadoresID/demeter.png" },
   "position": "FW",
   "element": "Fuego",
   "nature": "Tension",
@@ -5429,10 +5521,10 @@ const datos = [
 //Byron love
 {
   "_id": "Byron_Love_T1",
-  "name": "Byron Love",
+  "name": "Aphrodite",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/byron_love.png"},
+  "image": {"url": "/img/jugadores/Aphrodite.png"},
   "imageDetail": { "url": "/img/jugadoresID/byron_love.png" },
   "position": "MD",
   "element": "Bosque",
@@ -5489,10 +5581,11 @@ const datos = [
 //Henry House
 {
   "_id": "Henry_House_T1",
-  "name": "Henry House",
+  "name": "Hera",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Hera.png"},
+  "imageDetail": { "url": "/img/jugadoresID/hera.png" },
   "position": "MD",
   "element": "Fuego",
   "nature": "Afinidad",
@@ -5545,10 +5638,11 @@ const datos = [
 //Lars Luceafar
 {
   "_id": "Lars_Luceafar_T1",
-  "name": "Lars Luceafăr",
+  "name": "Luceafăr",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Luceafar.png"},
+  "imageDetail": { "url": "/img/jugadoresID/luceafar.png" },
   "position": "GK",
   "element": "Montaña",
   "nature": "Tension",
@@ -5609,10 +5703,11 @@ const datos = [
 //Bump
 {
   "_id": "Bump_Trungus_T1",
-  "name": "Bump Trungus",
+  "name": "Bump",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Bump.png"},
+  "imageDetail": { "url": "/img/jugadoresID/bump.png" },
   "position": "DF",
   "element": "Fuego",
   "nature": "Juego Sucio",
@@ -5664,10 +5759,11 @@ const datos = [
 //Lump
 {
   "_id": "Lump_Trungus_T1",
-  "name": "Lump Trungus",
+  "name": "Lump",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Lump.png"},
+  "imageDetail": { "url": "/img/jugadoresID/lump.png" },
   "position": "DF",
   "element": "Aire",
   "nature": "Contraataque",
@@ -5719,10 +5815,11 @@ const datos = [
 //Radd Ischer
 {
   "_id": "Radd_Ischer_T1",
-  "name": "Radd Ischer",
+  "name": "Ischer",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Ischer.png"},
+  "imageDetail": { "url": "/img/jugadoresID/ischer.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Contraataque",
@@ -5773,10 +5870,11 @@ const datos = [
 //Jynx jenkins
 {
   "_id": "Jynx_Jenkins_T1",
-  "name": "Jynx Jenkins",
+  "name": "Jenkins",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Jenkins.png"},
+  "imageDetail": { "url": "/img/jugadoresID/jenkins.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Afinidad",
@@ -5827,10 +5925,11 @@ const datos = [
 //Oni Triumvir
 {
   "_id": "Oni_Triumvir_T1",
-  "name": "Oni Triumvir",
+  "name": "Triumvir",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Triumvir.png"},
+  "imageDetail": { "url": "/img/jugadoresID/triumvir.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Brecha",
@@ -5881,10 +5980,11 @@ const datos = [
 //Drachen Gunther
 {
   "_id": "Drachen_Gunther_T1",
-  "name": "Drachen Gunther",
+  "name": "Gunther",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Gunther.png"},
+  "imageDetail": { "url": "/img/jugadoresID/gunther.png" },
   "position": "MD",
   "element": "Fuego",
   "nature": "Juego Sucio",
@@ -5935,10 +6035,11 @@ const datos = [
 //Ichabod Stark
 {
   "_id": "Ichabod_Stark_T1",
-  "name": "Ichabod Stark",
+  "name": "Stark",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Stark.png"},
+  "imageDetail": { "url": "/img/jugadoresID/stark.png" },
   "position": "MD",
   "element": "Montaña",
   "nature": "Afinidad",
@@ -5994,10 +6095,11 @@ const datos = [
 //Escavan Malice
 {
   "_id": "Escavan_Malice_T1",
-  "name": "Escavan Malice",
+  "name": "Malice",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Malice.png"},
+  "imageDetail": { "url": "/img/jugadoresID/malice.png" },
   "position": "FW",
   "element": "Montaña",
   "nature": "Juego Sucio",
@@ -6059,10 +6161,11 @@ const datos = [
 //Lancer
 {
   "_id": "Bash_Lancer_T1",
-  "name": "Bash Lancer",
+  "name": "Lancer",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Lancer.png"},
+  "imageDetail": { "url": "/img/jugadoresID/lancer.png" },
   "position": "FW",
   "element": "Bosque",
   "nature": "Juego Sucio",
@@ -6123,10 +6226,11 @@ const datos = [
 //Mystral Callous
 {
   "_id": "Mystral_Callous_T1",
-  "name": "Mystral Callous",
+  "name": "Callous",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Callous.png"},
+  "imageDetail": { "url": "/img/jugadoresID/callous.png" },
   "position": "FW",
   "element": "Montaña",
   "nature": "Afinidad",
@@ -6185,10 +6289,11 @@ const datos = [
 //Hillman
 {
   "_id": "Seymour_Hillman",
-  "name": "Seymour Hillman",
+  "name": "Hillman",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Hillman.png"},
+  "imageDetail": { "url": "/img/jugadoresID/hillman.png" },
   "position": "GK",
   "element": "Montaña",
   "nature": "Brecha",
@@ -6243,10 +6348,11 @@ const datos = [
 //Charles Island
 {
   "_id": "Charles_Island",
-  "name": "Charles Island",
+  "name": "Island",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Island.png"},
+  "imageDetail": { "url": "/img/jugadoresID/island.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Justicia",
@@ -6296,10 +6402,11 @@ const datos = [
 //Garret Hairtown
 {
   "_id": "Garret_Hairtown",
-  "name": "Garret Hairtown",
+  "name": "Hairtown",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Hairtown.png"},
+  "imageDetail": { "url": "/img/jugadoresID/hairtown.png" },
   "position": "DF",
   "element": "Aire",
   "nature": "Justicia",
@@ -6351,10 +6458,11 @@ const datos = [
 //Arthur Sweet
 {  
 "_id": "Arthur_Sweet",
-  "name": "Arthur Sweet",
+  "name": "Sweet",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Sweet.png"},
+  "imageDetail": { "url": "/img/jugadoresID/sweet.png" },
   "position": "DF",
   "element": "Montaña",
   "nature": "Afinidad",
@@ -6404,10 +6512,11 @@ const datos = [
 //Peter Mildred
 {
   "_id": "Peter_Mildred",
-  "name": "Peter Mildred",
+  "name": "Butler",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Butler.png"},
+  "imageDetail": { "url": "/img/jugadoresID/butler.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Justicia",
@@ -6459,10 +6568,11 @@ const datos = [
 //
 {
   "_id": "Josh_Nathaniel",
-  "name": "Josh Nathaniel",
+  "name": "Nathaniel",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Nathaniel.png"},
+  "imageDetail": { "url": "/img/jugadoresID/nathaniel.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Juego Sucio",
@@ -6511,10 +6621,11 @@ const datos = [
 //Edward Gladstone
 {
   "_id": "Edward_Gladstone",
-  "name": "Edward Gladstone",
+  "name": "Gladstone",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Gladstone.png"},
+  "imageDetail": { "url": "/img/jugadoresID/gladstone.png" },
   "position": "MD",
   "element": "Fuego",
   "nature": "Tension",
@@ -6565,10 +6676,11 @@ const datos = [
 //Tyler thomas
 {
   "_id": "Tyler_Thomas",
-  "name": "Tyler Thomas",
+  "name": "Tailor",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Tailor.png"},
+  "imageDetail": { "url": "/img/jugadoresID/tailor.png" },
   "position": "MD",
   "element": "Montaña",
   "nature": "Tension",
@@ -6618,10 +6730,11 @@ const datos = [
 //Joshep Yosemite
 {
   "_id": "Joseph_Yosemite",
-  "name": "Joseph Yosemite",
+  "name": "Barista",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Barista.png"},
+  "imageDetail": { "url": "/img/jugadoresID/barista.png" },
   "position": "FW",
   "element": "Aire",
   "nature": "Contraataque",
@@ -6671,10 +6784,11 @@ const datos = [
 //Ian Suffolk
 {
   "_id": "Ian_Suffolk",
-  "name": "Ian Suffolk",
+  "name": "Suffolk",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Suffolk.png"},
+  "imageDetail": { "url": "/img/jugadoresID/suffolk.png" },
   "position": "MD",
   "element": "Fuego",
   "nature": "Justicia",
@@ -6725,10 +6839,11 @@ const datos = [
 //Constant Builder
 {
   "_id": "Constant_Builder",
-  "name": "Constant Builder",
+  "name": "Builder",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Builder.png"},
+  "imageDetail": { "url": "/img/jugadoresID/builder.png" },
   "position": "FW",
   "element": "Fuego",
   "nature": "Juego Sucio",
@@ -6785,10 +6900,11 @@ const datos = [
 //Adam Ropes
 {
   "_id": "Adam_Ropes_T2",
-  "name": "Adam Ropes",
+  "name": "Ropes",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Ropes.png"},
+  "imageDetail": { "url": "/img/jugadoresID/ropes.png" },
   "position": "GK",
   "element": "Montaña",
   "nature": "Afinidad",
@@ -6840,10 +6956,11 @@ const datos = [
 //Joaquine Downtown
 {
   "_id": "Joaquine_Downtown_T2",
-  "name": "Joaquine Downtown",
+  "name": "Downtown",
   "sex": "F",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Downtown.png"},
+  "imageDetail": { "url": "/img/jugadoresID/downtown.png" },
   "position": "DF",
   "element": "Fuego",
   "nature": "Contraataque",
@@ -6899,10 +7016,11 @@ const datos = [
 //Milton Bindings
 {
   "_id": "Milton_Bindings_T2",
-  "name": "Milton Bindings",
+  "name": "Bindings",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Bindings.png"},
+  "imageDetail": { "url": "/img/jugadoresID/bindings.png" },
   "position": "DF",
   "element": "Aire",
   "nature": "Tension",
@@ -6955,10 +7073,11 @@ const datos = [
 //Spike Gleeson
 {
   "_id": "Spike_Gleeson_T2",
-  "name": "Spike Gleeson",
+  "name": "Gleeson",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Gleeson.png"},
+  "imageDetail": { "url": "/img/jugadoresID/gleeson.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Justicia",
@@ -7017,10 +7136,11 @@ const datos = [
 //Sean Snowfield
 {
   "_id": "Sean_Snowfield_T2",
-  "name": "Sean Snowfield",
+  "name": "Snowfield",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Snowfield.png"},
+  "imageDetail": { "url": "/img/jugadoresID/snowfield.png" },
   "position": "MD",
   "element": "Montaña",
   "nature": "Tension",
@@ -7072,10 +7192,11 @@ const datos = [
 //Kerry Bootgaiter
 {
   "_id": "Kerry_Bootgaiter_T2",
-  "name": "Kerry Bootgaiter",
+  "name": "Bootgaiter",
   "sex": "F",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Bootgaiter.png"},
+  "imageDetail": { "url": "/img/jugadoresID/bootgaiter.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Afinidad",
@@ -7127,10 +7248,11 @@ const datos = [
 //Maddox Rock
 {
   "_id": "Maddox_Rock_T2",
-  "name": "Maddox Rock",
+  "name": "Maddox",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Maddox.png"},
+  "imageDetail": { "url": "/img/jugadoresID/maddox.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Juego Sucio",
@@ -7186,10 +7308,11 @@ const datos = [
 //Robert Skipolson
 {
   "_id": "Robert_Skipolson_T2",
-  "name": "Robert Skipolson",
+  "name": "Skipolson",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Skipolson.png"},
+  "imageDetail": { "url": "/img/jugadoresID/skipolson.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Tension",
@@ -7240,10 +7363,11 @@ const datos = [
 //Roland Climbstein
 {
   "_id": "Roland_Climbstein_T2",
-  "name": "Roland Climbstein",
+  "name": "Climbstein",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Climbstein.png"},
+  "imageDetail": { "url": "/img/jugadoresID/climbstein.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Tension",
@@ -7302,10 +7426,11 @@ const datos = [
 //Quentin Rackner
 {
   "_id": "Quentin_Rackner_T2",
-  "name": "Quentin Rackner",
+  "name": "Rackner",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Rackner.png"},
+  "imageDetail": { "url": "/img/jugadoresID/rackner.png" },
   "position": "FW",
   "element": "Bosque",
   "nature": "Juego Sucio",
@@ -7360,7 +7485,8 @@ const datos = [
   "name": "Shawn Froste",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Shawn_Froste.png"},
+  "imageDetail": { "url": "/img/jugadoresID/shawn_froste_al.png" },
   "position": "FW",
   "secondaryPosition": "DF",
   "element": "Aire",
@@ -7414,10 +7540,11 @@ const datos = [
 //Gordon Star
 {
   "_id": "Gordon_Star_T2",
-  "name": "Gordon Star",
+  "name": "Galileo",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Galileo.png"},
+  "imageDetail": { "url": "/img/jugadoresID/galileo.png" },
   "position": "GK",
   "element": "Bosque",
   "nature": "Afinidad",
@@ -7470,10 +7597,11 @@ const datos = [
 //Connor Shuttle
 {
   "_id": "Connor_Shuttle_T2",
-  "name": "Connor Shuttle",
+  "name": "Coral",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Coral.png"},
+  "imageDetail": { "url": "/img/jugadoresID/coral.png" },
   "position": "DF",
   "element": "Aire",
   "nature": "Afinidad",
@@ -7528,10 +7656,11 @@ const datos = [
 //Jim Landing
 {
   "_id": "Jim_Landing_T2",
-  "name": "Jim Landing",
+  "name": "Gigs",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Gigs.png"},
+  "imageDetail": { "url": "/img/jugadoresID/gigs.png" },
   "position": "DF",
   "element": "Fuego",
   "nature": "Tension",
@@ -7583,10 +7712,11 @@ const datos = [
 //Grant Icewater
 {
   "_id": "Grant_Icewater_T2",
-  "name": "Grant Icewater",
+  "name": "Ganymede",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Ganymede.png"},
+  "imageDetail": { "url": "/img/jugadoresID/ganymede.png" },
   "position": "DF",
   "element": "Montaña",
   "nature": "Juego Sucio",
@@ -7638,10 +7768,11 @@ const datos = [
 //Charles Riverboat
 {
   "_id": "Charles_Riverboat_T2",
-  "name": "Charles Riverboat",
+  "name": "Charon",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Charon.png"},
+  "imageDetail": { "url": "/img/jugadoresID/charon.png" },
   "position": "DF",
   "element": "Brecha",
   "nature": "Tension",
@@ -7699,10 +7830,11 @@ const datos = [
 //Pat Box
 {
   "_id": "Pat_Box_T2",
-  "name": "Pat Box",
+  "name": "Pandaora",
   "sex": "F",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Pandaora.png"},
+  "imageDetail": { "url": "/img/jugadoresID/pandaora.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Contraataque",
@@ -7754,10 +7886,11 @@ const datos = [
 //Gregory Saturn
 {
   "_id": "Gregory_Saturn_T2",
-  "name": "Gregory Saturn",
+  "name": "Grengo",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Grengo.png"},
+  "imageDetail": { "url": "/img/jugadoresID/grengo.png" },
   "position": "MD",
   "element": "Montaña",
   "nature": "Justicia",
@@ -7810,10 +7943,11 @@ const datos = [
 //Izzy Jupiter
 {
   "_id": "Izzy_Jupiter_T2",
-  "name": "Izzy Jupiter",
+  "name": "Io",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Io.png"},
+  "imageDetail": { "url": "/img/jugadoresID/io.png" },
   "position": "MD",
   "element": "Fuego",
   "nature": "Contraataque",
@@ -7865,10 +7999,11 @@ const datos = [
 //Rhona Countdown
 {
   "_id": "Rhona_Countdown_T2",
-  "name": "Rhona Countdown",
+  "name": "Rihm",
   "sex": "F",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Rihm.png"},
+  "imageDetail": { "url": "/img/jugadoresID/rihm.png" },
   "position": "FW",
   "element": "Bosque",
   "nature": "Tension",
@@ -7920,10 +8055,11 @@ const datos = [
 //Jordan Greenway
 {
   "_id": "Jordan_Greenway_T2",
-  "name": "Jordan Greenway",
+  "name": "Janus",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Janus.png"},
+  "imageDetail": { "url": "/img/jugadoresID/janus.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Juego Sucio",
@@ -7981,10 +8117,11 @@ const datos = [
 //Dylan Bluemoon
 {
   "_id": "Dylan_Bluemoon_T2",
-  "name": "Dylan Bluemoon",
+  "name": "Diam",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Diam.png"},
+  "imageDetail": { "url": "/img/jugadoresID/diam.png" },
   "position": "FW",
   "element": "Bosque",
   "nature": "Juego Sucio",
@@ -8044,10 +8181,11 @@ const datos = [
 //Dave Quagmire
 {
   "_id": "Dave_Quagmire_T2",
-  "name": "Dave Quagmire",
+  "name": "Dvalin",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/dave_quagmire.png"},
+  "image": {"url": "/img/jugadores/Dvalin.png"},
+  "imageDetail": { "url": "/img/jugadoresID/dvalin.png" },
   "position": "GK",
   "secondaryPosition": "FW",
   "element": "Fuego",
@@ -8113,10 +8251,11 @@ const datos = [
 //Craven Kenville
 {
   "_id": "Craven_Kenville_T2",
-  "name": "Craven Kenville",
+  "name": "Kenville",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/craven_kenville.png"},
+  "image": {"url": "/img/jugadores/Kenville.png"},
+  "imageDetail": { "url": "/img/jugadoresID/kenville.png" },
   "position": "DF",
   "element": "Fuego",
   "nature": "Juego Sucio",
@@ -8174,10 +8313,11 @@ const datos = [
 //Anna Mole
 {
   "_id": "Anna_Mole_T2",
-  "name": "Anna Mole",
+  "name": "Mole",
   "sex": "F",
   "role": "player",
-  "image": {"url": "/img/jugadores/anna_mole.png"},
+  "image": {"url": "/img/jugadores/Mole.png"},
+  "imageDetail": { "url": "/img/jugadoresID/mole.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Afinidad",
@@ -8235,10 +8375,11 @@ const datos = [
 //Kayson Wattever
 {
   "_id": "Kayson_Wattever_T2",
-  "name": "Kayson Wattever",
+  "name": "Kayson",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/kayson_wattever.png"},
+  "image": {"url": "/img/jugadores/Kayson.png"},
+  "imageDetail": { "url": "/img/jugadoresID/kayson.png" },
   "position": "DF",
   "element": "Aire",
   "nature": "Justicia",
@@ -8295,10 +8436,11 @@ const datos = [
 //Chris Tytan
 {
   "_id": "Chris_Tytan_T2",
-  "name": "Chris Tytan",
+  "name": "Tytan",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/chris_ytan.png"},
+  "image": {"url": "/img/jugadores/Tytan.png"},
+  "imageDetail": { "url": "/img/jugadoresID/tytan.png" },
   "position": "DF",
   "element": "Montaña",
   "nature": "Tension",
@@ -8355,10 +8497,11 @@ const datos = [
 //Mads Hatter
 {
   "_id": "Mads_Hatter_T2",
-  "name": "Mads Hatter",
+  "name": "Fedora",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/mads_hatter.png"},
+  "image": {"url": "/img/jugadores/Fedora.png"},
+  "imageDetail": { "url": "/img/jugadoresID/fedora.png" },
   "position": "MD",
   "element": "Fuego",
   "nature": "Afinidad",
@@ -8417,10 +8560,11 @@ const datos = [
 //Karen Ripton
 {
   "_id": "Karen_Ripton_T2",
-  "name": "Karen Ripton",
+  "name": "Krypto",
   "sex": "F",
   "role": "player",
-  "image": {"url": "/img/jugadores/karen_ripton.png"},
+  "image": {"url": "/img/jugadores/Krypto.png"},
+  "imageDetail": { "url": "/img/jugadoresID/krypto.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Tension",
@@ -8478,10 +8622,11 @@ const datos = [
 //Yakker Plantsworm
 {
   "_id": "Yakker_Plantsworm_T2",
-  "name": "Yakker Plantsworm",
+  "name": "Sworm",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/yakker_plantsworm.png"},
+  "image": {"url": "/img/jugadores/Sworm.png"},
+  "imageDetail": { "url": "/img/jugadoresID/sworm.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Brecha",
@@ -8538,10 +8683,11 @@ const datos = [
 //Carrie McCuring
 {
   "_id": "Carrie_McCuring_T2",
-  "name": "Carrie McCuring",
+  "name": "Mercury",
   "sex": "F",
   "role": "player",
-  "image": {"url": "/img/jugadores/carrie_mccuring.png"},
+  "image": {"url": "/img/jugadores/Mercury.png"},
+  "imageDetail": { "url": "/img/jugadoresID/mercury.png" },
   "position": "FW",
   "secondaryPosition": "MD",
   "element": "Aire",
@@ -8601,10 +8747,11 @@ const datos = [
 //Ronny Metcalf
 {
   "_id": "Ronny_Metcalf_T2",
-  "name": "Ronny Metcalf",
+  "name": "Metron",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/ronny_metcalf.png"},
+  "image": {"url": "/img/jugadores/Metron.png"},
+  "imageDetail": { "url": "/img/jugadoresID/metron.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Tension",
@@ -8661,10 +8808,11 @@ const datos = [
 //Zeke Valanche
 {
   "_id": "Zeke_Valanche_T2",
-  "name": "Zeke Valanche",
+  "name": "Zell",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/zeke_valanche.png"},
+  "image": {"url": "/img/jugadores/Zell.png"},
+  "imageDetail": { "url": "/img/jugadoresID/zell.png" },
   "position": "FW",
   "element": "Aire",
   "nature": "Juego Sucio",
@@ -8723,10 +8871,11 @@ const datos = [
 //Joseph King
 {
   "_id": "Joseph_King_RX",
-  "name": "Joseph King",
+  "name": "King",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/joseph_king_rx.png"},
+  "imageDetail": { "url": "/img/jugadoresID/joseph_king_rx.png" },
   "position": "GK",
   "element": "Fuego",
   "nature": "Brecha",
@@ -8790,10 +8939,11 @@ const datos = [
 //Rowan Beltzer
 {
   "_id": "Rowan_Beltzer_RX",
-  "name": "Rowan Beltzer",
+  "name": "Beltzer",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/rowan_beltzer_rx.png"},
+  "image": {"url": "/img/jugadores/Beltzer_rx.png"},
+  "imageDetail": { "url": "/img/jugadoresID/beltzer_rx.png" },
   "position": "DF",
   "element": "Aire",
   "nature": "Contraataque",
@@ -8848,10 +8998,11 @@ const datos = [
 //Blade Healen
 {
   "_id": "Blade_Healen_RX",
-  "name": "Blade Healen",
+  "name": "Healen",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/blade_healen_rx.png"},
+  "image": {"url": "/img/jugadores/Healen_RX.png"},
+  "imageDetail": { "url": "/img/jugadoresID/healen_rx.png" },
   "position": "DF",
   "element": "Montaña",
   "nature": "Afinidad",
@@ -8903,10 +9054,11 @@ const datos = [
 //Argie Bargie
 {
   "_id": "Argie_Bargie_RX",
-  "name": "Argie Bargie",
+  "name": "Bargie",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/argie_bargie_rx.png"},
+  "image": {"url": "/img/jugadores/Bargie_RX.png"},
+  "imageDetail": { "url": "/img/jugadoresID/bargie_rx.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Contraataque",
@@ -8964,10 +9116,11 @@ const datos = [
 //Lee Bamboo
 {
   "_id": "Lee_Bamboo_RX",
-  "name": "Lee Bamboo",
+  "name": "Bamboo",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/lee_bamboo_rx.png"},
+  "image": {"url": "/img/jugadores/Bamboo_RX.png"},
+  "imageDetail": { "url": "/img/jugadoresID/bamboo_rx.png" },
   "position": "DF",
   "element": "Fuego",
   "nature": "Justicia",
@@ -9023,10 +9176,11 @@ const datos = [
 //Eton Messer
 {
   "_id": "Eton_Messer_RX",
-  "name": "Eton Messer",
+  "name": "Messer",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/eton_messer_rx.png"},
+  "image": {"url": "/img/jugadores/Messer_RX.png"},
+  "imageDetail": { "url": "/img/jugadoresID/messer_rx.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Juego Sucio",
@@ -9082,10 +9236,11 @@ const datos = [
 //Jonah Spark
 {
   "_id": "Jonah_Spark_RX",
-  "name": "Jonah Spark",
+  "name": "Spark",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/jonah_spark_rx.png"},
+  "image": {"url": "/img/jugadores/Spark_RX.png"},
+  "imageDetail": { "url": "/img/jugadoresID/spark_rx.png" },
   "position": "MD",
   "element": "Montaña",
   "nature": "Justicia",
@@ -9142,10 +9297,11 @@ const datos = [
 //Sue Sparrow
 {
   "_id": "Sue_Sparrow_RX",
-  "name": "Sue Sparrow",
+  "name": "Sparrow",
   "sex": "F",
   "role": "player",
-  "image": {"url": "/img/jugadores/sue_sparrow_rx.png"},
+  "image": {"url": "/img/jugadores/Sparrow_RX.png"},
+  "imageDetail": { "url": "/img/jugadoresID/sparrow_rx.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Tension",
@@ -9205,10 +9361,11 @@ const datos = [
 //Riley Jamm
 {
   "_id": "Riley_Jamm_RX",
-  "name": "Riley Jamm",
+  "name": "Jamm",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/riley_jamm_rx.png"},
+  "image": {"url": "/img/jugadores/Jamm_RX.png"},
+  "imageDetail": { "url": "/img/jugadoresID/jamm_rx.png" },
   "position": "FW",
   "element": "Bosque",
   "nature": "Brecha",
@@ -9266,10 +9423,11 @@ const datos = [
 //Caleb Stonewall
 {
   "_id": "Caleb_Stonewall_RX",
-  "name": "Caleb Stonewall",
+  "name": "Caleb",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/caleb_stonewall_rx.png"},
+  "image": {"url": "/img/jugadores/Caleb_RX.png"},
+  "imageDetail": { "url": "/img/jugadoresID/caleb_rx.png" },
   "position": "MD",
   "element": "Fuego",
   "nature": "Juego Sucio",
@@ -9336,10 +9494,11 @@ const datos = [
 //David Samford
 {
   "_id": "David_Samford_RX",
-  "name": "David Samford",
+  "name": "Samford",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/david_samford_rx.png"},
+  "image": {"url": "/img/jugadores/Samford_RX.png"},
+  "imageDetail": { "url": "/img/jugadoresID/samford_rx.png" },
   "position": "FW",
   "element": "Bosque",
   "nature": "Brecha",
@@ -9401,10 +9560,11 @@ const datos = [
 //Ben North
 {
   "_id": "Ben_North_D",
-  "name": "Ben North",
+  "name": "Beluga",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/ben_north.png"},
+  "image": {"url": "/img/jugadores/Beluga.png"},
+  "imageDetail": { "url": "/img/jugadoresID/beluga.png" },
   "position": "GK",
   "element": "Montaña",
   "nature": "Afinidad",
@@ -9457,10 +9617,11 @@ const datos = [
 //Alan Downhill
 {
   "_id": "Alan_Downhill_D",
-  "name": "Alan Downhill",
+  "name": "Arkew",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/alan_downhill.png"},
+  "image": {"url": "/img/jugadores/Arkew.png"},
+  "imageDetail": { "url": "/img/jugadoresID/arkew.png" },
   "position": "DF",
   "element": "Aire",
   "nature": "Tension",
@@ -9512,10 +9673,11 @@ const datos = [
 //Claire Lesnow
 {
   "_id": "Claire_Lesnow_D",
-  "name": "Claire Lesnow",
+  "name": "Clear",
   "sex": "F",
   "role": "player",
-  "image": {"url": "/img/jugadores/claire_lesnow.png"},
+  "image": {"url": "/img/jugadores/Clear.png"},
+  "imageDetail": { "url": "/img/jugadoresID/clear.png" },
   "position": "DF",
   "element": "Aire",
   "nature": "Contraataque",
@@ -9573,10 +9735,11 @@ const datos = [
 //Albert Denver
 {
   "_id": "Albert_Denver_D",
-  "name": "Albert Denver",
+  "name": "Gocker",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/albert_denver.png"},
+  "image": {"url": "/img/jugadores/Gocker.png"},
+  "imageDetail": { "url": "/img/jugadoresID/gocker.png" },
   "position": "DF",
   "element": "Montaña",
   "nature": "Juego Sucio",
@@ -9636,10 +9799,11 @@ const datos = [
 //Lucy Hailstone
 {
   "_id": "Lucy_Hailstone_D",
-  "name": "Lucy Hailstone",
+  "name": "Icer",
   "sex": "F",
   "role": "player",
-  "image": {"url": "/img/jugadores/lucy_hailstone.png"},
+  "image": {"url": "/img/jugadores/Icer.png"},
+  "imageDetail": { "url": "/img/jugadoresID/icer.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Afinidad",
@@ -9698,10 +9862,11 @@ const datos = [
 //Brad Coldwater
 {
   "_id": "Brad_Coldwater_D",
-  "name": "Brad Coldwater",
+  "name": "Balen",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/brad_coldwater.png"},
+  "image": {"url": "/img/jugadores/Balen.png"},
+  "imageDetail": { "url": "/img/jugadoresID/balen.png" },
   "position": "MD",
   "element": "Montaña",
   "nature": "Juego Sucio",
@@ -9759,10 +9924,11 @@ const datos = [
 //Dawson Foxx
 {
   "_id": "Dawson_Foxx_D",
-  "name": "Dawson Foxx",
+  "name": "Droll",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/dawson_foxx.png"},
+  "image": {"url": "/img/jugadores/Droll.png"},
+  "imageDetail": { "url": "/img/jugadoresID/droll.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Juego Sucio",
@@ -9819,10 +9985,11 @@ const datos = [
 //Ving Rice
 {
   "_id": "Ving_Rice_D",
-  "name": "Ving Rice",
+  "name": "Rhine",
   "sex": "F",
   "role": "player",
-  "image": {"url": "/img/jugadores/ving_rice.png"},
+  "image": {"url": "/img/jugadores/Rhine.png"},
+  "imageDetail": { "url": "/img/jugadoresID/rhine.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Tension",
@@ -9880,10 +10047,11 @@ const datos = [
 //Bernie White
 {
   "_id": "Bernie_White_D",
-  "name": "Bernie White",
+  "name": "Blown",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/bernie_white.png"},
+  "image": {"url": "/img/jugadores/Blown.png"},
+  "imageDetail": { "url": "/img/jugadoresID/blown.png" },
   "position": "FW",
   "element": "Aire",
   "nature": "Afinidad",
@@ -9944,7 +10112,8 @@ const datos = [
   "name": "Gazelle",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/gazelle.png"},
+  "image": {"url": "/img/jugadores/Gazelle.png"},
+  "imageDetail": { "url": "/img/jugadoresID/gazelle.png" },
   "position": "FW",
   "element": "Aire",
   "nature": "Afinidad",
@@ -10001,10 +10170,11 @@ const datos = [
 //Denzel Freezer
 {
   "_id": "Denzel_Freezer_D",
-  "name": "Denzel Freezer",
+  "name": "Frost",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/denzel_freezer.png"},
+  "image": {"url": "/img/jugadores/Frost.png"},
+  "imageDetail": { "url": "/img/jugadoresID/frost.png" },
   "position": "FW",
   "element": "Aire",
   "nature": "Juego Sucio",
@@ -10064,10 +10234,11 @@ const datos = [
 //Grant Cook
 {
   "_id": "Grant_Cook_P",
-  "name": "Grant Cook",
+  "name": "Grent",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/grant_cook.png"},
+  "image": {"url": "/img/jugadores/Grent.png"},
+  "imageDetail": { "url": "/img/jugadoresID/grent.png" },
   "position": "GK",
   "element": "Fuego",
   "nature": "Brecha",
@@ -10126,10 +10297,11 @@ const datos = [
 //Bonnie Sparks
 {
   "_id": "Bonnie_Sparks_P",
-  "name": "Bonnie Sparks",
+  "name": "Baller",
   "sex": "F",
   "role": "player",
-  "image": {"url": "/img/jugadores/bonnie_sparks.png"},
+  "image": {"url": "/img/jugadores/Baller.png"},
+  "imageDetail": { "url": "/img/jugadoresID/baller.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Brecha",
@@ -10182,10 +10354,11 @@ const datos = [
 //Val Flamewood
 {
   "_id": "Val_Flamewood_P",
-  "name": "Val Flamewood",
+  "name": "Balcke",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/val_flamewood.png"},
+  "image": {"url": "/img/jugadores/Balcke.png"},
+  "imageDetail": { "url": "/img/jugadoresID/balcke.png" },
   "position": "DF",
   "element": "Fuego",
   "nature": "Afinidad",
@@ -10237,10 +10410,11 @@ const datos = [
 //Sean Ashford
 {
   "_id": "Sean_Ashford_P",
-  "name": "Sean Ashford",
+  "name": "Seats",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/sean_ashford.png"},
+  "image": {"url": "/img/jugadores/Seats.png"},
+  "imageDetail": { "url": "/img/jugadoresID/seats.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Tension",
@@ -10297,10 +10471,11 @@ const datos = [
 //Ben Blowton
 {
   "_id": "Ben_Blowton_P",
-  "name": "Ben Blowton",
+  "name": "Bomber",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/ben_blowton.png"},
+  "image": {"url": "/img/jugadores/Bomber.png"},
+  "imageDetail": { "url": "/img/jugadoresID/bomber.png" },
   "position": "MD",
   "element": "Fuego",
   "nature": "Brecha",
@@ -10354,10 +10529,11 @@ const datos = [
 //Ethan Whitering
 {
   "_id": "Ethan_Whitering_P",
-  "name": "Ethan Whitering",
+  "name": "Heat",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/ethan_whitering.png"},
+  "image": {"url": "/img/jugadores/Heat.png"},
+  "imageDetail": { "url": "/img/jugadoresID/heat.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Afinidad",
@@ -10413,10 +10589,11 @@ const datos = [
 //Brenda Firequest
 {
   "_id": "Brenda_Firequest_P",
-  "name": "Brenda Firequest",
+  "name": "Lean",
   "sex": "F",
   "role": "player",
-  "image": {"url": "/img/jugadores/brenda_firequest.png"},
+  "image": {"url": "/img/jugadores/Lean.png"},
+  "imageDetail": { "url": "/img/jugadoresID/lean.png" },
   "position": "MD",
   "element": "Fuego",
   "nature": "Contraataque",
@@ -10467,10 +10644,11 @@ const datos = [
 //Sam Bournes
 {
   "_id": "Sam_Bournes_P",
-  "name": "Sam Bournes",
+  "name": "Bountine",
   "sex": "F",
   "role": "player",
-  "image": {"url": "/img/jugadores/sam_bournes.png"},
+  "image": {"url": "/img/jugadores/Bountine.png"},
+  "imageDetail": { "url": "/img/jugadoresID/bountine.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Contraataque",
@@ -10522,10 +10700,11 @@ const datos = [
 //Jim Flareson
 {
   "_id": "Jim_Flareson_P",
-  "name": "Jim Flareson",
+  "name": "Sidern",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/jim_flareson.png"},
+  "image": {"url": "/img/jugadores/Sidern.png"},
+  "imageDetail": { "url": "/img/jugadoresID/sidern.png" },
   "position": "FW",
   "element": "Fuego",
   "nature": "Tension",
@@ -10584,6 +10763,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/torch.png"},
+  "imageDetail": { "url": "/img/jugadoresID/torch.png" },
   "position": "FW",
   "element": "Fuego",
   "nature": "Tension",
@@ -10645,10 +10825,11 @@ const datos = [
 //Nigel August
 {
   "_id": "Nigel_August_P",
-  "name": "Nigel August",
+  "name": "Neppten",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/nigel_august.png"},
+  "image": {"url": "/img/jugadores/neppten.png"},
+  "imageDetail": { "url": "/img/jugadoresID/neppten.png" },
   "position": "FW",
   "element": "Bosque",
   "nature": "Juego Sucio",
@@ -10712,10 +10893,11 @@ const datos = [
 //Grant Cook
 {
   "_id": "Grant_Cook_CS",
-  "name": "Grant Cook",
+  "name": "Grent",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/grant_cook.png"},
+  "image": {"url": "/img/jugadores/Grent_CS.png"},
+  "imageDetail": { "url": "/img/jugadoresID/grent.png" },
   "position": "GK",
   "element": "Fuego",
   "nature": "Brecha",
@@ -10772,10 +10954,11 @@ const datos = [
 //Bonnie Sparks
 {
   "_id": "Bonnie_Sparks_CS",
-  "name": "Bonnie Sparks",
+  "name": "Baller",
   "sex": "F",
   "role": "player",
-  "image": {"url": "/img/jugadores/bonnie_sparks.png"},
+  "image": {"url": "/img/jugadores/Baller_CS.png"},
+  "imageDetail": { "url": "/img/jugadoresID/baller.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Brecha",
@@ -10827,10 +11010,11 @@ const datos = [
 //Albert Denver
 {
   "_id": "Albert_Denver_CS",
-  "name": "Albert Denver",
+  "name": "Gocker",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/albert_denver.png"},
+  "image": {"url": "/img/jugadores/Gocker_CS.png"},
+  "imageDetail": { "url": "/img/jugadoresID/gocker.png" },
   "position": "DF",
   "element": "Montaña",
   "nature": "Juego Sucio",
@@ -10887,10 +11071,11 @@ const datos = [
 //Ben Blowton
 {
   "_id": "Ben_Blowton_CS",
-  "name": "Ben Blowton",
+  "name": "Bomber",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/ben_blowton.png"},
+  "image": {"url": "/img/jugadores/Bomber_CS.png"},
+  "imageDetail": { "url": "/img/jugadoresID/bomber.png" },
   "position": "MD",
   "element": "Fuego",
   "nature": "Brecha",
@@ -10941,10 +11126,11 @@ const datos = [
 //Claire Lesnow
 {
   "_id": "Claire_Lesnow_CS",
-  "name": "Claire Lesnow",
+  "name": "Clear",
   "sex": "F",
   "role": "player",
-  "image": {"url": "/img/jugadores/claire_lesnow.png"},
+  "image": {"url": "/img/jugadores/Clear_CS.png"},
+  "imageDetail": { "url": "/img/jugadoresID/clear.png" },
   "position": "DF",
   "element": "Aire",
   "nature": "Contraataque",
@@ -11002,10 +11188,11 @@ const datos = [
 //Ethan Whitering
 {
   "_id": "Ethan_Whitering_CS",
-  "name": "Ethan Whitering",
+  "name": "Heat",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/ethan_whitering.png"},
+  "image": {"url": "/img/jugadores/Heat_CS.png"},
+  "imageDetail": { "url": "/img/jugadoresID/heat.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Afinidad",
@@ -11058,10 +11245,11 @@ const datos = [
 //Dawson Foxx
 {
   "_id": "Dawson_Foxx_CS",
-  "name": "Dawson Foxx",
+  "name": "Droll",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/dawson_foxx.png"},
+  "image": {"url": "/img/jugadores/Droll_CS.png"},
+  "imageDetail": { "url": "/img/jugadoresID/droll.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Juego Sucio",
@@ -11119,10 +11307,11 @@ const datos = [
 //Ving Rice
 {
   "_id": "Ving_Rice_CS",
-  "name": "Ving Rice",
+  "name": "Rhine",
   "sex": "F",
   "role": "player",
-  "image": {"url": "/img/jugadores/ving_rice.png"},
+  "image": {"url": "/img/jugadores/Rhine_CS.png"},
+  "imageDetail": { "url": "/img/jugadoresID/rhine.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Tension",
@@ -11179,10 +11368,11 @@ const datos = [
 //Nigel August
 {
   "_id": "Nigel_August_CS",
-  "name": "Nigel August",
+  "name": "Neppten",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/nigel_august.png"},
+  "image": {"url": "/img/jugadores/Neppten_CS.png"},
+  "imageDetail": { "url": "/img/jugadoresID/neppten.png" },
   "position": "FW",
   "element": "Bosque",
   "nature": "Juego Sucio",
@@ -11241,7 +11431,8 @@ const datos = [
   "name": "Gazelle",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/gazelle.png"},
+  "image": {"url": "/img/jugadores/Gazelle_CS.png"},
+  "imageDetail": { "url": "/img/jugadoresID/gazelle.png" },
   "position": "FW",
   "element": "Aire",
   "nature": "Afinidad",
@@ -11306,7 +11497,8 @@ const datos = [
   "name": "Torch",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/torch.png"},
+  "image": {"url": "/img/jugadores/Torch_CS.png"},
+  "imageDetail": { "url": "/img/jugadoresID/torch.png" },
   "position": "FW",
   "element": "Fuego",
   "nature": "Tension",
@@ -11373,6 +11565,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/mark_evans.png"},
+  "imageDetail": { "url": "/img/jugadoresID/mark_evans.png" },
   "position": "GK",
   "secondaryPosition": "FW",
   "element": "Montaña",
@@ -11439,6 +11632,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/jack_wallside.png"},
+  "imageDetail": { "url": "/img/jugadoresID/jack_wallside.png" },
   "position": "DF",
   "element": "Montaña",
   "nature": "Brecha",
@@ -11490,10 +11684,11 @@ const datos = [
 //Scott Banyan T2
 {
   "_id": "Scott_Banyan_T2",
-  "name": "Scott Banyan",
+  "name": "Scotty",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/scott_banyan.png"},
+  "image": {"url": "/img/jugadores/Scotty.png"},
+  "imageDetail": { "url": "/img/jugadoresID/scotty.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Contra-ataque",
@@ -11545,10 +11740,11 @@ const datos = [
 //Bobby Shearer T2
 {
   "_id": "Bobby_Shearer_T2",
-  "name": "Bobby Shearer",
+  "name": "Bobby",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/bobby_shearer.png"},
+  "imageDetail": { "url": "/img/jugadoresID/bobby_shearer.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Tension",
@@ -11599,10 +11795,11 @@ const datos = [
 //Hurley Kane T2
 {
   "_id": "Hurley_Kane_T2",
-  "name": "Hurley Kane",
+  "name": "Hurley",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/hurley_kane.png"},
+  "image": {"url": "/img/jugadores/Hurley.png"},
+  "imageDetail": { "url": "/img/jugadoresID/hurley.png" },
   "position": "DF",
   "element": "Aire",
   "nature": "Afinidad",
@@ -11664,6 +11861,7 @@ const datos = [
   "sex": "F",
   "role": "player",
   "image": {"url": "/img/jugadores/tori.png"},
+  "imageDetail": { "url": "/img/jugadoresID/tori.png" },
   "position": "MD",
   "secondaryPosition": "DF",
   "element": "Aire",
@@ -11726,6 +11924,7 @@ const datos = [
   "sex": "F",
   "role": "player",
   "image": {"url": "/img/jugadores/sue.png"},
+  "imageDetail": { "url": "/img/jugadoresID/sue.png" },
   "position": "FW",
   "element": "Bosque",
   "nature": "Tension",
@@ -11780,6 +11979,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/jude_sharp.png"},
+  "imageDetail": { "url": "/img/jugadoresID/jude_sharp.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Justicia",
@@ -11836,6 +12036,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/erik_eagle.png"},
+  "imageDetail": { "url": "/img/jugadoresID/erik_eagle.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Afinidad",
@@ -11892,6 +12093,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/axel_blaze.png"},
+  "imageDetail": { "url": "/img/jugadoresID/axel_blaze.png" },
   "position": "FW",
   "element": "Fuego",
   "nature": "Contraataque",
@@ -11957,7 +12159,8 @@ const datos = [
   "name": "Shawn Froste",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/shawn_froste.png"},
+  "image": {"url": "/img/jugadores/shawn_froste_inazuma.png"},
+  "imageDetail": { "url": "/img/jugadoresID/shawn_froste.png" },
   "position": "FW",
   "secondaryPosition": "DF",
   "element": "Aire",
@@ -12088,10 +12291,11 @@ const datos = [
 //Darren LaChance T2
 {
   "_id": "Darren_LaChance_T2",
-  "name": "Darren LaChance",
+  "name": "Darren",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/darren_lachance.png"},
+  "image": {"url": "/img/jugadores/Darren.png"},
+  "imageDetail": { "url": "/img/jugadoresID/darren.png" },
   "position": "GK",
   "element": "Bosque",
   "nature": "Contraataque",
@@ -12150,6 +12354,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/nero.png"},
+  "imageDetail": { "url": "/img/jugadoresID/nero.png" },
   "position": "GK",
   "element": "Aire",
   "nature": "Afinidad",
@@ -12210,6 +12415,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/gele.png"},
+  "imageDetail": { "url": "/img/jugadoresID/gele.png" },
   "position": "DF",
   "element": "Aire",
   "nature": "Brecha",
@@ -12270,6 +12476,7 @@ const datos = [
   "sex": "F",
   "role": "player",
   "image": {"url": "/img/jugadores/kiburn.png"},
+  "imageDetail": { "url": "/img/jugadoresID/kiburn.png" },
   "position": "DF",
   "element": "Fuego",
   "nature": "Tension",
@@ -12332,6 +12539,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/zohen.png"},
+  "imageDetail": { "url": "/img/jugadoresID/zohen.png" },
   "position": "DF",
   "element": "Montaña",
   "nature": "Afinidad",
@@ -12393,6 +12601,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/hauser.png"},
+  "imageDetail": { "url": "/img/jugadoresID/hauser.png" },
   "position": "DF",
   "element": "Montaña",
   "nature": "Justicia",
@@ -12455,6 +12664,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/kormer.png"},
+  "imageDetail": { "url": "/img/jugadoresID/kormer.png" },
   "position": "MD",
   "element": "Fuego",
   "nature": "Juego Sucio",
@@ -12520,6 +12730,7 @@ const datos = [
   "sex": "F",
   "role": "player",
   "image": {"url": "/img/jugadores/kiwill.png"},
+  "imageDetail": { "url": "/img/jugadoresID/kiwill.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Afinidad",
@@ -12581,6 +12792,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/ark.png"},
+  "imageDetail": { "url": "/img/jugadoresID/ark.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Tension",
@@ -12642,6 +12854,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/wittz.png"},
+  "imageDetail": { "url": "/img/jugadoresID/wittz.png" },
   "position": "FW",
   "element": "Fuego",
   "nature": "Brecha",
@@ -12702,6 +12915,7 @@ const datos = [
   "sex": "F",
   "role": "player",
   "image": {"url": "/img/jugadores/bellatrix.png"},
+  "imageDetail": { "url": "/img/jugadoresID/bellatrix.png" },
   "position": "FW",
   "secondaryPosition": "MD",
   "element": "Aire",
@@ -12774,6 +12988,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/xene.png"},
+  "imageDetail": { "url": "/img/jugadoresID/xene.png" },
   "position": "FW",
   "element": "Fuego",
   "nature": "Juego Sucio",
@@ -12842,10 +13057,11 @@ const datos = [
 //Thomas_Feldt_EO
 {
   "_id": "Thomas_Feldt_EO",
-  "name": "Thomas Feldt",
+  "name": "Feldt",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/thomas_feldt_eo.png"},
+  "imageDetail": { "url": "/img/jugadoresID/thomas_feldt_eo.png" },
   "position": "GK",
   "element": "Bosque",
   "nature": "Contraataque",
@@ -12899,10 +13115,11 @@ const datos = [
 //Malcolm_Night_EO
 {
   "_id": "Malcolm_Night_EO",
-  "name": "Malcolm Night",
+  "name": "Malcolm",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/malcolm_night_eo.png"},
+  "imageDetail": { "url": "/img/jugadoresID/malcolm_night_eo.png" },
   "position": "DF",
   "element": "Fuego",
   "nature": "Contraataque",
@@ -12954,10 +13171,11 @@ const datos = [
 //Sam_Kincaid_EO
 {
   "_id": "Sam_Kincaid_EO",
-  "name": "Sam Kincaid",
+  "name": "Sam",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/sam_kincaid_eo.png"},
+  "imageDetail": { "url": "/img/jugadoresID/sam_kincaid_eo.png" },
   "position": "DF",
   "element": "Fuego",
   "nature": "Afinidad",
@@ -13010,10 +13228,11 @@ const datos = [
 //Jim_Wraith_EO
 {
   "_id": "Jim_Wraith_EO",
-  "name": "Jim Wraith",
+  "name": "Jim",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/jim_wraith_eo.png"},
+  "imageDetail": { "url": "/img/jugadoresID/jim_wraith_eo.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Contraataque",
@@ -13066,10 +13285,11 @@ const datos = [
 //Tod_Ironside_EO
 {
   "_id": "Tod_Ironside_EO",
-  "name": "Tod Ironside",
+  "name": "Tod",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/tod_ironside_eo.png"},
+  "imageDetail": { "url": "/img/jugadoresID/tod_ironside_eo.png" },
   "position": "MD",
   "element": "Fuego",
   "nature": "Juego Sucio",
@@ -13120,10 +13340,11 @@ const datos = [
 //Steve_Grim_EO
 {
   "_id": "Steve_Grim_EO",
-  "name": "Steve Grim",
+  "name": "Steve",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/steve_grim_eo.png"},
+  "imageDetail": { "url": "/img/jugadoresID/steve_grim_eo.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Juego Sucio",
@@ -13168,10 +13389,11 @@ const datos = [
 //Tim_Saunders_EO
 {
   "_id": "Tim_Saunders_EO",
-  "name": "Tim Saunders",
+  "name": "Tim",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/tim_saunders_eo.png"},
+  "imageDetail": { "url": "/img/jugadoresID/tim_saunders_eo.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Justicia",
@@ -13220,10 +13442,11 @@ const datos = [
 //Maxwell_Carson_EO
 {
   "_id": "Maxwell_Carson_EO",
-  "name": "Maxwell Carson",
+  "name": "Max",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/maxwell_carson_eo.png"},
+  "imageDetail": { "url": "/img/jugadoresID/maxwell_carson_eo.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Contraataque",
@@ -13275,10 +13498,11 @@ const datos = [
 //Shadow_Cimmerian_EO
 {
   "_id": "Shadow_Cimmerian_EO",
-  "name": "Shadow Cimmerian",
+  "name": "Shadow",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/shadow_cimmerian_eo.png"},
+  "imageDetail": { "url": "/img/jugadoresID/shadow_cimmerian_eo.png" },
   "position": "FW",
   "element": "Bosque",
   "nature": "Juego Sucio",
@@ -13339,6 +13563,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/nathan_swift_eo.png"},
+  "imageDetail": { "url": "/img/jugadoresID/nathan_swift_eo.png" },
   "position": "FW",
   "element": "Aire",
   "nature": "Juego Sucio",
@@ -13398,6 +13623,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/kevin_dragonfly_eo.png"},
+  "imageDetail": { "url": "/img/jugadoresID/kevin_dragonfly_eo.png" },
   "position": "FW",
   "element": "Bosque",
   "nature": "Tension",
@@ -13458,6 +13684,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/mark_evans.png"},
+  "imageDetail": { "url": "/img/jugadoresID/mark_evans.png" },
   "position": "GK",
   "element": "Montaña",
   "nature": "Contraataque",
@@ -13534,7 +13761,8 @@ const datos = [
   "name": "Nathan Swift",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/nathan_swift.png"},
+  "image": {"url": "/img/jugadores/nathan_swift_w.png"},
+  "imageDetail": { "url": "/img/jugadoresID/nathan_swift.png" },
   "position": "DF",
   "element": "Aire",
   "nature": "Justicia",
@@ -13599,10 +13827,11 @@ const datos = [
 //Jack_Wallside_T3
 {
   "_id": "Jack_Wallside_T3",
-  "name": "Jack Wallside",
+  "name": "Jack",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/jack_wallside.png"},
+  "image": {"url": "/img/jugadores/jack_wallside_w.png"},
+  "imageDetail": { "url": "/img/jugadoresID/jack_wallside.png" },
   "position": "DF",
   "element": "Montaña",
   "nature": "Brecha",
@@ -13651,10 +13880,11 @@ const datos = [
 //Hurley_Kane_T3
 {
   "_id": "Hurley_Kane_T3",
-  "name": "Hurley Kane",
+  "name": "Hurley",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/hurley_kane.png"},
+  "image": {"url": "/img/jugadores/hurley_kane_w.png"},
+  "imageDetail": { "url": "/img/jugadoresID/hurley.png" },
   "position": "DF",
   "element": "Aire",
   "nature": "Afinidad",
@@ -13704,10 +13934,11 @@ const datos = [
 //Scott_Banyan_T3
 {
   "_id": "Scott_Banyan_T3",
-  "name": "Scott Banyan",
+  "name": "Scotty",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/scott_banyan.png"},
+  "image": {"url": "/img/jugadores/scott_banyan_w.png"},
+  "imageDetail": { "url": "/img/jugadoresID/scotty.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Contraataque",
@@ -13757,10 +13988,11 @@ const datos = [
 //Archer_Hawkins_T3
 {
   "_id": "Archer_Hawkins_T3",
-  "name": "Archer Hawkins",
+  "name": "Archer",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/archer_hawkins.png"},
+  "imageDetail": { "url": "/img/jugadoresID/archer.png" },
   "position": "DF",
   "element": "Aire",
   "nature": "Juego Sucio",
@@ -13814,10 +14046,11 @@ const datos = [
 //Caleb_Stonewall_T3
 {
   "_id": "Caleb_Stonewall_T3",
-  "name": "Caleb Stonewall",
+  "name": "Stonewall",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/caleb_stonewall.png"},
+  "imageDetail": { "url": "/img/jugadoresID/caleb_stonewall.png" },
   "position": "MD",
   "element": "Fuego",
   "nature": "Juego Sucio",
@@ -13881,7 +14114,8 @@ const datos = [
   "name": "Jude Sharp",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/jude_sharp.png"},
+  "image": {"url": "/img/jugadores/jude_sharp_w.png"},
+  "imageDetail": { "url": "/img/jugadoresID/jude_sharp.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Justicia",
@@ -13938,10 +14172,11 @@ const datos = [
 //Shawn_Froste_T3
 {
   "_id": "Shawn_Froste_T3",
-  "name": "Shawn Froste",
+  "name": "Shawn",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/shawn_froste.png"},
+  "image": {"url": "/img/jugadores/shawn_froste_w.png"},
+  "imageDetail": { "url": "/img/jugadoresID/shawn_froste.png" },
   "position": "FW",
   "element": "Aire",
   "nature": "Afinidad",
@@ -14030,7 +14265,8 @@ const datos = [
   "name": "Axel Blaze",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/axel_blaze.png"},
+  "image": {"url": "/img/jugadores/axel_blaze_w.png"},
+  "imageDetail": { "url": "/img/jugadoresID/axel_blaze.png" },
   "position": "FW",
   "element": "Fuego",
   "nature": "Justicia",
@@ -14079,10 +14315,11 @@ const datos = [
 //Austin_Hobbes_T3
 {
   "_id": "Austin_Hobbes_T3",
-  "name": "Austin Hobbes",
+  "name": "Austin",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/austin_hobbes.png"},
+  "imageDetail": { "url": "/img/jugadoresID/austin_hobbes.png" },
   "position": "FW",
   "element": "Bosque",
   "nature": "Contraataque",
@@ -14134,10 +14371,11 @@ const datos = [
 //David_Samford_T3
 {
   "_id": "David_Samford_T3",
-  "name": "David Samford",
+  "name": "Samford",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/david_samford.png"},
+  "image": {"url": "/img/jugadores/david_samford_w.png"},
+  "imageDetail": { "url": "/img/jugadoresID/samford.png" },
   "position": "MD",
   "secondaryPosition": "FW",
   "element": "Bosque",
@@ -14192,6 +14430,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/xavier_foster.png"},
+  "imageDetail": { "url": "/img/jugadoresID/xavier_foster.png" },
   "position": "FW",
   "element": "Fuego",
   "nature": "Contraataque",
@@ -14244,6 +14483,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/darren_lachance.png"},
+  "imageDetail": { "url": "/img/jugadoresID/darren.png" },
   "position": "GK",
   "element": "Bosque",
   "nature": "Tension",
@@ -14298,10 +14538,11 @@ const datos = [
 //Jang_Cho
 {
   "_id": "Jang_Cho",
-  "name": "Jang Cho",
+  "name": "Jang",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/jang_cho.png"},
+  "imageDetail": { "url": "/img/jugadoresID/jang_cho.png" },
   "position": "GK",
   "element": "Bosque",
   "nature": "Tension",
@@ -14351,10 +14592,11 @@ const datos = [
 //Umi_Wang
 {
   "_id": "Umi_Wang",
-  "name": "Umi Wang",
+  "name": "Wang",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/umi_wang.png"},
+  "imageDetail": { "url": "/img/jugadoresID/umi_wang.png" },
   "position": "DF",
   "element": "Aire",
   "nature": "Afinidad",
@@ -14405,10 +14647,11 @@ const datos = [
 //Doyo_Hong
 {
   "_id": "Doyo_Hong",
-  "name": "Doyo Hong",
+  "name": "Hong",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/doyo_hong.png"},
+  "imageDetail": { "url": "/img/jugadoresID/doyo_hong.png" },
   "position": "DF",
   "element": "Aire",
   "nature": "Contraataque",
@@ -14463,10 +14706,11 @@ const datos = [
 //Minho_Cho
 {
   "_id": "Minho_Cho",
-  "name": "Minho Cho",
+  "name": "Minho",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/minho_cho.png"},
+  "imageDetail": { "url": "/img/jugadoresID/minho_cho.png" },
   "position": "DF",
   "element": "Fuego",
   "nature": "Tension",
@@ -14516,10 +14760,11 @@ const datos = [
 //Songwan_Ko
 {
   "_id": "Songwan_Ko",
-  "name": "Songwan Ko",
+  "name": "Ko",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/songwan_ko.png"},
+  "imageDetail": { "url": "/img/jugadoresID/songwan_ko.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Justicia",
@@ -14569,10 +14814,11 @@ const datos = [
 //Pekyong_Park
 {
   "_id": "Pekyong_Park",
-  "name": "Pekyong Park",
+  "name": "Park",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/pekyong_park.png"},
+  "imageDetail": { "url": "/img/jugadoresID/pekyong_park.png" },
   "position": "MD",
   "element": "Montaña",
   "nature": "Tension",
@@ -14628,10 +14874,11 @@ const datos = [
 //Changsu_Choi
 {
   "_id": "Changsu_Choi",
-  "name": "Changsu Choi",
+  "name": "Choi",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/changsu_choi.png"},
+  "imageDetail": { "url": "/img/jugadoresID/changsu_choi.png" },
   "position": "MD",
   "element": "Fuego",
   "nature": "Contraataque",
@@ -14678,10 +14925,11 @@ const datos = [
 //Enyong_Kim
 {
   "_id": "Enyong_Kim",
-  "name": "Enyong Kim",
+  "name": "Kim",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/enyong_kim.png"},
+  "imageDetail": { "url": "/img/jugadoresID/enyong_kim.png" },
   "position": "MD",
   "element": "Montaña",
   "nature": "Juego sucio",
@@ -14731,7 +14979,7 @@ const datos = [
 //Byron_Love_T3
 {
   "_id": "Byron_Love_T3",
-  "name": "Byron Love",
+  "name": "Aphrodite",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/byron_love_c.png"},
@@ -14809,6 +15057,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/torch_w.png"},
+  "imageDetail": { "url": "/img/jugadoresID/torch_w.png" },
   "position": "FW",
   "element": "Fuego",
   "nature": "Afinidad",
@@ -14872,6 +15121,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/Gazelle_w.png"},
+  "imageDetail": { "url": "/img/jugadoresID/gazelle_w.png" },
   "position": "FW",
   "element": "Aire",
   "nature": "Juego sucio",
@@ -14934,10 +15184,11 @@ const datos = [
 //Freddy_McQueen
 {
   "_id": "Freddy_McQueen",
-  "name": "Freddy McQueen",
+  "name": "McQueen",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/freddy_mcqueen.png"},
+  "imageDetail": { "url": "/img/jugadoresID/freddy_mcqueen.png" },
   "position": "GK",
   "element": "Fuego",
   "nature": "Brecha",
@@ -14986,10 +15237,11 @@ const datos = [
 //Gary_Lancaster
 {
   "_id": "Gary_Lancaster",
-  "name": "Gary Lancaster",
+  "name": "Gazzer",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/gary_lancaster.png"},
+  "imageDetail": { "url": "/img/jugadoresID/gary_lancaster.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Tension",
@@ -15039,10 +15291,11 @@ const datos = [
 //David_Buckingham
 {
   "_id": "David_Buckingham",
-  "name": "David Buckingham",
+  "name": "Buckingham",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/david_buckingham.png"},
+  "imageDetail": { "url": "/img/jugadoresID/david_buckingham.png" },
   "position": "DF",
   "element": "Montaña",
   "nature": "Tension",
@@ -15092,10 +15345,11 @@ const datos = [
 //Lance_Ralton
 {
   "_id": "Lance_Ralton",
-  "name": "Lance Ralton",
+  "name": "Ralton",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/lance_ralton.png"},
+  "imageDetail": { "url": "/img/jugadoresID/lance_ralton.png" },
   "position": "DF",
   "element": "Aire",
   "nature": "Juego sucio",
@@ -15145,10 +15399,11 @@ const datos = [
 //Edge_Ripper
 {
   "_id": "Edge_Ripper",
-  "name": "Edge Ripper",
+  "name": "Ripper",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/edge_ripper.png"},
+  "imageDetail": { "url": "/img/jugadoresID/edge_ripper.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Justicia",
@@ -15203,10 +15458,11 @@ const datos = [
 //Peter_Coole
 {
   "_id": "Peter_Coole",
-  "name": "Peter Coole",
+  "name": "Coole",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/peter_coole.png"},
+  "imageDetail": { "url": "/img/jugadoresID/peter_coole.png" },
   "position": "MD",
   "element": "Fuego",
   "nature": "Afinidad",
@@ -15261,10 +15517,11 @@ const datos = [
 //Gary_Mane
 {
   "_id": "Gary_Mane",
-  "name": "Gary Mane",
+  "name": "Mane",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/gary_mane.png"},
+  "imageDetail": { "url": "/img/jugadoresID/gary_mane.png" },
   "position": "MD",
   "element": "Montaña",
   "nature": "Brecha",
@@ -15319,10 +15576,11 @@ const datos = [
 //Paul_Appleton
 {
   "_id": "Paul_Appleton",
-  "name": "Paul Appleton",
+  "name": "Appleton",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/paul_appleton.png"},
+  "imageDetail": { "url": "/img/jugadoresID/paul_appleton.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Tension",
@@ -15371,10 +15629,11 @@ const datos = [
 //Eric_Purpleton
 {
   "_id": "Eric_Purpleton",
-  "name": "Eric Purpleton",
+  "name": "Purpleton",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/eric_purpleton.png"},
+  "imageDetail": { "url": "/img/jugadoresID/eric_purpleton.png" },
   "position": "MD",
   "element": "Fuego",
   "nature": "Contraataque",
@@ -15429,10 +15688,11 @@ const datos = [
 //Edgar_Partinus
 {
   "_id": "Edgar_Partinus",
-  "name": "Edgar Partinus",
+  "name": "Edgar",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/edgar_partinus.png"},
+  "imageDetail": { "url": "/img/jugadoresID/edgar_partinus.png" },
   "position": "FW",
   "element": "Bosque",
   "nature": "Brecha",
@@ -15479,10 +15739,11 @@ const datos = [
 //Philip_Arwen
 {
   "_id": "Philip_Arwen",
-  "name": "Philip Arwen",
+  "name": "Arwen",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/philip_arwen.png"},
+  "imageDetail": { "url": "/img/jugadoresID/philip_arwen.png" },
   "position": "FW",
   "element": "Montaña",
   "nature": "Afinidad",
@@ -15538,10 +15799,11 @@ const datos = [
 //Nacho_Ortega
 {
   "_id": "Nacho_Ortega",
-  "name": "Nacho Ortega",
+  "name": "Ortega",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/nacho_ortega.png"},
+  "imageDetail": { "url": "/img/jugadoresID/nacho_ortega.png" },
   "position": "GK",
   "element": "Fuego",
   "nature": "Tension",
@@ -15590,10 +15852,11 @@ const datos = [
 //Thiago_Torres
 {
   "_id": "Thiago_Torres",
-  "name": "Thiago Torres",
+  "name": "Torres",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/thiago_torres.png"},
+  "imageDetail": { "url": "/img/jugadoresID/thiago_torres.png" },
   "position": "DF",
   "element": "Fuego",
   "nature": "Contraataque",
@@ -15643,10 +15906,11 @@ const datos = [
 //Felipe_Palacios
 {
   "_id": "Felipe_Palacios",
-  "name": "Felipe Palacios",
+  "name": "Palacios",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/felipe_palacios.png"},
+  "imageDetail": { "url": "/img/jugadoresID/felipe_palacios.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Afinidad",
@@ -15696,10 +15960,11 @@ const datos = [
 //Miquel_Ros
 {
   "_id": "Miquel_Ros",
-  "name": "Miquel Ros",
+  "name": "Ros",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/miquel_ros.png"},
+  "imageDetail": { "url": "/img/jugadoresID/miquel_ros.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Contraataque",
@@ -15749,10 +16014,11 @@ const datos = [
 //Ramón_Martínez
 {
   "_id": "Ramon_Martinez",
-  "name": "Ramón Martínez",
+  "name": "Martínez",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/ramon_martinez.png"},
+  "imageDetail": { "url": "/img/jugadoresID/ramon_martinez.png" },
   "position": "DF",
   "element": "Montaña",
   "nature": "Juego Sucio",
@@ -15800,10 +16066,11 @@ const datos = [
 //Enrique_Caroso
 {
   "_id": "Enrique_Caroso",
-  "name": "Enrique Caroso",
+  "name": "Caroso",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/enrique_caroso.png"},
+  "imageDetail": { "url": "/img/jugadoresID/enrique_caroso.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Contraataque",
@@ -15853,10 +16120,11 @@ const datos = [
 //Sergio_López
 {
   "_id": "Sergio_Lopez",
-  "name": "Sergio López",
+  "name": "López",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/sergio_lopez.png"},
+  "imageDetail": { "url": "/img/jugadoresID/sergio_lopez.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Brecha",
@@ -15906,10 +16174,11 @@ const datos = [
 //Roberto_Torinni
 {
   "_id": "Roberto_Torinni",
-  "name": "Roberto Torinni",
+  "name": "Torinni",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/roberto_torinni.png"},
+  "imageDetail": { "url": "/img/jugadoresID/roberto_torinni.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Justicia",
@@ -15964,10 +16233,11 @@ const datos = [
 //Pablo_Castiglione
 {
   "_id": "Pablo_Castiglione",
-  "name": "Pablo Castiglione",
+  "name": "Castiglione",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/pablo_castiglione.png"},
+  "imageDetail": { "url": "/img/jugadoresID/pablo_castiglione.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Juego Sucio",
@@ -16015,10 +16285,11 @@ const datos = [
 //Leone_Balone
 {
   "_id": "Leone_Balone",
-  "name": "Leone Balone",
+  "name": "Balone",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/leone_balone.png"},
+  "imageDetail": { "url": "/img/jugadoresID/leone_balone.png" },
   "position": "FW",
   "element": "Fuego",
   "nature": "Tension",
@@ -16073,10 +16344,11 @@ const datos = [
 //Diego_Oro
 {
   "_id": "Diego_Oro",
-  "name": "Diego Oro",
+  "name": "Oro",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/diego_oro.png"},
+  "imageDetail": { "url": "/img/jugadoresID/diego_oro.png" },
   "position": "FW",
   "element": "Montaña",
   "nature": "Contraataque",
@@ -16128,14 +16400,15 @@ const datos = [
 
 
 
-
+//Unicorn
 //Billy_Dash
 {
   "_id": "Billy_Dash",
-  "name": "Billy Dash",
+  "name": "Dash",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/billy_dash.png"},
+  "imageDetail": { "url": "/img/jugadoresID/billy_dash.png" },
   "position": "GK",
   "element": "Bosque",
   "nature": "Brecha",
@@ -16185,10 +16458,11 @@ const datos = [
 //Ted_Bryant
 {
   "_id": "Ted_Bryant",
-  "name": "Ted Bryant",
+  "name": "Bryant",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/ted_bryant.png"},
+  "imageDetail": { "url": "/img/jugadoresID/ted_bryant.png" },
   "position": "DF",
   "element": "Montaña",
   "nature": "Juego Sucio",
@@ -16238,10 +16512,11 @@ const datos = [
 //Tony_Strider
 {
   "_id": "Tony_Strider",
-  "name": "Tony Strider",
+  "name": "Strider",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/tony_strider.png"},
+  "imageDetail": { "url": "/img/jugadoresID/tony_strider.png" },
   "position": "DF",
   "element": "Montaña",
   "nature": "Afinidad",
@@ -16291,10 +16566,11 @@ const datos = [
 //Drake_Dynamo
 {
   "_id": "Drake_Dynamo",
-  "name": "Drake Dynamo",
+  "name": "Dynamo",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/drake_dynamo.png"},
+  "imageDetail": { "url": "/img/jugadoresID/drake_dynamo.png" },
   "position": "DF",
   "element": "Aire",
   "nature": "Contraataque",
@@ -16343,10 +16619,11 @@ const datos = [
 //Bobby_Shearer
 {
   "_id": "Bobby_Shearer_W",
-  "name": "Bobby Shearer",
+  "name": "Bobby",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/bobby_shearer_w.png"},
+  "imageDetail": { "url": "/img/jugadoresID/bobby_shearer_w.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Tension",
@@ -16401,10 +16678,11 @@ const datos = [
 //Steve_Woodmark
 {
   "_id": "Steve_Woodmark",
-  "name": "Steve Woodmark",
+  "name": "Woodmark",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/steve_woodmark.png"},
+  "imageDetail": { "url": "/img/jugadoresID/steve_woodmark.png" },
   "position": "MD",
   "element": "Fuego",
   "nature": "Juego Sucio",
@@ -16460,6 +16738,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/erik_eagle_w.png"},
+  "imageDetail": { "url": "/img/jugadoresID/erik_eagle_w.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Tension",
@@ -16524,10 +16803,11 @@ const datos = [
 //Shane_Pierce
 {
   "_id": "Shane_Pierce",
-  "name": "Shane Pierce",
+  "name": "Pierce",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/shane_pierce.png"},
+  "imageDetail": { "url": "/img/jugadoresID/shane_pierce.png" },
   "position": "MD",
   "element": "Montaña",
   "nature": "Afinidad",
@@ -16576,10 +16856,11 @@ const datos = [
 //Mark_Krueger
 {
   "_id": "Mark_Krueger",
-  "name": "Mark Krueger",
+  "name": "Krueger",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/mark_krueger.png"},
+  "imageDetail": { "url": "/img/jugadoresID/mark_krueger.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Justicia",
@@ -16634,10 +16915,11 @@ const datos = [
 //Dylan_Keats
 {
   "_id": "Dylan_Keats",
-  "name": "Dylan Keats",
+  "name": "Keats",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/dylan_keats.png"},
+  "imageDetail": { "url": "/img/jugadoresID/dylan_keats.png" },
   "position": "FW",
   "element": "Fuego",
   "nature": "Contraataque",
@@ -16697,10 +16979,11 @@ const datos = [
 //Gabriel_Jax
 {
   "_id": "Gabriel_Jax",
-  "name": "Gabriel Jax",
+  "name": "Jax",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/gabriel_jax.png"},
+  "imageDetail": { "url": "/img/jugadoresID/gabriel_jax.png" },
   "position": "FW",
   "element": "Montaña",
   "nature": "Juego Sucio",
@@ -16756,6 +17039,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/gigi_blasi.png"},
+  "imageDetail": { "url": "/img/jugadoresID/gigi_blasi.png" },
   "position": "GK",
   "element": "Aire",
   "nature": "Tension",
@@ -16804,10 +17088,11 @@ const datos = [
 //Vento_Galliano
 {
   "_id": "Vento_Galliano",
-  "name": "Vento Galliano",
+  "name": "Galliano",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/vento_galliano.png"},
+  "imageDetail": { "url": "/img/jugadoresID/vento_galliano.png" },
   "position": "DF",
   "element": "Aire",
   "nature": "Justicia",
@@ -16861,10 +17146,11 @@ const datos = [
 //Otto_Nobili
 {
   "_id": "Otto_Nobili",
-  "name": "Otto Nobili",
+  "name": "Nobili",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/otto_nobili.png"},
+  "imageDetail": { "url": "/img/jugadoresID/otto_nobili.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Tension",
@@ -16914,10 +17200,11 @@ const datos = [
 //Anton_Graziuso
 {
   "_id": "Anton_Graziuso",
-  "name": "Anton Graziuso",
+  "name": "Graziuso",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/anton_graziuso.png"},
+  "imageDetail": { "url": "/img/jugadoresID/anton_graziuso.png" },
   "position": "DF",
   "element": "Fuego",
   "nature": "Tension",
@@ -16967,10 +17254,11 @@ const datos = [
 //Marco_Maserati
 {
   "_id": "Marco_Maserati",
-  "name": "Marco Maserati",
+  "name": "Maserati",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/marco_maserati.png"},
+  "imageDetail": { "url": "/img/jugadoresID/marco_maserati.png" },
   "position": "DF",
   "element": "Montaña",
   "nature": "Contraataque",
@@ -17026,10 +17314,11 @@ const datos = [
 //Angelo_Gabrini
 {
   "_id": "Angelo_Gabrini",
-  "name": "Angelo Gabrini",
+  "name": "Gabrini",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/angelo_gabrini.png"},
+  "imageDetail": { "url": "/img/jugadoresID/angelo_gabrini.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Contraataque",
@@ -17083,10 +17372,11 @@ const datos = [
 //Hidetoshi_Nakata
 {
   "_id": "Hidetoshi_Nakata",
-  "name": "Hidetoshi Nakata",
+  "name": "Nakata",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/hidetoshi_nakata.png"},
+  "imageDetail": { "url": "/img/jugadoresID/hidetoshi_nakata.png" },
   "position": "MD",
   "element": "Montaña",
   "nature": "Tension",
@@ -17136,10 +17426,11 @@ const datos = [
 //Giacomo_Yani
 {
   "_id": "Giacomo_Yani",
-  "name": "Giacomo Yani",
+  "name": "Yani",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/giacomo_yani.png"},
+  "imageDetail": { "url": "/img/jugadoresID/giacomo_yani.png" },
   "position": "MD",
   "element": "Montaña",
   "nature": "Contraataque",
@@ -17188,10 +17479,11 @@ const datos = [
 //Gianluca_Zanardi
 {
   "_id": "Gianluca_Zanardi",
-  "name": "Gianluca Zanardi",
+  "name": "Zanardi",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/gianluca_zanardi.png"},
+  "imageDetail": { "url": "/img/jugadoresID/gianluca_zanardi.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Contraataque",
@@ -17244,6 +17536,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/paolo_bianchi.png"},
+  "imageDetail": { "url": "/img/jugadoresID/paolo_bianchi.png" },
   "position": "FW",
   "secondaryPosition": "MD",
   "element": "Bosque",
@@ -17307,10 +17600,11 @@ const datos = [
 //Raffaele_Generani
 {
   "_id": "Raffaele_Generani",
-  "name": "Raffaele Generani",
+  "name": "Generani",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/raffaele_generani.png"},
+  "imageDetail": { "url": "/img/jugadoresID/raffaele_generani.png" },
   "position": "FW",
   "element": "Aire",
   "nature": "Contraataque",
@@ -17359,10 +17653,11 @@ const datos = [
 //Falcao_Da_Silva
 {
   "_id": "Falcao_Da_Silva",
-  "name": "Falcão Da Silva",
+  "name": "Da Silva",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/falcao_da_silva.png"},
+  "imageDetail": { "url": "/img/jugadoresID/falcao_da_silva.png" },
   "position": "GK",
   "element": "Montaña",
   "nature": "Afinidad",
@@ -17412,10 +17707,11 @@ const datos = [
 //Carlos_Lagarto
 {
   "_id": "Carlos_Lagarto",
-  "name": "Carlos Lagarto",
+  "name": "Lagarto",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/carlos_lagarto.png"},
+  "imageDetail": { "url": "/img/jugadoresID/carlos_lagarto.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Tension",
@@ -17464,10 +17760,11 @@ const datos = [
 //Antonio_Bagre
 {
   "_id": "Antonio_Bagre",
-  "name": "Antonio Bagre",
+  "name": "Bagre",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/antonio_bagre.png"},
+  "imageDetail": { "url": "/img/jugadoresID/antonio_bagre.png" },
   "position": "DF",
   "element": "Aire",
   "nature": "Contraataque",
@@ -17517,10 +17814,11 @@ const datos = [
 //Monstro_Ximenes
 {
   "_id": "Monstro_Ximenes",
-  "name": "Monstro Ximenes",
+  "name": "Monstro",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/monstro_ximenes.png"},
+  "imageDetail": { "url": "/img/jugadoresID/monstro_ximenes.png" },
   "position": "DF",
   "element": "Fuego",
   "nature": "Justicia",
@@ -17569,10 +17867,11 @@ const datos = [
 //Formiga_Clemens
 {
   "_id": "Formiga_Clemens",
-  "name": "Formiga Clemens",
+  "name": "Clemens",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/formiga_clemens.png"},
+  "imageDetail": { "url": "/img/jugadoresID/formiga_clemens.png" },
   "position": "DF",
   "element": "Montaña",
   "nature": "Juego Sucio",
@@ -17622,10 +17921,11 @@ const datos = [
 //Presa_Passos
 {
   "_id": "Presa_Passos",
-  "name": "Presa Passos",
+  "name": "Passos",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/presa_passos.png"},
+  "imageDetail": { "url": "/img/jugadoresID/presa_passos.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Afinidad",
@@ -17674,10 +17974,11 @@ const datos = [
 //Borboleta_Barboza
 {
   "_id": "Borboleta_Barboza",
-  "name": "Borboleta Barboza",
+  "name": "Barboza",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/borboleta_barboza.png"},
+  "imageDetail": { "url": "/img/jugadoresID/borboleta_barboza.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Afinidad",
@@ -17732,10 +18033,11 @@ const datos = [
 //Coruja_Cerezo
 {
   "_id": "Coruja_Cerezo",
-  "name": "Coruja Cerezo",
+  "name": "Cerezo",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/coruja_cerezo.png"},
+  "imageDetail": { "url": "/img/jugadoresID/coruja_cerezo.png" },
   "position": "MD",
   "element": "Montaña",
   "nature": "Contraataque",
@@ -17789,10 +18091,11 @@ const datos = [
 //Leonardo_Almeida
 {
   "_id": "Leonardo_Almeida",
-  "name": "Leonardo Almeida",
+  "name": "Almeida",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/leonardo_almeida.png"},
+  "imageDetail": { "url": "/img/jugadoresID/leonardo_almeida.png" },
   "position": "MD",
   "secondaryPosition": "FW",
   "element": "Bosque",
@@ -17851,6 +18154,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/mac_robingo.png"},
+  "imageDetail": { "url": "/img/jugadoresID/mac_robingo.png" },
   "position": "FW",
   "element": "Fuego",
   "nature": "Contraataque",
@@ -17909,6 +18213,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/lisensiado.png"},
+  "imageDetail": { "url": "/img/jugadoresID/lisensiado.png" },
   "position": "FW",
   "element": "Fuego",
   "nature": "Tension",
@@ -17965,10 +18270,11 @@ const datos = [
 //Hector_Helio
 {
   "_id": "Hector_Helio",
-  "name": "Hector Helio",
+  "name": "Helio",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/hector_helio.png"},
+  "imageDetail": { "url": "/img/jugadoresID/hector_helio.png" },
   "position": "GK",
   "secondaryPosition": "FW",
   "element": "Fuego",
@@ -18028,10 +18334,11 @@ const datos = [
 //Zephyr_Vitesse
 {
   "_id": "Zephyr_Vitesse",
-  "name": "Zephyr Vitesse",
+  "name": "Vitesse",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/zephyr_vitesse.png"},
+  "imageDetail": { "url": "/img/jugadoresID/zephyr_vitesse.png" },
   "position": "DF",
   "element": "Aire",
   "nature": "Justicia",
@@ -18086,10 +18393,11 @@ const datos = [
 //Walter_Mountain
 {
   "_id": "Walter_Mountain",
-  "name": "Walter Mountain",
+  "name": "Mountain",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/walter_mountain.png"},
+  "imageDetail": { "url": "/img/jugadoresID/walter_mountain.png" },
   "position": "DF",
   "element": "Montaña",
   "nature": "Justicia",
@@ -18140,10 +18448,11 @@ const datos = [
 //Jimi_Gaines
 {
   "_id": "Jimi_Gaines",
-  "name": "Jimi Gaines",
+  "name": "Gaines",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/jimi_gaines.png"},
+  "imageDetail": { "url": "/img/jugadoresID/jimi_gaines.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Contraataque",
@@ -18197,10 +18506,11 @@ const datos = [
 //Ian_Ferrum
 {
   "_id": "Ian_Ferrum",
-  "name": "Ian Ferrum",
+  "name": "Ferrum",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/ian_ferrum.png"},
+  "imageDetail": { "url": "/img/jugadoresID/ian_ferrum.png" },
   "position": "DF",
   "element": "Fuego",
   "nature": "Juego Sucio",
@@ -18254,10 +18564,11 @@ const datos = [
 //Quint_Hampton
 {
   "_id": "Quint_Hampton",
-  "name": "Quint Hampton",
+  "name": "Hampton",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/quint_hampton.png"},
+  "imageDetail": { "url": "/img/jugadoresID/quint_hampton.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Juego Sucio",
@@ -18308,10 +18619,11 @@ const datos = [
 //Yasir_Haddad
 {
   "_id": "Yasir_Haddad",
-  "name": "Yasir Haddad",
+  "name": "Haddad",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/yasir_haddad.png"},
+  "imageDetail": { "url": "/img/jugadoresID/yasir_haddad.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Juego Sucio",
@@ -18366,10 +18678,11 @@ const datos = [
 //Keith_Ryan
 {
   "_id": "Keith_Ryan",
-  "name": "Keith Ryan",
+  "name": "Ryan",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/keith_ryan.png"},
+  "imageDetail": { "url": "/img/jugadoresID/keith_ryan.png" },
   "position": "MD",
   "element": "Fuego",
   "nature": "Contraataque",
@@ -18425,10 +18738,11 @@ const datos = [
 //Maximino_Cruz
 {
   "_id": "Maximino_Cruz",
-  "name": "Maximino Cruz",
+  "name": "Maxi",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/maximino_cruz.png"},
+  "imageDetail": { "url": "/img/jugadoresID/maximino_cruz.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Contraataque",
@@ -18488,10 +18802,11 @@ const datos = [
 //Gareth_Flare
 {
   "_id": "Gareth_Flare",
-  "name": "Gareth Flare",
+  "name": "Flare",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/gareth_flare.png"},
+  "imageDetail": { "url": "/img/jugadoresID/gareth_flare.png" },
   "position": "FW",
   "element": "Fuego",
   "nature": "Tension",
@@ -18540,10 +18855,11 @@ const datos = [
 //Drago_Hill
 {
   "_id": "Drago_Hill",
-  "name": "Drago Hill",
+  "name": "Drago",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/drago_hill.png"},
+  "imageDetail": { "url": "/img/jugadoresID/drago_hill.png" },  
   "position": "FW",
   "element": "Bosque",
   "nature": "Justicia",
@@ -18599,10 +18915,11 @@ const datos = [
 //Joseph_King_Neo
 {
   "_id": "Joseph_King_Neo",
-  "name": "Joseph King",
+  "name": "King",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/joseph_king_neo.png"},
+  "imageDetail": { "url": "/img/jugadoresID/king.png" },
   "position": "GK",
   "element": "Fuego",
   "nature": "Brecha",
@@ -18657,10 +18974,11 @@ const datos = [
 //Alan_Master_Neo
 {
   "_id": "Alan_Master_Neo",
-  "name": "Alan Master",
+  "name": "Master",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/alan_master_neo.png"},
+  "imageDetail": { "url": "/img/jugadoresID/master.png" },
   "position": "DF",
   "element": "Aire",
   "nature": "Brecha",
@@ -18710,10 +19028,11 @@ const datos = [
 //Zack_Cummings_Neo
 {
   "_id": "Zack_Cummings_Neo",
-  "name": "Zack Cummings",
+  "name": "Zohen",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/zack_cummings_neo.png"},
+  "imageDetail": { "url": "/img/jugadoresID/zohen.png" },
   "position": "DF",
   "element": "Montaña",
   "nature": "Afinidad",
@@ -18768,10 +19087,11 @@ const datos = [
 //Argie_Bargie_Neo
 {
   "_id": "Argie_Bargie_Neo",
-  "name": "Argie Bargie",
+  "name": "Bargie",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/argie_bargie_neo.png"},
+  "imageDetail": { "url": "/img/jugadoresID/bargie_rx.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Contraataque",
@@ -18820,10 +19140,11 @@ const datos = [
 //Daniel_Hatch_Neo
 {
   "_id": "Daniel_Hatch_Neo",
-  "name": "Daniel Hatch",
+  "name": "Hatch",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/daniel_hatch_neo.png"},
+  "imageDetail": { "url": "/img/jugadoresID/hatch.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Juego Sucio",
@@ -18878,10 +19199,11 @@ const datos = [
 //Neil_Turner_Neo
 {
   "_id": "Neil_Turner_Neo",
-  "name": "Neil Turner",
+  "name": "Turner",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/neil_turner_neo.png"},
+  "imageDetail": { "url": "/img/jugadoresID/turner.png" },
   "position": "MD",
   "element": "Fuego",
   "nature": "Tension",
@@ -18935,10 +19257,11 @@ const datos = [
 //Sail_Bluessea_Neo
 {
   "_id": "Sail_Bluessea_Neo",
-  "name": "Sail Bluessea",
+  "name": "Cloak",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/sail_bluessea_neo.png"},
+  "imageDetail": { "url": "/img/jugadoresID/cloak.png" },
   "position": "MD",
   "element": "Fuego",
   "nature": "Brecha",
@@ -18992,10 +19315,11 @@ const datos = [
 //Johan_Tassman_Neo
 {
   "_id": "Johan_Tassman_Neo",
-  "name": "Johan Tassman",
+  "name": "Talisman",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/johan_tassman_neo.png"},
+  "imageDetail": { "url": "/img/jugadoresID/talisman.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Juego Sucio",
@@ -19049,10 +19373,11 @@ const datos = [
 //Wilbur_Watkins_Neo
 {
   "_id": "Wilbur_Watkins_Neo",
-  "name": "Wilbur Watkins",
+  "name": "Wittz",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/wilbur_watkins_neo.png"},
+  "imageDetail": { "url": "/img/jugadoresID/wittz.png" },
   "position": "FW",
   "element": "Bosque",
   "nature": "Brecha",
@@ -19101,10 +19426,11 @@ const datos = [
 //Dave_Quagmire_Neo
 {
   "_id": "Dave_Quagmire_Neo",
-  "name": "Dave Quagmire",
+  "name": "Quagmire",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/dave_quagmire_neo.png"},
+  "imageDetail": { "url": "/img/jugadoresID/quagmire.png" },
   "position": "MD",
   "element": "Fuego",
   "nature": "Afinidad",
@@ -19159,10 +19485,11 @@ const datos = [
 //Zeke_Valanche_Neo
 {
   "_id": "Zeke_Valanche_Neo",
-  "name": "Zeke Valanche",
+  "name": "Zeke",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/zeke_valanche_neo.png"},
+  "imageDetail": { "url": "/img/jugadoresID/zeke.png" },
   "position": "FW",
   "element": "Aire",
   "nature": "Juego Sucio",
@@ -19217,6 +19544,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/anorel.png"},
+  "imageDetail": { "url": "/img/jugadoresID/anorel.png" },
   "position": "GK",
   "element": "Bosque",
   "nature": "Brecha",
@@ -19270,6 +19598,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/nenel.png"},
+  "imageDetail": { "url": "/img/jugadoresID/nenel.png" },
   "position": "DF",
   "element": "Fuego",
   "nature": "Contraataque",
@@ -19328,6 +19657,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/genel.png"},
+  "imageDetail": { "url": "/img/jugadoresID/genel.png" },
   "position": "DF",
   "element": "Montaña",
   "nature": "Justicia",
@@ -19385,6 +19715,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/ekadel.png"},
+  "imageDetail": { "url": "/img/jugadoresID/ekadel.png" },
   "position": "DF",
   "element": "Aire",
   "nature": "Contraataque",
@@ -19437,6 +19768,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/lephiel.png"},
+  "imageDetail": { "url": "/img/jugadoresID/lephiel.png" },
   "position": "DF",
   "element": "Montaña",
   "nature": "Tension",
@@ -19489,6 +19821,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/sachinel.png"},
+  "imageDetail": { "url": "/img/jugadoresID/sachinel.png" },
   "position": "MD",
   "element": "Montaña",
   "nature": "Brecha",
@@ -19547,6 +19880,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/wenel.png"},
+  "imageDetail": { "url": "/img/jugadoresID/wenel.png" },
   "position": "MD",
   "element": "Fuego",
   "nature": "Justicia",
@@ -19599,6 +19933,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/nuel.png"},
+  "imageDetail": { "url": "/img/jugadoresID/nuel.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Contraataque",
@@ -19651,6 +19986,7 @@ const datos = [
   "sex": "F",
   "role": "player",
   "image": {"url": "/img/jugadores/ientel.png"},
+  "imageDetail": { "url": "/img/jugadoresID/ientel.png" },
   "position": "MD",
   "element": "Bosque",
   "nature": "Afinidad",
@@ -19708,6 +20044,7 @@ const datos = [
   "sex": "F",
   "role": "player",
   "image": {"url": "/img/jugadores/gaiel.png"},
+  "imageDetail": { "url": "/img/jugadoresID/gaiel.png" },
   "position": "FW",
   "element": "Aire",
   "nature": "Contraataque",
@@ -19766,6 +20103,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/sael.png"},
+  "imageDetail": { "url": "/img/jugadoresID/sael.png" },
   "position": "FW",
   "element": "Bosque",
   "nature": "Afinidad",
@@ -19817,7 +20155,7 @@ const datos = [
 
 
 
-
+//DARK
 //Astaroth
 {
   "_id": "Astaroth",
@@ -19825,6 +20163,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/astaroth.png"},
+  "imageDetail": { "url": "/img/jugadoresID/astaroth.png" },
   "position": "GK",
   "element": "Fuego",
   "nature": "Brecha",
@@ -19882,6 +20221,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/rubu.png"},
+  "imageDetail": { "url": "/img/jugadoresID/rubu.png" },
   "position": "DF",
   "element": "Montaña",
   "nature": "Justicia",
@@ -19939,6 +20279,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/agor.png"},
+  "imageDetail": { "url": "/img/jugadoresID/agor.png" },
   "position": "DF",
   "element": "Aire",
   "nature": "Juego Sucio",
@@ -19997,6 +20338,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/hebimos.png"},
+  "imageDetail": { "url": "/img/jugadoresID/hebimos.png" },
   "position": "DF",
   "element": "Bosque",
   "nature": "Afinidad",
@@ -20055,6 +20397,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/belal.png"},
+  "imageDetail": { "url": "/img/jugadoresID/belal.png" },
   "position": "DF",
   "element": "Aire",
   "nature": "Brecha",
@@ -20112,6 +20455,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/malphas.png"},
+  "imageDetail": { "url": "/img/jugadoresID/malphas.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Contraataque",
@@ -20169,6 +20513,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/gorja.png"},
+  "imageDetail": { "url": "/img/jugadoresID/gorja.png" },
   "position": "MD",
   "element": "Montaña",
   "nature": "Afinidad",
@@ -20226,6 +20571,7 @@ const datos = [
   "sex": "F",
   "role": "player",
   "image": {"url": "/img/jugadores/arakune.png"},
+  "imageDetail": { "url": "/img/jugadoresID/arakune.png" },
   "position": "MD",
   "element": "Fuego",
   "nature": "Juego Sucio",
@@ -20283,6 +20629,7 @@ const datos = [
   "sex": "F",
   "role": "player",
   "image": {"url": "/img/jugadores/borba.png"},
+  "imageDetail": { "url": "/img/jugadoresID/borba.png" },
   "position": "MD",
   "element": "Fuego",
   "nature": "Juego Sucio",
@@ -20336,6 +20683,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/zanos.png"},
+  "imageDetail": { "url": "/img/jugadoresID/zanos.png" },
   "position": "FW",
   "element": "Bosque",
   "nature": "Tension",
@@ -20394,6 +20742,7 @@ const datos = [
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/destra.png"},
+  "imageDetail": { "url": "/img/jugadoresID/destra.png" },
   "position": "FW",
   "element": "Montaña",
   "nature": "Tension",
