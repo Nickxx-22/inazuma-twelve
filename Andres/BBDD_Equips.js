@@ -484,7 +484,7 @@ const datos = [
 {
   _id: "Raimon_T2",
   name: "Raimon Resistencia",
-  image: {"url": "/img/equipos/raimon.png"},
+  image: {"url": "/img/equipos/raimon_resistencia.png"},
   country: "Japan",
   academy: "Instituto Raimon",
   category: "Junior",

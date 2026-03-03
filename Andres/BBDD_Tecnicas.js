@@ -4254,7 +4254,7 @@ async function insertarTecnicas() {
   "type": "Shot",
   "subtype": ["tiro"],
   "element": "Fuego",
-  "basePower": 60,
+  "basePower": 100,
   "cost": {
     "stamina": 40,
     "tension": 55
