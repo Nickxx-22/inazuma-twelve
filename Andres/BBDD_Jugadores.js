@@ -596,7 +596,7 @@ const datos = [
 //Maxwell Carson
 {
   "_id": "Maxwell_Carson_T1",
-  "name": "Maxwell Carson",
+  "name": "Max",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/maxwell_carson.png"},
@@ -846,7 +846,7 @@ const datos = [
 //William Glass
 {
   "_id": "William_Glass_T1",
-  "name": "William Glass",
+  "name": "Willi Glass",
   "sex": "M",
   "secondaryRole": ["player"],
   "role": "Gerente",
@@ -908,7 +908,7 @@ const datos = [
 //Bobby Shearer
 {
   "_id": "Bobby_Shearer_T1",
-  "name": "Bobby Shearer",
+  "name": "Bobby",
   "sex": "M",
   "role": "player",
   "image": {"url": "/img/jugadores/bobby_shearer.png"},
@@ -1130,10 +1130,10 @@ const datos = [
 //Nathan Jones
 {
   "_id": "Nathan_Jones_T1",
-  "name": "Nathan Jones",
+  "name": "Mask",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Mask.png"},
   "position": "GK",
   "element": "Aire",
   "nature": "Juego Sucio",
@@ -1189,10 +1189,10 @@ const datos = [
 //Russell Walk
 {
   "_id": "Russell_Walk_T1",
-  "name": "Russell Walk",
+  "name": "Styx",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Styx.png"},
   "position": "DF",
   "element": "Bosque",
   "nature": "Justicia",
@@ -1243,10 +1243,10 @@ const datos = [
 //Jason Jones
 {
   "_id": "Jason_Jones_T1",
-  "name": "Jason Jones",
+  "name": "Creepy",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Creepy.png"},
   "position": "DF",
   "element": "Aire",
   "nature": "Afinidad",
@@ -1297,10 +1297,10 @@ const datos = [
 //Ken Furan
 {
   "_id": "Ken_Furan_T1",
-  "name": "Ken Furan",
+  "name": "Franky",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Franky.png"},
   "position": "DF",
   "element": "Montaña",
   "nature": "Juego Sucio",
@@ -1350,10 +1350,10 @@ const datos = [
 //Jerry Fulton
 {
   "_id": "Jerry_Fulton_T1",
-  "name": "Jerry Fulton",
+  "name": "Undead",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Undead.png"},
   "position": "DF",
   "element": "Fuego",
   "nature": "Juego Sucio",
@@ -1404,10 +1404,10 @@ const datos = [
 //Ray Mannings
 {
   "_id": "Ray_Mannings_T1",
-  "name": "Ray Mannings",
+  "name": "Jiangshi",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Jiangshi.png"},
   "position": "MD",
   "element": "Aire",
   "nature": "Tension",
@@ -1462,10 +1462,10 @@ const datos = [
 //Robert Mayer
 {
   "_id": "Robert_Mayer_T1",
-  "name": "Robert Mayer",
+  "name": "Mummy",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Mummy.png"},
   "position": "MD",
   "element": "Bosque",
   "nature": "Tension",
@@ -1526,10 +1526,10 @@ const datos = [
 //Alexander Brave
 {
   "_id": "Alexander_Brave_T1",
-  "name": "Alexander Brave",
+  "name": "Grave",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Grave.png"},
   "position": "MD",
   "element": "Aire",
   "nature": "Contraataque",
@@ -1585,10 +1585,10 @@ const datos = [
 //Johan Tassman
 {
   "_id": "Johan_Tassman_T1",
-  "name": "Johan Tassman",
+  "name": "Talisman",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Talisman.png"},
   "position": "FW",
   "element": "Bosque",
   "nature": "Juego Sucio",
@@ -1638,10 +1638,10 @@ const datos = [
 //Troy Moon
 {
   "_id": "Troy_Moon_T1",
-  "name": "Troy Moon",
+  "name": "Wolfy",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Wolfy.png"},
   "position": "MD",
   "element": "Fuego",
   "nature": "Afinidad",
@@ -1692,10 +1692,10 @@ const datos = [
 //Burt Wolf
 {
   "_id": "Burt_Wolf_T1",
-  "name": "Burt Wolf",
+  "name": "Blood",
   "sex": "M",
   "role": "player",
-  "image": {"url": "/img/jugadores/.png"},
+  "image": {"url": "/img/jugadores/Blood.png"},
   "position": "MD",
   "element": "Montaña",
   "nature": "Juego Sucio",
