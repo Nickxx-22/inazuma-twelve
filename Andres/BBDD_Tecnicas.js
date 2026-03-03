@@ -4248,6 +4248,21 @@ async function insertarTecnicas() {
 },
 
 
+{
+  "_id": "Aprobada_Historica",
+  "name": "Aprobada Histórica",
+  "type": "Shot",
+  "subtype": ["tiro"],
+  "element": "Fuego",
+  "basePower": 60,
+  "cost": {
+    "stamina": 40,
+    "tension": 55
+  },
+  "creador": ["Lisensiado"],
+  "heredero": [],
+  "copia": []
+},
 
 
 {

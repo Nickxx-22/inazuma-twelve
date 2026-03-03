@@ -18261,7 +18261,7 @@ const datos = [
       "power_modifier": 1.0
     },
     {
-      "technique_id": "Aprobada Historica",
+      "technique_id": "Aprobada_Historica",
       "relation": "real",
       "power_modifier": 10
     }
