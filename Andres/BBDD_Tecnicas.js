@@ -16,6 +16,7 @@ async function insertarTecnicas() {
 {
   "_id": "Mano_Celestial",
   "name": "Mano Celestial",
+  "videoUrl": {"url": "/tecnicas/mano_Celestial.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Montaña",
@@ -31,9 +32,12 @@ async function insertarTecnicas() {
   "copia": ["Seymour_Hillman"]
 },
 
+
+
 {
   "_id": "Despeje_de_Fuego",
   "name": "Despeje de Fuego",
+  "videoUrl": {"url": "/tecnicas/despeje_de_fuego.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Fuego",
@@ -49,9 +53,11 @@ async function insertarTecnicas() {
   "copia": ["Charlie_Boardfield_T1", "Grant_Cook_P", "Grant_Cook_CS"]
 },
 
+
 {
   "_id": "Super_Relampago",
   "name": "Super Relámpago",
+  "videoUrl": {"url": "/tecnicas/super_relampago.mp4"},
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Aire",
@@ -77,9 +83,14 @@ async function insertarTecnicas() {
   "copia": []
 },
 
+
+
+
+
 {
   "_id": "Despeje_Explosivo",
   "name": "Despeje Explosivo",
+  "videoUrl": {"url": "/tecnicas/despeje_explosivo.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Fuego",
@@ -95,9 +106,12 @@ async function insertarTecnicas() {
   "copia": []
 },
 
+
+
 {
   "_id": "Mano_Celestial_Doble",
   "name": "Mano Celestial Doble",
+  "videoUrl": {"url": "/tecnicas/mano_celestial_doble.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Montaña",
@@ -116,6 +130,7 @@ async function insertarTecnicas() {
 {
   "_id": "Supe_Trampolin_Relampago",
   "name": "Super Trampolín Relámpago",
+  "videoUrl": {"url": "/tecnicas/super_trampolin_relampago.mp4"},
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Aire",
@@ -145,6 +160,7 @@ async function insertarTecnicas() {
 {
   "_id": "Ruptura_Relampago",
   "name": "Ruptura Relámpago",
+  "videoUrl": {"url": "/tecnicas/ruptura_relampago.mp4"},
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Aire",
@@ -174,6 +190,7 @@ async function insertarTecnicas() {
 {
   "_id": "Tri_pegaso",
   "name": "Tri Pegaso",
+  "videoUrl": {"url": "/tecnicas/tri_pegaso.mp4"},
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Aire",
@@ -203,6 +220,7 @@ async function insertarTecnicas() {
 {
   "_id": "Defensa_Triple",
   "name": "Defensa Triple",
+  "videoUrl": {"url": "/tecnicas/defensa_triple.mp4"},
   "type": "save",
   "subtype": ["combo", "parada"],
   "element": "Tierra",
@@ -232,6 +250,7 @@ async function insertarTecnicas() {
 {
   "_id": "Fenix",
   "name": "Fenix",
+  "videoUrl": {"url": "/tecnicas/fenix.mp4"},
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Fuego",
@@ -261,6 +280,7 @@ async function insertarTecnicas() {
 {
   "_id": "Mano_Magica",
   "name": "Mano Mágica",
+  "videoUrl": {"url": "/tecnicas/mano_magica.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Montaña",
@@ -279,6 +299,7 @@ async function insertarTecnicas() {
 {
   "_id": "Entrada_Huracan",
   "name": "Entrada Huracán",
+  "videoUrl": {"url": "/tecnicas/entrada_huracan.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Aire",
@@ -299,6 +320,7 @@ async function insertarTecnicas() {
 {
   "_id": "Pajaro_De_Fuego",
   "name": "Pájaro de Fuego",
+  "videoUrl": {"url": "/tecnicas/pajaro_de_fuego.mp4"},
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Fuego",
@@ -341,6 +363,7 @@ async function insertarTecnicas() {
 {
   "_id": "Trampolin_Relampago",
   "name": "Trampolín Relámpago",
+  "videoUrl": {"url": "/tecnicas/trampolin_relampago.mp4"},
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Aire",
@@ -381,6 +404,7 @@ async function insertarTecnicas() {
 {
   "_id": "El_Muro",
   "name": "El Muro",
+  "videoUrl": {"url": "/tecnicas/el_muro.mp4"},
   "type": "defense",
   "subtype": ["bloqueo", "quitar"],
   "element": "Montaña",
@@ -400,6 +424,7 @@ async function insertarTecnicas() {
 {
   "_id": "Giro_Bobina",
   "name": "Giro Bobina",
+  "videoUrl": {"url": "/tecnicas/giro_bobina.mp4"},
   "type": "defense",
   "subtype": ["bloqueo"],
   "element": "Bosque",
@@ -418,6 +443,7 @@ async function insertarTecnicas() {
 {
   "_id": "Ataque_Sombrio",
   "name": "Ataque Sombrío",
+  "videoUrl": {"url": "/tecnicas/ataque_sombrio.mp4"},
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Bosque",
@@ -436,6 +462,7 @@ async function insertarTecnicas() {
 {
   "_id": "Giro_de_Mono",
   "name": "Giro de Mono",
+  "videoUrl": {"url": "/tecnicas/giro_de_mono.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Bosque",
@@ -454,6 +481,7 @@ async function insertarTecnicas() {
 {
   "_id": "Tiro_del_Cometa",
   "name": "Tiro del Cometa",
+  "videoUrl": {"url": "/tecnicas/tiro_del_cometa.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
@@ -473,6 +501,7 @@ async function insertarTecnicas() {
 {
   "_id": "Disparo_Rodante",
   "name": "Disparo Rodante",
+  "videoUrl": {"url": "/tecnicas/disparo_rodante.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Bosque",
@@ -491,6 +520,7 @@ async function insertarTecnicas() {
 {
   "_id": "Zig_Zag_Explosivo",
   "name": "Zig Zag Explosivo",
+  "videoUrl": {"url": "/tecnicas/zig_zag_explosivo.mp4"},
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Fuego",
@@ -509,6 +539,7 @@ async function insertarTecnicas() {
 {
   "_id": "Cabezazo_Kung_Fu",
   "name": "Cabezazo Kung Fu",
+  "videoUrl": {"url": "/tecnicas/cabezazo_kung_fu.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Bosque",
@@ -527,6 +558,7 @@ async function insertarTecnicas() {
 {
   "_id": "Torbellino_Dragon",
   "name": "Torbellino Dragón",
+  "videoUrl": {"url": "/tecnicas/torbellino_dragon.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Montaña",
@@ -545,6 +577,7 @@ async function insertarTecnicas() {
 {
   "_id": "Chut_Granada",
   "name": "Chut Granada",
+  "videoUrl": {"url": "/tecnicas/chut_granada.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
@@ -563,6 +596,7 @@ async function insertarTecnicas() {
 {
   "_id": "Balon_Falso",
   "name": "Balón Falso",
+  "videoUrl": {"url": "/tecnicas/balon_falso.mp4"},
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Bosque",
@@ -581,6 +615,7 @@ async function insertarTecnicas() {
 {
   "_id": "Tiro_Cruzado",
   "name": "Tiro Cruzado",
+  "videoUrl": {"url": "/tecnicas/tiro_cruzado.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
@@ -599,6 +634,7 @@ async function insertarTecnicas() {
 {
   "_id": "Robo_Veloz",
   "name": "Robo Veloz",
+  "videoUrl": {"url": "/tecnicas/robo_veloz.mp4"},
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Aire",
@@ -618,6 +654,7 @@ async function insertarTecnicas() {
 {
   "_id": "Espejismo",
   "name": "Espejismo",
+  "videoUrl": {"url": "/tecnicas/espejismo.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Aire",
@@ -637,6 +674,7 @@ async function insertarTecnicas() {
 {
   "_id": "Tornado_De_Fuego",
   "name": "Tornado de Fuego",
+  "videoUrl": {"url": "/tecnicas/tornado_de_fuego.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
@@ -655,6 +693,7 @@ async function insertarTecnicas() {
 {
   "_id": "Tornado_Dragon",
   "name": "Tornado Dragón",
+  "videoUrl": {"url": "/tecnicas/tornado_dragon.mp4"},
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Fuego",
@@ -683,6 +722,7 @@ async function insertarTecnicas() {
 {
   "_id": "Empuje_Gemelo_F",
   "name": "Empuje Gemelo F",
+  "videoUrl": {"url": "/tecnicas/empuje_gemelo_f.mp4"},
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Aire",
@@ -711,6 +751,7 @@ async function insertarTecnicas() {
 {
   "_id": "Remate_Dragon",
   "name": "Remate Dragón",
+  "videoUrl": {"url": "/tecnicas/remate_dragon.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Bosque",
@@ -729,6 +770,7 @@ async function insertarTecnicas() {
 {
   "_id": "MegaDragon",
   "name": "MegaDragón",
+  "videoUrl": {"url": "/tecnicas/mega_dragon.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Bosque",
@@ -747,6 +789,7 @@ async function insertarTecnicas() {
 {
   "_id": "Barrido_Defensivo",
   "name": "Barrido Defensivo",
+  "videoUrl": {"url": "/tecnicas/barrido_defensivo.mp4"},
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Bosque",
@@ -765,6 +808,7 @@ async function insertarTecnicas() {
 {
   "_id": "Espejismo_De_Balon",
   "name": "Espejismo de Balón",
+  "videoUrl": {"url": "/tecnicas/espejismo_de_balon.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Bosque",
@@ -783,6 +827,7 @@ async function insertarTecnicas() {
 {
   "_id": "Tiro_Giratorio",
   "name": "Tiro Giratorio",
+  "videoUrl": {"url": "/tecnicas/tiro_giratorio.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
@@ -803,6 +848,7 @@ async function insertarTecnicas() {
 {
     "_id": "Espiral_De_Distorsion",
   "name": "Espiral de Distorsión",
+  "videoUrl": {"url": "/tecnicas/espiral_de_distorsion.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Bosque",
@@ -821,6 +867,7 @@ async function insertarTecnicas() {
 {
   "_id": "Cuchilla_Asesina",
   "name": "Cuchilla Asesina",
+  "videoUrl": {"url": "/tecnicas/cuchilla_asesina.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Bosque",
@@ -842,6 +889,7 @@ async function insertarTecnicas() {
 {
   "_id": "Pinguino_Emperador_n_1",
   "name": "Pingüino Emperador nº 1",
+  "videoUrl": {"url": "/tecnicas/pinguino_emperador_n1.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Bosque",
@@ -860,6 +908,7 @@ async function insertarTecnicas() {
 {
   "_id": "Pinguino_Emperador_n_2",
   "name": "Pingüino Emperador n°2",
+  "videoUrl": {"url": "/tecnicas/pinguino_emperador_n2.mp4"},
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Bosque",
@@ -903,6 +952,7 @@ async function insertarTecnicas() {
 {
   "_id": "Pinguino_Emperador_n_3",
   "name": "Pingüino Emperador nº 3",
+  "videoUrl": {"url": "/tecnicas/pinguino_emperador_n3.mp4"},
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Bosque",
@@ -935,6 +985,7 @@ async function insertarTecnicas() {
 {
   "_id": "Gravedad",
   "name": "Gravedad",
+  "videoUrl": {"url": "/tecnicas/gravedad.mp4"},
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Bosque",
@@ -953,6 +1004,7 @@ async function insertarTecnicas() {
 {
   "_id": "Doppelganger",
   "name": "Doppelgänger",
+  "videoUrl": {"url": "/tecnicas/doppelganger.mp4"},
   "type": "defense",
   "subtype": ["bloqueo"],
   "element": "Aire",
@@ -969,26 +1021,9 @@ async function insertarTecnicas() {
 },
 
 {
-  "_id": "Terremoto",
-  "name": "Terremoto",
-  "type": "defense",
-  "subtype": ["quitar"],
-  "element": "Montaña",
-  "basePower": 50,
-
-  "cost": {
-    "stamina": 30,
-    "tension": 50
-  },
-
-  "creador": "",
-  "heredero": [],
-  "copia": ["Ken_Furan_T1"]
-},
-
-{
   "_id": "Truco_De_Magia",
   "name": "Truco de Magia",
+  "videoUrl": {"url": "/tecnicas/truco_de_magia.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Bosque",
@@ -1007,6 +1042,7 @@ async function insertarTecnicas() {
 {
   "_id": "Niebla_Venenosa",
   "name": "Niebla Venenosa",
+  "videoUrl": {"url": "/tecnicas/niebla_venenosa.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Aire",
@@ -1025,6 +1061,7 @@ async function insertarTecnicas() {
 {
   "_id": "Telarana",
   "name": "Telaraña",
+  "videoUrl": {"url": "/tecnicas/telarana.mp4"},
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Bosque",
@@ -1043,6 +1080,7 @@ async function insertarTecnicas() {
 {
   "_id": "Maldicion",
   "name": "Maldición",
+  "videoUrl": {"url": "/tecnicas/maldicion.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Bosque",
@@ -1060,7 +1098,8 @@ async function insertarTecnicas() {
 
 {
   "_id": "Tiro_Fantasma",
-  "name": "Tiro Fantasma",
+  "name": "Tiro Fantasma",  
+  "videoUrl": {"url": "/tecnicas/tiro_fantasma.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Bosque",
@@ -1079,6 +1118,7 @@ async function insertarTecnicas() {
 {
   "_id": "Garra_Salvaje",
   "name": "Garra Salvaje",
+  "videoUrl": {"url": "/tecnicas/garra_salvaje.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Montaña",
@@ -1097,6 +1137,7 @@ async function insertarTecnicas() {
 {
   "_id": "Aceleracion",
   "name": "Aceleración",
+  "videoUrl": {"url": "/tecnicas/aceleracion.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Montaña",
@@ -1116,6 +1157,7 @@ async function insertarTecnicas() {
 {
   "_id": "Tiro_Halcon",
   "name": "Tiro Halcón",
+  "videoUrl": {"url": "/tecnicas/tiro_halcon.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
@@ -1135,6 +1177,7 @@ async function insertarTecnicas() {
 {
   "_id": "Superarmadillo",
   "name": "Superarmadillo",
+  "videoUrl": {"url": "/tecnicas/superarmadillo.mp4"},
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Montaña",
@@ -1154,6 +1197,7 @@ async function insertarTecnicas() {
 {
   "_id": "Remate_Tarzan",
   "name": "Remate Tarzán",
+  "videoUrl": {"url": "/tecnicas/remate_tarzan.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Montaña",
@@ -1173,6 +1217,7 @@ async function insertarTecnicas() {
 {
   "_id": "Remate_Serpiente",
   "name": "Remate Serpiente",
+  "videoUrl": {"url": "/tecnicas/remate_serpiente.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Bosque",
@@ -1193,6 +1238,7 @@ async function insertarTecnicas() {
 {
   "_id": "Tiro_Dinamita",
   "name": "Tiro Dinamita",
+  "videoUrl": {"url": "/tecnicas/tiro_dinamita.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
@@ -1212,6 +1258,7 @@ async function insertarTecnicas() {
 {
   "_id": "Despeje_Cohete",
   "name": "Despeje Cohete",
+  "videoUrl": {"url": "/tecnicas/despeje_cohete.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Fuego",
@@ -1230,6 +1277,7 @@ async function insertarTecnicas() {
 {
   "_id": "Campo_de_Fuerza_Defensivo",
   "name": "Campo de Fuerza Defensivo",
+  "videoUrl": {"url": "/tecnicas/campo_de_fuerza_defensivo.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Bosque",
@@ -1249,6 +1297,7 @@ async function insertarTecnicas() {
 {
   "_id": "Escaner_Defensa",
   "name": "Escáner Defensa",
+  "videoUrl": {"url": "/tecnicas/escaner_defensa.mp4"},
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Bosque",
@@ -1267,6 +1316,7 @@ async function insertarTecnicas() {
 {
   "_id": "Escaner_Ataque",
   "name": "Escáner Ataque",
+  "videoUrl": {"url": "/tecnicas/escaner_ataque.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Bosque",
@@ -1284,6 +1334,7 @@ async function insertarTecnicas() {
 {
   "_id": "Remate_Misil",
   "name": "Remate Misil",
+  "videoUrl": {"url": "/tecnicas/remate_misil.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
@@ -1303,6 +1354,7 @@ async function insertarTecnicas() {
 {
   "_id": "Escudo_de_Fuerza",
   "name": "Escudo de Fuerza",
+  "videoUrl": {"url": "/tecnicas/escudo_de_fuerza.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Fuego",
@@ -1322,6 +1374,7 @@ async function insertarTecnicas() {
 {
   "_id": "Escudo_de_Fuerza_Total",
   "name": "Escudo de Fuerza Total",
+  "videoUrl": {"url": "/tecnicas/escudo_de_fuerza_total.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Fuego",
@@ -1341,6 +1394,7 @@ async function insertarTecnicas() {
 {
   "_id": "Sismo",
   "name": "Sismo",
+  "videoUrl": {"url": "/tecnicas/sismo.mp4"},
   "type": "defense",
   "subtype": ["bloqueo", "quitar"],
   "element": "Montaña",
@@ -1353,13 +1407,14 @@ async function insertarTecnicas() {
 
   "creador": "Zohen_G",
   "heredero": [],
-  "copia": ["Peter_Drent_T1", "Chris_Tytan_T2", "Otto_Nobili", "Zack_Cummings_Neo"]
+  "copia": ["Peter_Drent_T1", "Chris_Tytan_T2", "Otto_Nobili", "Zack_Cummings_Neo", "Ken_Furan_T1"]
 },
 
 
 {
   "_id": "Ciclon",
   "name": "Ciclón",
+  "videoUrl": {"url": "/tecnicas/ciclon.mp4"},
   "type": "defense",
   "subtype": ["bloqueo"],
   "element": "Aire",
@@ -1379,6 +1434,7 @@ async function insertarTecnicas() {
 {
   "_id": "Triangulo_Letal",
   "name": "Triángulo Letal",
+  "videoUrl": {"url": "/tecnicas/triangulo_letal.mp4"},
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Bosque",
@@ -1409,6 +1465,7 @@ async function insertarTecnicas() {
 {
   "_id": "Chut_De_Los_100_Toques",
   "name": "Chut de los 100 Toques",
+  "videoUrl": {"url": "/tecnicas/chut_de_los_100_toques.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Bosque",
@@ -1429,6 +1486,7 @@ async function insertarTecnicas() {
 {
   "_id": "Torbellino",
   "name": "Torbellino",
+  "videoUrl": {"url": "/tecnicas/torbellino.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Fuego",
@@ -1450,6 +1508,7 @@ async function insertarTecnicas() {
 {
   "_id": "Regate_Multiple",
   "name": "Regate Múltiple",
+  "videoUrl": {"url": "/tecnicas/regate_multiple.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Bosque",
@@ -1472,6 +1531,7 @@ async function insertarTecnicas() {
 {
   "_id": "Pisoton_de_Sumo",
   "name": "Pisotón de Sumo",
+  "videoUrl": {"url": "/tecnicas/pisoton_de_sumo.mp4"},
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Montaña",
@@ -1492,6 +1552,7 @@ async function insertarTecnicas() {
 {
   "_id": "Bola_de_Tierra",
   "name": "Bola de Tierra",
+  "videoUrl": {"url": "/tecnicas/bola_de_tierra.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Montaña",
@@ -1512,6 +1573,7 @@ async function insertarTecnicas() {
 {
   "_id": "Bloqueo_Dureza",
   "name": "Bloqueo Dureza",
+  "videoUrl": {"url": "/tecnicas/bloqueo_dureza.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Montaña",
@@ -1532,6 +1594,7 @@ async function insertarTecnicas() {
 {
   "_id": "Corte_Giratorio",
   "name": "Corte Giratorio",
+  "videoUrl": {"url": "/tecnicas/corte_giratorio.mp4"},
   "type": "defense",
   "subtype": ["bloqueo", "quitar"],
   "element": "Aire",
@@ -1552,6 +1615,7 @@ async function insertarTecnicas() {
 {
   "_id": "Tornado_Inverso",
   "name": "Tornado Inverso",
+  "videoUrl": {"url": "/tecnicas/tornado_inverso.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
@@ -1573,6 +1637,7 @@ async function insertarTecnicas() {
 {
   "_id": "Triangulo_Z",
   "name": "Triángulo Z",
+  "videoUrl": {"url": "/tecnicas/triangulo_z.mp4"},
   "type": "shot",
   "subtype": ["tiro", "combo"],
   "element": "Fuego",
@@ -1603,6 +1668,7 @@ async function insertarTecnicas() {
 {
   "_id": "Muralla_Tsunami",
   "name": "Muralla Tsunami",
+  "videoUrl": {"url": "/tecnicas/muralla_tsunami.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Aire",
@@ -1623,6 +1689,7 @@ async function insertarTecnicas() {
 {
   "_id": "Muralla_Gigante",
   "name": "Muralla Gigante",
+  "videoUrl": {"url": "/tecnicas/muralla_gigante.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Montaña",
@@ -1641,29 +1708,11 @@ async function insertarTecnicas() {
 
 
 
-{
-  "_id": "Tiro_Cegador",
-  "name": "Tiro Cegador",
-  "type": "shot",
-  "subtype": ["tiro"],
-  "element": "Fuego",
-  "basePower": 60,
-
-  "cost": {
-    "stamina": 40,
-    "tension": 60
-  },
-
-  "creador": "Apollo_Light_T1",
-  "heredero": [],
-  "copia": []
-},
-
-
 
 {
   "_id": "Entrada_Tormenta",
   "name": "Entrada Tormenta",
+  "videoUrl": {"url": "/tecnicas/entrada_tormenta.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Aire",
@@ -1684,6 +1733,7 @@ async function insertarTecnicas() {
 {
   "_id": "Megaterremoto",
   "name": "Megaterremoto",
+  "videoUrl": {"url": "/tecnicas/megaterremoto.mp4"},
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Montaña",
@@ -1705,6 +1755,7 @@ async function insertarTecnicas() {
 {
   "_id": "Hora_Celestial",
   "name": "Hora Celestial",
+  "videoUrl": {"url": "/tecnicas/hora_celestial.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Aire",
@@ -1724,6 +1775,7 @@ async function insertarTecnicas() {
 {
   "_id": "Disparo_Con_Rebotes",
   "name": "Disparo con Rebotes",
+  "videoUrl": {"url": "/tecnicas/disparo_con_rebotes.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
@@ -1765,6 +1817,7 @@ async function insertarTecnicas() {
 {
   "_id": "Flecha_Divina",
   "name": "Flecha Divina",
+  "videoUrl": {"url": "/tecnicas/flecha_divina.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
@@ -1785,6 +1838,7 @@ async function insertarTecnicas() {
 {
   "_id": "Martillo_Defensor",
   "name": "Martillo Defensor",
+  "videoUrl": {"url": "/tecnicas/martillo_defensor.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Aire",
@@ -1804,6 +1858,7 @@ async function insertarTecnicas() {
 {
   "_id": "Electrotrampa",
   "name": "Electrotrampa",
+  "videoUrl": {"url": "/tecnicas/electrotrampa.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Aire",
@@ -1824,6 +1879,7 @@ async function insertarTecnicas() {
 {
   "_id": "Voltaje_Dual",
   "name": "Voltaje Dual",
+  "videoUrl": {"url": "/tecnicas/voltaje_dual.mp4"},
   "type": "save",
   "subtype": ["parada", "combo"],
   "element": "Aire",
@@ -1855,6 +1911,7 @@ async function insertarTecnicas() {
 {
   "_id": "Corte_Volcanico",
   "name": "Corte Volcánico",
+  "videoUrl": {"url": "/tecnicas/corte_volcanico.mp4"},
   "type": "defense",
   "subtype": ["bloqueo"],
   "element": "Fuego",
@@ -1876,6 +1933,7 @@ async function insertarTecnicas() {
 {
   "_id": "Gravitacion",
   "name": "Gravitación",
+  "videoUrl": {"url": "/tecnicas/gravitacion.mp4"},
   "type": "defense",
   "subtype": ["quitar", "bloqueo"],
   "element": "Montaña",
@@ -1897,6 +1955,7 @@ async function insertarTecnicas() {
 {
   "_id": "Placaje_Extremo",
   "name": "Placaje Extremo",
+  "videoUrl": {"url": "/tecnicas/placaje_extremo.mp4"},
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Montaña",
@@ -1917,6 +1976,7 @@ async function insertarTecnicas() {
 {
   "_id": "Ignicion",
   "name": "Ignición",
+  "videoUrl": {"url": "/tecnicas/ignicion.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Montaña",
@@ -1937,6 +1997,7 @@ async function insertarTecnicas() {
 {
   "_id": "Diluvio_Letal",
   "name": "Diluvio Letal",
+  "videoUrl": {"url": "/tecnicas/diluvio_letal.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
@@ -1957,6 +2018,7 @@ async function insertarTecnicas() {
 {
   "_id": "Remate_Letal",
   "name": "Remate Letal",
+  "videoUrl": {"url": "/tecnicas/remate_letal.mp4"},
   "type": "shot",
   "subtype": ["tiro", "combo"],
   "element": "Montaña",
@@ -1986,6 +2048,7 @@ async function insertarTecnicas() {
 {
   "_id": "Lanzada_Letal",
   "name": "Lanzada Letal",
+  "videoUrl": {"url": "/tecnicas/lanzada_letal.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Bosque",
@@ -2009,6 +2072,7 @@ async function insertarTecnicas() {
 {
   "_id": "Coz",
   "name": "Coz",
+  "videoUrl": {"url": "/tecnicas/coz.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Fuego",
@@ -2028,6 +2092,7 @@ async function insertarTecnicas() {
 {
   "_id": "Coz_2",
   "name": "Coz 2",
+  "videoUrl": {"url": "/tecnicas/coz_2.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Fuego",
@@ -2045,6 +2110,7 @@ async function insertarTecnicas() {
 {
   "_id": "Coz_3",
   "name": "Coz 3",
+  "videoUrl": {"url": "/tecnicas/coz_3.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Fuego",
@@ -2065,6 +2131,7 @@ async function insertarTecnicas() {
 {
   "_id": "Entrada_de_Llamas",
   "name": "Entrada de Llamas",
+  "videoUrl": {"url": "/tecnicas/entrada_de_llamas.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Fuego",
@@ -2075,7 +2142,7 @@ async function insertarTecnicas() {
     "tension": 55
   },
 
-  "creador": "Constant_Builder",
+  "creador": ["Constant_Builder", "Axel_Blaze_T3"],
   "heredero": [],
   "copia": ["Pekyong_Park", "Eric_Purpleton"]
 },
@@ -2086,6 +2153,7 @@ async function insertarTecnicas() {
 {
   "_id": "Cortina_Aurora",
   "name": "Cortina de Aurora",
+  "videoUrl": {"url": "/tecnicas/cortina_aurora.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Aire",
@@ -2105,6 +2173,7 @@ async function insertarTecnicas() {
 {
   "_id": "Olor_Embriagador",
   "name": "Olor Embriagador",
+  "videoUrl": {"url": "/tecnicas/olor_embriagador.mp4"},
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Bosque",
@@ -2126,6 +2195,7 @@ async function insertarTecnicas() {
 {
   "_id": "Arcoiris_Luminoso",
   "name": "Arcoíris Luminoso",
+  "videoUrl": {"url": "/tecnicas/arcoiris_luminoso.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Montaña",
@@ -2136,7 +2206,7 @@ async function insertarTecnicas() {
     "tension": 55
   },
 
-  "creador": "Joaquine_Downtown_T2",
+  "creador": ["Joaquine_Downtown_T2", "Tori_T2"],
   "heredero": [],
   "copia": []
 },
@@ -2148,6 +2218,7 @@ async function insertarTecnicas() {
 {
   "_id": "Regate_Aurora",
   "name": "Regate Aurora",
+  "videoUrl": {"url": "/tecnicas/regate_aurora.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Aire",
@@ -2169,6 +2240,7 @@ async function insertarTecnicas() {
 {
   "_id": "Regate_Espejismo",
   "name": "Regate Espejismo",
+  "videoUrl": {"url": "/tecnicas/regate_espejismo.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Bosque",
@@ -2188,6 +2260,7 @@ async function insertarTecnicas() {
 {
   "_id": "Pared_Solitaria",
   "name": "Pared Solitaria",
+  "videoUrl": {"url": "/tecnicas/pared_solitaria.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Fuego",
@@ -2210,6 +2283,7 @@ async function insertarTecnicas() {
 {
   "_id": "Chut_Congelante",
   "name": "Chut Congelante",
+  "videoUrl": {"url": "/tecnicas/chut_congelante.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
@@ -2230,6 +2304,7 @@ async function insertarTecnicas() {
 {
   "_id": "Paisaje_Helado",
   "name": "Paisaje Helado",
+  "videoUrl": {"url": "/tecnicas/paisaje_helado.mp4"},
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Aire",
@@ -2240,7 +2315,7 @@ async function insertarTecnicas() {
     "tension": 60
   },
 
-  "creador": null, 
+  "creador": "Shawn_Froste_T3", 
   "heredero": [],
   "copia": ["Roland_Climbstein_T2"]
 },
@@ -2251,6 +2326,7 @@ async function insertarTecnicas() {
 {
   "_id": "Ventisca_Eterna",
   "name": "Ventisca Eterna",
+  "videoUrl": {"url": "/tecnicas/ventisca_eterna.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
@@ -2272,6 +2348,7 @@ async function insertarTecnicas() {
 {
   "_id": "Agujero_Negro",
   "name": "Agujero Negro",
+  "videoUrl": {"url": "/tecnicas/agujero_negro.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Montaña",
@@ -2293,6 +2370,7 @@ async function insertarTecnicas() {
 {
   "_id": "Cinto_Astral",
   "name": "Cinto Astral",
+  "videoUrl": {"url": "/tecnicas/cinto_astral.mp4"},
   "type": "defense",
   "subtype": ["bloqueo", "quitar"],
   "element": "Bosque",
@@ -2313,6 +2391,7 @@ async function insertarTecnicas() {
 {
   "_id": "Flash_de_Fotones",
   "name": "Flash de Fotones",
+  "videoUrl": {"url": "/tecnicas/flash_de_fotones.mp4"},
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Fuego",
@@ -2335,6 +2414,7 @@ async function insertarTecnicas() {
 {
   "_id": "Disparo_Cosmico",
   "name": "Disparo Cósmico",
+  "videoUrl": {"url": "/tecnicas/disparo_cosmico.mp4"},
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Bosque",
@@ -2365,6 +2445,7 @@ async function insertarTecnicas() {
 {
   "_id": "Astro_Remate",
   "name": "Astro Remate",
+  "videoUrl": {"url": "/tecnicas/astro_remate.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Bosque",
@@ -2389,6 +2470,7 @@ async function insertarTecnicas() {
 {
   "_id": "Agujero_de_Gusano",
   "name": "Agujero de Gusano",
+  "videoUrl": {"url": "/tecnicas/aguero_de_gusano.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Bosque",
@@ -2409,6 +2491,7 @@ async function insertarTecnicas() {
 {
   "_id": "Destroza_Taladros",
   "name": "Destroza Taladros",
+  "videoUrl": {"url": "/tecnicas/destroza_taladros.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Fuego",
@@ -2429,6 +2512,7 @@ async function insertarTecnicas() {
 {
   "_id": "Lanza_de_Odin",
   "name": "Lanza de Odín",
+  "videoUrl": {"url": "/tecnicas/lanza_de_odin.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
@@ -2450,6 +2534,7 @@ async function insertarTecnicas() {
 {
   "_id": "Lluvia_de_Meteoros",
   "name": "Lluvia de Meteoros",
+  "videoUrl": {"url": "/tecnicas/lluvia_de_meteoros.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Fuego",
@@ -2469,6 +2554,7 @@ async function insertarTecnicas() {
 {
   "_id": "Remate_Gaia",
   "name": "Remate Gaia",
+  "videoUrl": {"url": "/tecnicas/remate_gaia.mp4"},
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Montaña",
@@ -2513,6 +2599,7 @@ async function insertarTecnicas() {
 {
   "_id": "Rayo_de_Ganimedes",
   "name": "Rayo de Ganimedes",
+  "videoUrl": {"url": "/tecnicas/rayo_de_ganimedes.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Bosque",
@@ -2534,6 +2621,7 @@ async function insertarTecnicas() {
 {
   "_id": "Colmillo_de_Pantera",
   "name": "Colmillo de Pantera",
+  "videoUrl": {"url": "/tecnicas/colmillo_de_pantera.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Fuego",
@@ -2555,29 +2643,19 @@ async function insertarTecnicas() {
 {
   "_id": "Muralla_Infinita",
   "name": "Muralla Infinita",
+  "videoUrl": {"url": "/tecnicas/muralla_infinita.mp4"},
   "type": "save",
-  "subtype": ["combo", "parada"],
+  "subtype": ["parada"],
   "element": "Montaña",
   "basePower": 80,
-
-  "isCombo": true,
-
-  "comboRequirements": {
-    "players": [
-      "Joseph_King_",
-      "",
-      ""
-    ],
-    "minPlayers": 3
-  },
 
   "cost": {
     "stamina": 55,
     "tension": 85
   },
 
-  "creador": "Joseph_King_",
-  "heredero": ["", ""],
+  "creador": "Joseph_King_Neo",
+  "heredero": [],
   "copia": []
 },
 
@@ -2590,6 +2668,7 @@ async function insertarTecnicas() {
 {
   "_id": "Emboscada_Defensiva",
   "name": "Emboscada Defensiva",
+  "videoUrl": {"url": "/tecnicas/emboscada_defensiva.mp4"},
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Montaña",
@@ -2611,6 +2690,7 @@ async function insertarTecnicas() {
 {
   "_id": "Primera_Leyenda",
   "name": "Primera Leyenda",
+  "videoUrl": {"url": "/tecnicas/primera_leyenda.mp4"},
   "type": "shot",
   "subtype": ["tiro", "combo"],
   "element": "Aire",
@@ -2641,6 +2721,7 @@ async function insertarTecnicas() {
 {
   "_id": "Remate_Triple",
   "name": "Remate Triple",
+  "videoUrl": {"url": "/tecnicas/remate_triple.mp4"},
   "type": "shot",
   "subtype": ["tiro", "combo"],
   "element": "Fuego",
@@ -2675,6 +2756,7 @@ async function insertarTecnicas() {
 {
   "_id": "Bloqueo_de_Hielo",
   "name": "Bloqueo de Hielo",
+  "videoUrl": {"url": "/tecnicas/bloqueo_de_hielo.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Aire",
@@ -2696,6 +2778,7 @@ async function insertarTecnicas() {
 {
   "_id": "Rompe_Hielos",
   "name": "Rompe Hielos",
+  "videoUrl": {"url": "/tecnicas/rompe_hielos.mp4"},
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Aire",
@@ -2717,6 +2800,7 @@ async function insertarTecnicas() {
 {
   "_id": "Pantalla_Acuatica",
   "name": "Pantalla Acuática",
+  "videoUrl": {"url": "/tecnicas/pantalla_acuatica.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Aire",
@@ -2736,6 +2820,7 @@ async function insertarTecnicas() {
 {
   "_id": "Pantalla_Ignea",
   "name": "Pantalla Ígnea",
+  "videoUrl": {"url": "/tecnicas/pantalla_ignea.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Fuego",
@@ -2756,6 +2841,7 @@ async function insertarTecnicas() {
 {
   "_id": "acelerrelampago",
   "name": "acelerrelampago",
+  "videoUrl": {"url": "/tecnicas/acelerrelampago.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Aire",
@@ -2778,6 +2864,7 @@ async function insertarTecnicas() {
 {
   "_id": "Combustion",
   "name": "Combustión",
+  "videoUrl": {"url": "/tecnicas/combustion.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Fuego",
@@ -2798,6 +2885,7 @@ async function insertarTecnicas() {
 {
   "_id": "Cortafuegos",
   "name": "Cortafuegos",
+  "videoUrl": {"url": "/tecnicas/cortafuegos.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Fuego",
@@ -2819,6 +2907,7 @@ async function insertarTecnicas() {
 {
   "_id": "Tacon_Infernal",
   "name": "Tacón Infernal",
+  "videoUrl": {"url": "/tecnicas/tacon_infernal.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Fuego",
@@ -2840,10 +2929,11 @@ async function insertarTecnicas() {
 {
   "_id": "Llamarada_Atomica",
   "name": "Llamarada Atómica",
+  "videoUrl": {"url": "/tecnicas/llamarada_atomica.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
-  "basePower": 80,
+  "basePower": 90,
 
   "cost": {
     "stamina": 55,
@@ -2859,6 +2949,7 @@ async function insertarTecnicas() {
 {
   "_id": "Balon_Iceberg",
   "name": "Balón Iceberg",
+  "videoUrl": {"url": "/tecnicas/balon_iceberg.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
@@ -2880,6 +2971,7 @@ async function insertarTecnicas() {
 {
   "_id": "Ventisca_de_Fuego",
   "name": "Ventisca de Fuego",
+  "videoUrl": {"url": "/tecnicas/ventisca_de_fuego.mp4"},
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Aire",
@@ -2922,6 +3014,7 @@ async function insertarTecnicas() {
 {
   "_id": "Super_Puño_Invencible",
   "name": "Super Puño Invencible",
+  "videoUrl": {"url": "/tecnicas/super_puno_invencible.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Aire",
@@ -2943,6 +3036,7 @@ async function insertarTecnicas() {
 {
   "_id": "Cabezazo_Megaton",
   "name": "Cabezazo Megatón",
+  "videoUrl": {"url": "/tecnicas/cabezazo_megaton.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Montaña",
@@ -2964,6 +3058,7 @@ async function insertarTecnicas() {
 {
   "_id": "La_Tierra",
   "name": "La Tierra",
+  "videoUrl": {"url": "/tecnicas/la_tierra.mp4"},
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Montaña",
@@ -2994,6 +3089,7 @@ async function insertarTecnicas() {
 {
   "_id": "Campo_Torbellino",
   "name": "Campo Torbellino",
+  "videoUrl": {"url": "/tecnicas/campo_torbellino.mp4"},
   "type": "defense",
   "subtype": ["quitar", "bloqueo"],
   "element": "Aire",
@@ -3016,6 +3112,7 @@ async function insertarTecnicas() {
 {
   "_id": "Remate_Tsunami",
   "name": "Remate Tsunami",
+  "videoUrl": {"url": "/tecnicas/remate_tsunami.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
@@ -3037,6 +3134,7 @@ async function insertarTecnicas() {
 {
   "_id": "Torre_Inexpugnable",
   "name": "Torre Inexpugnable",
+  "videoUrl": {"url": "/tecnicas/torre_inexpugnable.mp4"},
   "type": "defense",
   "subtype": ["quitar", "bloqueo"],
   "element": "Aire",
@@ -3054,31 +3152,13 @@ async function insertarTecnicas() {
 
 
 
-{
-  "_id": "Arco_Iris",
-  "name": "Arco Iris",
-  "type": "shot",
-  "subtype": ["tiro"],
-  "element": "Montaña",
-  "basePower": 50,
-
-  "cost": {
-    "stamina": 35,
-    "tension": 50
-  },
-
-  "creador": "Tori_T2",
-  "heredero": [],
-  "copia": []
-},
-
-
 
 
 
 {
   "_id": "Tiro_Torre_de_Osaka",
   "name": "Tiro Torre de Osaka",
+  "videoUrl": {"url": "/tecnicas/tiro_torre_de_osaka.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
@@ -3100,6 +3180,7 @@ async function insertarTecnicas() {
 {
   "_id": "Remate_Pegaso",
   "name": "Remate Pegaso",
+  "videoUrl": {"url": "/tecnicas/remate_pegaso.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Bosque",
@@ -3121,6 +3202,7 @@ async function insertarTecnicas() {
 {
   "_id": "Tormenta_de_Fuego",
   "name": "Tormenta de Fuego",
+  "videoUrl": {"url": "/tecnicas/tormenta_de_fuego.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
@@ -3141,6 +3223,7 @@ async function insertarTecnicas() {
 {
   "_id": "Fuego_Cruzado",
   "name": "Fuego Cruzado",
+  "videoUrl": {"url": "/tecnicas/fuego_cruzado.mp4"},
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Fuego",
@@ -3171,6 +3254,7 @@ async function insertarTecnicas() {
 {
   "_id": "Aullido_de_Lobo",
   "name": "Aullido de Lobo",
+  "videoUrl": {"url": "/tecnicas/aullido_de_lobo.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
@@ -3192,6 +3276,7 @@ async function insertarTecnicas() {
 {
   "_id": "Manos_Infinitas",
   "name": "Manos Infinitas",
+  "videoUrl": {"url": "/tecnicas/manos_infinitas.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Bosque",
@@ -3212,6 +3297,7 @@ async function insertarTecnicas() {
 {
   "_id": "Constelacion_Estelar",
   "name": "Constelación Estelar",
+  "videoUrl": {"url": "/tecnicas/constelacion_estelar.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Aire",
@@ -3231,6 +3317,7 @@ async function insertarTecnicas() {
 {
   "_id": "Muro_Dimensional",
   "name": "Muro Dimensional",
+  "videoUrl": {"url": "/tecnicas/muro_dimensional.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Aire",
@@ -3252,6 +3339,7 @@ async function insertarTecnicas() {
 {
   "_id": "Zona_Sigma",
   "name": "Zona Sigma",
+  "videoUrl": {"url": "/tecnicas/zona_sigma.mp4"},
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Bosque",
@@ -3274,6 +3362,7 @@ async function insertarTecnicas() {
 {
   "_id": "Cruz_del_Sur",
   "name": "Cruz del Sur",
+  "videoUrl": {"url": "/tecnicas/cruz_del_sur.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Bosque",
@@ -3296,6 +3385,7 @@ async function insertarTecnicas() {
 {
   "_id": "Supernova",
   "name": "Supernova",
+  "videoUrl": {"url": "/tecnicas/supernova.mp4"},
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Bosque",
@@ -3327,6 +3417,7 @@ async function insertarTecnicas() {
 {
   "_id": "Pinguino_Espacial",
   "name": "Pingüino Espacial",
+  "videoUrl": {"url": "/tecnicas/pinguino_espacial.mp4"},
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Bosque",
@@ -3354,10 +3445,42 @@ async function insertarTecnicas() {
 
 
 
+{
+  "_id": "Pinguino_celestial_endemoniado",
+  "name": "Pingüino Celestial Endemoniado",
+  "videoUrl": {"url": "/tecnicas/pinguino_celestial_endemoniado.mp4"},
+  "type": "shot",
+  "subtype": ["combo", "tiro"],
+  "element": "Bosque",
+  "basePower": 100,
+  "isCombo": true,
+
+  "comboRequirements": {
+    "players": [
+      "Jude_Sharp_T3",
+      "Caleb_Stonewall_T3"
+    ],
+    "minPlayers": 2
+  },
+
+  "cost": {
+    "stamina": 85,
+    "tension": 110
+  },
+
+  "creador": ["Jude_Sharp_T3", "Caleb_Stonewall_T3"],
+  "heredero": [],
+  "copia": []
+},
+
+
+
+
 
 {
   "_id": "Superelastico",
   "name": "Superelástico",
+  "videoUrl": {"url": "/tecnicas/superelastico.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Montaña",
@@ -3377,6 +3500,7 @@ async function insertarTecnicas() {
 {
   "_id": "Canon_de_Meteoritos",
   "name": "Cañón de Meteoritos",
+  "videoUrl": {"url": "/tecnicas/canon_de_meteoritos.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
@@ -3397,6 +3521,7 @@ async function insertarTecnicas() {
 {
   "_id": "Bloqueo_Doble",
   "name": "Bloqueo Doble",
+  "videoUrl": {"url": "/tecnicas/bloqueo_doble.mp4"},
   "type": "save",
   "subtype": ["combo", "parada"],
   "element": "Bosque",
@@ -3427,6 +3552,7 @@ async function insertarTecnicas() {
 {
   "_id": "Granada_Doble",
   "name": "Granada Doble",
+  "videoUrl": {"url": "/tecnicas/granada_doble.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
@@ -3448,6 +3574,7 @@ async function insertarTecnicas() {
 {
   "_id": "Bateo_Total",
   "name": "Bateo Total",
+  "videoUrl": {"url": "/tecnicas/bateo_total.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
@@ -3465,6 +3592,7 @@ async function insertarTecnicas() {
 {
   "_id": "Remate_en_V",
   "name": "Remate en V",
+  "videoUrl": {"url": "/tecnicas/remate_en_v.mp4"},
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Aire",
@@ -3492,6 +3620,7 @@ async function insertarTecnicas() {
 {
   "_id": "Tecnica_Kung_Fu",
   "name": "Técnica Kung-Fu",
+  "videoUrl": {"url": "/tecnicas/tecnica_kung_fu.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Montaña",
@@ -3511,6 +3640,7 @@ async function insertarTecnicas() {
 {
   "_id": "Estela_Ignea",
   "name": "Estela Ígnea",
+  "videoUrl": {"url": "/tecnicas/estela_ignea.mp4"},
   "type": "defense",
   "subtype": ["quitar", "bloqueo"],
   "element": "Fuego",
@@ -3530,6 +3660,7 @@ async function insertarTecnicas() {
 {
   "_id": "Tornado_Oscuro",
   "name": "Tornado Oscuro",
+  "videoUrl": {"url": "/tecnicas/tornado_oscuro.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Bosque",
@@ -3549,6 +3680,7 @@ async function insertarTecnicas() {
 {
   "_id": "Fenix_Oscuro",
   "name": "Fénix Oscuro",
+  "videoUrl": {"url": "/tecnicas/fenix_oscuro.mp4"},
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Bosque",
@@ -3581,6 +3713,7 @@ async function insertarTecnicas() {
 {
   "_id": "Remate_Guiverno",
   "name": "Remate Guiverno",
+  "videoUrl": {"url": "/tecnicas/remate_guiverno.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Bosque",
@@ -3602,6 +3735,7 @@ async function insertarTecnicas() {
 {
   "_id": "Tiro_a_Reaccion",
   "name": "Tiro a Reacción",
+  "videoUrl": {"url": "/tecnicas/tiro_a_reaccion.mp4"},
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Montaña",
@@ -3631,6 +3765,7 @@ async function insertarTecnicas() {
 {
   "_id": "Puno_de_Furia",
   "name": "Puño de Furia",
+  "videoUrl": {"url": "/tecnicas/puno_de_furia.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Montaña",
@@ -3648,6 +3783,7 @@ async function insertarTecnicas() {
 {
   "_id": "Mano_Ultradimensional",
   "name": "Mano Ultradimensional",
+  "videoUrl": {"url": "/tecnicas/mano_ultradimensional.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Montaña",
@@ -3665,6 +3801,7 @@ async function insertarTecnicas() {
 {
   "_id": "Mano_Celestial_V",
   "name": "Mano Celestial V",
+  "videoUrl": {"url": "/tecnicas/mano_celestial_v.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Montaña",
@@ -3683,6 +3820,7 @@ async function insertarTecnicas() {
 {
   "_id": "Parada_Celestial",
   "name": "Parada Celestial",
+  "videoUrl": {"url": "/tecnicas/parada_celestial.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Montaña",
@@ -3700,6 +3838,7 @@ async function insertarTecnicas() {
 {
   "_id": "Mano_Omega",
   "name": "Mano Omega",
+  "videoUrl": {"url": "/tecnicas/mano_omega.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Montaña",
@@ -3718,6 +3857,7 @@ async function insertarTecnicas() {
 {
   "_id": "Remate_Celestial",
   "name": "Remate Celestial",
+  "videoUrl": {"url": "/tecnicas/remate_celestial.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
@@ -3735,6 +3875,7 @@ async function insertarTecnicas() {
 {
   "_id": "Danza_del_Viento",
   "name": "Danza del Viento",
+  "videoUrl": {"url": "/tecnicas/danza_del_viento.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Aire",
@@ -3753,6 +3894,7 @@ async function insertarTecnicas() {
 {
   "_id": "Ventisca_Huracan",
   "name": "Ventisca Huracán",
+  "videoUrl": {"url": "/tecnicas/ventisca_huracan.mp4"},
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Aire",
@@ -3783,6 +3925,7 @@ async function insertarTecnicas() {
 {
   "_id": "La_Montana",
   "name": "La Montaña",
+  "videoUrl": {"url": "/tecnicas/la_montana.mp4"},
   "type": "defense",
   "subtype": ["quitar", "bloqueo"],
   "element": "Montaña",
@@ -3801,6 +3944,7 @@ async function insertarTecnicas() {
 {
   "_id": "Tifon",
   "name": "Tifón",
+  "videoUrl": {"url": "/tecnicas/tifon.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
@@ -3818,6 +3962,7 @@ async function insertarTecnicas() {
 {
   "_id": "Golpe_de_Vacio",
   "name": "Golpe de Vacío",
+  "videoUrl": {"url": "/tecnicas/golpe_de_vacio.mp4"},
   "type": "defense",
   "subtype": ["quitar", "bloqueo"],
   "element": "Aire",
@@ -3838,6 +3983,7 @@ async function insertarTecnicas() {
 {
   "_id": "Campo_de_Fuerza",
   "name": "Campo de Fuerza",
+  "videoUrl": {"url": "/tecnicas/campo_de_fuerza.mp4"},
   "type": "dribble",
   "subtype": ["combo", "regate"],
   "element": "Bosque",
@@ -3867,6 +4013,7 @@ async function insertarTecnicas() {
 {
   "_id": "La_Aurora",
   "name": "La Aurora",
+  "videoUrl": {"url": "/tecnicas/la_aurora.mp4"},
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Aire",
@@ -3894,6 +4041,7 @@ async function insertarTecnicas() {
 {
   "_id": "Big_Bang",
   "name": "Big Bang",
+  "videoUrl": {"url": "/tecnicas/big_bang.mp4"},
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Fuego",
@@ -3923,6 +4071,7 @@ async function insertarTecnicas() {
 {
   "_id": "Frente_Frio",
   "name": "Frente Frío",
+  "videoUrl": {"url": "/tecnicas/frente_frio.mp4"},
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Aire",
@@ -3948,6 +4097,7 @@ async function insertarTecnicas() {
 {
   "_id": "Ventisca_Triple",
   "name": "Ventisca Triple",
+  "videoUrl": {"url": "/tecnicas/ventisca_triple.mp4"},
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Aire",
@@ -3973,28 +4123,12 @@ async function insertarTecnicas() {
 
 
 
-{
-  "_id": "Paisaje_Helado",
-  "name": "Paisaje Helado",
-  "type": "defense",
-  "subtype": ["quitar"],
-  "element": "Aire",
-  "basePower": 60,
-
-  "cost": {
-    "stamina": 40,
-    "tension": 55
-  },
-
-  "creador": ["Shawn_Froste_T3"],
-  "heredero": [],
-  "copia": []
-},
 
 
 {
   "_id": "Angel_de_Nieve",
   "name": "Ángel de Nieve",
+  "videoUrl": {"url": "/tecnicas/angel_de_nieve.mp4"},
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Aire",
@@ -4010,23 +4144,11 @@ async function insertarTecnicas() {
 
 
 
-{
-  "_id": "Entrada_de_llamas",
-  "name": "Entrada de Llamas",
-  "type": "dribble",
-  "subtype": ["regate"],
-  "element": "Fuego",
-  "basePower": 60,
-  "cost": { "stamina": 40, "tension": 55 },
-  "creador": ["Axel_Blaze_T3"],
-  "heredero": [],
-  "copia": []
-},
-
 
 {
   "_id": "Torbellino_de_Fuego",
   "name": "Torbellino de Fuego",
+  "videoUrl": {"url": "/tecnicas/torbellino_de_fuego.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
@@ -4041,6 +4163,7 @@ async function insertarTecnicas() {
 {
   "_id": "Tormenta_del_Tigre",
   "name": "Tormenta del Tigre",
+  "videoUrl": {"url": "/tecnicas/tormenta_del_tigre.mp4"},
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Fuego",
@@ -4061,6 +4184,7 @@ async function insertarTecnicas() {
 {
   "_id": "Fuego_Total",
   "name": "Fuego Total",
+  "videoUrl": {"url": "/tecnicas/fuego_total.mp4"},
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Fuego",
@@ -4085,6 +4209,7 @@ async function insertarTecnicas() {
 {
   "_id": "Remate_del_Tigre",
   "name": "Remate del Tigre",
+  "videoUrl": {"url": "/tecnicas/remate_del_tigre.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Montaña",
@@ -4100,6 +4225,7 @@ async function insertarTecnicas() {
 {
   "_id": "Circulo_de_Espadas",
   "name": "Círculo de Espadas",
+  "videoUrl": {"url": "/tecnicas/circulo_de_espadas.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Montaña",
@@ -4114,6 +4240,7 @@ async function insertarTecnicas() {
 {
   "_id": "Descenso_Estelar",
   "name": "Descenso Estelar",
+  "videoUrl": {"url": "/tecnicas/descenso_estelar.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
@@ -4132,6 +4259,7 @@ async function insertarTecnicas() {
 {
   "_id": "Mano_Diabolica",
   "name": "Mano Diabólica",
+  "videoUrl": {"url": "/tecnicas/mano_diabolica.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Bosque",
@@ -4150,6 +4278,7 @@ async function insertarTecnicas() {
 {
   "_id": "Rechace_de_Fuego",
   "name": "Rechace de Fuego",
+  "videoUrl": {"url": "/tecnicas/rechace_de_fuego.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Fuego",
@@ -4169,6 +4298,7 @@ async function insertarTecnicas() {
 {
   "_id": "Llama_Veloz",
   "name": "Llama Veloz",
+  "videoUrl": {"url": "/tecnicas/llama_veloz.mp4"},
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Fuego",
@@ -4187,6 +4317,7 @@ async function insertarTecnicas() {
 {
   "_id": "Baile_de_Llamas",
   "name": "Baile de Llamas",
+  "videoUrl": {"url": "/tecnicas/baile_de_llamas.mp4"},
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Fuego",
@@ -4205,7 +4336,7 @@ async function insertarTecnicas() {
 {
   "_id": "Omnisabiduria_divina",
   "name": "Omnisabiduría Divina",
-  "videoUrl": {"url": "/tecnicas/Omnisabiduria_divina.mp4"},
+  "videoUrl": {"url": "/tecnicas/Omnisabiduria_divina.mp4"}, 
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
@@ -4251,6 +4382,7 @@ async function insertarTecnicas() {
 {
   "_id": "Aprobada_Historica",
   "name": "Aprobada Histórica",
+  "videoUrl": {"url": "/tecnicas/aprobada_historica.mp4"},
   "type": "Shot",
   "subtype": ["tiro"],
   "element": "Fuego",
@@ -4268,6 +4400,7 @@ async function insertarTecnicas() {
 {
   "_id": "Espada_Defensora",
   "name": "Espada Defensora",
+  "videoUrl": {"url": "/tecnicas/espada_defensora.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Fuego",
@@ -4285,6 +4418,7 @@ async function insertarTecnicas() {
 {
   "_id": "Jaula_de_Piedra",
   "name": "Jaula de Piedra",
+  "videoUrl": {"url": "/tecnicas/jaula_de_piedra.mp4"},
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Montaña",
@@ -4302,6 +4436,7 @@ async function insertarTecnicas() {
 {
   "_id": "UltraLuna",
   "name": "UltraLuna",
+  "videoUrl": {"url": "/tecnicas/ultraluna.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Bosque",
@@ -4320,6 +4455,7 @@ async function insertarTecnicas() {
 {
   "_id": "Balon_Galgo",
   "name": "Balón Galgo",
+  "videoUrl": {"url": "/tecnicas/balon_galgo.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Fuego",
@@ -4338,6 +4474,7 @@ async function insertarTecnicas() {
 {
   "_id": "Ataque_de_Paladin",
   "name": "Ataque de Paladín",
+  "videoUrl": {"url": "/tecnicas/ataque_de_paladin.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Montaña",
@@ -4355,6 +4492,7 @@ async function insertarTecnicas() {
 {
   "_id": "Excalibur",
   "name": "Excalibur",
+  "videoUrl": {"url": "/tecnicas/excalibur.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
@@ -4373,6 +4511,7 @@ async function insertarTecnicas() {
 {
   "_id": "Millon_de_Manos",
   "name": "Millón de Manos",
+  "videoUrl": {"url": "/tecnicas/millon_de_manos.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Fuego",
@@ -4391,6 +4530,7 @@ async function insertarTecnicas() {
 {
   "_id": "Muro_de_Hierro",
   "name": "Muro de Hierro",
+  "videoUrl": {"url": "/tecnicas/muro_de_hierro.mp4"},
   "type": "defense",
   "subtype": ["quitar", "bloqueo"],
   "element": "Montaña",
@@ -4409,6 +4549,7 @@ async function insertarTecnicas() {
 {
   "_id": "Voltereta_Circense",
   "name": "Voltereta Circense",
+  "videoUrl": {"url": "/tecnicas/voltereta_circense.mp4"},
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Montaña",
@@ -4429,6 +4570,7 @@ async function insertarTecnicas() {
 {
   "_id": "Imagen_Residual",
   "name": "Imagen Residual",
+  "videoUrl": {"url": "/tecnicas/imagen_residual.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Bosque",
@@ -4448,6 +4590,7 @@ async function insertarTecnicas() {
 {
   "_id": "Remate_del_Aguila",
   "name": "Remate del Águila",
+  "videoUrl": {"url": "/tecnicas/remate_del_aguila.mp4"},
   "type": "shot",
   "subtype": ["tiro", "combo"],
   "element": "Montaña",
@@ -4479,6 +4622,7 @@ async function insertarTecnicas() {
 {
   "_id": "Llamarada_Infernal",
   "name": "Llamarada Infernal",
+  "videoUrl": {"url": "/tecnicas/llamarada_infernal.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
@@ -4497,6 +4641,7 @@ async function insertarTecnicas() {
 {
   "_id": "Gran_Lobo",
   "name": "Gran Lobo",
+  "videoUrl": {"url": "/tecnicas/gran_lobo.mp4"},
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Bosque",
@@ -4522,6 +4667,7 @@ async function insertarTecnicas() {
 {
   "_id": "Remate_Unicornio",
   "name": "Remate Unicornio",
+  "videoUrl": {"url": "/tecnicas/remate_unicornio.mp4"},
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Montaña",
@@ -4548,6 +4694,7 @@ async function insertarTecnicas() {
 {
   "_id": "Truco_Balonazo",
   "name": "Truco Balonazo",
+  "videoUrl": {"url": "/tecnicas/truco_balonazo.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Bosque",
@@ -4566,6 +4713,7 @@ async function insertarTecnicas() {
 {
   "_id": "Guardia_del_Coliseo",
   "name": "Guardia del Coliseo",
+  "videoUrl": {"url": "/tecnicas/guardia_del_coliseo.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Montaña",
@@ -4584,6 +4732,7 @@ async function insertarTecnicas() {
 {
   "_id": "Defensa_Multiple",
   "name": "Defensa Múltiple",
+  "videoUrl": {"url": "/tecnicas/defensa_multiple.mp4"},
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Bosque",
@@ -4602,6 +4751,7 @@ async function insertarTecnicas() {
 {
   "_id": "Impulso_Brillante",
   "name": "Impulso Brillante",
+  "videoUrl": {"url": "/tecnicas/tiro_cegador.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
@@ -4610,7 +4760,7 @@ async function insertarTecnicas() {
     "stamina": 40,
     "tension": 55
   },
-  "creador": ["Angelo_Gabrini"],
+  "creador": ["Angelo_Gabrini", "Apollo_Light_T1"],
   "heredero": [],
   "copia": ["Borboleta_Barboza", "Coruja_Cerezo"]
 },
@@ -4619,6 +4769,7 @@ async function insertarTecnicas() {
 {
   "_id": "Disparo_Valiente",
   "name": "Disparo Valiente",
+  "videoUrl": {"url": "/tecnicas/disparo_valiente.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Montaña",
@@ -4637,6 +4788,7 @@ async function insertarTecnicas() {
 {
   "_id": "Ataque_Afilado",
   "name": "Ataque Afilado",
+  "videoUrl": {"url": "/tecnicas/ataque_afilado.mp4"},
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Montaña",
@@ -4654,6 +4806,7 @@ async function insertarTecnicas() {
 {
   "_id": "Himno_de_Athenea",
   "name": "Himno de Atenea",
+  "videoUrl": {"url": "/tecnicas/himno_de_athenea.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Bosque",
@@ -4667,6 +4820,7 @@ async function insertarTecnicas() {
 {
   "_id": "Espada_de_Odin",
   "name": "Espada de Odín",
+  "videoUrl": {"url": "/tecnicas/espada_de_odin.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Montaña",
@@ -4680,6 +4834,7 @@ async function insertarTecnicas() {
 {
   "_id": "Parada_Capoeira",
   "name": "Parada Capoeira",
+  "videoUrl": {"url": "/tecnicas/parada_capoeira.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Montaña",
@@ -4698,6 +4853,7 @@ async function insertarTecnicas() {
 {
   "_id": "Entrada_Rodante",
   "name": "Entrada Rodante",
+  "videoUrl": {"url": "/tecnicas/entrada_rodante.mp4"},
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Fuego",
@@ -4717,6 +4873,7 @@ async function insertarTecnicas() {
 {
   "_id": "Golpe_de_Samba",
   "name": "Golpe de Samba",
+  "videoUrl": {"url": "/tecnicas/golpe_de_samba.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Montaña",
@@ -4735,6 +4892,7 @@ async function insertarTecnicas() {
 {
   "_id": "Robo_Colombiano",
   "name": "Robo Colombiano",
+  "videoUrl": {"url": "/tecnicas/robo_colombiano.mp4"},
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Aire",
@@ -4749,7 +4907,8 @@ async function insertarTecnicas() {
 },
 {
   "_id": "Tiro_RB6",
-  "name": "Tiro RB6",
+  "name": "Tiro R6",
+  "videoUrl": {"url": "/tecnicas/tiro_r6.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
@@ -4767,6 +4926,7 @@ async function insertarTecnicas() {
 {
   "_id": "Mano_Celestial_X",
   "name": "Mano Celestial X",
+  "videoUrl": {"url": "/tecnicas/mano_celestial_x.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Fuego",
@@ -4778,6 +4938,7 @@ async function insertarTecnicas() {
 {
   "_id": "Mano_Espiritual",
   "name": "Mano Espiritual",
+  "videoUrl": {"url": "/tecnicas/mano_espiritual.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Fuego",
@@ -4789,6 +4950,7 @@ async function insertarTecnicas() {
 {
   "_id": "Canon_X",
   "name": "Cañón X",
+  "videoUrl": {"url": "/tecnicas/canon_x.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
@@ -4802,6 +4964,7 @@ async function insertarTecnicas() {
 {
   "_id": "Patin_Aereo",
   "name": "Patín Aéreo",
+  "videoUrl": {"url": "/tecnicas/patin_aereo.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Aire",
@@ -4819,6 +4982,7 @@ async function insertarTecnicas() {
 {
   "_id": "Mandibulas_Dobles",
   "name": "Mandíbulas Dobles",
+  "videoUrl": {"url": "/tecnicas/mandibulas_dobles.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
@@ -4834,26 +4998,11 @@ async function insertarTecnicas() {
 
 
 
-{
-  "_id": "Muralla_Infinita",
-  "name": "Muralla Infinita",
-  "type": "save",
-  "subtype": ["parada"],
-  "element": "Montaña",
-  "basePower": 85,
-  "cost": {
-    "stamina": 65,
-    "tension": 90
-  },
-  "creador": ["Joseph_King_Neo"],
-  "heredero": [],
-  "copia": []
-},
-
 
 {
   "_id": "Zona_Sagrada",
   "name": "Zona Sagrada",
+  "videoUrl": {"url": "/tecnicas/zona_sagrada.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Aire",
@@ -4871,6 +5020,7 @@ async function insertarTecnicas() {
 {
   "_id": "Subida_a_los_Cielos",
   "name": "Subida a los Cielos",
+  "videoUrl": {"url": "/tecnicas/subida_a_los_cielos.mp4"},
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Aire",
@@ -4888,6 +5038,7 @@ async function insertarTecnicas() {
 {
   "_id": "Balon_Angelical",
   "name": "Balón Angelical",
+  "videoUrl": {"url": "/tecnicas/balon_angelical.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Aire",
@@ -4905,6 +5056,7 @@ async function insertarTecnicas() {
 {
   "_id": "Vuelo_de_Icaro",
   "name": "Vuelo de Ícaro",
+  "videoUrl": {"url": "/tecnicas/vuelo_de_icaro.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Fuego",
@@ -4923,6 +5075,7 @@ async function insertarTecnicas() {
 {
   "_id": "Remate_Celestial",
   "name": "Remate Celestial",
+  "videoUrl": {"url": "/tecnicas/remate_celestial_w.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Montaña",
@@ -4941,6 +5094,7 @@ async function insertarTecnicas() {
 {
   "_id": "El_Olvido",
   "name": "El Olvido",
+  "videoUrl": {"url": "/tecnicas/el_olvido.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Bosque",
@@ -4959,6 +5113,7 @@ async function insertarTecnicas() {
 {
   "_id": "Araña_Gigante",
   "name": "Araña Gigante",
+  "videoUrl": {"url": "/tecnicas/araña_gigante.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Bosque",
@@ -4976,6 +5131,7 @@ async function insertarTecnicas() {
 {
   "_id": "Caida_a_los_Infiernos",
   "name": "Caída a los Infiernos",
+  "videoUrl": {"url": "/tecnicas/caida_a_los_infiernos.mp4"},
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Bosque",
@@ -4993,6 +5149,7 @@ async function insertarTecnicas() {
 {
   "_id": "Balon_Diabolico",
   "name": "Balón Diabólico",
+  "videoUrl": {"url": "/tecnicas/balon_diabolico.mp4"},
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Bosque",
@@ -5010,6 +5167,7 @@ async function insertarTecnicas() {
 {
   "_id": "Carga_Negativa",
   "name": "Carga Negativa",
+  "videoUrl": {"url": "/tecnicas/carga_negativa.mp4"},
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
@@ -5026,6 +5184,7 @@ async function insertarTecnicas() {
 {
   "_id": "Corte_Diabolico",
   "name": "Corte Diabólico",
+  "videoUrl": {"url": "/tecnicas/corte_diabolico.mp4"},
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Bosque",

@@ -14101,7 +14101,12 @@ const datos = [
       "technique_id": "Pinguino_Emperador_n_3", 
       "relation": "creador", 
       "power_modifier": 1.0 
-    }
+    },
+    {
+      "technique_id": "Pinguino_celestial_endemoniado",
+      "relation": "creador",
+      "power_modifier": 1.0
+    } 
   ]
 },
 
@@ -14160,7 +14165,12 @@ const datos = [
       "technique_id": "Ventisca_Triple", 
       "relation": "heredero", 
       "power_modifier": 0.5 
-    },  
+    }, 
+    {
+      "technique_id": "Pinguino_celestial_endemoniado",
+      "relation": "creador",
+      "power_modifier": 1.0
+    } 
   ]
 },
 
