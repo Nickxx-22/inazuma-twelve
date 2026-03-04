@@ -970,7 +970,7 @@ async function insertarTecnicas() {
 
   "cost": { 
     "stamina": 85, 
-    "tension": 115 
+    "tension": 100
   },
 
   "creador": ["Caleb_Stonewall_T3", "Jude_Sharp_T3"],
@@ -3435,7 +3435,7 @@ async function insertarTecnicas() {
 
   "cost": {
     "stamina": 85,
-    "tension": 110
+    "tension": 100
   },
 
   "creador": ["Xene_G", "Bellatrix_G"],
@@ -3465,7 +3465,7 @@ async function insertarTecnicas() {
 
   "cost": {
     "stamina": 85,
-    "tension": 110
+    "tension": 100
   },
 
   "creador": ["Jude_Sharp_T3", "Caleb_Stonewall_T3"],
@@ -3698,7 +3698,7 @@ async function insertarTecnicas() {
 
   "cost": {
     "stamina": 80,
-    "tension": 110
+    "tension": 100
   },
 
   "creador": ["Shadow_Cimmerian_EO", "Nathan_Swift_EO", "Kevin_Dragonfly_EO"],
@@ -3753,7 +3753,7 @@ async function insertarTecnicas() {
 
   "cost": {
     "stamina": 90,
-    "tension": 120
+    "tension": 100
   },
 
   "creador": ["Mark_Evans_T3", "Axel_Blaze_T3", "Austin_Hobbes_T3"],
@@ -3845,7 +3845,7 @@ async function insertarTecnicas() {
   "basePower": 100,
   "cost": {
     "stamina": 80,
-    "tension": 110
+    "tension": 100
   },
   "creador": ["Mark_Evans_T3"],
   "heredero": [],
@@ -4059,7 +4059,7 @@ async function insertarTecnicas() {
 
   "cost": { 
     "stamina": 90, 
-    "tension": 125 
+    "tension": 100 
   },
 
   "creador": ["Shawn_Froste_T3", "Xavier_Foster_T3", "Jude_Sharp_T3"],
@@ -4198,7 +4198,7 @@ async function insertarTecnicas() {
     ],
     "minPlayers": 3
   },
-  "cost": { "stamina": 85, "tension": 110 },
+  "cost": { "stamina": 85, "tension": 100 },
   "creador": ["Axel_Blaze_T3", "Xavier_Foster_T3", "Austin_Hobbes_T3"],
   "heredero": [],
   "copia": []
@@ -4266,7 +4266,7 @@ async function insertarTecnicas() {
   "basePower": 100,
   "cost": {
     "stamina": 80,
-    "tension": 115
+    "tension": 100
   },
   "creador": ["Darren_LaChance_T3"],
   "heredero": [],
@@ -4370,7 +4370,7 @@ async function insertarTecnicas() {
 
   "cost": { 
     "stamina": 90, 
-    "tension": 120 
+    "tension": 100 
   },
 
   "creador": ["Byron_Love_T3", "Torch_W", "Gazelle_W"],
