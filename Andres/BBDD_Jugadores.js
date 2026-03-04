@@ -20156,7 +20156,7 @@ const datos = [
 
   "techniques": [
     {
-      "technique_id": "Remate_Celestial",
+      "technique_id": "Remate_Celestial_W",
       "relation": "creador",
       "power_modifier": 1.0
     },

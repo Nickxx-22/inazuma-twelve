@@ -5073,7 +5073,7 @@ async function insertarTecnicas() {
 
 
 {
-  "_id": "Remate_Celestial",
+  "_id": "Remate_Celestial_W",
   "name": "Remate Celestial",
   "videoUrl": {"url": "/tecnicas/remate_celestial_w.mp4"},
   "type": "shot",
