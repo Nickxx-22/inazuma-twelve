@@ -27,7 +27,7 @@ export default function TecnicasPage() {
   const [elementFilter, setElementFilter] = useState('')
   const [typeFilter,    setTypeFilter]    = useState('')
   const [sortBy,        setSortBy]        = useState('power')
-  const [showFilters,   setShowFilters]   = useState(true)
+  const [showFilters,   setShowFilters]   = useState(false)
   const [selectedTech,  setSelectedTech]  = useState(null)
   const [favTecnicas,   setFavTecnicas]   = useState(new Set())
   const [likingId,      setLikingId]      = useState(null)

@@ -106,3 +106,10 @@
 @media (min-width: 1024px) { .grid { grid-template-columns: repeat(6, 1fr); } }
 
 .list { display: flex; flex-direction: column; gap: 8px; }
+
+.clearSearch {
+  position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+  background: none; border: none; color: var(--muted); cursor: pointer;
+  padding: 2px; display: flex; align-items: center; border-radius: 4px;
+}
+.clearSearch:hover { color: var(--foreground); }

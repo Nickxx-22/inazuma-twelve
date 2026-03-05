@@ -141,10 +141,14 @@ def iniciar_sesion():
 def obtener_jugadores():
     resultado = []
 
+    # Pre-cargar todos los equipos en un dict {_id: equipo} para no hacer
+    # una query por jugador (mucho más eficiente)
+    equipos_map = {str(e["_id"]): e for e in equipos.find({}, {"_id": 1, "seasons": 1})}
+
     for j in jugadores.find():
         genero = "Masculino" if j.get("sex") == "M" else "Femenino"
 
-        # Obtener la URL de la imagen y asegurarse de que sea completa
+        # ── Imagen del jugador ──────────────────────────────────────────
         imagen_url = ""
         image_field = j.get("image")
         if image_field and isinstance(image_field, dict):
@@ -152,7 +156,7 @@ def obtener_jugadores():
             if imagen_url.startswith("/"):
                 imagen_url = f"{BASE_API_URL}{imagen_url}"
 
-        # Procesar imagen del pais
+        # ── País ────────────────────────────────────────────────────────
         country_raw = j.get("country", "")
         country_img = ""
         if isinstance(country_raw, dict):
@@ -165,6 +169,21 @@ def obtener_jugadores():
         else:
             country_name = str(country_raw) if country_raw else ""
 
+        # ── Seasons: se resuelven desde los equipos del jugador ─────────
+        # El jugador tiene teams: [{team_id, ...}, ...]
+        # Cada equipo tiene seasons: ["IE1", "IE2", ...]
+        seasons_set = set()
+        for team_entry in j.get("teams", []):
+            team_id = team_entry.get("team_id", "")
+            equipo_data = equipos_map.get(team_id)
+            if equipo_data:
+                for s in equipo_data.get("seasons", []):
+                    seasons_set.add(s)
+        # Si no se encontró nada, fallback a campo directo (por si acaso)
+        if not seasons_set and j.get("season"):
+            seasons_set.add(j.get("season"))
+        seasons_list = sorted(seasons_set)  # ["IE1", "IE2", ...]
+
         resultado.append({
             "id": str(j["_id"]),
             "name": j.get("name", ""),
@@ -174,7 +193,8 @@ def obtener_jugadores():
             "gender": genero,
             "nature": j.get("nature", ""),
             "role": j.get("role", ""),
-            "season": j.get("season", "IE3"),
+            "seasons": seasons_list,       # lista: ["IE1", "IE2"]
+            "season": seasons_list[0] if seasons_list else "",  # compat. con código viejo
             "power": j.get("stats", {}).get("kicking", 0),
             "image": imagen_url,
             "country": country_name,

@@ -101,16 +101,10 @@ export default function HomePage() {
 
       {/* Hero */}
       <section className={styles.hero}>
-        <div className={styles.heroBadge}>
-          <Star size={14} /> Base de Datos Inazuma Eleven
-        </div>
         <h1 className={styles.heroTitle}>
           <span className="neon-text-blue">Descubre</span> el universo{' '}
           <span className="neon-text-yellow">Inazuma</span>
         </h1>
-        <p className={styles.heroSub}>
-          Explora personajes, tecnicas y equipos. Crea tu equipo ideal y domina el campo de juego.
-        </p>
         <div className={styles.heroActions}>
           <Link to="/personajes" className={styles.btnPrimary}><Users size={16} /> Ver Jugadores</Link>
           <Link to="/mi-equipo"  className={styles.btnSecondary}><Shield size={16} /> Mi Equipo</Link>
