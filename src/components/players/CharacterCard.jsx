@@ -2,14 +2,6 @@ import { Link } from 'react-router-dom'
 import { getElementColor, getNatureColor } from '../../utils/colors'
 import styles from './CharacterCard.module.css'
 
-/**
- * Tarjeta de personaje (vista grid)
- * Props: character (objeto del personaje)
- */
-
-// ... resto de imports
-// ... resto de imports
-
 export default function CharacterCard({ character }) {
   const elColor  = getElementColor(character.element)
   const natColor = getNatureColor(character.nature)
@@ -20,23 +12,19 @@ export default function CharacterCard({ character }) {
 
         {/* CONTENEDOR DE IMAGEN PRINCIPAL */}
         <div className={styles.imageArea}>
-          
-          {/* La imagen real del personaje (Cuerpo entero si la hay) */}
-          <img 
-            src={character.image} 
+
+          <img
+            src={character.image}
             alt={character.name}
             className={styles.characterImage}
           />
-          
-          {/* Capa de degradado sutil en los bordes para estilo */}
-          <div 
+
+          <div
             className={styles.overlay}
-            style={{ 
-              background: `linear-gradient(135deg, ${elColor}33, ${natColor}33)`
-            }}
+            style={{ background: `linear-gradient(135deg, ${elColor}33, ${natColor}33)` }}
           />
 
-          {/* Badges superiores (Ajustados para no tapar la cara) */}
+          {/* Badges superiores */}
           <div className={styles.topBadges}>
             <span className={styles.badge} style={{ background: natColor }}>
               {character.nature}
@@ -46,13 +34,22 @@ export default function CharacterCard({ character }) {
             </span>
           </div>
 
-          {/* SE HA ELIMINADO EL AVATAR CENTRAL CON LA 'B' */}
-
-          {/* Elemento + Power inferiores */}
+          {/* Elemento + Power + Bandera inferiores */}
           <div className={styles.bottomRow}>
             <div className={styles.elementDot} style={{ background: elColor }}>
               {character.element.charAt(0)}
             </div>
+
+            {/* Bandera del país (si existe) */}
+            {character.countryImg && (
+              <img
+                src={character.countryImg}
+                alt={character.country || ''}
+                className={styles.flagBadge}
+                title={character.country}
+              />
+            )}
+
             <div className={styles.powerBadge}>PWR {character.power}</div>
           </div>
         </div>
@@ -63,8 +60,12 @@ export default function CharacterCard({ character }) {
           <p className={styles.jaName}>{character.japaneseName}</p>
           <div className={styles.meta}>
             <span>{character.role}</span>
-            <span className={styles.sep}>|</span>
-            <span>{character.team}</span>
+            {character.country && (
+              <>
+                <span className={styles.sep}>|</span>
+                <span className={styles.countryText}>{character.country}</span>
+              </>
+            )}
           </div>
         </div>
       </div>

@@ -18,8 +18,8 @@ export default function Footer() {
         </nav>
 
         <div className={styles.socials}>
-          <a href="#" aria-label="GitHub"><Github size={16} /></a>
-          <a href="#" aria-label="Twitter"><Twitter size={16} /></a>
+          <a href="https://github.com/Nickxx-22" aria-label="GitHub"><Github size={16} /></a>
+          <a href="https://x.com/PunchoYT" aria-label="Twitter"><Twitter size={16} /></a>
         </div>
       </div>
       <p className={styles.legal}>

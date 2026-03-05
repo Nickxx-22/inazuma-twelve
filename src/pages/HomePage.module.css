@@ -176,3 +176,57 @@
     transform: translateX(calc(-350px * 6)); /* Se mueve la mitad exacta del track total */
   }
 }
+/* ── TECNICAS FAVORITAS ── */
+.techFavGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+@media (min-width: 640px)  { .techFavGrid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1024px) { .techFavGrid { grid-template-columns: repeat(4, 1fr); } }
+
+.techFavCard {
+  position: relative;
+  background: #111620;
+  border: 1px solid #1e2836;
+  border-radius: 14px;
+  overflow: hidden;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+}
+.techFavCard:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255,255,255,0.14);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.4);
+}
+
+.techFavAccent { height: 3px; width: 100%; }
+
+.techFavBody { padding: 12px 14px 13px; display: flex; flex-direction: column; gap: 6px; }
+
+.techFavTop  { display: flex; align-items: center; gap: 6px; }
+.techFavType {
+  font-size: 0.6rem; font-weight: 900; letter-spacing: 0.08em;
+  padding: 2px 8px; border-radius: 5px; border: 1px solid;
+}
+.techFavEl   { font-size: 0.6rem; font-weight: 800; margin-left: auto; }
+
+.techFavName {
+  font-size: 0.85rem; font-weight: 800; color: #e2e8f0;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 0;
+}
+.techFavJa   { font-size: 0.65rem; color: #4a5568; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.techFavStats { display: flex; align-items: center; justify-content: space-between; margin-top: 2px; }
+.techFavPwr   { font-size: 1.2rem; font-weight: 900; line-height: 1; }
+.techFavCosts {
+  display: flex; flex-direction: column; align-items: flex-end;
+  gap: 2px; font-size: 0.62rem; font-weight: 700; color: #4a5568;
+}
+.techFavCosts span { display: flex; align-items: center; gap: 3px; }
+
+/* spin para loading */
+.spin { animation: spinHome 1s linear infinite; }
+@keyframes spinHome { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }

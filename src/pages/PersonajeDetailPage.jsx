@@ -175,6 +175,14 @@ export default function PersonajeDetailPage() {
               <div className={styles.tags}>
                 <span className={styles.tag} style={{ background: elColor }}>{character.element}</span>
                 <span className={`${styles.tag} ${styles.tagSecondary}`}>{character.role}</span>
+                {character.country && (
+                  <span className={styles.tagCountry}>
+                    {character.countryImg && (
+                      <img src={character.countryImg} alt={character.country} className={styles.flagImg} />
+                    )}
+                    {character.country}
+                  </span>
+                )}
               </div>
               <p className={styles.desc}>{character.description}</p>
               
@@ -202,6 +210,16 @@ export default function PersonajeDetailPage() {
             <h2 className={styles.cardTitle}>Estadísticas</h2>
             <div className={styles.radarWrapper}><Radar data={radarData} options={radarOptions} /></div>
             
+            {/* Pais del jugador */}
+            {character.country && (
+              <div className={styles.countryRow}>
+                {character.countryImg && (
+                  <img src={character.countryImg} alt={character.country} className={styles.flagBig} />
+                )}
+                <span className={styles.countryName}>{character.country}</span>
+              </div>
+            )}
+
             {/* Campo matchStats requerido */}
             <div className={styles.matchStatsRow}>
               <div className={styles.matchStatCard}><Activity size={16} /> PE: <strong>{character.matchStats?.stamina || 100}</strong></div>

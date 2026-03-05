@@ -152,6 +152,19 @@ def obtener_jugadores():
             if imagen_url.startswith("/"):
                 imagen_url = f"{BASE_API_URL}{imagen_url}"
 
+        # Procesar imagen del pais
+        country_raw = j.get("country", "")
+        country_img = ""
+        if isinstance(country_raw, dict):
+            country_name = country_raw.get("name", "")
+            flag_path = country_raw.get("flag", "") or country_raw.get("image", "")
+            if flag_path and flag_path.startswith("/"):
+                country_img = f"{BASE_API_URL}{flag_path}"
+            elif flag_path:
+                country_img = flag_path
+        else:
+            country_name = str(country_raw) if country_raw else ""
+
         resultado.append({
             "id": str(j["_id"]),
             "name": j.get("name", ""),
@@ -163,7 +176,9 @@ def obtener_jugadores():
             "role": j.get("role", ""),
             "season": j.get("season", "IE3"),
             "power": j.get("stats", {}).get("kicking", 0),
-            "image": imagen_url
+            "image": imagen_url,
+            "country": country_name,
+            "countryImg": country_img,
         })
 
     return jsonify(resultado)
@@ -202,7 +217,8 @@ def detalle_jugador(id):
             "matchStats": jugador.get("matchStats", { "stamina": 0, "tension": 0 }), # [2026-02-25]
             "power": jugador.get("stats", {}).get("kicking", 0),
             "teams": jugador.get("teams", []),
-            "country": jugador.get("country", "")
+            "country": (jugador.get("country", {}) or {}).get("name", jugador.get("country", "")) if isinstance(jugador.get("country"), dict) else jugador.get("country", ""),
+            "countryImg": (f"{base_url}{jugador['country']['flag']}" if isinstance(jugador.get("country"), dict) and jugador["country"].get("flag", "").startswith("/") else (jugador.get("country", {}) or {}).get("flag", "")) if isinstance(jugador.get("country"), dict) else "",
         }
 
         # --- TÉCNICAS (CON VIDEO Y COSTES) ---
@@ -467,12 +483,13 @@ def obtener_usuario(user_id):
             return jsonify({"message": "Usuario no encontrado"}), 404
 
         usuario_info = {
-            "id":        str(usuario["_id"]),
-            "username":  usuario.get("username", ""),
-            "email":     usuario.get("email", ""),
-            "favoritos": usuario.get("favoritos", []),
-            "equipo":    usuario.get("equipo", []),
-            "equipos":   usuario.get("equipos", {}),  # ← diccionario de equipos guardados
+            "id":                   str(usuario["_id"]),
+            "username":             usuario.get("username", ""),
+            "email":                usuario.get("email", ""),
+            "favoritos":            usuario.get("favoritos", []),
+            "favoritos_tecnicas":   usuario.get("favoritos_tecnicas", []),
+            "equipo":               usuario.get("equipo", []),
+            "equipos":              usuario.get("equipos", {}),
         }
         return jsonify({"usuario": usuario_info}), 200
 
@@ -525,6 +542,42 @@ def toggle_favorito():
             accion = "añadido"
 
         return jsonify({"message": f"Personaje {accion}", "isFavorite": accion == "añadido"}), 200
+
+    except Exception as e:
+        return jsonify({"message": str(e)}), 500
+
+
+#------------------- TOGGLE FAVORITO TECNICA -----------------
+@app.route('/toggle_favorito_tecnica', methods=['POST'])
+def toggle_favorito_tecnica():
+    data = request.get_json()
+    user_id    = data.get('user_id')
+    tecnica_id = data.get('tecnica_id')
+
+    if not user_id or not tecnica_id:
+        return jsonify({"message": "Faltan datos"}), 400
+
+    try:
+        user = usuarios.find_one({"_id": ObjectId(user_id)})
+        if not user:
+            return jsonify({"message": "Usuario no encontrado"}), 404
+
+        favs = user.get('favoritos_tecnicas', [])
+
+        if tecnica_id in favs:
+            usuarios.update_one(
+                {"_id": ObjectId(user_id)},
+                {"$pull": {"favoritos_tecnicas": tecnica_id}}
+            )
+            accion = "quitado"
+        else:
+            usuarios.update_one(
+                {"_id": ObjectId(user_id)},
+                {"$addToSet": {"favoritos_tecnicas": tecnica_id}}
+            )
+            accion = "anadido"
+
+        return jsonify({"message": f"Tecnica {accion}", "isFavorite": accion == "anadido"}), 200
 
     except Exception as e:
         return jsonify({"message": str(e)}), 500

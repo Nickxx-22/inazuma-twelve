@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Zap, Home, Users, Shield, Swords, Menu, X, LogIn, LogOut, Settings, User } from 'lucide-react'
 import { useAuth } from '../../hooks/useAuth'
@@ -6,9 +6,9 @@ import { logoutUser } from '../../services/authService'
 import styles from './Header.module.css'
 
 const NAV_ITEMS = [
-  { href: '/',          label: 'Inicio',    icon: Home },
-  { href: '/personajes', label: 'Jugadores', icon: Users },
-  { href: '/tecnicas',   label: 'Técnicas',  icon: Zap },
+  { href: '/',           label: 'Inicio',    icon: Home   },
+  { href: '/personajes', label: 'Jugadores', icon: Users  },
+  { href: '/tecnicas',   label: 'Tecnicas',  icon: Zap    },
   { href: '/equipos',    label: 'Equipos',   icon: Swords },
   { href: '/mi-equipo',  label: 'Mi Equipo', icon: Shield },
 ]
@@ -19,10 +19,19 @@ export default function Header() {
   const { user, refresh } = useAuth()
   const [open, setOpen]   = useState(false)
 
+  // Escucha el evento personalizado 'auth-change' que dispara loginUser/logoutUser
+  // Esto actualiza el header en la MISMA pestaña sin necesitar recargar
+  useEffect(() => {
+    const onAuthChange = () => refresh()
+    window.addEventListener('auth-change', onAuthChange)
+    return () => window.removeEventListener('auth-change', onAuthChange)
+  }, [refresh])
+
   function handleLogout() {
     logoutUser()
     refresh()
-    setOpen(false) // Cerramos el menú móvil si estuviera abierto
+    window.dispatchEvent(new Event('auth-change'))
+    setOpen(false)
     navigate('/')
   }
 
@@ -81,7 +90,7 @@ export default function Header() {
           )}
 
           {/* Mobile burger */}
-          <button className={styles.burger} onClick={() => setOpen(o => !o)} aria-label="Menú">
+          <button className={styles.burger} onClick={() => setOpen(o => !o)} aria-label="Menu">
             {open ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
@@ -102,7 +111,7 @@ export default function Header() {
           ))}
           {user && (
             <button onClick={handleLogout} className={styles.mobileLogoutBtn}>
-              <LogOut size={16} /> Cerrar Sesión
+              <LogOut size={16} /> Cerrar Sesion
             </button>
           )}
         </nav>

@@ -1057,6 +1057,11 @@ const datos = [
       "technique_id": "Primera_Leyenda",
       "relation": "creador",
       "power_modifier": 1.0
+    },
+    {
+      "technique_id": "Espejismo_De_Balon",
+      "relation": "creador",
+      "power_modifier": 1.0
     }
   ]
 },
@@ -2167,7 +2172,7 @@ const datos = [
 
   "techniques": [
     {
-      "technique_id": "Espejismo_de_balon",
+      "technique_id": "Espejismo_De_Balon",
       "relation": "copia",
       "power_modifier": 0.3
     },
@@ -6716,7 +6721,7 @@ const datos = [
 
   "techniques": [
     {
-      "technique_id": "Espejismo_de_Balon",
+      "technique_id": "Espejismo_De_Balon",
       "relation": "copia",
       "power_modifier": 0.3
     }
@@ -9279,7 +9284,7 @@ const datos = [
 
   "techniques": [
     {
-      "technique_id": "Espejismo_de_Balon",
+      "technique_id": "Espejismo_De_Balon",
       "relation": "copia",
       "power_modifier": 0.3
     },
@@ -12018,7 +12023,7 @@ const datos = [
 
   "techniques": [
     {
-      "technique_id": "Espejismo_de_Balon",
+      "technique_id": "Espejismo_De_Balon",
       "relation": "creador",
       "power_modifier": 1.0
     }
@@ -14157,7 +14162,7 @@ const datos = [
   },
 
   "techniques": [
-    { "technique_id": "Espejismo_de_Balon", "relation": "creador", "power_modifier": 1.0 },
+    { "technique_id": "Espejismo_De_Balon", "relation": "creador", "power_modifier": 1.0 },
     { "technique_id": "Campo_de_Fuerza", "relation": "creador", "power_modifier": 1.0 },
     { "technique_id": "Pinguino_Emperador_n_3", "relation": "creador", "power_modifier": 1.0 },
     { "technique_id": "Big_Bang", "relation": "creador", "power_modifier": 1.0 },
@@ -15796,7 +15801,7 @@ const datos = [
       "power_modifier": 0.3
     },
     {
-      "technique_id": "Espejismo_de_balon",
+      "technique_id": "Espejismo_De_Balon",
       "relation": "copia",
       "power_modifier": 0.3
     }
@@ -16791,7 +16796,7 @@ const datos = [
       "power_modifier": 1.0
     },
     {
-      "technique_id": "Espejismo_de_Balon",
+      "technique_id": "Espejismo_De_Balon",
       "relation": "copia",
       "power_modifier": 0.3
     },
@@ -19488,7 +19493,7 @@ const datos = [
       "power_modifier": 1.0
     },
     {
-      "technique_id": "Espejismo_de_Balon",
+      "technique_id": "Espejismo_De_Balon",
       "relation": "copia",
       "power_modifier": 0.3
     }

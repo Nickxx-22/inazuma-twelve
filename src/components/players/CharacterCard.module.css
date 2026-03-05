@@ -12,9 +12,7 @@
 .imageArea {
   position: relative;
   width: 100%;
-  /* CAMBIO CLAVE: 1/1 hará que la zona de imagen sea un cuadrado perfecto, 
-     acortando mucho la altura total de la carta. */
-  aspect-ratio: 1 / 1; 
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -22,83 +20,34 @@
   background-color: #1a1a2e;
 }
 
-.imageBg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center top; /* Centrado en la cara */
-  background-repeat: no-repeat;
-  /* Esto mantiene la nitidez del pixel art */
-  image-rendering: pixelated; 
-  transition: transform 0.5s ease;
-}
-
 .characterImage {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* 'cover' suele quedar mejor en formato cuadrado para que 
-     la cara llene más espacio, pero 'contain' asegura ver todo. */
-  object-fit: cover; 
-  object-position: center top; /* Centramos en la cara */
-  image-rendering: pixelated; 
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  image-rendering: pixelated;
   z-index: 1;
+  transition: transform 0.5s ease;
 }
-
-.card:hover .imageBg {
-  transform: scale(1.1); /* Efecto zoom suave al pasar el ratón */
-}
+.card:hover .characterImage { transform: scale(1.07); }
 
 .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2; /* Sobre la imagen pero bajo los badges */
-  pointer-events: none; /* Deja pasar los clics */
-}
-
-/* Ajuste del Avatar para que flote sobre la imagen */
-.avatar {
-  position: relative;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   z-index: 2;
-  width: 50px; /* Un poco más pequeño para que no tape toda la cara */
-  height: 50px;
-  border-radius: 50%;
-  border: 3px solid rgba(255, 255, 255, 0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  font-weight: 800;
-  color: #fff;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  pointer-events: none;
 }
 
-
+/* Badges superiores */
 .topBadges {
   position: absolute;
   top: 8px; left: 8px; right: 8px;
   display: flex;
   justify-content: space-between;
-  z-index: 3; /* Sobre todo */
+  z-index: 3;
 }
-
-.bottomRow {
-  position: absolute;
-  bottom: 8px; left: 8px; right: 8px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 3; /* Sobre todo */
-}
-
 
 .badge {
   padding: 2px 6px;
@@ -110,19 +59,15 @@
 }
 .badgePrimary { background: var(--primary) !important; }
 
-.avatar {
-  width: 80px; height: 80px;
-  border-radius: 50%;
+/* Fila inferior: elemento · bandera · potencia */
+.bottomRow {
+  position: absolute;
+  bottom: 8px; left: 8px; right: 8px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #fff;
-  transition: transform 300ms ease;
+  z-index: 3;
 }
-.card:hover .avatar { transform: scale(1.07); }
-
 
 .elementDot {
   width: 28px; height: 28px;
@@ -135,6 +80,17 @@
   font-weight: 700;
   color: #fff;
 }
+
+/* Bandera en la imagen */
+.flagBadge {
+  width: 22px;
+  height: 15px;
+  object-fit: cover;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
 .powerBadge {
   background: rgba(0,0,0,0.6);
   backdrop-filter: blur(4px);
@@ -146,7 +102,8 @@
 }
 
 /* Info */
-.info { padding: 6px  10px ; }
+.info { padding: 6px 10px; }
+
 .name {
   font-size: 0.75rem;
   font-weight: 700;
@@ -157,6 +114,7 @@
   transition: color 150ms;
 }
 .card:hover .name { color: var(--primary); }
+
 .jaName {
   font-size: 0.6rem;
   color: var(--muted);
@@ -164,6 +122,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .meta {
   margin-top: 2px;
   display: flex;
@@ -173,3 +132,15 @@
   color: var(--muted);
 }
 .sep { color: var(--border); }
+
+.countryText {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 70px;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

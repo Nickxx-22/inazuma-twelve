@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Users, Zap, Swords, Shield, ArrowRight, Star, Loader2, Heart } from 'lucide-react'
+import { Users, Zap, Swords, Shield, ArrowRight, Star, Loader2, Heart, Activity } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { getAllPlayers } from '../services/playerService'
 import SectionHeader from '../components/common/SectionHeader'
@@ -8,59 +8,98 @@ import CharacterCard from '../components/players/CharacterCard'
 import styles from './HomePage.module.css'
 
 const SECTIONS = [
-  { title: 'Jugadores',  desc: 'Explora todos los personajes',      href: '/personajes', icon: Users,  color: '#3d7eff', bg: 'rgba(61,126,255,0.1)'  },
-  { title: 'Técnicas',   desc: 'Descubre todas las supertécnicas',  href: '/tecnicas',   icon: Zap,    color: '#ff6b35', bg: 'rgba(255,107,53,0.1)'  },
-  { title: 'Equipos',    desc: 'Consulta los equipos de cada temp', href: '/equipos',    icon: Swords, color: '#36d399', bg: 'rgba(54,211,153,0.1)'  },
-  { title: 'Mi Equipo',  desc: 'Crea y guarda tu equipo ideal',     href: '/mi-equipo',  icon: Shield, color: '#f471b5', bg: 'rgba(244,113,181,0.1)' },
+  { title: 'Jugadores', desc: 'Explora todos los personajes',     href: '/personajes', icon: Users,  color: '#3d7eff', bg: 'rgba(61,126,255,0.1)'  },
+  { title: 'Tecnicas',  desc: 'Descubre todas las supertecnicas', href: '/tecnicas',   icon: Zap,    color: '#ff6b35', bg: 'rgba(255,107,53,0.1)'  },
+  { title: 'Equipos',   desc: 'Consulta los equipos de cada temp',href: '/equipos',    icon: Swords, color: '#36d399', bg: 'rgba(54,211,153,0.1)'  },
+  { title: 'Mi Equipo', desc: 'Crea y guarda tu equipo ideal',    href: '/mi-equipo',  icon: Shield, color: '#f471b5', bg: 'rgba(244,113,181,0.1)' },
 ]
 
-// ─── Lista de imágenes en public ─────────────────────────────
-// Asegúrate de que los nombres coincidan exactamente con tus archivos
 const SLIDER_IMAGES = [
-  'axel.png',
-  'axel_capucha.png',
-  'byron_love.gif',
-  'inazuma_japon.png',
-  'shawn_ventisca.gif',
-  'xavier_descenso.gif',
+  'axel.png', 'axel_capucha.png', 'byron_love.gif',
+  'inazuma_japon.png', 'shawn_ventisca.gif', 'xavier_descenso.gif',
 ]
+
+// Helper: leer sesion directamente desde localStorage
+function getStoredSession() {
+  try {
+    const u = localStorage.getItem('inazuma-user')
+    const t = localStorage.getItem('inazuma-token')
+    return { user: u ? JSON.parse(u) : null, token: t || null }
+  } catch { return { user: null, token: null } }
+}
+
+const TYPE_LABELS = { shot: 'TIRO', dribble: 'DRIB', defense: 'DEF', save: 'SAVE' }
+const EL_COLORS   = { Fuego: '#ff6b35', Montana: '#a3855c', Aire: '#36d399', Bosque: '#22c55e', Montaña: '#a3855c' }
 
 export default function HomePage() {
   const { user } = useAuth()
-  const [favoriteCharacters, setFavoriteCharacters] = useState([])
-  const [loadingFavs, setLoadingFavs] = useState(true)
 
+  const [favoriteCharacters, setFavoriteCharacters] = useState([])
+  const [loadingFavs,        setLoadingFavs]        = useState(true)
+
+  const [favTecnicas,   setFavTecnicas]   = useState([])   // objetos tecnica completos
+  const [loadingTecFavs, setLoadingTecFavs] = useState(true)
+
+  // Carga favoritos de jugadores Y de tecnicas en paralelo
   useEffect(() => {
-    async function loadFavorites() {
-      if (!user) { setLoadingFavs(false); return; }
+    let cancelled = false
+
+    async function loadAll() {
+      const { user: su, token } = getStoredSession()
+      const userId = su?.id || su?._id
+
+      if (!userId) {
+        setLoadingFavs(false)
+        setLoadingTecFavs(false)
+        return
+      }
+
       try {
-        setLoadingFavs(true)
-        const userId = user.id || user._id
-        const [allPlayers, userRes] = await Promise.all([
+        const [allPlayers, allTecnicas, userRes] = await Promise.all([
           getAllPlayers(),
-          fetch(`http://127.0.0.1:5000/obtener_usuario/${userId}`)
+          fetch('http://127.0.0.1:5000/tecnicas').then(r => r.json()),
+          fetch(`http://127.0.0.1:5000/obtener_usuario/${userId}`, {
+            headers: token ? { 'Authorization': `Bearer ${token}` } : {}
+          })
         ])
+
+        if (cancelled) return
+
         const userData = await userRes.json()
-        if (userRes.ok && userData.usuario?.favoritos) {
-          const favIds = userData.usuario.favoritos
-          const filtered = allPlayers.filter(char => 
-            favIds.includes(char._id) || favIds.includes(char.id)
+
+        if (userRes.ok && userData.usuario) {
+          // Jugadores favoritos
+          const favIds = userData.usuario.favoritos || []
+          setFavoriteCharacters(
+            allPlayers.filter(c => favIds.includes(c._id) || favIds.includes(c.id))
           )
-          setFavoriteCharacters(filtered)
+
+          // Tecnicas favoritas
+          const favTecIds = userData.usuario.favoritos_tecnicas || []
+          setFavTecnicas(
+            Array.isArray(allTecnicas)
+              ? allTecnicas.filter(t => favTecIds.includes(t._id))
+              : []
+          )
         }
       } catch (err) {
-        console.error("Error cargando favoritos:", err)
+        console.error('Error cargando favoritos:', err)
       } finally {
-        setLoadingFavs(false)
+        if (!cancelled) {
+          setLoadingFavs(false)
+          setLoadingTecFavs(false)
+        }
       }
     }
-    loadFavorites()
+
+    loadAll()
+    return () => { cancelled = true }
   }, [user])
 
   return (
     <div className={styles.page}>
 
-      {/* ── Hero ────────────────────────────────────────────────── */}
+      {/* Hero */}
       <section className={styles.hero}>
         <div className={styles.heroBadge}>
           <Star size={14} /> Base de Datos Inazuma Eleven
@@ -70,31 +109,26 @@ export default function HomePage() {
           <span className="neon-text-yellow">Inazuma</span>
         </h1>
         <p className={styles.heroSub}>
-          Explora personajes, técnicas y equipos. Crea tu equipo ideal y domina el campo de juego.
+          Explora personajes, tecnicas y equipos. Crea tu equipo ideal y domina el campo de juego.
         </p>
         <div className={styles.heroActions}>
-          <Link to="/personajes" className={styles.btnPrimary}>
-            <Users size={16} /> Ver Jugadores
-          </Link>
-          <Link to="/mi-equipo" className={styles.btnSecondary}>
-            <Shield size={16} /> Mi Equipo
-          </Link>
+          <Link to="/personajes" className={styles.btnPrimary}><Users size={16} /> Ver Jugadores</Link>
+          <Link to="/mi-equipo"  className={styles.btnSecondary}><Shield size={16} /> Mi Equipo</Link>
         </div>
       </section>
 
-      {/* ── Carrusel Infinito ──────────────────────────────────── */}
+      {/* Carrusel */}
       <div className={styles.sliderContainer}>
         <div className={styles.sliderTrack}>
-          {/* Duplicamos las imágenes para que el scroll sea infinito */}
-          {[...SLIDER_IMAGES, ...SLIDER_IMAGES].map((img, index) => (
-            <div key={index} className={styles.slide}>
-              <img src={img} alt={`Slide ${index}`} />
+          {[...SLIDER_IMAGES, ...SLIDER_IMAGES].map((img, i) => (
+            <div key={i} className={styles.slide}>
+              <img src={img} alt={`Slide ${i}`} />
             </div>
           ))}
         </div>
       </div>
 
-      {/* ── Quick Nav ───────────────────────────────────────────── */}
+      {/* Quick Nav */}
       <section className={styles.quickNav}>
         {SECTIONS.map(({ title, desc, href, icon: Icon, color, bg }) => (
           <Link key={href} to={href} className={`${styles.navCard} card-hover`}>
@@ -110,33 +144,81 @@ export default function HomePage() {
         ))}
       </section>
 
-      {/* ── Jugadores Favoritos ────────────────────────────────── */}
+      {/* Jugadores Favoritos */}
       <section className={styles.section}>
         <SectionHeader
           title="Jugadores Favoritos"
           subtitle="Tus estrellas personalizadas del campo"
           href="/personajes"
         />
-
         {!user ? (
           <div className={styles.placeholder}>
             <Heart size={32} style={{ color: '#ff4d4d' }} />
-            <p>Inicia sesión para ver tus favoritos</p>
+            <p>Inicia sesion para ver tus favoritos</p>
           </div>
         ) : loadingFavs ? (
-          <div className={styles.placeholder}>
-            <Loader2 size={32} className={styles.spin} />
-          </div>
+          <div className={styles.placeholder}><Loader2 size={32} className={styles.spin} /></div>
         ) : favoriteCharacters.length === 0 ? (
           <div className={styles.placeholder}>
             <Heart size={32} />
-            <p>Aún no tienes favoritos. ¡Añade algunos!</p>
+            <p>Aun no tienes favoritos. Anade algunos desde la pagina de jugadores!</p>
           </div>
         ) : (
           <div className={styles.characterGrid}>
             {favoriteCharacters.map(char => (
               <CharacterCard key={char._id || char.id} character={char} />
             ))}
+          </div>
+        )}
+      </section>
+
+      {/* Tecnicas Favoritas */}
+      <section className={styles.section}>
+        <SectionHeader
+          title="Tecnicas Favoritas"
+          subtitle="Tus supertecnicas preferidas"
+          href="/tecnicas"
+        />
+        {!user ? (
+          <div className={styles.placeholder}>
+            <Zap size={32} style={{ color: '#ff6b35' }} />
+            <p>Inicia sesion para ver tus tecnicas favoritas</p>
+          </div>
+        ) : loadingTecFavs ? (
+          <div className={styles.placeholder}><Loader2 size={32} className={styles.spin} /></div>
+        ) : favTecnicas.length === 0 ? (
+          <div className={styles.placeholder}>
+            <Zap size={32} />
+            <p>Aun no tienes tecnicas favoritas. Anade algunas desde la pagina de tecnicas!</p>
+          </div>
+        ) : (
+          <div className={styles.techFavGrid}>
+            {favTecnicas.map(tech => {
+              const color = EL_COLORS[tech.element] || '#888'
+              const typeLabel = TYPE_LABELS[tech.type] || (tech.type || '').toUpperCase()
+              return (
+                <Link key={tech._id} to="/tecnicas" className={styles.techFavCard}>
+                  <div className={styles.techFavAccent} style={{ background: color }} />
+                  <div className={styles.techFavBody}>
+                    <div className={styles.techFavTop}>
+                      <span className={styles.techFavType} style={{ color, borderColor: `${color}44`, background: `${color}18` }}>
+                        {typeLabel}
+                      </span>
+                      <span className={styles.techFavEl} style={{ color }}>{tech.element}</span>
+                    </div>
+                    <p className={styles.techFavName}>{tech.name}</p>
+                    {tech.japaneseName && <p className={styles.techFavJa}>{tech.japaneseName}</p>}
+                    <div className={styles.techFavStats}>
+                      <span className={styles.techFavPwr} style={{ color }}>{tech.basePower}</span>
+                      <div className={styles.techFavCosts}>
+                        <span><Activity size={10} /> {tech.cost?.stamina || 0} PE</span>
+                        <span><Zap size={10} /> {tech.cost?.tension || 0} PT</span>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              )
+            })}
           </div>
         )}
       </section>
