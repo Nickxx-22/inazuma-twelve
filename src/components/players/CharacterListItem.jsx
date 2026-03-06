@@ -6,7 +6,6 @@ export default function CharacterListItem({ character }) {
   const elColor  = getElementColor(character.element)
   const natColor = getNatureColor(character.nature)
 
-  // Mostrar todas las seasons del jugador (puede ser array o string)
   const seasonLabels = Array.isArray(character.seasons)
     ? character.seasons
     : character.season ? [character.season] : []
@@ -14,22 +13,12 @@ export default function CharacterListItem({ character }) {
   return (
     <Link to={`/personajes/${character.id}`} className={`${styles.row} card-hover`}>
 
-      {/* Avatar con imagen real */}
-      <div
-        className={styles.avatarWrap}
-        style={{ background: `linear-gradient(135deg, ${elColor}33, ${natColor}22)` }}
-      >
-        {character.image ? (
-          <img
-            src={character.image}
-            alt={character.name}
-            className={styles.avatarImg}
-          />
-        ) : (
-          <span className={styles.avatarFallback} style={{ background: `linear-gradient(135deg, ${elColor}, ${natColor})` }}>
-            {character.name.charAt(0)}
-          </span>
-        )}
+      {/* Avatar */}
+      <div className={styles.avatarWrap} style={{ background: `linear-gradient(135deg, ${elColor}33, ${natColor}22)` }}>
+        {character.image
+          ? <img src={character.image} alt={character.name} className={styles.avatarImg} />
+          : <span className={styles.avatarFallback} style={{ background: `linear-gradient(135deg, ${elColor}, ${natColor})` }}>{character.name.charAt(0)}</span>
+        }
       </div>
 
       {/* Nombre */}
@@ -40,12 +29,28 @@ export default function CharacterListItem({ character }) {
 
       {/* Tags */}
       <div className={styles.tags}>
-        <span className={styles.tag} style={{ background: elColor }}>{character.element}</span>
+
+        {/* Elemento: imagen si existe, badge de color si no */}
+        {character.elementImg
+          ? <img src={character.elementImg} alt={character.element} className={styles.tagImg} title={character.element} />
+          : <span className={styles.tag} style={{ background: elColor }}>{character.element}</span>
+        }
+
+        {/* Naturaleza */}
         <span className={styles.tag} style={{ background: natColor }}>{character.nature}</span>
-        <span className={`${styles.tag} ${styles.tagSecondary}`}>{character.position}</span>
+
+        {/* Posición: imagen si existe, badge si no */}
+        {character.positionImg
+          ? <img src={character.positionImg} alt={character.position} className={styles.tagImg} title={character.position} />
+          : <span className={`${styles.tag} ${styles.tagSecondary}`}>{character.position}</span>
+        }
+
+        {/* Temporadas */}
         {seasonLabels.map(s => (
           <span key={s} className={`${styles.tag} ${styles.tagSeason}`}>{s}</span>
         ))}
+
+        {/* Bandera */}
         {character.countryImg && (
           <img src={character.countryImg} alt={character.country} className={styles.flagTag} title={character.country} />
         )}

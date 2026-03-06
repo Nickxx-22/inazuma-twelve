@@ -10,35 +10,29 @@ export default function CharacterCard({ character }) {
     <Link to={`/personajes/${character.id}`} className={styles.link}>
       <div className={`${styles.card} card-hover`}>
 
-        {/* CONTENEDOR DE IMAGEN PRINCIPAL */}
+        {/* IMAGEN */}
         <div className={styles.imageArea}>
+          <img src={character.image} alt={character.name} className={styles.characterImage} />
+          <div className={styles.overlay} style={{ background: `linear-gradient(135deg, ${elColor}22, ${natColor}22)` }} />
 
-          <img
-            src={character.image}
-            alt={character.name}
-            className={styles.characterImage}
-          />
-
-          <div
-            className={styles.overlay}
-            style={{ background: `linear-gradient(135deg, ${elColor}33, ${natColor}33)` }}
-          />
-
-          {/* Badges superiores */}
+          {/* Badge naturaleza (izq) + posición (der) */}
           <div className={styles.topBadges}>
             <span className={styles.badge} style={{ background: natColor }}>
               {character.nature}
             </span>
-            <span className={`${styles.badge} ${styles.badgePrimary}`}>
-              {character.position}
-            </span>
+            {character.positionImg
+              ? <img src={character.positionImg} alt={character.position} className={styles.positionImg} title={character.position} />
+              : <span className={`${styles.badge} ${styles.badgePrimary}`}>{character.position}</span>
+            }
           </div>
         </div>
 
-        {/* Info del personaje */}
+        {/* Info */}
         <div className={styles.info}>
           <h3 className={styles.name}>{character.name}</h3>
           <p className={styles.jaName}>{character.japaneseName}</p>
+
+          {/* Fila inferior: role · país  |  elemento · bandera · PWR */}
           <div className={styles.bottomMeta}>
             <div className={styles.metaLeft}>
               <span>{character.role}</span>
@@ -50,17 +44,16 @@ export default function CharacterCard({ character }) {
               )}
             </div>
             <div className={styles.metaRight}>
-              <div className={styles.elementDot} style={{ background: elColor }}>
-                {character.element.charAt(0)}
-              </div>
+              {/* Elemento: imagen o dot */}
+              {character.elementImg
+                ? <img src={character.elementImg} alt={character.element} className={styles.elementImg} title={character.element} />
+                : <div className={styles.elementDot} style={{ background: elColor }}>{character.element.charAt(0)}</div>
+              }
+              {/* Bandera */}
               {character.countryImg && (
-                <img
-                  src={character.countryImg}
-                  alt={character.country || ''}
-                  className={styles.flagBadge}
-                  title={character.country}
-                />
+                <img src={character.countryImg} alt={character.country || ''} className={styles.flagBadge} title={character.country} />
               )}
+              {/* PWR */}
               <div className={styles.powerBadge}>PWR {character.power}</div>
             </div>
           </div>

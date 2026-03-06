@@ -1,308 +1,207 @@
 .page { max-width: 1280px; margin: 0 auto; padding: 32px 16px; }
 
-/* Hero */
-.hero { text-align: center; margin-bottom: 48px; }
-.heroBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(61,126,255,0.1);
-  color: var(--primary);
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  margin-bottom: 16px;
-}
+/* ── HERO ── */
+.hero { text-align: center; margin-bottom: 40px; }
 .heroTitle {
   font-size: clamp(2rem, 6vw, 3.5rem);
-  font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 12px;
+  font-weight: 800; line-height: 1.1; margin-bottom: 12px;
 }
-.heroSub { font-size: 1rem; color: var(--muted); max-width: 480px; margin: 0 auto 24px; }
 .heroActions { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
 .btnPrimary, .btnSecondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 10px 20px;
-  border-radius: 10px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: opacity 150ms;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 10px 22px; border-radius: 10px; font-size: 0.875rem;
+  font-weight: 600; text-decoration: none; transition: all 150ms;
 }
-.btnPrimary   { background: var(--primary); color: #fff; }
+.btnPrimary   { background: var(--primary); color: #fff; box-shadow: 0 0 18px rgba(61,126,255,0.35); }
 .btnSecondary { background: var(--surface-3); color: var(--foreground); border: 1px solid var(--border); }
-.btnPrimary:hover, .btnSecondary:hover { opacity: 0.85; }
+.btnPrimary:hover  { opacity: 0.88; box-shadow: 0 0 28px rgba(61,126,255,0.5); transform: translateY(-1px); }
+.btnSecondary:hover { opacity: 0.85; }
 
-/* Quick nav */
-.quickNav {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+/* ── CARRUSEL DE EQUIPOS (top, full-width) ── */
+.teamSliderContainer {
+  width: 100vw;
+  position: relative;
+  left: 50%; right: 50%;
+  margin-left: -50vw; margin-right: -50vw;
+  overflow: hidden;
+  background: linear-gradient(90deg, #070a12, #0d1220 50%, #070a12);
+  border-top: 1px solid rgba(61,126,255,0.1);
+  border-bottom: 1px solid rgba(61,126,255,0.1);
+  padding: 11px 0;
+  margin-bottom: 32px;
+}
+.teamSliderTrack {
+  display: flex; align-items: center; gap: 48px;
+  width: max-content;
+  animation: scrollTeams 55s linear infinite;
+}
+.teamSliderContainer:hover .teamSliderTrack { animation-play-state: paused; }
+.teamSlide { flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+.teamSlideImg {
+  height: 38px; width: auto; object-fit: contain;
+  filter: grayscale(0.15) brightness(0.9);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer;
+}
+.teamSlideImg:hover {
+  filter: grayscale(0) brightness(1.25) drop-shadow(0 0 8px rgba(61,126,255,0.7));
+  transform: scale(1.12);
+}
+@keyframes scrollTeams {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── CARRUSEL DE IMÁGENES (full-width) ── */
+.sliderContainer {
+  width: 100vw;
+  position: relative;
+  left: 50%; right: 50%;
+  margin-left: -50vw; margin-right: -50vw;
+  overflow: hidden;
+  background: rgba(0,0,0,0.25);
+  padding: 32px 0;
+  margin-top: 0;
   margin-bottom: 48px;
+  /* Fade en los bordes */
+  mask-image: linear-gradient(to right, transparent 0px, black 80px, black calc(100% - 80px), transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0px, black 80px, black calc(100% - 80px), transparent 100%);
 }
-@media (min-width: 768px) { .quickNav { grid-template-columns: repeat(4, 1fr); } }
-
-.navCard {
+.sliderTrack {
   display: flex;
-  flex-direction: column;
-  padding: 16px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: var(--card);
-  text-decoration: none;
-  transition: border-color 200ms;
+  animation: scrollLeft 30s linear infinite;
+  width: max-content;
 }
-.navCard:hover { border-color: rgba(61,126,255,0.35); }
-.navIcon  { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
-.navTitle { font-size: 0.875rem; font-weight: 600; color: var(--foreground); }
-.navDesc  { font-size: 0.75rem; color: var(--muted); margin-top: 4px; flex: 1; }
-.navExplore { display: flex; align-items: center; gap: 4px; font-size: 0.75rem; font-weight: 500; margin-top: 12px; }
+.sliderContainer:hover .sliderTrack { animation-play-state: paused; }
 
-/* Sections */
-.section { margin-bottom: 48px; }
+.slide { width: 340px; height: 200px; padding: 0 12px; flex-shrink: 0; }
+.slide img {
+  width: 100%; height: 100%;
+  object-fit: cover; border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  transition: all 0.3s ease;
+  filter: brightness(0.88) contrast(1.08);
+}
+.slide img:hover {
+  transform: scale(1.04); border-color: rgba(61,126,255,0.5);
+  filter: brightness(1); box-shadow: 0 12px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(61,126,255,0.3);
+}
+@keyframes scrollLeft {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(calc(-340px * 6)); }
+}
+
+/* ── SECTIONS ── */
+.section { margin-bottom: 52px; }
+
 .characterGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;
 }
 @media (min-width: 480px)  { .characterGrid { grid-template-columns: repeat(3, 1fr); } }
 @media (min-width: 768px)  { .characterGrid { grid-template-columns: repeat(4, 1fr); } }
 @media (min-width: 1024px) { .characterGrid { grid-template-columns: repeat(6, 1fr); } }
 
-.techGrid { display: grid; gap: 10px; grid-template-columns: 1fr; }
-@media (min-width: 640px)  { .techGrid { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1024px) { .techGrid { grid-template-columns: repeat(4, 1fr); } }
-
-.techCard {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 14px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: var(--card);
-  text-decoration: none;
-}
-.techRank {
-  width: 36px; height: 36px;
-  border-radius: 8px;
-  background: rgba(255,107,53,0.1);
-  color: var(--neon-orange);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  font-weight: 700;
-  flex-shrink: 0;
-}
-.techInfo { flex: 1; min-width: 0; }
-.techName { display: block; font-size: 0.875rem; font-weight: 600; color: var(--foreground); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.techSub  { font-size: 0.75rem; color: var(--muted); }
-.techPower { display: flex; align-items: center; gap: 4px; font-weight: 700; color: var(--neon-orange); font-size: 0.875rem; flex-shrink: 0; }
-
-/* Placeholder */
+/* ── PLACEHOLDER ── */
 .placeholder {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
   padding: 48px;
-  border: 2px dashed var(--border);
-  border-radius: 12px;
-  color: var(--muted);
-  font-size: 0.875rem;
-  text-align: center;
-}
-
-/* Carrusel Contenedor */
-.sliderContainer {
-  width: 100%;
-  overflow: hidden; /* Esconde lo que sale de los bordes */
-  background: rgba(0, 0, 0, 0.2);
-  padding: 40px 0;
-  margin: 20px 0;
-  position: relative;
-}
-
-/* El carril que se mueve */
-.sliderTrack {
-  display: flex;
-  width: calc(250px * 12); /* Ajusta según el ancho del slide y número de fotos */
-  animation: scrollLeft 30s linear infinite; /* 30s controla la velocidad */
-}
-
-/* Evita que se pause al hacer hover (opcional) */
-.sliderContainer:hover .sliderTrack {
-  animation-play-state: paused;
-}
-
-.slide {
-  width: 350px; /* Ancho de cada imagen */
-  height: 200px;
-  padding: 0 15px;
-  flex-shrink: 0;
-}
-
-/* Esto asegura que tanto fotos como GIFs se vean perfectos */
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Recorta el GIF para que llene el recuadro sin deformarse */
+  border: 1px dashed rgba(255,255,255,0.1);
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-  transition: all 0.3s ease;
-  
-  /* Opcional: un ligero filtro para que los GIFs saturen menos */
-  filter: brightness(0.9) contrast(1.1);
+  background: rgba(255,255,255,0.015);
+  color: var(--muted); font-size: 0.875rem; text-align: center;
 }
 
-.slide img:hover {
-  transform: scale(1.05);
-  border-color: var(--primary);
-  filter: brightness(1); /* Al pasar el ratón recupera todo el brillo */
-}
-
-/* Animación de movimiento */
-@keyframes scrollLeft {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-350px * 6)); /* Se mueve la mitad exacta del track total */
-  }
-}
-/* ── TECNICAS FAVORITAS ── */
+/* ── TECH FAV GRID ── */
 .techFavGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
 }
 @media (min-width: 640px)  { .techFavGrid { grid-template-columns: repeat(3, 1fr); } }
 @media (min-width: 1024px) { .techFavGrid { grid-template-columns: repeat(4, 1fr); } }
 
+/* ── TECH FAV CARD ── */
 .techFavCard {
-  position: relative;
-  background: #111620;
-  border: 1px solid #1e2836;
-  border-radius: 14px;
-  overflow: hidden;
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px; overflow: hidden; cursor: pointer;
+  position: relative; display: flex; flex-direction: column;
+  gap: 8px; padding: 10px 12px 12px 16px;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 .techFavCard:hover {
+  border-color: rgba(255,255,255,0.18);
   transform: translateY(-3px);
-  border-color: rgba(255,255,255,0.14);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.4);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  background: rgba(255,255,255,0.04);
 }
-
-.techFavAccent { height: 3px; width: 100%; }
-
-.techFavBody { padding: 12px 14px 13px; display: flex; flex-direction: column; gap: 6px; }
-
-.techFavTop  { display: flex; align-items: center; gap: 6px; }
+.techFavSide { position: absolute; left: 0; top: 0; bottom: 0; width: 3px; }
+.techFavHeader { display: flex; align-items: center; gap: 6px; }
 .techFavType {
-  font-size: 0.6rem; font-weight: 900; letter-spacing: 0.08em;
-  padding: 2px 8px; border-radius: 5px; border: 1px solid;
+  display: flex; align-items: center; gap: 4px;
+  padding: 2px 7px; border-radius: 6px; border: 1px solid;
+  font-size: 0.55rem; font-weight: 800;
 }
-.techFavEl   { font-size: 0.6rem; font-weight: 800; margin-left: auto; }
+.techFavDot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+.techFavEl  { font-size: 0.55rem; font-weight: 700; padding: 2px 6px; border-radius: 5px; margin-left: auto; }
+.techFavNames { display: flex; flex-direction: column; gap: 1px; }
+.techFavName  { font-size: 0.75rem; font-weight: 700; color: var(--foreground); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.techFavJa    { font-size: 0.6rem; color: var(--muted); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.techFavBar { display: flex; flex-direction: column; gap: 4px; }
+.techFavBarMeta { display: flex; align-items: center; justify-content: space-between; }
+.techFavBarLabel { font-size: 0.55rem; color: var(--muted); font-weight: 600; letter-spacing: .04em; }
+.techFavBarNum   { font-size: 0.7rem; font-weight: 900; }
+.techFavBarTrack { height: 4px; border-radius: 4px; background: rgba(255,255,255,0.06); overflow: hidden; }
+.techFavBarFill  { height: 100%; border-radius: 4px; transition: width 0.5s ease; }
 
-.techFavName {
-  font-size: 0.85rem; font-weight: 800; color: #e2e8f0;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 0;
+/* ── TECH MODAL ── */
+.techModalOverlay {
+  position: fixed; inset: 0; z-index: 100;
+  background: rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center;
+  padding: 20px; backdrop-filter: blur(8px);
 }
-.techFavJa   { font-size: 0.65rem; color: #4a5568; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-
-.techFavStats { display: flex; align-items: center; justify-content: space-between; margin-top: 2px; }
-.techFavPwr   { font-size: 1.2rem; font-weight: 900; line-height: 1; }
-.techFavCosts {
-  display: flex; flex-direction: column; align-items: flex-end;
-  gap: 2px; font-size: 0.62rem; font-weight: 700; color: #4a5568;
+.techModalContent {
+  background: #0d111e; border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px; overflow: hidden; max-width: 480px; width: 100%;
+  position: relative; box-shadow: 0 24px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05);
 }
-.techFavCosts span { display: flex; align-items: center; gap: 3px; }
+.techModalClose {
+  position: absolute; top: 12px; right: 12px; z-index: 10;
+  width: 34px; height: 34px; border-radius: 8px;
+  background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.12); color: #fff;
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+  transition: background 0.2s;
+}
+.techModalClose:hover { background: #ef4444; }
+.techModalHeader { padding: 24px 22px 18px; position: relative; overflow: hidden; }
+.techModalGlow {
+  position: absolute; bottom: -30px; left: -30px;
+  width: 200px; height: 200px; border-radius: 50%;
+  opacity: 0.18; filter: blur(40px); pointer-events: none;
+}
+.techModalType  { font-size: 0.65rem; font-weight: 700; color: rgba(255,255,255,0.65); letter-spacing: .1em; }
+.techModalTitle { font-size: 1.3rem; font-weight: 900; color: #fff; margin: 4px 0 2px; }
+.techModalSub   { font-size: 0.75rem; color: rgba(255,255,255,0.45); margin: 0; }
+.techModalBody  { padding: 14px 20px 20px; display: flex; flex-direction: column; gap: 12px; }
+.techVideoWrap  { border-radius: 12px; overflow: hidden; background: #000; aspect-ratio: 16/9; }
+.techVideo      { width: 100%; height: 100%; object-fit: contain; }
+.techNoVideo {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 8px; padding: 32px; color: var(--muted); font-size: 0.8rem;
+  border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px dashed rgba(255,255,255,0.08);
+}
+.techModalStats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.techStatBox {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px; padding: 12px; text-align: center;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.techStatVal { font-size: 1.4rem; font-weight: 900; color: var(--foreground); }
+.techStatLbl { font-size: 0.6rem; color: var(--muted); font-weight: 700; letter-spacing: .06em; }
+.techModalCost {
+  display: flex; align-items: center; gap: 8px; font-size: 0.75rem; color: var(--muted);
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 8px; padding: 10px 14px;
+}
 
-/* spin para loading */
+/* Spinner */
 .spin { animation: spinHome 1s linear infinite; }
 @keyframes spinHome { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-
-/* ... resto de tu CSS anterior (Hero, Quick Nav, etc) queda igual ... */
-
-/* --- NUEVO: Carrusel Contenedor (Top) --- */
-.teamSliderContainer {
-  width: 100vw; /* Ocupa todo el ancho de la ventana */
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  overflow: hidden;
-  
-  /* CAMBIO 1: Fondo más sutil y transparente (menos contraste) */
-  background: #0a0c14; 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-  
-  /* CAMBIO 2: Padding reducido para hacerlo más estrecho */
-  padding: 12px 0; 
-  margin-bottom: 30px;
-  backdrop-filter: blur(2px); /* Un ligero toque de desenfoque queda pro */
-}
-
-/* El carril que se mueve */
-.teamSliderTrack {
-  display: flex;
-  align-items: center;
-  gap: 50px; /* Un poco menos de espacio entre logos */
-  width: max-content;
-  
-  /* CAMBIO 3: Ralentizado ligeramente para banderas más pequeñas */
-  animation: scrollTeams 55s linear infinite;
-}
-
-/* Evita que se pause al hacer hover (opcional, lo dejo activado) */
-.teamSliderContainer:hover .teamSliderTrack {
-  animation-play-state: paused;
-}
-
-.teamSlide {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Esto asegura que tanto fotos como GIFs se vean perfectos */
-.teamSlideImg {
-  /* CAMBIO 4: Banderas más pequeñas (de 50px a 38px) */
-  height: 38px; 
-  width: auto;
-  object-fit: contain;
-  
-  /* Un filtro sutil para que los colores no griten demasiado */
-  filter: grayscale(0.2) brightness(0.9);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-}
-
-.teamSlideImg:hover {
-  /* Al pasar el ratón, recuperan color y brillo neón */
-  filter: grayscale(0) brightness(1.2) drop-shadow(0 0 10px var(--primary));
-  transform: scale(1.08); /* Crece un poquito */
-}
-
-/* Animación de Derecha a Izquierda */
-@keyframes scrollTeams {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%); /* Se desplaza la mitad exacta del track total */
-  }
-}
-
-/* ... Resto de tu CSS anterior (Stats, Placeholder, etc) ... */

@@ -1,18 +1,94 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Users, Zap, Swords, Shield, ArrowRight, Star, Loader2, Heart, Activity } from 'lucide-react'
+import { Users, Zap, Shield, Loader2, Heart, Activity, X } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { getAllPlayers } from '../services/playerService'
+import { getElementColor } from '../utils/colors'
 import SectionHeader from '../components/common/SectionHeader'
 import CharacterCard from '../components/players/CharacterCard'
 import styles from './HomePage.module.css'
 
-const SECTIONS = [
-  { title: 'Jugadores', desc: 'Explora todos los personajes',      href: '/personajes', icon: Users,  color: '#3d7eff', bg: 'rgba(61,126,255,0.1)'  },
-  { title: 'Tecnicas',  desc: 'Descubre todas las supertecnicas', href: '/tecnicas',   icon: Zap,    color: '#ff6b35', bg: 'rgba(255,107,53,0.1)'  },
-  { title: 'Equipos',   desc: 'Consulta los equipos de cada temp',href: '/equipos',    icon: Swords, color: '#36d399', bg: 'rgba(54,211,153,0.1)'  },
-  { title: 'Mi Equipo', desc: 'Crea y guarda tu equipo ideal',     href: '/mi-equipo',  icon: Shield, color: '#f471b5', bg: 'rgba(244,113,181,0.1)' },
-]
+const TYPE_MAP    = { shot: 'Tiro', dribble: 'Regate', defense: 'Defensa', save: 'Parada' }
+const TYPE_COLORS = { Tiro: '#ff6b35', Parada: '#3d7eff', Regate: '#36d399', Defensa: '#f471b5' }
+
+// ── Mini card de técnica favorita con modal de vídeo ───────────────
+function TechFavCard({ tech }) {
+  const [open, setOpen] = useState(false)
+  const color        = getElementColor(tech.element)
+  const translated   = TYPE_MAP[tech.type] || tech.type
+  const typeColor    = TYPE_COLORS[translated] || '#888'
+  const powerPct     = Math.min(((tech.basePower || 0) / 120) * 100, 100)
+
+  return (
+    <>
+      <div className={styles.techFavCard} onClick={() => setOpen(true)}>
+        <div className={styles.techFavSide} style={{ background: `linear-gradient(180deg, ${color}, ${typeColor})` }} />
+        <div className={styles.techFavHeader}>
+          <span className={styles.techFavType} style={{ background: `${typeColor}22`, color: typeColor, borderColor: `${typeColor}44` }}>
+            <span className={styles.techFavDot} style={{ background: typeColor }} />
+            {translated.toUpperCase()}
+          </span>
+          <span className={styles.techFavEl} style={{ background: `${color}22`, color }}>{tech.element}</span>
+        </div>
+        <div className={styles.techFavNames}>
+          <h4 className={styles.techFavName}>{tech.name}</h4>
+          {tech.japaneseName && <p className={styles.techFavJa}>{tech.japaneseName}</p>}
+        </div>
+        <div className={styles.techFavBar}>
+          <div className={styles.techFavBarMeta}>
+            <span className={styles.techFavBarLabel}>POTENCIA</span>
+            <span className={styles.techFavBarNum} style={{ color }}>{tech.basePower}</span>
+          </div>
+          <div className={styles.techFavBarTrack}>
+            <div className={styles.techFavBarFill} style={{ width: `${powerPct}%`, background: `linear-gradient(90deg, ${color}88, ${color})` }} />
+          </div>
+        </div>
+      </div>
+
+      {/* Modal con video */}
+      {open && (
+        <div className={styles.techModalOverlay} onClick={() => setOpen(false)}>
+          <div className={styles.techModalContent} onClick={e => e.stopPropagation()}>
+            <button className={styles.techModalClose} onClick={() => setOpen(false)}><X size={20} /></button>
+            <div className={styles.techModalHeader} style={{ background: `linear-gradient(135deg, ${color}CC 0%, #0f172a 100%)` }}>
+              <div className={styles.techModalGlow} style={{ background: color }} />
+              <div>
+                <span className={styles.techModalType}>{tech.element} · {translated.toUpperCase()}</span>
+                <h2 className={styles.techModalTitle}>{tech.name}</h2>
+                <p className={styles.techModalSub}>{tech.japaneseName}</p>
+              </div>
+            </div>
+            <div className={styles.techModalBody}>
+              {tech.videoUrl ? (
+                <div className={styles.techVideoWrap}>
+                  <video key={tech.videoUrl} autoPlay loop playsInline className={styles.techVideo}>
+                    <source src={tech.videoUrl} type="video/mp4" />
+                  </video>
+                </div>
+              ) : (
+                <div className={styles.techNoVideo}><Zap size={24} /><span>Sin vídeo disponible</span></div>
+              )}
+              <div className={styles.techModalStats}>
+                <div className={styles.techStatBox}>
+                  <span className={styles.techStatVal}>{tech.basePower}</span>
+                  <span className={styles.techStatLbl}>POTENCIA</span>
+                </div>
+                <div className={styles.techStatBox}>
+                  <span className={styles.techStatVal}>{tech.cost?.tension || 0}</span>
+                  <span className={styles.techStatLbl}>TENSIÓN</span>
+                </div>
+              </div>
+              <div className={styles.techModalCost}>
+                <Activity size={14} />
+                <span>Requiere {tech.cost?.stamina || 0} PE de Resistencia</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  )
+}
 
 const SLIDER_IMAGES = [
   'axel.png', 'axel_capucha.png', 'byron_love.gif',
@@ -143,24 +219,6 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* ... Resto de tu código (Quick Nav, Favoritos, etc) queda igual ... */}
-      
-      {/* Quick Nav */}
-      <section className={styles.quickNav}>
-        {SECTIONS.map(({ title, desc, href, icon: Icon, color, bg }) => (
-          <Link key={href} to={href} className={`${styles.navCard} card-hover`}>
-            <div className={styles.navIcon} style={{ background: bg }}>
-              <Icon size={20} style={{ color }} />
-            </div>
-            <h3 className={styles.navTitle}>{title}</h3>
-            <p className={styles.navDesc}>{desc}</p>
-            <span className={styles.navExplore} style={{ color }}>
-              Explorar <ArrowRight size={12} />
-            </span>
-          </Link>
-        ))}
-      </section>
-
       {/* Sección de Jugadores Favoritos */}
       <section className={styles.section}>
         <SectionHeader title="Jugadores Favoritos" subtitle="Tus estrellas personalizadas del campo" href="/personajes" />
@@ -184,14 +242,19 @@ export default function HomePage() {
       {/* Sección de Tecnicas Favoritas */}
       <section className={styles.section}>
         <SectionHeader title="Tecnicas Favoritas" subtitle="Tus supertecnicas preferidas" href="/tecnicas" />
-        {/* Tu mapeo de favTecnicas... */}
-        {favTecnicas.length > 0 && (
+        {!user ? (
+          <div className={styles.placeholder}>
+            <Zap size={32} style={{ color: '#ff6b35' }} />
+            <p>Inicia sesion para ver tus técnicas favoritas</p>
+          </div>
+        ) : loadingTecFavs ? (
+          <div className={styles.placeholder}><Loader2 size={32} className={styles.spin} /></div>
+        ) : favTecnicas.length === 0 ? (
+          <div className={styles.placeholder}><Zap size={32} /><p>Aun no tienes tecnicas favoritas.</p></div>
+        ) : (
           <div className={styles.techFavGrid}>
             {favTecnicas.map(tech => (
-              <div key={tech._id} className={styles.techFavCard}>
-                {/* Contenido de la carta de técnica */}
-                <p className={styles.techFavName}>{tech.name}</p>
-              </div>
+              <TechFavCard key={tech._id} tech={tech} />
             ))}
           </div>
         )}

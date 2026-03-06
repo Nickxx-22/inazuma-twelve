@@ -27,6 +27,29 @@ equipos = db["equipos"]
 jugadores = db["jugadores"]
 usuarios = db["usuarios"]
 
+# ── AUTO-SETUP: crea el usuario admin si no existe ──────────────────
+def _ensure_admin():
+    """Crea el usuario admin 'Nico' al arrancar si no existe ya."""
+    if not usuarios.find_one({"username": "Nico"}):
+        usuarios.insert_one({
+            "username":           "Nico",
+            "email":              "nico@admin.com",
+            "password":           "20052722",
+            "role":               "admin",
+            "favoritos":          [],
+            "favoritos_tecnicas": [],
+            "equipo":             [],
+            "equipos":            {},
+            "createdAt":          datetime.utcnow(),
+        })
+        print("✅ Admin 'Nico' creado automáticamente")
+    else:
+        # Nos aseguramos de que siempre tenga role=admin
+        usuarios.update_one({"username": "Nico"}, {"$set": {"role": "admin", "password": "20052722"}})
+
+_ensure_admin()
+# ─────────────────────────────────────────────────────────────────────
+
 # ----------------- RUTA DE IMÁGENES -----------------
 @app.route("/img/<path:filename>")
 def serve_image(filename):
@@ -124,6 +147,7 @@ def iniciar_sesion():
             "id": str(usuario["_id"]),
             "username": usuario["username"],
             "email": usuario["email"],
+            "role": usuario.get("role", "user"),
             "favoritos": usuario.get("favoritos", []),
             "equipo": usuario.get("equipo", [])
         }
@@ -251,12 +275,46 @@ def detalle_jugador(id):
 
         imagen_url = f"{base_url}{path_imagen}" if path_imagen.startswith("/") else f"{base_url}/{path_imagen}"
             
+        # ── Imagen de elemento ──
+        element_img = ""
+        el_img_field = jugador.get("element_image")
+        if el_img_field and isinstance(el_img_field, dict):
+            el_path = el_img_field.get("url", "")
+            if el_path.startswith("/"):
+                element_img = f"{base_url}{el_path}"
+
+        # ── Imagen de posición ──
+        position_img = ""
+        pos_img_field = jugador.get("position_image")
+        if pos_img_field and isinstance(pos_img_field, dict):
+            pos_path = pos_img_field.get("url", "")
+            if pos_path.startswith("/"):
+                position_img = f"{base_url}{pos_path}"
+
+        # ── País e imagen de país ──
+        country_raw = jugador.get("country", "")
+        if isinstance(country_raw, dict):
+            country_name = country_raw.get("name", "")
+            flag_path = country_raw.get("flag", "") or country_raw.get("image", "")
+            country_img = f"{base_url}{flag_path}" if flag_path.startswith("/") else flag_path
+        else:
+            country_name = str(country_raw) if country_raw else ""
+            # country es string — buscar country_image separado
+            ci = jugador.get("country_image")
+            if ci and isinstance(ci, dict):
+                ci_path = ci.get("url", "")
+                country_img = f"{base_url}{ci_path}" if ci_path.startswith("/") else ci_path
+            else:
+                country_img = ""
+
         character = {
             "id": str(jugador["_id"]),
             "name": jugador.get("name"),
             "japaneseName": jugador.get("japaneseName", ""),
             "element": jugador.get("element"),
+            "elementImg": element_img,
             "position": jugador.get("position"),
+            "positionImg": position_img,
             "gender": "Masculino" if jugador.get("sex") == "M" else "Femenino",
             "nature": jugador.get("nature"),
             "role": jugador.get("role"),
@@ -264,11 +322,11 @@ def detalle_jugador(id):
             "description": jugador.get("description", ""),
             "image": imagen_url,
             "stats": jugador.get("stats", {}),
-            "matchStats": jugador.get("matchStats", { "stamina": 0, "tension": 0 }), # [2026-02-25]
+            "matchStats": jugador.get("matchStats", { "stamina": 0, "tension": 0 }),
             "power": jugador.get("stats", {}).get("kicking", 0),
             "teams": jugador.get("teams", []),
-            "country": (jugador.get("country", {}) or {}).get("name", jugador.get("country", "")) if isinstance(jugador.get("country"), dict) else jugador.get("country", ""),
-            "countryImg": (f"{base_url}{jugador['country']['flag']}" if isinstance(jugador.get("country"), dict) and jugador["country"].get("flag", "").startswith("/") else (jugador.get("country", {}) or {}).get("flag", "")) if isinstance(jugador.get("country"), dict) else "",
+            "country": country_name,
+            "countryImg": country_img,
         }
 
         # --- TÉCNICAS (CON VIDEO Y COSTES) ---
@@ -536,6 +594,7 @@ def obtener_usuario(user_id):
             "id":                   str(usuario["_id"]),
             "username":             usuario.get("username", ""),
             "email":                usuario.get("email", ""),
+            "role":                 usuario.get("role", "user"),
             "favoritos":            usuario.get("favoritos", []),
             "favoritos_tecnicas":   usuario.get("favoritos_tecnicas", []),
             "equipo":               usuario.get("equipo", []),
@@ -631,6 +690,101 @@ def toggle_favorito_tecnica():
 
     except Exception as e:
         return jsonify({"message": str(e)}), 500
+
+# ─────────────────────────── ADMIN ───────────────────────────
+
+def require_admin(f):
+    """Decorador: sólo usuarios con role='admin' pueden usar el endpoint."""
+    from functools import wraps
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        token = request.headers.get('Authorization', '').replace('Bearer ', '')
+        if not token:
+            return jsonify({"message": "Token requerido"}), 401
+        try:
+            payload = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
+            user_id = payload.get("sub")
+            user = usuarios.find_one({"_id": ObjectId(user_id)})
+            if not user or user.get("role") != "admin":
+                return jsonify({"message": "Acceso denegado"}), 403
+        except Exception:
+            return jsonify({"message": "Token inválido"}), 401
+        return f(*args, **kwargs)
+    return decorated
+
+
+@app.route('/admin/usuarios', methods=['GET'])
+@require_admin
+def admin_listar_usuarios():
+    """Lista todos los usuarios (sin contraseña)."""
+    try:
+        todos = list(usuarios.find({}, {"password": 0}))
+        result = []
+        for u in todos:
+            result.append({
+                "id":        str(u["_id"]),
+                "username":  u.get("username", ""),
+                "email":     u.get("email", ""),
+                "role":      u.get("role", "user"),
+                "createdAt": str(u.get("createdAt", "")),
+                "favoritos": len(u.get("favoritos", [])),
+                "favoritos_tecnicas": len(u.get("favoritos_tecnicas", [])),
+                "equipos":   len(u.get("equipos", {})),
+            })
+        return jsonify({"usuarios": result}), 200
+    except Exception as e:
+        return jsonify({"message": str(e)}), 500
+
+
+@app.route('/admin/usuarios/<user_id>', methods=['DELETE'])
+@require_admin
+def admin_eliminar_usuario(user_id):
+    """Elimina un usuario por id."""
+    try:
+        resultado = usuarios.delete_one({"_id": ObjectId(user_id)})
+        if resultado.deleted_count == 0:
+            return jsonify({"message": "Usuario no encontrado"}), 404
+        return jsonify({"message": "Usuario eliminado"}), 200
+    except Exception as e:
+        return jsonify({"message": str(e)}), 500
+
+
+@app.route('/admin/usuarios/<user_id>/role', methods=['PUT'])
+@require_admin
+def admin_cambiar_role(user_id):
+    """Cambia el role de un usuario (user / admin / banned)."""
+    data = request.get_json()
+    new_role = data.get("role")
+    if new_role not in ("user", "admin", "banned"):
+        return jsonify({"message": "Role inválido"}), 400
+    try:
+        usuarios.update_one({"_id": ObjectId(user_id)}, {"$set": {"role": new_role}})
+        return jsonify({"message": f"Role actualizado a {new_role}"}), 200
+    except Exception as e:
+        return jsonify({"message": str(e)}), 500
+
+
+@app.route('/admin/usuarios/<user_id>', methods=['GET'])
+@require_admin
+def admin_detalle_usuario(user_id):
+    """Detalle completo de un usuario para el panel admin."""
+    try:
+        u = usuarios.find_one({"_id": ObjectId(user_id)}, {"password": 0})
+        if not u:
+            return jsonify({"message": "No encontrado"}), 404
+        return jsonify({
+            "id":        str(u["_id"]),
+            "username":  u.get("username", ""),
+            "email":     u.get("email", ""),
+            "role":      u.get("role", "user"),
+            "createdAt": str(u.get("createdAt", "")),
+            "favoritos": u.get("favoritos", []),
+            "favoritos_tecnicas": u.get("favoritos_tecnicas", []),
+            "equipos":   u.get("equipos", {}),
+        }), 200
+    except Exception as e:
+        return jsonify({"message": str(e)}), 500
+
 
 # ----------------- RUN -----------------
 if __name__ == "__main__":

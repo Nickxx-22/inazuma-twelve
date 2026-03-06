@@ -1,0 +1,238 @@
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 28px 16px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── HEADER ── */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.titleIcon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f59e0b33, #f59e0b11);
+  border: 1px solid #f59e0b44;
+  display: flex; align-items: center; justify-content: center;
+  color: #f59e0b;
+  flex-shrink: 0;
+}
+.title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--foreground);
+  margin: 0;
+}
+.subtitle {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin: 2px 0 0;
+}
+
+/* Stats */
+.statsRow {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.statCard {
+  flex: 1; min-width: 100px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.statIcon { color: var(--muted); }
+.statNum  { font-size: 1.5rem; font-weight: 900; color: var(--foreground); line-height: 1; }
+.statLbl  { font-size: 0.65rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
+
+/* ── TOOLBAR ── */
+.toolbar {
+  display: flex;
+  gap: 10px;
+}
+.searchInput {
+  flex: 1;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 14px;
+  color: var(--foreground);
+  font-size: 0.85rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.searchInput:focus { border-color: rgba(255,255,255,0.2); }
+.refreshBtn {
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+.refreshBtn:hover { color: var(--foreground); border-color: rgba(255,255,255,0.2); }
+
+/* ── LIST ── */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 40px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* ── USER ROW ── */
+.userRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: border-color 0.2s, background 0.2s;
+  position: relative;
+}
+.userRow:hover {
+  border-color: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.02);
+}
+.userRow.banned { opacity: 0.6; }
+
+.avatar {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  border: 1px solid;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; font-weight: 800;
+  flex-shrink: 0;
+}
+
+.userInfo {
+  flex: 1; min-width: 0;
+  display: flex; flex-direction: column; gap: 2px;
+}
+.username { font-size: 0.85rem; font-weight: 700; color: var(--foreground); }
+.email    { font-size: 0.7rem;  color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Mini stats */
+.userStats {
+  display: none;
+  align-items: center;
+  gap: 6px;
+}
+@media (min-width: 600px) { .userStats { display: flex; } }
+.statPill {
+  display: flex; align-items: center; gap: 3px;
+  padding: 2px 7px; border-radius: 6px;
+  background: rgba(255,255,255,0.06);
+  font-size: 0.6rem; color: var(--muted);
+}
+
+/* Role selector */
+.roleWrap { position: relative; flex-shrink: 0; }
+.roleBtn {
+  display: flex; align-items: center; gap: 5px;
+  padding: 5px 10px; border-radius: 8px; border: 1px solid;
+  font-size: 0.7rem; font-weight: 700;
+  cursor: pointer; white-space: nowrap;
+  transition: opacity 0.2s;
+}
+.roleBtn:disabled { opacity: 0.6; cursor: default; }
+
+.roleDropdown {
+  position: absolute;
+  top: calc(100% + 4px); right: 0;
+  z-index: 20;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  min-width: 120px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+.roleOption {
+  display: block; width: 100%;
+  padding: 9px 14px; text-align: left;
+  font-size: 0.75rem; font-weight: 600;
+  color: var(--muted);
+  background: transparent;
+  border: none; cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.roleOption:hover { background: rgba(255,255,255,0.05); color: var(--foreground); }
+.roleOption.roleOptionActive { color: var(--rc, var(--foreground)); background: rgba(255,255,255,0.04); }
+
+/* Delete button */
+.deleteRowBtn {
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  background: rgba(239,68,68,0.1);
+  border: 1px solid rgba(239,68,68,0.2);
+  color: #ef4444;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; flex-shrink: 0;
+  transition: background 0.2s, border-color 0.2s;
+}
+.deleteRowBtn:hover { background: rgba(239,68,68,0.2); border-color: rgba(239,68,68,0.4); }
+
+/* ── MODAL CONFIRM ── */
+.modalOverlay {
+  position: fixed; inset: 0; z-index: 100;
+  background: rgba(0,0,0,0.7);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+}
+.confirmBox {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 24px;
+  max-width: 380px; width: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 16px;
+  text-align: center;
+}
+.warnIcon { color: #f59e0b; }
+.confirmMsg { font-size: 0.875rem; color: var(--foreground); line-height: 1.5; }
+.confirmBtns { display: flex; gap: 10px; width: 100%; }
+.cancelBtn {
+  flex: 1; padding: 10px; border-radius: 10px;
+  background: rgba(255,255,255,0.06); border: 1px solid var(--border);
+  color: var(--foreground); font-size: 0.8rem; font-weight: 600; cursor: pointer;
+}
+.cancelBtn:hover { background: rgba(255,255,255,0.1); }
+.deleteBtn {
+  flex: 1; padding: 10px; border-radius: 10px;
+  background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.3);
+  color: #ef4444; font-size: 0.8rem; font-weight: 700; cursor: pointer;
+}
+.deleteBtn:hover { background: rgba(239,68,68,0.25); }
+
+/* Spinner */
+@keyframes spin { to { transform: rotate(360deg); } }
+.spin { animation: spin 0.8s linear infinite; }

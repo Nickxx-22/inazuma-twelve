@@ -3,15 +3,16 @@
 
 /* ─── Variables ──────────────────────────────────────────── */
 :root {
-  --bg:          #0a0c14;
-  --surface-1:   #0f1118;
-  --surface-2:   #141720;
-  --surface-3:   #1a1e2e;
-  --card:        #111420;
-  --border:      #1e2440;
+  /* Fondos — un poco más claros que antes para dar profundidad */
+  --bg:          #080b16;
+  --surface-1:   #0d1020;
+  --surface-2:   #121728;
+  --surface-3:   #181d30;
+  --card:        #10142200;   /* transparente para heredar bg */
+  --border:      rgba(255,255,255,0.09);
 
-  --foreground:  #e2e8f0;
-  --muted:       #6b7a9e;
+  --foreground:  #e8eef8;
+  --muted:       #7080a0;
 
   --primary:     #3d7eff;
   --primary-fg:  #ffffff;
@@ -20,8 +21,9 @@
   --neon-orange: #ff6b35;
   --neon-green:  #36d399;
   --neon-pink:   #f471b5;
+  --neon-yellow: #f5c518;
 
-  --destructive: #ef4444;
+  --destructive:    #ef4444;
   --destructive-fg: #fca5a5;
 
   --radius: 0.75rem;
@@ -30,8 +32,14 @@
   color-scheme: dark;
 }
 
+/* ─── Body con fondo degradado sutil ─── */
 body {
-  background: var(--bg);
+  background:
+    radial-gradient(ellipse at 0% 0%,   rgba(61,126,255,0.07) 0%, transparent 50%),
+    radial-gradient(ellipse at 100% 80%, rgba(244,113,181,0.05) 0%, transparent 45%),
+    radial-gradient(ellipse at 60% 40%,  rgba(54,211,153,0.03) 0%, transparent 40%),
+    var(--bg);
+  background-attachment: fixed;
   color: var(--foreground);
   min-height: 100vh;
   line-height: 1.6;
@@ -39,40 +47,59 @@ body {
 }
 
 /* ─── Scrollbar ───────────────────────────────────────────── */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--surface-2); }
-::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(61,126,255,0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(61,126,255,0.5); }
 
-/* ─── Clases de utilidad compartidas ─────────────────────── */
+/* ─── Cards base — fondo con micro-translucidez ────────── */
+.card-base {
+  background: rgba(255,255,255,0.028);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: var(--radius);
+  backdrop-filter: blur(4px);
+}
+
+/* ─── Hover global mejorado ──────────────────────────────── */
 .card-hover {
-  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease, background 200ms ease;
 }
 .card-hover:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(61, 126, 255, 0.12);
+  transform: translateY(-3px);
+  box-shadow:
+    0 8px 28px rgba(0,0,0,0.35),
+    0 0 0 1px rgba(61,126,255,0.2);
+  border-color: rgba(61,126,255,0.28) !important;
+  background: rgba(255,255,255,0.04) !important;
 }
 
-.neon-text-blue   { color: var(--neon-blue);   text-shadow: 0 0 20px rgba(61,126,255,0.45); }
-.neon-text-orange { color: var(--neon-orange);  text-shadow: 0 0 20px rgba(255,107,53,0.45); }
-.neon-text-yellow { color: var(--neon-yellow); text-shadow: 0 0 20px rgb(173, 143, 7); }
+/* ─── Textos neón ─────────────────────────────────────────── */
+.neon-text-blue   { color: var(--neon-blue);   text-shadow: 0 0 22px rgba(61,126,255,0.55); }
+.neon-text-orange { color: var(--neon-orange);  text-shadow: 0 0 22px rgba(255,107,53,0.55); }
+.neon-text-yellow { color: var(--neon-yellow);  text-shadow: 0 0 22px rgba(245,197,24,0.55); }
+.neon-text-green  { color: var(--neon-green);   text-shadow: 0 0 22px rgba(54,211,153,0.55); }
+.neon-text-pink   { color: var(--neon-pink);    text-shadow: 0 0 22px rgba(244,113,181,0.55); }
 
 /* ─── Formularios (base global) ───────────────────────────── */
 input, select, textarea {
   font-family: inherit;
   font-size: 0.875rem;
-  background: var(--surface-2);
+  background: rgba(255,255,255,0.05);
   color: var(--foreground);
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: 0.5rem;
   outline: none;
-  transition: border-color 150ms;
+  transition: border-color 150ms, box-shadow 150ms;
 }
 input:focus, select:focus, textarea:focus {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 1px var(--primary);
+  border-color: rgba(61,126,255,0.6);
+  box-shadow: 0 0 0 3px rgba(61,126,255,0.15);
 }
 input::placeholder { color: var(--muted); }
-select option      { background: var(--surface-2); }
+select option      { background: #0d1020; }
 
 /* ─── Animaciones globales ────────────────────────────────── */
 @keyframes fadeInUp {
@@ -86,3 +113,8 @@ select option      { background: var(--surface-2); }
 
 .animate-fade-in-up { animation: fadeInUp 280ms ease both; }
 .animate-fade-in    { animation: fadeIn   200ms ease both; }
+
+/* ─── Línea de acento global en cards con borde top ──────── */
+.accent-top-blue  { border-top: 2px solid rgba(61,126,255,0.5)  !important; }
+.accent-top-orange{ border-top: 2px solid rgba(255,107,53,0.5)  !important; }
+.accent-top-green { border-top: 2px solid rgba(54,211,153,0.5)  !important; }

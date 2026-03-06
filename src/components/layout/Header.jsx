@@ -6,7 +6,7 @@ import { logoutUser } from '../../services/authService'
 import logoImg from '../img/inazuma_japon.png'
 import styles from './Header.module.css'
 
-const NAV_ITEMS = [
+const NAV_ITEMS_USER = [
   { href: '/',           label: 'Inicio',    icon: Home,    accent: '#3d7eff' },
   { href: '/personajes', label: 'Jugadores', icon: Users,   accent: '#36d399' },
   { href: '/tecnicas',   label: 'Tecnicas',  icon: BookOpen, accent: '#f59e0b' },
@@ -14,11 +14,21 @@ const NAV_ITEMS = [
   { href: '/mi-equipo',  label: 'Mi Equipo', icon: Shield,  accent: '#a78bfa' },
 ]
 
+const NAV_ITEMS_ADMIN = [
+  { href: '/',           label: 'Inicio',    icon: Home,     accent: '#3d7eff' },
+  { href: '/personajes', label: 'Jugadores', icon: Users,    accent: '#36d399' },
+  { href: '/tecnicas',   label: 'Tecnicas',  icon: BookOpen, accent: '#f59e0b' },
+  { href: '/equipos',    label: 'Equipos',   icon: Swords,   accent: '#f471b5' },
+  { href: '/admin',      label: 'Admin',     icon: Settings, accent: '#ff8c00' },
+]
+
 export default function Header() {
   const { pathname }      = useLocation()
   const navigate          = useNavigate()
   const { user, refresh } = useAuth()
   const [open, setOpen]   = useState(false)
+
+  const NAV_ITEMS = user?.role === 'admin' ? NAV_ITEMS_ADMIN : NAV_ITEMS_USER
 
   useEffect(() => {
     const onAuthChange = () => refresh()
@@ -72,13 +82,6 @@ export default function Header() {
               </Link>
             )
           })}
-          {user?.role === 'admin' && (
-            <Link to="/admin" className={`${styles.navLink} ${isActive('/admin') ? styles.navLinkActive : ''}`}
-              style={isActive('/admin') ? { '--accent': '#ff8c00' } : {}}>
-              <span className={styles.navIcon}><Settings size={14} /></span>
-              <span className={styles.navLabel}>Admin</span>
-            </Link>
-          )}
         </nav>
 
         {/* Actions */}

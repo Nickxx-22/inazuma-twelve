@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from 'react'
 import { Plus, X, Save, Trash2, Search, Loader2, Folder, PlusCircle, Check, Shield } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
+import { useNavigate } from 'react-router-dom'
 import { getElementColor } from '../utils/colors'
 import { getAllPlayers } from '../services/playerService'
 import styles from './MiEquipoPage.module.css'
@@ -106,6 +107,7 @@ function getUserId(user) {
 // ── PÁGINA PRINCIPAL ────────────────────────────────────────────────
 export default function MiEquipoPage() {
   const { user } = useAuth()
+  const navigate  = useNavigate()
   const [characters, setCharacters] = useState([])
   const [loading, setLoading] = useState(true)
   const [isSaving, setIsSaving] = useState(false)
@@ -116,6 +118,15 @@ export default function MiEquipoPage() {
   const [misEquipos, setMisEquipos] = useState({})
   const [equipoSeleccionado, setEquipoSeleccionado] = useState("")
   const [nombreTemp, setNombreTemp] = useState("")
+
+  // Si el usuario es admin, redirigir al panel de administración
+  useEffect(() => {
+    const stored = localStorage.getItem('inazuma-user')
+    const u = stored ? JSON.parse(stored) : null
+    if (u?.role === 'admin') {
+      navigate('/admin', { replace: true })
+    }
+  }, [navigate])
 
   const FORMATION = [
     { position: 'Portero' }, { position: 'Defensa' }, { position: 'Defensa' },
