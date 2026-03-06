@@ -33,39 +33,36 @@ export default function CharacterCard({ character }) {
               {character.position}
             </span>
           </div>
-
-          {/* Elemento + Power + Bandera inferiores */}
-          <div className={styles.bottomRow}>
-            <div className={styles.elementDot} style={{ background: elColor }}>
-              {character.element.charAt(0)}
-            </div>
-
-            {/* Bandera del país (si existe) */}
-            {character.countryImg && (
-              <img
-                src={character.countryImg}
-                alt={character.country || ''}
-                className={styles.flagBadge}
-                title={character.country}
-              />
-            )}
-
-            <div className={styles.powerBadge}>PWR {character.power}</div>
-          </div>
         </div>
 
         {/* Info del personaje */}
         <div className={styles.info}>
           <h3 className={styles.name}>{character.name}</h3>
           <p className={styles.jaName}>{character.japaneseName}</p>
-          <div className={styles.meta}>
-            <span>{character.role}</span>
-            {character.country && (
-              <>
-                <span className={styles.sep}>|</span>
-                <span className={styles.countryText}>{character.country}</span>
-              </>
-            )}
+          <div className={styles.bottomMeta}>
+            <div className={styles.metaLeft}>
+              <span>{character.role}</span>
+              {character.country && (
+                <>
+                  <span className={styles.sep}>|</span>
+                  <span className={styles.countryText}>{character.country}</span>
+                </>
+              )}
+            </div>
+            <div className={styles.metaRight}>
+              <div className={styles.elementDot} style={{ background: elColor }}>
+                {character.element.charAt(0)}
+              </div>
+              {character.countryImg && (
+                <img
+                  src={character.countryImg}
+                  alt={character.country || ''}
+                  className={styles.flagBadge}
+                  title={character.country}
+                />
+              )}
+              <div className={styles.powerBadge}>PWR {character.power}</div>
+            </div>
           </div>
         </div>
       </div>

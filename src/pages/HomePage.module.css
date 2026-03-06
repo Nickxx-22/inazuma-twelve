@@ -230,3 +230,79 @@
 /* spin para loading */
 .spin { animation: spinHome 1s linear infinite; }
 @keyframes spinHome { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+/* ... resto de tu CSS anterior (Hero, Quick Nav, etc) queda igual ... */
+
+/* --- NUEVO: Carrusel Contenedor (Top) --- */
+.teamSliderContainer {
+  width: 100vw; /* Ocupa todo el ancho de la ventana */
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  
+  /* CAMBIO 1: Fondo más sutil y transparente (menos contraste) */
+  background: #0a0c14; 
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  
+  /* CAMBIO 2: Padding reducido para hacerlo más estrecho */
+  padding: 12px 0; 
+  margin-bottom: 30px;
+  backdrop-filter: blur(2px); /* Un ligero toque de desenfoque queda pro */
+}
+
+/* El carril que se mueve */
+.teamSliderTrack {
+  display: flex;
+  align-items: center;
+  gap: 50px; /* Un poco menos de espacio entre logos */
+  width: max-content;
+  
+  /* CAMBIO 3: Ralentizado ligeramente para banderas más pequeñas */
+  animation: scrollTeams 55s linear infinite;
+}
+
+/* Evita que se pause al hacer hover (opcional, lo dejo activado) */
+.teamSliderContainer:hover .teamSliderTrack {
+  animation-play-state: paused;
+}
+
+.teamSlide {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Esto asegura que tanto fotos como GIFs se vean perfectos */
+.teamSlideImg {
+  /* CAMBIO 4: Banderas más pequeñas (de 50px a 38px) */
+  height: 38px; 
+  width: auto;
+  object-fit: contain;
+  
+  /* Un filtro sutil para que los colores no griten demasiado */
+  filter: grayscale(0.2) brightness(0.9);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.teamSlideImg:hover {
+  /* Al pasar el ratón, recuperan color y brillo neón */
+  filter: grayscale(0) brightness(1.2) drop-shadow(0 0 10px var(--primary));
+  transform: scale(1.08); /* Crece un poquito */
+}
+
+/* Animación de Derecha a Izquierda */
+@keyframes scrollTeams {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Se desplaza la mitad exacta del track total */
+  }
+}
+
+/* ... Resto de tu CSS anterior (Stats, Placeholder, etc) ... */

@@ -11,6 +11,9 @@ export default function EquiposPage() {
   const [selectedTeam, setSelectedTeam] = useState(null)
   const [seasonFilter, setSeasonFilter] = useState('')
 
+  // Duplicate teams for infinite scroll
+  const sliderTeams = teams.length > 0 ? [...teams, ...teams] : []
+
   useEffect(() => {
     const fetchTeams = async () => {
       try {
@@ -84,28 +87,27 @@ export default function EquiposPage() {
             onClick={() => setSelectedTeam(team)}
             style={{ '--team-color': team.color_primary || '#3d7eff' }}
           >
-            {/* Barra superior de color del equipo */}
-            <div className={styles.cardAccent} style={{ background: team.color_primary || '#3d7eff' }} />
+            {/* Background image del equipo */}
+            <div
+              className={styles.cardBgImage}
+              style={{ backgroundImage: `url(${team.image?.url})` }}
+            />
+            {/* Overlay de color */}
+            <div className={styles.cardOverlay} style={{ background: `linear-gradient(to top, ${team.color_primary || '#0a0e16'}ee 0%, ${team.color_primary || '#0a0e16'}88 50%, transparent 100%)` }} />
 
             <div className={styles.cardBody}>
-              {/* Logo + Info */}
-              <div className={styles.cardMain}>
-                <div className={styles.logoWrap} style={{ background: `${team.color_primary || '#3d7eff'}18`, borderColor: `${team.color_primary || '#3d7eff'}33` }}>
-                  <img src={team.image?.url} alt={team.name} className={styles.teamLogo} />
-                </div>
-                <div className={styles.cardInfo}>
-                  <h3 className={styles.teamName}>{team.name}</h3>
-                  {team.academy && (
-                    <p className={styles.teamAcademy}>
-                      <Shield size={11} /> {team.academy}
-                    </p>
-                  )}
-                  {team.country && (
-                    <p className={styles.teamCountry}>
-                      <MapPin size={11} /> {team.country}
-                    </p>
-                  )}
-                </div>
+              <div className={styles.cardInfo}>
+                <h3 className={styles.teamName}>{team.name}</h3>
+                {team.academy && (
+                  <p className={styles.teamAcademy}>
+                    <Shield size={11} /> {team.academy}
+                  </p>
+                )}
+                {team.country && (
+                  <p className={styles.teamCountry}>
+                    <MapPin size={11} /> {team.country}
+                  </p>
+                )}
               </div>
 
               {/* Footer de la card */}

@@ -166,14 +166,27 @@ export default function PersonajeDetailPage() {
               <img src={character.image} alt={character.name} className={styles.characterImg} />
               <div className={styles.topBadges}>
                 <span className={styles.badge} style={{ background: natColor }}>{character.nature?.toUpperCase()}</span>
-                <span className={styles.badge} style={{ background: 'var(--primary)' }}>{character.position}</span>
+                {/* Posición: imagen si existe */}
+                {character.positionImg ? (
+                  <img src={character.positionImg} alt={character.position} className={styles.positionBadgeImg} title={character.position} />
+                ) : (
+                  <span className={styles.badge} style={{ background: 'var(--primary)' }}>{character.position}</span>
+                )}
               </div>
             </div>
             <div className={styles.cardBody}>
               <h1 className={styles.name}>{character.name}</h1>
               <p className={styles.jaName}>{character.japaneseName}</p>
               <div className={styles.tags}>
-                <span className={styles.tag} style={{ background: elColor }}>{character.element}</span>
+                {/* Elemento: imagen si existe */}
+                {character.elementImg ? (
+                  <span className={styles.tagImgWrap} style={{ borderColor: `${elColor}44`, background: `${elColor}18` }}>
+                    <img src={character.elementImg} alt={character.element} className={styles.tagElementImg} />
+                    <span style={{ color: elColor }}>{character.element}</span>
+                  </span>
+                ) : (
+                  <span className={styles.tag} style={{ background: elColor }}>{character.element}</span>
+                )}
                 <span className={`${styles.tag} ${styles.tagSecondary}`}>{character.role}</span>
                 {character.country && (
                   <span className={styles.tagCountry}>

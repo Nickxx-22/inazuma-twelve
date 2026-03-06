@@ -164,6 +164,28 @@ def obtener_jugadores():
                 country_img = flag_path
         else:
             country_name = str(country_raw) if country_raw else ""
+            # Intentar leer country_image si country es string
+            ci = j.get("country_image")
+            if ci and isinstance(ci, dict):
+                ci_path = ci.get("url", "")
+                if ci_path.startswith("/"):
+                    country_img = f"{BASE_API_URL}{ci_path}"
+
+        # Imagen de posición
+        position_img = ""
+        pos_img_field = j.get("position_image")
+        if pos_img_field and isinstance(pos_img_field, dict):
+            pos_path = pos_img_field.get("url", "")
+            if pos_path.startswith("/"):
+                position_img = f"{BASE_API_URL}{pos_path}"
+
+        # Imagen de elemento
+        element_img = ""
+        el_img_field = j.get("element_image")
+        if el_img_field and isinstance(el_img_field, dict):
+            el_path = el_img_field.get("url", "")
+            if el_path.startswith("/"):
+                element_img = f"{BASE_API_URL}{el_path}"
 
         # ── Seasons: leídas DIRECTAMENTE de teams[].seasons del jugador ───
         # Estructura real en BD: teams: [{team_id, seasons: "Season_T3", ...}]
@@ -195,7 +217,9 @@ def obtener_jugadores():
             "name": j.get("name", ""),
             "japaneseName": j.get("japaneseName", ""),
             "element": j.get("element", ""),
+            "elementImg": element_img,
             "position": j.get("position", ""),
+            "positionImg": position_img,
             "gender": genero,
             "nature": j.get("nature", ""),
             "role": j.get("role", ""),
