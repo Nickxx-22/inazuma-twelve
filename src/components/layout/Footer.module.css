@@ -25,13 +25,21 @@
   color: var(--foreground);
 }
 .brandIcon {
-  width: 28px; height: 28px;
-  background: var(--primary);
+  width: 32px; height: 32px;
   border-radius: 6px;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  background: transparent;
+}
+
+.brandImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 0 3px rgba(255,200,0,0.4));
 }
 
 .links {

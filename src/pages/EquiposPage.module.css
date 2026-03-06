@@ -1,201 +1,218 @@
+/* ── PAGE ── */
 .page { max-width: 1280px; margin: 0 auto; padding: 32px 16px; }
-.pageHeader { margin-bottom: 24px; }
-.titleRow { display: flex; align-items: center; gap: 8px; }
-.title { font-size: 1.75rem; font-weight: 700; color: #fff; }
-.subtitle { font-size: 0.875rem; color: #94a3b8; margin-top: 4px; }
 
+/* ── PAGE HEADER ── */
+.pageHeader { margin-bottom: 28px; display: flex; flex-direction: column; gap: 16px; }
+@media (min-width: 768px) { .pageHeader { flex-direction: row; align-items: center; justify-content: space-between; } }
+
+.titleRow { display: flex; align-items: center; gap: 14px; }
+.titleIcon {
+  width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; box-shadow: 0 4px 16px rgba(245,158,11,0.4);
+}
+.title    { font-size: 1.8rem; font-weight: 900; letter-spacing: -0.02em; margin: 0; }
+.subtitle { font-size: 0.8rem; color: #4a5568; margin-top: 2px; display: flex; align-items: center; gap: 8px; }
+.countBadge {
+  background: rgba(61,126,255,0.12); color: #3d7eff;
+  padding: 2px 8px; border-radius: 999px; font-weight: 700; font-size: 0.72rem;
+}
+
+/* Filtro de temporada */
+.seasonTabs { display: flex; gap: 8px; flex-wrap: wrap; }
+.seasonTab {
+  padding: 7px 16px; border-radius: 99px; font-size: 0.8rem; font-weight: 700;
+  border: 1px solid #2a3545; background: #111620; color: #4a5568;
+  cursor: pointer; transition: all 0.18s;
+}
+.seasonTab:hover { border-color: rgba(255,255,255,0.18); color: #e2e8f0; }
+.seasonTabActive { border-color: #3d7eff; color: #3d7eff; background: rgba(61,126,255,0.12); }
+
+/* ── GRID ── */
 .grid { display: grid; gap: 14px; }
-@media (min-width: 640px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 640px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1024px) { .grid { grid-template-columns: repeat(3, 1fr); } }
 
-/* Tarjetas */
-.card { 
-  border-radius: 12px; 
-  border: 1px solid rgba(255,255,255,0.1); 
-  background: #1a1a2e; 
-  overflow: hidden; 
+/* ── CARD ── */
+.card {
+  border-radius: 16px;
+  border: 1px solid #1e2836;
+  background: #111620;
+  overflow: hidden;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: all 0.22s cubic-bezier(0.4,0,0.2,1);
+  position: relative;
 }
-.cardHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 16px;
-  background: rgba(255,255,255,0.02);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255,255,255,0.14);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.5), 0 0 0 1px var(--team-color, #3d7eff)22;
 }
-.headerMain { display: flex; align-items: center; gap: 12px; }
-.teamIcon { width: 42px; height: 42px; object-fit: contain; }
-.teamName { font-size: 1rem; font-weight: 700; color: #fff; }
-.captain { font-size: 0.75rem; color: #94a3b8; margin-top: 2px; }
-.season { background: rgba(61,126,255,0.15); color: #3d7eff; padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; font-weight: 700; }
 
-.cardBody { padding: 14px; }
-.membersLabel { display: flex; align-items: center; gap: 4px; font-size: 0.75rem; color: #94a3b8; margin-bottom: 10px; }
-.memberList { display: flex; flex-wrap: wrap; gap: 6px; }
-.memberChip {
-  display: flex; align-items: center; gap: 6px; background: #252545;
-  padding: 4px 8px; border-radius: 6px; font-size: 0.7rem; color: #fff;
-  text-decoration: none; border: 1px solid rgba(255,255,255,0.05);
+/* Línea de color en la parte superior */
+.cardAccent { height: 3px; width: 100%; }
+
+.cardBody { padding: 18px 18px 14px; }
+
+.cardMain { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+
+.logoWrap {
+  width: 56px; height: 56px; border-radius: 12px; flex-shrink: 0;
+  border: 1px solid; display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
 }
-.memberChip:hover { background: #3d7eff; }
-.memberAvatarImg { width: 18px; height: 18px; border-radius: 4px; object-fit: cover; }
-.memberAvatar { width: 18px; height: 18px; border-radius: 50%; background: #3d7eff; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; }
-.memberNameText { max-width: 70px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.memberMore { font-size: 0.7rem; color: #94a3b8; padding: 4px; }
+.teamLogo { width: 80%; height: 80%; object-fit: contain; }
 
-/* Modal Detallado */
-.modalOverlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); display: flex; align-items: center; justify-content: center; z-index: 1000; backdrop-filter: blur(4px); }
-.modalContent { background: #0f172a; width: 95%; max-width: 550px; border-radius: 20px; overflow: hidden; position: relative; max-height: 85vh; border: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; }
-.closeBtn { position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.3); border: none; color: #fff; border-radius: 50%; padding: 5px; cursor: pointer; z-index: 10; }
-
-.modalHeaderInfo { padding: 40px 30px; display: flex; align-items: center; gap: 20px; }
-.modalLogo {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  filter: drop-shadow(0 0 10px rgba(0,0,0,0.3));
+.cardInfo { flex: 1; min-width: 0; }
+.teamName {
+  font-size: 1.05rem; font-weight: 800; color: #e2e8f0;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 0 0 5px;
 }
-.modalTitle { font-size: 2rem; font-weight: 800; color: #fff; margin: 0; }
-.modalBadges { display: flex; gap: 15px; margin-top: 8px; color: rgba(255,255,255,0.8); font-size: 0.85rem; }
-.modalBadges span { display: flex; align-items: center; gap: 5px; }
-
-.modalBody { padding: 25px; overflow-y: auto; background: #0f172a; flex: 1; }
-.sectionTitle { font-size: 0.8rem; letter-spacing: 1px; color: #64748b; display: flex; align-items: center; gap: 8px; margin-bottom: 15px; }
-
-.fullPlayerList { display: flex; flex-direction: column; gap: 8px; }
-.playerRow { 
-  display: flex; align-items: center; justify-content: space-between; 
-  background: rgba(255,255,255,0.03); padding: 12px 16px; border-radius: 12px;
-  text-decoration: none; border: 1px solid rgba(255,255,255,0.05); transition: 0.2s;
+.teamAcademy, .teamCountry {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 0.72rem; color: #4a5568; margin: 0 0 2px;
 }
-.playerRow:hover { background: rgba(255,255,255,0.08); transform: translateX(5px); }
-.playerMain { display: flex; align-items: center; gap: 15px; }
-.playerIndex { font-family: monospace; color: #475569; font-weight: 700; }
-.playerThumb { width: 40px; height: 40px; border-radius: 8px; object-fit: cover; background: #1e293b; }
-.pName { color: #fff; font-weight: 600; font-size: 0.95rem; margin: 0; }
-.pPos { color: #64748b; font-size: 0.75rem; margin: 0; text-transform: uppercase; }
-.playerStat { display: flex; align-items: center; gap: 4px; color: #fbbf24; font-weight: 800; }
 
-.loadingState { height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #94a3b8; gap: 10px; }
-.spinner { animation: spin 1s linear infinite; width: 30px; height: 30px; }
-@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-.fullPlayerList {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding-bottom: 20px;
+.cardFooter { display: flex; align-items: center; justify-content: space-between; }
+
+.cardMeta { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+
+.metaChip {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 3px 9px; border-radius: 6px; font-size: 0.68rem; font-weight: 700;
+  background: rgba(255,255,255,0.05); color: #6b7a8d;
+  border: 1px solid rgba(255,255,255,0.07);
 }
+.seasonChip {
+  display: inline-flex; align-items: center;
+  padding: 3px 8px; border-radius: 6px; font-size: 0.65rem; font-weight: 800;
+  border: 1px solid; letter-spacing: 0.04em;
+}
+.cardArrow { color: #2a3545; transition: color 0.18s, transform 0.18s; flex-shrink: 0; }
+.card:hover .cardArrow { color: #e2e8f0; transform: translateX(3px); }
+
+/* ── MODAL ── */
+.modalOverlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.88);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1000; backdrop-filter: blur(10px);
+  animation: fadeIn 0.2s ease;
+}
+.modalContent {
+  background: #0a0e16; width: 95%; max-width: 560px;
+  border-radius: 24px; border: 1px solid rgba(255,255,255,0.1);
+  overflow: hidden; position: relative; max-height: 88vh;
+  display: flex; flex-direction: column;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.7);
+  animation: slideUp 0.25s cubic-bezier(0.4,0,0.2,1);
+}
+.closeBtn {
+  position: absolute; top: 16px; right: 16px; z-index: 20;
+  background: rgba(0,0,0,0.5); border: none; color: #fff;
+  width: 34px; height: 34px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: 0.2s;
+}
+.closeBtn:hover { background: #ef4444; transform: rotate(90deg); }
+
+/* Modal header */
+.modalHeader {
+  padding: 32px 28px; position: relative; overflow: hidden;
+  display: flex; align-items: center; gap: 20px; flex-shrink: 0;
+}
+.modalHeaderGlow {
+  position: absolute; top: -60px; left: -60px;
+  width: 240px; height: 240px; border-radius: 50%;
+  opacity: 0.2; filter: blur(50px); pointer-events: none;
+}
+.modalLogoWrap {
+  width: 80px; height: 80px; flex-shrink: 0;
+  background: rgba(255,255,255,0.08); border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.12);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; z-index: 2;
+}
+.modalLogo { width: 75%; height: 75%; object-fit: contain; }
+
+.modalHeaderText { position: relative; z-index: 2; min-width: 0; }
+.modalSeasons { display: flex; gap: 6px; margin-bottom: 8px; flex-wrap: wrap; }
+.modalSeasonBadge {
+  padding: 3px 10px; border-radius: 6px; font-size: 0.68rem; font-weight: 800;
+  border: 1px solid; letter-spacing: 0.05em;
+}
+.modalTitle {
+  font-size: 1.9rem; font-weight: 900; color: #fff;
+  margin: 0 0 8px; letter-spacing: -0.03em; line-height: 1.1;
+}
+.modalSubInfo {
+  display: flex; flex-wrap: wrap; gap: 12px;
+  font-size: 0.8rem; color: rgba(255,255,255,0.55);
+}
+.modalSubInfo span { display: flex; align-items: center; gap: 5px; }
+
+/* Modal body */
+.modalBody { padding: 0 20px 24px; overflow-y: auto; flex: 1; }
+
+.playerListTitle {
+  font-size: 0.7rem; font-weight: 900; color: #4a5568; letter-spacing: 0.12em;
+  display: flex; align-items: center; gap: 6px;
+  padding: 16px 8px 10px; text-transform: uppercase;
+}
+
+.playerList { display: flex; flex-direction: column; gap: 6px; }
 
 .playerRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(255, 255, 255, 0.03);
-  padding: 10px 16px;
-  border-radius: 14px;
-  text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: all 0.2s ease;
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 12px; border-radius: 12px; text-decoration: none;
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
+  transition: all 0.18s ease;
 }
-
 .playerRow:hover {
-  background: rgba(255, 255, 255, 0.08);
-  transform: translateX(8px);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.12);
+  transform: translateX(4px);
 }
 
-.playerMain {
-  display: flex;
-  align-items: center;
-  gap: 15px;
+.playerNum {
+  font-size: 0.72rem; font-weight: 800; color: #2a3545;
+  font-family: monospace; width: 22px; flex-shrink: 0; text-align: center;
+}
+.playerThumbWrap {
+  width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0;
+  overflow: hidden; background: #111620; border: 1px solid rgba(255,255,255,0.07);
+}
+.playerThumb { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+
+.playerInfo { flex: 1; min-width: 0; }
+.pName { font-size: 0.9rem; font-weight: 700; color: #e2e8f0; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pSub  { font-size: 0.68rem; color: #4a5568; margin: 2px 0 0; }
+
+.playerStats { display: flex; flex-direction: column; align-items: flex-end; gap: 3px; flex-shrink: 0; }
+.staminaStat {
+  display: flex; align-items: center; gap: 3px;
+  font-size: 0.72rem; font-weight: 700; color: #fbbf24;
+}
+.tensionStat {
+  display: flex; align-items: center; gap: 3px;
+  font-size: 0.72rem; font-weight: 700; color: #60a5fa;
+}
+.rowArrow { color: #2a3545; flex-shrink: 0; }
+.playerRow:hover .rowArrow { color: #6b7a8d; }
+
+.emptyPlayers {
+  text-align: center; padding: 40px; color: #4a5568;
+  font-size: 0.875rem; border-radius: 12px;
+  background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.07);
 }
 
-.playerIndex {
-  font-family: 'Inter', sans-serif;
-  font-weight: 800;
-  color: #475569;
-  font-size: 0.8rem;
-  width: 20px;
+/* Loading */
+.loadingState {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  min-height: 60vh; gap: 14px; color: #4a5568; font-size: 0.875rem; font-weight: 600;
 }
+.spinner { animation: spin 1s linear infinite; width: 32px; height: 32px; }
 
-.playerThumbContainer {
-  width: 45px;
-  height: 45px;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #1e293b;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-}
-
-.playerThumb {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Importante para que no se deforme la cara */
-}
-
-.playerMeta {
-  display: flex;
-  flex-direction: column;
-}
-
-.pName {
-  color: #f8fafc;
-  font-weight: 700;
-  font-size: 0.95rem;
-  margin: 0;
-}
-
-.pPos {
-  color: #64748b;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin: 0;
-}
-
-.playerPowerBadge {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  background: rgba(251, 191, 36, 0.1);
-  padding: 4px 12px;
-  border-radius: 20px;
-  color: #fbbf24;
-  font-weight: 800;
-  font-size: 0.9rem;
-  border: 1px solid rgba(251, 191, 36, 0.2);
-}
-
-.playerThumbWrapper {
-  width: 45px;
-  height: 45px;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #1e293b;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-}
-
-.playerThumb {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.modalHeaderInfo {
-  padding: 40px 30px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  color: white;
-}
-
-.noPlayersBox {
-  text-align: center;
-  padding: 40px 20px;
-  color: #64748b;
-  background: rgba(255,255,255,0.02);
-  border-radius: 12px;
-  border: 1px dashed rgba(255,255,255,0.1);
-}
+@keyframes spin    { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }

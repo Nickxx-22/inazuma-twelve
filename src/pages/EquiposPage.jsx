@@ -1,21 +1,24 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Swords, Users, Loader2, X, MapPin, Shield, Zap, Activity } from 'lucide-react'
+import { Users, Loader2, X, Shield, Zap, Activity, ChevronRight, MapPin, Trophy } from 'lucide-react'
 import styles from './EquiposPage.module.css'
 
+const SEASON_COLORS = { IE1: '#36d399', IE2: '#3d7eff', IE3: '#f471b5' }
+
 export default function EquiposPage() {
-  const [teams, setTeams] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [teams, setTeams]             = useState([])
+  const [loading, setLoading]         = useState(true)
   const [selectedTeam, setSelectedTeam] = useState(null)
+  const [seasonFilter, setSeasonFilter] = useState('')
 
   useEffect(() => {
     const fetchTeams = async () => {
       try {
-        const res = await fetch('http://127.0.0.1:5000/equipos')
+        const res  = await fetch('http://127.0.0.1:5000/equipos')
         const data = await res.json()
         setTeams(Array.isArray(data) ? data : (data.teams || []))
       } catch (err) {
-        console.error("Error cargando equipos:", err)
+        console.error('Error cargando equipos:', err)
       } finally {
         setLoading(false)
       }
@@ -23,86 +26,177 @@ export default function EquiposPage() {
     fetchTeams()
   }, [])
 
+  const allSeasons = [...new Set(teams.flatMap(t => t.seasons || []))].sort()
+  const filtered = seasonFilter ? teams.filter(t => (t.seasons || []).includes(seasonFilter)) : teams
+
   if (loading) return (
-    <div className={styles.loadingState}><Loader2 className={styles.spinner} /><p>Cargando liga...</p></div>
+    <div className={styles.loadingState}>
+      <Loader2 className={styles.spinner} />
+      <p>Cargando liga...</p>
+    </div>
   )
 
   return (
     <div className={styles.page}>
+
+      {/* Header de página */}
+      <div className={styles.pageHeader}>
+        <div className={styles.titleRow}>
+          <div className={styles.titleIcon}><Trophy size={20} /></div>
+          <div>
+            <h1 className={styles.title}>Equipos</h1>
+            <p className={styles.subtitle}>
+              Todos los equipos del universo Inazuma Eleven
+              <span className={styles.countBadge}>{teams.length} equipos</span>
+            </p>
+          </div>
+        </div>
+
+        {/* Filtro rápido por temporada */}
+        {allSeasons.length > 0 && (
+          <div className={styles.seasonTabs}>
+            <button
+              className={`${styles.seasonTab} ${!seasonFilter ? styles.seasonTabActive : ''}`}
+              onClick={() => setSeasonFilter('')}
+            >
+              Todos
+            </button>
+            {allSeasons.map(s => (
+              <button
+                key={s}
+                className={`${styles.seasonTab} ${seasonFilter === s ? styles.seasonTabActive : ''}`}
+                onClick={() => setSeasonFilter(s)}
+                style={seasonFilter === s ? { borderColor: SEASON_COLORS[s], color: SEASON_COLORS[s], background: `${SEASON_COLORS[s]}18` } : {}}
+              >
+                {s}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Grid de equipos */}
       <div className={styles.grid}>
-        {teams.map(team => (
-          <div key={team._id} className={styles.card} onClick={() => setSelectedTeam(team)}>
-            <div className={styles.cardHeader} style={{ borderLeft: `4px solid ${team.color_primary || '#3d7eff'}` }}>
-              <div className={styles.headerMain}>
-                <img src={team.image?.url} alt="" className={styles.teamIcon} />
-                <div>
-                  <h3 className={styles.teamName}>{team.name}</h3>
-                  <p className={styles.captain}>{team.players?.length || 0} jugadores</p>
+        {filtered.map(team => (
+          <div
+            key={team._id}
+            className={styles.card}
+            onClick={() => setSelectedTeam(team)}
+            style={{ '--team-color': team.color_primary || '#3d7eff' }}
+          >
+            {/* Barra superior de color del equipo */}
+            <div className={styles.cardAccent} style={{ background: team.color_primary || '#3d7eff' }} />
+
+            <div className={styles.cardBody}>
+              {/* Logo + Info */}
+              <div className={styles.cardMain}>
+                <div className={styles.logoWrap} style={{ background: `${team.color_primary || '#3d7eff'}18`, borderColor: `${team.color_primary || '#3d7eff'}33` }}>
+                  <img src={team.image?.url} alt={team.name} className={styles.teamLogo} />
                 </div>
+                <div className={styles.cardInfo}>
+                  <h3 className={styles.teamName}>{team.name}</h3>
+                  {team.academy && (
+                    <p className={styles.teamAcademy}>
+                      <Shield size={11} /> {team.academy}
+                    </p>
+                  )}
+                  {team.country && (
+                    <p className={styles.teamCountry}>
+                      <MapPin size={11} /> {team.country}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              {/* Footer de la card */}
+              <div className={styles.cardFooter}>
+                <div className={styles.cardMeta}>
+                  <span className={styles.metaChip}>
+                    <Users size={11} /> {team.players?.length || 0}
+                  </span>
+                  {(team.seasons || []).map(s => (
+                    <span key={s} className={styles.seasonChip} style={{ color: SEASON_COLORS[s] || '#888', borderColor: `${SEASON_COLORS[s] || '#888'}44`, background: `${SEASON_COLORS[s] || '#888'}12` }}>
+                      {s}
+                    </span>
+                  ))}
+                </div>
+                <ChevronRight size={16} className={styles.cardArrow} />
               </div>
             </div>
           </div>
         ))}
       </div>
 
-      {/* --- MODAL DETALLADO --- */}
+      {/* Modal detallado */}
       {selectedTeam && (
         <div className={styles.modalOverlay} onClick={() => setSelectedTeam(null)}>
           <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
-            <button className={styles.closeBtn} onClick={() => setSelectedTeam(null)}><X size={20} /></button>
+            <button className={styles.closeBtn} onClick={() => setSelectedTeam(null)}><X size={18} /></button>
 
-            <div className={styles.modalHeaderInfo} style={{ background: `linear-gradient(135deg, ${selectedTeam.color_primary || '#1e293b'}CC, #0f172a)` }}>
-              <img src={selectedTeam.image?.url} className={styles.modalLogo} alt="" />
+            {/* Header del modal con gradiente del color del equipo */}
+            <div
+              className={styles.modalHeader}
+              style={{ background: `linear-gradient(135deg, ${selectedTeam.color_primary || '#1e293b'}DD 0%, #0a0e16 100%)` }}
+            >
+              <div className={styles.modalHeaderGlow} style={{ background: selectedTeam.color_primary || '#3d7eff' }} />
+              <div className={styles.modalLogoWrap}>
+                <img src={selectedTeam.image?.url} className={styles.modalLogo} alt={selectedTeam.name} />
+              </div>
               <div className={styles.modalHeaderText}>
+                <div className={styles.modalSeasons}>
+                  {(selectedTeam.seasons || []).map(s => (
+                    <span key={s} className={styles.modalSeasonBadge} style={{ background: `${SEASON_COLORS[s] || '#888'}22`, color: SEASON_COLORS[s] || '#888', borderColor: `${SEASON_COLORS[s] || '#888'}44` }}>
+                      {s}
+                    </span>
+                  ))}
+                </div>
                 <h2 className={styles.modalTitle}>{selectedTeam.name}</h2>
-                <div className={styles.modalBadges}>
-                  <span><Shield size={14}/> {selectedTeam.academy}</span>
-                  <span className={styles.countBadge}><Users size={12} /> {selectedTeam.players?.length || 0} Fichas</span>
+                <div className={styles.modalSubInfo}>
+                  {selectedTeam.academy && <span><Shield size={13} /> {selectedTeam.academy}</span>}
+                  {selectedTeam.country && <span><MapPin size={13} /> {selectedTeam.country}</span>}
+                  <span><Users size={13} /> {selectedTeam.players?.length || 0} jugadores</span>
                 </div>
               </div>
             </div>
 
+            {/* Lista de jugadores */}
             <div className={styles.modalBody}>
-              <div className={styles.fullPlayerList}>
+              <p className={styles.playerListTitle}>
+                <Zap size={13} style={{ color: '#ffaa00' }} /> PLANTILLA
+              </p>
+              <div className={styles.playerList}>
                 {selectedTeam.players && selectedTeam.players.length > 0 ? (
                   selectedTeam.players.map((player) => (
-                    /* Cambiado a Link y usando el player.id real del backend */
-                    <Link 
-                      key={player.id} 
-                      to={`/personajes/${player.id}`} 
+                    <Link
+                      key={player.id}
+                      to={`/personajes/${player.id}`}
                       className={styles.playerRow}
+                      onClick={() => setSelectedTeam(null)}
                     >
-                      <div className={styles.playerMain}>
-                        {/* Mostramos el dorsal real (number) en lugar del índice del array */}
-                        <span className={styles.playerIndex}>
-                          {player.number ? String(player.number).padStart(2, '0') : '??'}
+                      <span className={styles.playerNum}>
+                        {player.number ? String(player.number).padStart(2, '0') : '??'}
+                      </span>
+                      <div className={styles.playerThumbWrap}>
+                        <img src={player.image_url} className={styles.playerThumb} alt={player.name} />
+                      </div>
+                      <div className={styles.playerInfo}>
+                        <p className={styles.pName}>{player.name}</p>
+                        <p className={styles.pSub}>{player.element} · {player.position}</p>
+                      </div>
+                      <div className={styles.playerStats}>
+                        <span className={styles.staminaStat}>
+                          <Activity size={11} /> {player.matchStats?.stamina || 0}
                         </span>
-                        
-                        <div className={styles.playerThumbWrapper}>
-                          <img src={player.image_url} className={styles.playerThumb} alt={player.name} />
-                        </div>
-                        
-                        <div className={styles.playerMeta}>
-                          <p className={styles.pName}>{player.name}</p>
-                          <p className={styles.pPos}>{player.element}</p>
-                        </div>
+                        <span className={styles.tensionStat}>
+                          <Zap size={11} /> {player.matchStats?.tension || 0}
+                        </span>
                       </div>
-
-                      <div className={styles.playerStatsSide}>
-                        <div className={styles.playerPowerBadge}>
-                          <Zap size={12} fill="#fbbf24" color="#fbbf24" />
-                          <span>{player.matchStats?.stamina || 0}</span>
-                        </div>
-                        <div className={styles.playerTensionBadge} style={{ display: 'flex', alignItems: 'center', gap: '4px', color: '#60a5fa', fontWeight: 'bold' }}>
-                          <Activity size={12} />
-                          <span>{player.matchStats?.tension || 0}</span>
-                        </div>
-                      </div>
+                      <ChevronRight size={14} className={styles.rowArrow} />
                     </Link>
                   ))
                 ) : (
-                  <div className={styles.noPlayersBox}>
-                    <p>No se han encontrado jugadores procesados para el equipo {selectedTeam.name}.</p>
+                  <div className={styles.emptyPlayers}>
+                    <p>No hay jugadores registrados para este equipo.</p>
                   </div>
                 )}
               </div>

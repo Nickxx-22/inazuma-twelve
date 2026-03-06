@@ -141,14 +141,10 @@ def iniciar_sesion():
 def obtener_jugadores():
     resultado = []
 
-    # Pre-cargar todos los equipos en un dict {_id: equipo} para no hacer
-    # una query por jugador (mucho más eficiente)
-    equipos_map = {str(e["_id"]): e for e in equipos.find({}, {"_id": 1, "seasons": 1})}
-
     for j in jugadores.find():
         genero = "Masculino" if j.get("sex") == "M" else "Femenino"
 
-        # ── Imagen del jugador ──────────────────────────────────────────
+        # Obtener la URL de la imagen y asegurarse de que sea completa
         imagen_url = ""
         image_field = j.get("image")
         if image_field and isinstance(image_field, dict):
@@ -156,7 +152,7 @@ def obtener_jugadores():
             if imagen_url.startswith("/"):
                 imagen_url = f"{BASE_API_URL}{imagen_url}"
 
-        # ── País ────────────────────────────────────────────────────────
+        # Procesar imagen del pais
         country_raw = j.get("country", "")
         country_img = ""
         if isinstance(country_raw, dict):
@@ -169,20 +165,30 @@ def obtener_jugadores():
         else:
             country_name = str(country_raw) if country_raw else ""
 
-        # ── Seasons: se resuelven desde los equipos del jugador ─────────
-        # El jugador tiene teams: [{team_id, ...}, ...]
-        # Cada equipo tiene seasons: ["IE1", "IE2", ...]
+        # ── Seasons: leídas DIRECTAMENTE de teams[].seasons del jugador ───
+        # Estructura real en BD: teams: [{team_id, seasons: "Season_T3", ...}]
+        # "seasons" en cada team_entry es un string como "Season_T3"
+        # Mapeamos a IE1/IE2/IE3 según el sufijo (T1→IE1, T2→IE2, T3→IE3, etc.)
+        SEASON_MAP = {
+            "T1": "IE1", "Season_T1": "IE1",
+            "T2": "IE2", "Season_T2": "IE2",
+            "T3": "IE3", "Season_T3": "IE3",
+            "IE1": "IE1", "IE2": "IE2", "IE3": "IE3",
+        }
         seasons_set = set()
         for team_entry in j.get("teams", []):
-            team_id = team_entry.get("team_id", "")
-            equipo_data = equipos_map.get(team_id)
-            if equipo_data:
-                for s in equipo_data.get("seasons", []):
-                    seasons_set.add(s)
-        # Si no se encontró nada, fallback a campo directo (por si acaso)
+            raw = team_entry.get("seasons", "")
+            if isinstance(raw, list):
+                for s in raw:
+                    mapped = SEASON_MAP.get(str(s), str(s))
+                    seasons_set.add(mapped)
+            elif raw:
+                mapped = SEASON_MAP.get(str(raw), str(raw))
+                seasons_set.add(mapped)
+        # Fallback campo directo
         if not seasons_set and j.get("season"):
-            seasons_set.add(j.get("season"))
-        seasons_list = sorted(seasons_set)  # ["IE1", "IE2", ...]
+            seasons_set.add(SEASON_MAP.get(j.get("season"), j.get("season")))
+        seasons_list = sorted(seasons_set)
 
         resultado.append({
             "id": str(j["_id"]),
@@ -193,8 +199,8 @@ def obtener_jugadores():
             "gender": genero,
             "nature": j.get("nature", ""),
             "role": j.get("role", ""),
-            "seasons": seasons_list,       # lista: ["IE1", "IE2"]
-            "season": seasons_list[0] if seasons_list else "",  # compat. con código viejo
+            "seasons": seasons_list,
+            "season": seasons_list[0] if seasons_list else "",
             "power": j.get("stats", {}).get("kicking", 0),
             "image": imagen_url,
             "country": country_name,

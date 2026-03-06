@@ -1,16 +1,17 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { Zap, Home, Users, Shield, Swords, Menu, X, LogIn, LogOut, Settings, User } from 'lucide-react'
+import { Home, Users, Shield, Swords, Menu, X, LogIn, LogOut, Settings, User, Zap, BookOpen } from 'lucide-react'
 import { useAuth } from '../../hooks/useAuth'
 import { logoutUser } from '../../services/authService'
+import logoImg from '../img/inazuma_japon.png'
 import styles from './Header.module.css'
 
 const NAV_ITEMS = [
-  { href: '/',           label: 'Inicio',    icon: Home   },
-  { href: '/personajes', label: 'Jugadores', icon: Users  },
-  { href: '/tecnicas',   label: 'Tecnicas',  icon: Zap    },
-  { href: '/equipos',    label: 'Equipos',   icon: Swords },
-  { href: '/mi-equipo',  label: 'Mi Equipo', icon: Shield },
+  { href: '/',           label: 'Inicio',    icon: Home,    accent: '#3d7eff' },
+  { href: '/personajes', label: 'Jugadores', icon: Users,   accent: '#36d399' },
+  { href: '/tecnicas',   label: 'Tecnicas',  icon: BookOpen, accent: '#f59e0b' },
+  { href: '/equipos',    label: 'Equipos',   icon: Swords,  accent: '#f471b5' },
+  { href: '/mi-equipo',  label: 'Mi Equipo', icon: Shield,  accent: '#a78bfa' },
 ]
 
 export default function Header() {
@@ -19,8 +20,6 @@ export default function Header() {
   const { user, refresh } = useAuth()
   const [open, setOpen]   = useState(false)
 
-  // Escucha el evento personalizado 'auth-change' que dispara loginUser/logoutUser
-  // Esto actualiza el header en la MISMA pestaña sin necesitar recargar
   useEffect(() => {
     const onAuthChange = () => refresh()
     window.addEventListener('auth-change', onAuthChange)
@@ -28,16 +27,16 @@ export default function Header() {
   }, [refresh])
 
   function handleLogout() {
-    logoutUser()
-    refresh()
+    logoutUser(); refresh()
     window.dispatchEvent(new Event('auth-change'))
-    setOpen(false)
-    navigate('/')
+    setOpen(false); navigate('/')
   }
 
   function isActive(href) {
     return href === '/' ? pathname === '/' : pathname.startsWith(href)
   }
+
+  const activeItem = NAV_ITEMS.find(item => isActive(item.href))
 
   return (
     <header className={styles.header}>
@@ -45,28 +44,39 @@ export default function Header() {
 
         {/* Logo */}
         <Link to="/" className={styles.logo} onClick={() => setOpen(false)}>
-          <div className={styles.logoIcon}><Zap size={18} /></div>
-          <span className={`${styles.logoText} neon-text-blue`}>INAZUMA-TWELVE</span>
+          <div className={styles.logoIcon}>
+            <img src={logoImg} alt="Inazuma Twelve" className={styles.logoImg} />
+          </div>
+          <div className={styles.logoTextWrap}>
+            <span className={styles.logoText}>INAZUMA</span>
+            <span className={styles.logoTextSub}>TWELVE</span>
+          </div>
         </Link>
 
-        {/* Desktop nav */}
+        {/* Desktop nav — píldoras con acento de color */}
         <nav className={styles.desktopNav}>
-          {NAV_ITEMS.map(({ href, label, icon: Icon }) => (
-            <Link
-              key={href}
-              to={href}
-              className={`${styles.navLink} ${isActive(href) ? styles.navLinkActive : ''}`}
-            >
-              <Icon size={15} />
-              {label}
-            </Link>
-          ))}
+          {NAV_ITEMS.map(({ href, label, icon: Icon, accent }) => {
+            const active = isActive(href)
+            return (
+              <Link
+                key={href}
+                to={href}
+                className={`${styles.navLink} ${active ? styles.navLinkActive : ''}`}
+                style={active ? { '--accent': accent } : {}}
+              >
+                <span className={styles.navIcon} style={active ? { color: accent } : {}}>
+                  <Icon size={14} />
+                </span>
+                <span className={styles.navLabel}>{label}</span>
+                {active && <span className={styles.navDot} style={{ background: accent }} />}
+              </Link>
+            )
+          })}
           {user?.role === 'admin' && (
-            <Link
-              to="/admin"
-              className={`${styles.navLink} ${isActive('/admin') ? styles.navLinkAdmin : ''}`}
-            >
-              <Settings size={15} /> Admin
+            <Link to="/admin" className={`${styles.navLink} ${isActive('/admin') ? styles.navLinkActive : ''}`}
+              style={isActive('/admin') ? { '--accent': '#ff8c00' } : {}}>
+              <span className={styles.navIcon}><Settings size={14} /></span>
+              <span className={styles.navLabel}>Admin</span>
             </Link>
           )}
         </nav>
@@ -75,23 +85,27 @@ export default function Header() {
         <div className={styles.actions}>
           {user ? (
             <div className={styles.userControls}>
-              <div className={styles.userLabel}>
-                <User size={14} />
+              <div className={styles.userChip}>
+                <div className={styles.userAvatar}>
+                  {user.username.charAt(0).toUpperCase()}
+                </div>
                 <span className={styles.userName}>{user.username}</span>
               </div>
-              <button onClick={handleLogout} className={styles.btnSecondary}>
-                <LogOut size={15} /> <span>Salir</span>
+              <button onClick={handleLogout} className={styles.logoutBtn} title="Cerrar sesion">
+                <LogOut size={14} />
+                <span>Salir</span>
               </button>
             </div>
           ) : (
-            <Link to="/login" className={styles.btnPrimary}>
-              <LogIn size={15} /> <span>Acceder</span>
+            <Link to="/login" className={styles.loginBtn}>
+              <LogIn size={14} />
+              <span>Acceder</span>
             </Link>
           )}
-
-          {/* Mobile burger */}
           <button className={styles.burger} onClick={() => setOpen(o => !o)} aria-label="Menu">
-            {open ? <X size={20} /> : <Menu size={20} />}
+            <span className={`${styles.burgerLine} ${open ? styles.burgerLineTop : ''}`} />
+            <span className={`${styles.burgerLine} ${open ? styles.burgerLineMid : ''}`} />
+            <span className={`${styles.burgerLine} ${open ? styles.burgerLineBot : ''}`} />
           </button>
         </div>
       </div>
@@ -99,18 +113,25 @@ export default function Header() {
       {/* Mobile nav */}
       {open && (
         <nav className={styles.mobileNav}>
-          {NAV_ITEMS.map(({ href, label, icon: Icon }) => (
-            <Link
-              key={href}
-              to={href}
-              onClick={() => setOpen(false)}
-              className={`${styles.mobileLink} ${isActive(href) ? styles.mobileLinkActive : ''}`}
-            >
-              <Icon size={16} /> {label}
-            </Link>
-          ))}
+          <div className={styles.mobileGrid}>
+            {NAV_ITEMS.map(({ href, label, icon: Icon, accent }) => {
+              const active = isActive(href)
+              return (
+                <Link
+                  key={href}
+                  to={href}
+                  onClick={() => setOpen(false)}
+                  className={`${styles.mobileCard} ${active ? styles.mobileCardActive : ''}`}
+                  style={active ? { borderColor: accent, background: `${accent}12` } : {}}
+                >
+                  <Icon size={20} style={active ? { color: accent } : {}} />
+                  <span>{label}</span>
+                </Link>
+              )
+            })}
+          </div>
           {user && (
-            <button onClick={handleLogout} className={styles.mobileLogoutBtn}>
+            <button onClick={handleLogout} className={styles.mobileLogout}>
               <LogOut size={16} /> Cerrar Sesion
             </button>
           )}

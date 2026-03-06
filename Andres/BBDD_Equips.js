@@ -176,7 +176,8 @@ const datos = [
     "Jez_Shell_T1",
     "Jupiter_Jumper_T1",
     "Sam_Samurai_T1",
-    "Hank_Sullivan_T1"
+    "Hank_Sullivan_T1",
+    "Sail_Bluesea_T1"
   ],
   seasons: [
     "Season_T1"

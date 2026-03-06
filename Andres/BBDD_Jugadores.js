@@ -32,7 +32,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Raimon_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 1
@@ -139,7 +139,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Raimon_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 2
@@ -209,7 +209,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Raimon_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 3
@@ -287,7 +287,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Raimon_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 4
@@ -352,7 +352,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Raimon_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 5
@@ -423,7 +423,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Raimon_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 6
@@ -489,7 +489,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Raimon_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 7
@@ -555,7 +555,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Raimon_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 8
@@ -620,7 +620,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Raimon_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 9
@@ -687,7 +687,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Raimon_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 10
@@ -801,7 +801,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Raimon_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 11
@@ -874,7 +874,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Raimon_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 12
@@ -937,7 +937,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Raimon_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 13
@@ -1010,7 +1010,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Raimon_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 14
@@ -1091,7 +1091,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Raimon_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 15
@@ -1166,7 +1166,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Occult_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 1
@@ -1226,7 +1226,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Occult_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 2
@@ -1281,7 +1281,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Occult_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 3
@@ -1336,7 +1336,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Occult_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 4
@@ -1390,7 +1390,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Occult_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 5
@@ -1445,7 +1445,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Occult_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 6
@@ -1504,7 +1504,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Occult_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 7
@@ -1569,7 +1569,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Occult_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 8
@@ -1629,7 +1629,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Occult_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 9
@@ -1683,7 +1683,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Occult_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 10
@@ -1738,7 +1738,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Occult_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 11
@@ -1798,7 +1798,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Wild_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 1
@@ -1858,7 +1858,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Wild_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 2
@@ -1917,7 +1917,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Wild_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 3
@@ -1972,7 +1972,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Wild_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 4
@@ -2031,7 +2031,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Wild_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 5
@@ -2085,7 +2085,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Wild_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 6
@@ -2145,7 +2145,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Wild_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 7
@@ -2205,7 +2205,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Wild_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 8
@@ -2264,7 +2264,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Wild_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 9
@@ -2324,7 +2324,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Wild_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 10
@@ -2385,7 +2385,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Wild_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 11
@@ -2453,7 +2453,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Brain_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 1
@@ -2512,7 +2512,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Brain_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 2
@@ -2572,7 +2572,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Brain_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 3
@@ -2631,7 +2631,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Brain_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 4
@@ -2690,7 +2690,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Brain_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 5
@@ -2749,7 +2749,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Brain_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 6
@@ -2813,7 +2813,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Brain_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 7
@@ -2873,7 +2873,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Brain_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 8
@@ -2932,7 +2932,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Brain_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 9
@@ -2998,7 +2998,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Brain_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 10
@@ -3057,7 +3057,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Brain_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 11
@@ -3127,7 +3127,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Royal_Academy_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 1
@@ -3186,7 +3186,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Royal_Academy_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 2
@@ -3240,7 +3240,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Royal_Academy_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 3
@@ -3295,7 +3295,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Royal_Academy_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 4
@@ -3356,7 +3356,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Royal_Academy_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 5
@@ -3411,7 +3411,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Royal_Academy_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 6
@@ -3465,7 +3465,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Royal_Academy_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 7
@@ -3519,7 +3519,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Royal_Academy_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 8
@@ -3573,7 +3573,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Royal_Academy_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 13
@@ -3627,7 +3627,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Royal_Academy_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 9
@@ -3686,7 +3686,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Royal_Academy_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 11
@@ -3740,7 +3740,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Royal_Academy_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 10
@@ -3802,7 +3802,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Shuriken_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 1
@@ -3856,7 +3856,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Shuriken_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 2
@@ -3916,7 +3916,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Shuriken_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 3
@@ -3971,7 +3971,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Shuriken_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 4
@@ -4025,7 +4025,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Shuriken_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 5
@@ -4080,7 +4080,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Shuriken_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 6
@@ -4135,7 +4135,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Shuriken_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 7
@@ -4195,7 +4195,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Shuriken_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 8
@@ -4250,7 +4250,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Shuriken_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 9
@@ -4305,7 +4305,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Shuriken_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 10
@@ -4359,7 +4359,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Shuriken_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 11
@@ -4427,7 +4427,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Kirkwood_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 1
@@ -4481,7 +4481,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Kirkwood_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 5
@@ -4535,7 +4535,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Kirkwood_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 2
@@ -4591,7 +4591,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Kirkwood_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 3
@@ -4645,7 +4645,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Kirkwood_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 4
@@ -4699,7 +4699,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Kirkwood_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 6
@@ -4750,7 +4750,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Kirkwood_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 7
@@ -4806,7 +4806,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Kirkwood_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 8
@@ -4854,7 +4854,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Kirkwood_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 9
@@ -4913,7 +4913,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Kirkwood_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 10
@@ -4966,7 +4966,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Kirkwood_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 11
@@ -5023,7 +5023,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Zeus_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 1
@@ -5085,7 +5085,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Zeus_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 2
@@ -5145,7 +5145,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Zeus_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 3
@@ -5200,7 +5200,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Zeus_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 4
@@ -5255,7 +5255,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Zeus_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 5
@@ -5312,7 +5312,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Zeus_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 6
@@ -5373,7 +5373,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Zeus_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 7
@@ -5427,7 +5427,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Zeus_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 8
@@ -5482,7 +5482,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Zeus_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 9
@@ -5542,7 +5542,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Zeus_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 10
@@ -5602,7 +5602,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Zeus_T1",
-      "from": "Season_T1",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 11
@@ -5659,7 +5659,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Ogre_T1",
-      "from": "2010-12-23", 
+      "seasons": "Season_T1", 
       "to": null,
       "isCurrent": true,
       "number": 1
@@ -5724,7 +5724,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Ogre_T1",
-      "from": "2010-12-23",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 2
@@ -5780,7 +5780,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Ogre_T1",
-      "from": "2010-12-23",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 3
@@ -5836,7 +5836,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Ogre_T1",
-      "from": "2010-12-23",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 4
@@ -5891,7 +5891,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Ogre_T1",
-      "from": "2010-12-23",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 5
@@ -5946,7 +5946,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Ogre_T1",
-      "from": "2010-12-23",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 6
@@ -6001,7 +6001,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Ogre_T1",
-      "from": "2010-12-23",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 7
@@ -6056,7 +6056,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Ogre_T1",
-      "from": "2010-12-23",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 8
@@ -6116,7 +6116,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Ogre_T1",
-      "from": "2010-12-23",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 9
@@ -6182,7 +6182,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Ogre_T1",
-      "from": "2010-12-23",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 10
@@ -6247,7 +6247,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Ogre_T1",
-      "from": "2010-12-23",
+      "seasons": "Season_T1",
       "to": null,
       "isCurrent": true,
       "number": 11
@@ -6921,7 +6921,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Alpine_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 1
@@ -6977,7 +6977,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Alpine_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 2
@@ -7037,7 +7037,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Alpine_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 3
@@ -7094,7 +7094,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Alpine_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 4
@@ -7157,7 +7157,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Alpine_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 5
@@ -7213,7 +7213,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Alpine_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 6
@@ -7269,7 +7269,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Alpine_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 7
@@ -7329,7 +7329,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Alpine_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 8
@@ -7384,7 +7384,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Alpine_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 10
@@ -7447,7 +7447,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Alpine_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 11
@@ -7504,7 +7504,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Alpine_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 9
@@ -7561,7 +7561,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Tormenta_de_Geminis",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 1
@@ -7618,7 +7618,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Tormenta_de_Geminis",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 2
@@ -7677,7 +7677,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Tormenta_de_Geminis",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 3
@@ -7733,7 +7733,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Tormenta_de_Geminis",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 4
@@ -7789,7 +7789,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Tormenta_de_Geminis",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 5
@@ -7835,11 +7835,11 @@ const datos = [
 //Pat Box
 {
   "_id": "Pat_Box_T2",
-  "name": "Pandaora",
+  "name": "Pandora",
   "sex": "F",
   "role": "player",
-  "image": {"url": "/img/jugadores/Pandaora.png"},
-  "imageDetail": { "url": "/img/jugadoresID/pandaora.png" },
+  "image": {"url": "/img/jugadores/Pandora.png"},
+  "imageDetail": { "url": "/img/jugadoresID/pandora.png" },
   "position": "MD",
   "element": "Aire",
   "nature": "Contraataque",
@@ -7851,7 +7851,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Tormenta_de_Geminis",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 6
@@ -7907,7 +7907,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Tormenta_de_Geminis",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 7
@@ -7964,7 +7964,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Tormenta_de_Geminis",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 8
@@ -8020,7 +8020,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Tormenta_de_Geminis",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 9
@@ -8076,7 +8076,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Tormenta_de_Geminis",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 10
@@ -8138,7 +8138,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Tormenta_de_Geminis",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 11
@@ -8203,7 +8203,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Epsilon_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 1
@@ -8272,7 +8272,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Epsilon_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 2
@@ -8334,7 +8334,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Epsilon_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 3
@@ -8396,7 +8396,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Epsilon_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 4
@@ -8457,7 +8457,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Epsilon_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 5
@@ -8518,7 +8518,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Epsilon_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 6
@@ -8581,7 +8581,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Epsilon_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 7
@@ -8643,7 +8643,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Epsilon_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 8
@@ -8705,7 +8705,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Epsilon_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 9
@@ -8768,7 +8768,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Epsilon_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 10
@@ -8829,7 +8829,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Epsilon_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 11
@@ -8892,7 +8892,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Royal_Academy_RX",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 1
@@ -8960,7 +8960,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Royal_Academy_RX",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 2
@@ -9019,7 +9019,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Royal_Academy_RX",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 3
@@ -9075,7 +9075,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Royal_Academy_RX",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 4
@@ -9137,7 +9137,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Royal_Academy_RX",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 5
@@ -9197,7 +9197,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Royal_Academy_RX",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 6
@@ -9257,7 +9257,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Royal_Academy_RX",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 7
@@ -9318,7 +9318,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Royal_Academy_RX",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 8
@@ -9382,7 +9382,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Royal_Academy_RX",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 9
@@ -9444,7 +9444,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Royal_Academy_RX",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 10
@@ -9515,7 +9515,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Royal_Academy_RX",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 11
@@ -9581,7 +9581,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Diamond",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 1
@@ -9638,7 +9638,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Diamond",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 2
@@ -9694,7 +9694,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Diamond",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 3
@@ -9756,7 +9756,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Diamond",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 4
@@ -9820,7 +9820,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Diamond",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 5
@@ -9883,7 +9883,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Diamond",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 6
@@ -9945,7 +9945,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Diamond",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 7
@@ -10006,7 +10006,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Diamond",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 8
@@ -10068,7 +10068,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Diamond",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 9
@@ -10130,7 +10130,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Diamond",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 10
@@ -10191,7 +10191,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Diamond",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 11
@@ -10255,7 +10255,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Prominence",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 1
@@ -10318,7 +10318,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Prominence",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 2
@@ -10375,7 +10375,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Prominence",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 3
@@ -10431,7 +10431,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Prominence",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 4
@@ -10492,7 +10492,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Prominence",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 5
@@ -10550,7 +10550,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Prominence",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 6
@@ -10610,7 +10610,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Prominence",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 7
@@ -10665,7 +10665,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Prominence",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 8
@@ -10721,7 +10721,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Prominence",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 9
@@ -10780,7 +10780,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Prominence",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 10
@@ -10846,7 +10846,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Prominence",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 11
@@ -10914,7 +10914,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Caos",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 1
@@ -10975,7 +10975,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Caos",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 2
@@ -11031,7 +11031,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Caos",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 3
@@ -11092,7 +11092,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Caos",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 4
@@ -11147,7 +11147,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Caos",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 5
@@ -11209,7 +11209,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Caos",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 6
@@ -11266,7 +11266,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Caos",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 7
@@ -11328,7 +11328,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Caos",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 8
@@ -11389,7 +11389,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Caos",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 9
@@ -11449,7 +11449,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Caos",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 10
@@ -11515,7 +11515,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Caos",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 11
@@ -11583,7 +11583,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Raimon_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 1
@@ -11649,7 +11649,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Raimon_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 2
@@ -11705,7 +11705,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Raimon_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 3
@@ -11761,7 +11761,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Raimon_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 4
@@ -11816,7 +11816,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Raimon_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 5
@@ -11879,7 +11879,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Raimon_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 6
@@ -11941,7 +11941,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Raimon_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 7
@@ -11996,7 +11996,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Raimon_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 8
@@ -12053,7 +12053,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Raimon_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 9
@@ -12110,7 +12110,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Raimon_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 10
@@ -12178,7 +12178,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Raimon_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 11
@@ -12247,7 +12247,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Raimon_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 12
@@ -12312,7 +12312,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Raimon_T2",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 13
@@ -12371,7 +12371,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Genesis",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 1
@@ -12432,7 +12432,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Genesis",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 2
@@ -12493,7 +12493,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Genesis",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 3
@@ -12556,7 +12556,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Genesis",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 4
@@ -12618,7 +12618,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Genesis",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 5
@@ -12681,7 +12681,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Genesis",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 6
@@ -12747,7 +12747,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Genesis",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 7
@@ -12809,7 +12809,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Genesis",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 8
@@ -12871,7 +12871,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Genesis",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 9
@@ -12933,7 +12933,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Genesis",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 10
@@ -13005,7 +13005,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Genesis",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 11
@@ -13077,7 +13077,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Emperadores_Oscuros",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 1
@@ -13135,7 +13135,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Emperadores_Oscuros",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 2
@@ -13191,7 +13191,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Emperadores_Oscuros",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 3
@@ -13248,7 +13248,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Emperadores_Oscuros",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 4
@@ -13305,7 +13305,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Emperadores_Oscuros",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 5
@@ -13360,7 +13360,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Emperadores_Oscuros",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 6
@@ -13409,7 +13409,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Emperadores_Oscuros",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 7
@@ -13462,7 +13462,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Emperadores_Oscuros",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 8
@@ -13518,7 +13518,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Emperadores_Oscuros",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 9
@@ -13579,7 +13579,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Emperadores_Oscuros",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 10
@@ -13639,7 +13639,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Emperadores_Oscuros",
-      "from": "Saga Alius",
+      "seasons": "Season_T2",
       "to": null,
       "isCurrent": true,
       "number": 11
@@ -13700,7 +13700,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Inazuma_Japan",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 1
@@ -13778,7 +13778,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Inazuma_Japan",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 2
@@ -13847,7 +13847,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Inazuma_Japan",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 3
@@ -13900,7 +13900,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Inazuma_Japan",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 4
@@ -13954,7 +13954,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Inazuma_Japan",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 5
@@ -14008,7 +14008,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Inazuma_Japan",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 6
@@ -14066,7 +14066,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Inazuma_Japan",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 7
@@ -14136,7 +14136,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Inazuma_Japan",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 8
@@ -14202,7 +14202,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Inazuma_Japan",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 9
@@ -14292,7 +14292,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Inazuma_Japan",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 10
@@ -14345,7 +14345,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Inazuma_Japan",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 11
@@ -14402,7 +14402,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Inazuma_Japan",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 12
@@ -14456,7 +14456,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Inazuma_Japan",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 18
@@ -14509,7 +14509,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Inazuma_Japan",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 20
@@ -14568,7 +14568,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Fire_Dragons",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 1
@@ -14622,7 +14622,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Fire_Dragons",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 2
@@ -14677,7 +14677,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Fire_Dragons",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 3
@@ -14736,7 +14736,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Fire_Dragons",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 4
@@ -14790,7 +14790,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Fire_Dragons",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 5
@@ -14844,7 +14844,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Fire_Dragons",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 6
@@ -14904,7 +14904,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Fire_Dragons",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 7
@@ -14955,7 +14955,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Fire_Dragons",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 8
@@ -15009,7 +15009,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Fire_Dragons",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 9
@@ -15083,7 +15083,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Fire_Dragons",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 10
@@ -15147,7 +15147,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Fire_Dragons",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 11
@@ -15214,7 +15214,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Knights_of_Queen",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 1
@@ -15267,7 +15267,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Knights_of_Queen",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 2
@@ -15321,7 +15321,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Knights_of_Queen",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 3
@@ -15375,7 +15375,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Knights_of_Queen",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 4
@@ -15429,7 +15429,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Knights_of_Queen",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 5
@@ -15488,7 +15488,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Knights_of_Queen",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 6
@@ -15547,7 +15547,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Knights_of_Queen",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 7
@@ -15606,7 +15606,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Knights_of_Queen",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 8
@@ -15659,7 +15659,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Knights_of_Queen",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 9
@@ -15718,7 +15718,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Knights_of_Queen",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 10
@@ -15769,7 +15769,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Knights_of_Queen",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 11
@@ -15829,7 +15829,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Los_Emperadores",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 1
@@ -15882,7 +15882,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Los_Emperadores",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 2
@@ -15936,7 +15936,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Los_Emperadores",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 3
@@ -15990,7 +15990,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Los_Emperadores",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 4
@@ -16044,7 +16044,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Los_Emperadores",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 5
@@ -16096,7 +16096,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Los_Emperadores",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 6
@@ -16150,7 +16150,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Los_Emperadores",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 7
@@ -16204,7 +16204,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Los_Emperadores",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 8
@@ -16263,7 +16263,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Los_Emperadores",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 9
@@ -16315,7 +16315,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Los_Emperadores",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 10
@@ -16374,7 +16374,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Los_Emperadores",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 11
@@ -16434,7 +16434,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Unicorn",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 1
@@ -16488,7 +16488,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Unicorn",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 2
@@ -16542,7 +16542,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Unicorn",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 3
@@ -16596,7 +16596,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Unicorn",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 4
@@ -16649,7 +16649,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Unicorn",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 5
@@ -16708,7 +16708,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Unicorn",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 6
@@ -16764,7 +16764,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Unicorn",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 7
@@ -16833,7 +16833,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Unicorn",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 8
@@ -16886,7 +16886,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Unicorn",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 9
@@ -16945,7 +16945,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Unicorn",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 10
@@ -17009,7 +17009,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Unicorn",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 11
@@ -17065,7 +17065,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Orfeo",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 1
@@ -17118,7 +17118,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Orfeo",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 2
@@ -17176,7 +17176,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Orfeo",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 3
@@ -17230,7 +17230,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Orfeo",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 4
@@ -17284,7 +17284,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Orfeo",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 5
@@ -17344,7 +17344,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Orfeo",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 6
@@ -17402,7 +17402,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Orfeo",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 7
@@ -17456,7 +17456,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Orfeo",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 8
@@ -17509,7 +17509,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Orfeo",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 9
@@ -17563,7 +17563,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Orfeo",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 10
@@ -17630,7 +17630,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Orfeo",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 11
@@ -17683,7 +17683,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Os_Reis",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 1
@@ -17737,7 +17737,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Os_Reis",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 2
@@ -17790,7 +17790,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Os_Reis",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 3
@@ -17844,7 +17844,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Os_Reis",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 4
@@ -17897,7 +17897,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Os_Reis",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 5
@@ -17951,7 +17951,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Os_Reis",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 6
@@ -18004,7 +18004,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Os_Reis",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 7
@@ -18063,7 +18063,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Os_Reis",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 8
@@ -18122,7 +18122,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Os_Reis",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 9
@@ -18180,7 +18180,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Os_Reis",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 10
@@ -18239,7 +18239,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Os_Reis",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 11
@@ -18306,7 +18306,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Little_Giants",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 1
@@ -18369,7 +18369,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Little_Giants",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 2
@@ -18428,7 +18428,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Little_Giants",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 3
@@ -18483,7 +18483,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Little_Giants",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 4
@@ -18541,7 +18541,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Little_Giants",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 5
@@ -18599,7 +18599,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Little_Giants",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 6
@@ -18654,7 +18654,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Little_Giants",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 7
@@ -18713,7 +18713,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Little_Giants",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 8
@@ -18773,7 +18773,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Little_Giants",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 9
@@ -18837,7 +18837,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Little_Giants",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 10
@@ -18890,7 +18890,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Little_Giants",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 11
@@ -18950,7 +18950,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Neo_Japon",
-      "from": "FFI",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 1
@@ -19009,7 +19009,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Neo_Japon",
-      "from": "FFI",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 2
@@ -19063,7 +19063,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Neo_Japon",
-      "from": "FFI",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 3
@@ -19122,7 +19122,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Neo_Japon",
-      "from": "FFI",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 4
@@ -19175,7 +19175,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Neo_Japon",
-      "from": "FFI",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 5
@@ -19234,7 +19234,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Neo_Japon",
-      "from": "FFI",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 6
@@ -19292,7 +19292,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Neo_Japon",
-      "from": "FFI",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 7
@@ -19350,7 +19350,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Neo_Japon",
-      "from": "FFI",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 8
@@ -19408,7 +19408,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Neo_Japon",
-      "from": "FFI",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 9
@@ -19461,7 +19461,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Neo_Japon",
-      "from": "FFI",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 10
@@ -19520,7 +19520,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Neo_Japon",
-      "from": "FFI",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 11
@@ -19575,7 +19575,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Sky_Team",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 1
@@ -19629,7 +19629,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Sky_Team",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 2
@@ -19688,7 +19688,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Sky_Team",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 3
@@ -19746,7 +19746,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Sky_Team",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 4
@@ -19799,7 +19799,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Sky_Team",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 5
@@ -19852,7 +19852,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Sky_Team",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 6
@@ -19911,7 +19911,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Sky_Team",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 7
@@ -19964,7 +19964,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Sky_Team",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 8
@@ -20017,7 +20017,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Sky_Team",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 9
@@ -20075,7 +20075,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Sky_Team",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 10
@@ -20134,7 +20134,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Sky_Team",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 11
@@ -20194,7 +20194,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Dark_Team",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 1
@@ -20252,7 +20252,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Dark_Team",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 2
@@ -20310,7 +20310,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Dark_Team",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 3
@@ -20369,7 +20369,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Dark_Team",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 4
@@ -20428,7 +20428,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Dark_Team",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 5
@@ -20486,7 +20486,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Dark_Team",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 6
@@ -20544,7 +20544,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Dark_Team",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 7
@@ -20602,7 +20602,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Dark_Team",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 8
@@ -20660,7 +20660,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Dark_Team",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 9
@@ -20714,7 +20714,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Dark_Team",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 10
@@ -20773,7 +20773,7 @@ const datos = [
   "teams": [
     {
       "team_id": "Dark_Team",
-      "from": "World Cup",
+      "seasons": "Season_T3",
       "to": null,
       "isCurrent": true,
       "number": 11
