@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Users, Loader2, X, Shield, Zap, Activity, ChevronRight, MapPin, Trophy } from 'lucide-react'
-import { BASE_URL, imgUrl } from '../config'
+import { imgUrl } from '../config'
 import styles from './EquiposPage.module.css'
 
 const SEASON_COLORS = { IE1: '#36d399', IE2: '#3d7eff', IE3: '#f471b5' }
@@ -18,7 +18,7 @@ export default function EquiposPage() {
   useEffect(() => {
     const fetchTeams = async () => {
       try {
-        const res  = await fetch(`${BASE_URL}/equipos`)
+        const res  = await fetch('https://api-inazuma.onrender.com/equipos')
         const data = await res.json()
         setTeams(Array.isArray(data) ? data : (data.teams || []))
       } catch (err) {
@@ -91,7 +91,7 @@ export default function EquiposPage() {
             {/* Background image del equipo */}
             <div
               className={styles.cardBgImage}
-              style={{ backgroundImage: `url(${team.image?.url})` }}
+              style={{ backgroundImage: `url(${imgUrl(team.image)})` }}
             />
             {/* Overlay de color */}
             <div className={styles.cardOverlay} style={{ background: `linear-gradient(to top, ${team.color_primary || '#0a0e16'}ee 0%, ${team.color_primary || '#0a0e16'}88 50%, transparent 100%)` }} />
@@ -180,7 +180,7 @@ export default function EquiposPage() {
                         {player.number ? String(player.number).padStart(2, '0') : '??'}
                       </span>
                       <div className={styles.playerThumbWrap}>
-                        <img src={imgUrl(player.image)} className={styles.playerThumb} alt={player.name} />
+                        <img src={imgUrl(player.image_url)} className={styles.playerThumb} alt={player.name} />
                       </div>
                       <div className={styles.playerInfo}>
                         <p className={styles.pName}>{player.name}</p>
