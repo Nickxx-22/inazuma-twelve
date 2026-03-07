@@ -125,12 +125,12 @@ export default function HomePage() {
       const userId = su?.id || su?._id
 
       try {
-        // Añadimos la carga de equipos a tu Promise.all
+        // ✅ Todas las URLs apuntan ahora a tu API en Render
         const [allPlayers, allTecnicas, allTeams, userRes] = await Promise.all([
-          getAllPlayers(),
-          fetch('http://127.0.0.1:5000/tecnicas').then(r => r.json()),
-          fetch('http://127.0.0.1:5000/equipos').then(r => r.json()), // Carga de equipos
-          userId ? fetch(`http://127.0.0.1:5000/obtener_usuario/${userId}`, {
+          getAllPlayers(), // Asegúrate de que esta función también use la URL de Render
+          fetch('https://api-inazuma.onrender.com/tecnicas').then(r => r.json()),
+          fetch('https://api-inazuma.onrender.com/equipos').then(r => r.json()), 
+          userId ? fetch(`https://api-inazuma.onrender.com/obtener_usuario/${userId}`, {
             headers: token ? { 'Authorization': `Bearer ${token}` } : {}
           }) : Promise.resolve(null)
         ])

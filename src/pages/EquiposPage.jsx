@@ -17,7 +17,7 @@ export default function EquiposPage() {
   useEffect(() => {
     const fetchTeams = async () => {
       try {
-        const res  = await fetch('http://127.0.0.1:5000/equipos')
+        const res  = await fetch('https://api-inazuma.onrender.com/equipos')
         const data = await res.json()
         setTeams(Array.isArray(data) ? data : (data.teams || []))
       } catch (err) {

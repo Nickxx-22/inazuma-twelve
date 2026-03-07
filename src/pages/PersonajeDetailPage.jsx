@@ -32,7 +32,8 @@ export default function PersonajeDetailPage() {
   useEffect(() => {
     async function fetchCharacter() {
       try {
-        const res = await fetch(`http://127.0.0.1:5000/jugadores/${id}`)
+        // 1. Cambiamos la URL para obtener el jugador específico
+        const res = await fetch(`https://api-inazuma.onrender.com/jugadores/${id}`)
         if (!res.ok) throw new Error("Error al cargar el jugador")
         const data = await res.json()
         
@@ -42,7 +43,8 @@ export default function PersonajeDetailPage() {
         // Verificamos si ya es favorito en los datos del usuario
         if (user && data.character) {
             const userId = user.id || user._id;
-            const userRes = await fetch(`http://127.0.0.1:5000/obtener_usuario/${userId}`);
+            // 2. Cambiamos la URL para obtener los datos del usuario desde Render
+            const userRes = await fetch(`https://api-inazuma.onrender.com/obtener_usuario/${userId}`);
             const userData = await userRes.json();
             if (userRes.ok) {
                 const favs = userData.usuario.favoritos || [];
@@ -70,14 +72,15 @@ export default function PersonajeDetailPage() {
     
     setIsLiking(true);
     try {
-      const res = await fetch('http://127.0.0.1:5000/toggle_favorito', {
-        method: 'POST',
-        headers: { 
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({ user_id: userId, personaje_id: id }) // id viene de useParams
-      });
+        const res = await fetch('https://api-inazuma.onrender.com/toggle_favorito', {
+          method: 'POST',
+          headers: { 
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+          },
+          // Asegúrate de que 'id' coincida con lo que espera tu backend (personaje_id)
+          body: JSON.stringify({ user_id: userId, personaje_id: id }) 
+        });
 
       const data = await res.json();
 

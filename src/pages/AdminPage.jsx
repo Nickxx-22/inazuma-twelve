@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { Shield, Trash2, ChevronDown, Users, Star, Zap, Folder, RefreshCw, Loader2, X, AlertTriangle } from 'lucide-react'
 import styles from './AdminPage.module.css'
 
-const BASE = 'http://127.0.0.1:5000'
+const BASE = 'https://api-inazuma.onrender.com'
 
 function getToken() {
   return localStorage.getItem('inazuma-token') || ''

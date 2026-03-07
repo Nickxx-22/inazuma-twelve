@@ -155,7 +155,7 @@ export default function MiEquipoPage() {
         setLoading(true);
         const [players, userRes] = await Promise.all([
           getAllPlayers(),
-          fetch(`http://127.0.0.1:5000/obtener_usuario/${userId}`)
+          fetch(`https://api-inazuma.onrender.com/obtener_usuario/${userId}`)
         ]);
 
         if (cancelled) return; // componente desmontado mientras esperábamos
@@ -211,7 +211,7 @@ export default function MiEquipoPage() {
     setIsSaving(true);
     const equipoIds = slots.map(s => s.characterId);
     try {
-      const res = await fetch('http://127.0.0.1:5000/guardar_equipo', {
+      const res = await fetch('https://api-inazuma.onrender.com/guardar_equipo', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ user_id: userId, equipo: equipoIds, nombre_equipo: nombreTemp })
@@ -232,7 +232,7 @@ export default function MiEquipoPage() {
     if (!window.confirm(`¿Eliminar el equipo "${equipoSeleccionado}"?`)) return;
     setIsDeleting(true);
     try {
-      const res = await fetch('http://127.0.0.1:5000/eliminar_equipo', {
+      const res = await fetch('https://api-inazuma.onrender.com/eliminar_equipo', {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ user_id: userId, nombre_equipo: equipoSeleccionado })

@@ -35,15 +35,18 @@ export default function TecnicasPage() {
   useEffect(() => {
     async function load() {
       try {
-        const res  = await fetch('http://127.0.0.1:5000/tecnicas')
+        // 1. Cambiamos la URL de las técnicas generales
+        const res  = await fetch('https://api-inazuma.onrender.com/tecnicas')
         if (!res.ok) throw new Error('Error API')
         const data = await res.json()
         setTechniques(data)
 
         const { user: su, token } = getStoredSession()
         const userId = su?.id || su?._id
+        
         if (userId && token) {
-          const uRes  = await fetch(`http://127.0.0.1:5000/obtener_usuario/${userId}`, {
+          // 2. Cambiamos la URL para obtener los datos del usuario
+          const uRes  = await fetch(`https://api-inazuma.onrender.com/obtener_usuario/${userId}`, {
             headers: { 'Authorization': `Bearer ${token}` }
           })
           const uData = await uRes.json()
@@ -68,7 +71,7 @@ export default function TecnicasPage() {
 
     setLikingId(tecnicaId)
     try {
-      const res  = await fetch('http://127.0.0.1:5000/toggle_favorito_tecnica', {
+      const res  = await fetch('https://api-inazuma.onrender.com/toggle_favorito_tecnica', {
         method:  'POST',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
         body:    JSON.stringify({ user_id: userId, tecnica_id: tecnicaId })
