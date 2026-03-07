@@ -29,7 +29,8 @@ export default function PersonajesPage() {
   useEffect(() => {
     async function fetchPlayers() {
       try {
-        const res  = await fetch("http://127.0.0.1:5000/jugadores")
+        // ✅ Cambiamos la URL local por la de producción en Render
+        const res  = await fetch("https://api-inazuma.onrender.com/jugadores")
         const data = await res.json()
         setCharacters(data)
       } catch (error) {
