@@ -14,6 +14,9 @@
     "push-all": "git add . && git commit -m \"update inazuma project\" && git push origin master && npm run deploy"
   },
   "dependencies": {
+    "@capacitor/android": "^8.2.0",
+    "@capacitor/cli": "^8.2.0",
+    "@capacitor/core": "^8.2.0",
     "chart.js": "^4.5.1",
     "lucide-react": "^0.575.0",
     "react": "^19.2.0",

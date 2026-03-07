@@ -8,104 +8,88 @@
   animation: fadeInUp 280ms ease both;
 }
 
-/* ── IMAGEN ── */
 .imageArea {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  background-color: #1a1a2e;
+  position: relative; width: 100%; aspect-ratio: 1 / 1;
+  overflow: hidden; background-color: #1a1a2e;
 }
 .characterImage {
-  position: absolute; top: 0; left: 0;
-  width: 100%; height: 100%;
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
   object-fit: cover; object-position: center top;
-  image-rendering: pixelated; z-index: 1;
-  transition: transform 0.5s ease;
+  image-rendering: pixelated; z-index: 1; transition: transform 0.5s ease;
 }
 .card:hover .characterImage { transform: scale(1.07); }
 .overlay {
-  position: absolute; top: 0; left: 0;
-  width: 100%; height: 100%;
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
   z-index: 2; pointer-events: none;
 }
 
-/* ── BADGES SUPERIORES ── */
-.topBadges {
-  position: absolute; top: 8px; left: 8px; right: 8px;
-  display: flex; justify-content: space-between; align-items: flex-start; z-index: 3;
+.natureBadge {
+  position: absolute; top: 8px; left: 8px; z-index: 3;
+  padding: 3px 7px; border-radius: 6px;
+  font-size: 0.58rem; font-weight: 800; color: #fff;
+  white-space: nowrap; line-height: 1.4;
 }
-.badge {
-  padding: 2px 7px; border-radius: 6px;
-  font-size: 0.6rem; font-weight: 800; color: #fff; white-space: nowrap;
+.positionBadge {
+  position: absolute; top: 6px; right: 8px; z-index: 3;
 }
-.badgePrimary { background: var(--primary) !important; }
-
-/* Imagen de posición (badge superior derecho) */
 .positionImg {
-  width: 30px; height: 30px;
-  object-fit: contain;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));
-  flex-shrink: 0;
+  width: 34px; height: 34px; object-fit: contain;
+  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.9));
+}
+.positionText {
+  background: var(--primary); padding: 3px 7px; border-radius: 6px;
+  font-size: 0.58rem; font-weight: 800; color: #fff; line-height: 1.4;
 }
 
 /* ── INFO ── */
 .info { padding: 6px 10px 8px; }
 
+/* nombre + PWR en la misma fila */
+.nameRow {
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 6px;
+  margin-bottom: 4px;
+}
 .name {
   font-size: 0.75rem; font-weight: 700; color: var(--foreground);
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  transition: color 150ms;
+  transition: color 150ms; flex: 1; min-width: 0;
 }
 .card:hover .name { color: var(--primary); }
-
-.jaName {
-  font-size: 0.6rem; color: var(--muted);
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  margin-bottom: 4px;
-}
-
-/* ── FILA INFERIOR ── */
-.bottomMeta {
-  display: flex; align-items: center;
-  justify-content: space-between; gap: 4px;
-}
-.metaLeft {
-  display: flex; align-items: center; gap: 4px;
-  font-size: 0.55rem; color: var(--muted); min-width: 0; flex: 1;
-}
-.sep { color: var(--border); }
-.countryText {
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 50px;
-}
-.metaRight {
-  display: flex; align-items: center; gap: 4px; flex-shrink: 0;
-}
-
-/* Imagen de elemento (inline, pequeña) */
-.elementImg {
-  width: 20px; height: 20px;
-  object-fit: contain;
-  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.6));
-  flex-shrink: 0;
-}
-/* Fallback dot si no hay imagen */
-.elementDot {
-  width: 18px; height: 18px; border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.2);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.55rem; font-weight: 800; color: #fff; flex-shrink: 0;
-}
-.flagBadge {
-  width: 18px; height: 12px; object-fit: cover;
-  border-radius: 2px; flex-shrink: 0;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-  border: 1px solid rgba(255,255,255,0.1);
-}
 .powerBadge {
   background: rgba(0,0,0,0.55); backdrop-filter: blur(4px);
   padding: 2px 5px; border-radius: 5px;
   font-size: 0.55rem; font-weight: 800; color: var(--foreground);
+  border: 1px solid rgba(255,255,255,0.08); flex-shrink: 0;
+}
+
+/* fila inferior: role+país izq, iconos der */
+.bottomRow {
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 4px;
+}
+.roleCol {
+  display: flex; flex-direction: column; gap: 1px;
+  font-size: 0.55rem; color: var(--muted);
+  min-width: 0; flex: 1; overflow: hidden;
+}
+.roleText { flex-shrink: 0; }
+.countryText { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.iconsRow { display: flex; align-items: center; gap: 3px; flex-shrink: 0; }
+.elementImg {
+  width: 18px; height: 18px; object-fit: contain;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.6));
+}
+.elementDot {
+  width: 18px; height: 18px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.55rem; font-weight: 800; color: #fff;
+}
+.flagBadge {
+  width: 18px; height: 12px; object-fit: cover; border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1);
 }
 
 @keyframes fadeInUp {
