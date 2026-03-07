@@ -1,4 +1,4 @@
-const BASE_URL = 'http://127.0.0.1:5000';
+const BASE_URL = 'https://api-inazuma.onrender.com';
 
 export function getUser() {
   const stored = localStorage.getItem('inazuma-user');
