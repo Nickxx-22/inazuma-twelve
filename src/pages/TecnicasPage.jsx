@@ -4,6 +4,7 @@ import FilterSelect from '../components/common/FilterSelect'
 import EmptyState from '../components/common/EmptyState'
 import { useAuth } from '../hooks/useAuth'
 import { getElementColor } from '../utils/colors'
+import { BASE_URL, imgUrl } from '../config'
 import styles from './TecnicasPage.module.css'
 
 const ELEMENTS = ['Fuego', 'Montaña', 'Aire', 'Bosque']
@@ -36,7 +37,7 @@ export default function TecnicasPage() {
     async function load() {
       try {
         // 1. Cambiamos la URL de las técnicas generales
-        const res  = await fetch('https://api-inazuma.onrender.com/tecnicas')
+        const res  = await fetch(`${BASE_URL}/tecnicas`)
         if (!res.ok) throw new Error('Error API')
         const data = await res.json()
         setTechniques(data)
@@ -46,7 +47,7 @@ export default function TecnicasPage() {
         
         if (userId && token) {
           // 2. Cambiamos la URL para obtener los datos del usuario
-          const uRes  = await fetch(`https://api-inazuma.onrender.com/obtener_usuario/${userId}`, {
+          const uRes  = await fetch(`${BASE_URL}/obtener_usuario/${userId}`, {
             headers: { 'Authorization': `Bearer ${token}` }
           })
           const uData = await uRes.json()
@@ -71,7 +72,7 @@ export default function TecnicasPage() {
 
     setLikingId(tecnicaId)
     try {
-      const res  = await fetch('https://api-inazuma.onrender.com/toggle_favorito_tecnica', {
+      const res  = await fetch(`${BASE_URL}/toggle_favorito_tecnica`, {
         method:  'POST',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
         body:    JSON.stringify({ user_id: userId, tecnica_id: tecnicaId })
@@ -234,7 +235,7 @@ export default function TecnicasPage() {
             <div className={styles.modalBody}>
               <div className={styles.videoContainer}>
                 <video key={selectedTech.videoUrl} autoPlay loop playsInline className={styles.mainVideo}>
-                  <source src={selectedTech.videoUrl} type="video/mp4" />
+                  <source src={imgUrl(selectedTech.videoUrl)} type="video/mp4" />
                 </video>
               </div>
               <h4 className={styles.sectionTitle}><Zap size={14} /> ESTADISTICAS</h4>

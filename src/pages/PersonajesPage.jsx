@@ -4,6 +4,7 @@ import CharacterCard from '../components/players/CharacterCard'
 import CharacterListItem from '../components/players/CharacterListItem'
 import FilterSelect from '../components/common/FilterSelect'
 import EmptyState from '../components/common/EmptyState'
+import { BASE_URL, imgUrl } from '../config'
 import styles from './PersonajesPage.module.css'
 
 const ELEMENTS  = ['Fuego', 'Montaña', 'Aire', 'Bosque']
@@ -30,7 +31,7 @@ export default function PersonajesPage() {
     async function fetchPlayers() {
       try {
         // ✅ Cambiamos la URL local por la de producción en Render
-        const res  = await fetch("https://api-inazuma.onrender.com/jugadores")
+        const res  = await fetch(`${BASE_URL}/jugadores`)
         const data = await res.json()
         setCharacters(data)
       } catch (error) {

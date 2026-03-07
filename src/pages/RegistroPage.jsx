@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Mail, Lock, User, UserPlus, Eye, EyeOff, CheckCircle2, XCircle, Loader2, Shield } from 'lucide-react'
 import styles from './AuthPage.module.css'
 
-const BASE_URL = 'https://api-inazuma.onrender.com'
+import { BASE_URL } from '../config'
 
 function validateField(name, value, password) {
   switch (name) {

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { Shield, Trash2, ChevronDown, Users, Star, Zap, Folder, RefreshCw, Loader2, X, AlertTriangle } from 'lucide-react'
 import styles from './AdminPage.module.css'
 
-const BASE = 'https://api-inazuma.onrender.com'
+import { BASE_URL } from '../config'
 
 function getToken() {
   return localStorage.getItem('inazuma-token') || ''
@@ -129,7 +129,7 @@ export default function AdminPage() {
     setLoading(true)
     setError(null)
     try {
-      const res  = await fetch(`${BASE}/admin/usuarios`, {
+      const res  = await fetch(`${BASE_URL}/admin/usuarios`, {
         headers: { 'Authorization': `Bearer ${getToken()}` }
       })
       const data = await res.json()
@@ -147,7 +147,7 @@ export default function AdminPage() {
   const handleDelete = async () => {
     if (!confirm) return
     try {
-      await fetch(`${BASE}/admin/usuarios/${confirm.id}`, {
+      await fetch(`${BASE_URL}/admin/usuarios/${confirm.id}`, {
         method:  'DELETE',
         headers: { 'Authorization': `Bearer ${getToken()}` }
       })
@@ -161,7 +161,7 @@ export default function AdminPage() {
 
   const handleRoleChange = async (userId, newRole) => {
     try {
-      await fetch(`${BASE}/admin/usuarios/${userId}/role`, {
+      await fetch(`${BASE_URL}/admin/usuarios/${userId}/role`, {
         method:  'PUT',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${getToken()}` },
         body:    JSON.stringify({ role: newRole })

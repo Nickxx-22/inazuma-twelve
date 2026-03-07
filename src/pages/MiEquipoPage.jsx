@@ -4,6 +4,7 @@ import { useAuth } from '../hooks/useAuth'
 import { useNavigate } from 'react-router-dom'
 import { getElementColor } from '../utils/colors'
 import { getAllPlayers } from '../services/playerService'
+import { BASE_URL, imgUrl } from '../config'
 import styles from './MiEquipoPage.module.css'
 
 // ── PICKER MODAL ──────────────────────────────────────────────────
@@ -67,7 +68,7 @@ function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, on
           {available.map(char => (
             <div key={char._id || char.id} className={styles.pickerRow} onClick={() => onSelect(slotIndex, char._id || char.id)}>
               <div className={styles.pickerAvatarWrapper} style={{ borderLeft: `3px solid ${getElementColor(char.element)}` }}>
-                <img src={char.image} alt="" className={styles.pickerAvatarImg} />
+                <img src={imgUrl(char.image)} alt="" className={styles.pickerAvatarImg} />
               </div>
               <div className={styles.pickerInfo}>
                 <span className={styles.pickerName}>{char.name}</span>
@@ -155,7 +156,7 @@ export default function MiEquipoPage() {
         setLoading(true);
         const [players, userRes] = await Promise.all([
           getAllPlayers(),
-          fetch(`https://api-inazuma.onrender.com/obtener_usuario/${userId}`)
+          fetch(`${BASE_URL}/obtener_usuario/${userId}`)
         ]);
 
         if (cancelled) return; // componente desmontado mientras esperábamos
@@ -211,7 +212,7 @@ export default function MiEquipoPage() {
     setIsSaving(true);
     const equipoIds = slots.map(s => s.characterId);
     try {
-      const res = await fetch('https://api-inazuma.onrender.com/guardar_equipo', {
+      const res = await fetch(`${BASE_URL}/guardar_equipo`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ user_id: userId, equipo: equipoIds, nombre_equipo: nombreTemp })
@@ -232,7 +233,7 @@ export default function MiEquipoPage() {
     if (!window.confirm(`¿Eliminar el equipo "${equipoSeleccionado}"?`)) return;
     setIsDeleting(true);
     try {
-      const res = await fetch('https://api-inazuma.onrender.com/eliminar_equipo', {
+      const res = await fetch(`${BASE_URL}/eliminar_equipo`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ user_id: userId, nombre_equipo: equipoSeleccionado })
@@ -381,7 +382,7 @@ export default function MiEquipoPage() {
                   {char ? (
                     <div className={styles.playerCard}>
                       <div className={styles.avatarCircle} style={{ borderColor: getElementColor(char.element) }}>
-                        <img src={char.image} alt={char.name} />
+                        <img src={imgUrl(char.image)} alt={char.name} />
                         <button className={styles.remove} onClick={(e) => handleRemoveCharacter(i, e)}>
                           <X size={10} />
                         </button>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Users, Loader2, X, Shield, Zap, Activity, ChevronRight, MapPin, Trophy } from 'lucide-react'
+import { BASE_URL, imgUrl } from '../config'
 import styles from './EquiposPage.module.css'
 
 const SEASON_COLORS = { IE1: '#36d399', IE2: '#3d7eff', IE3: '#f471b5' }
@@ -17,7 +18,7 @@ export default function EquiposPage() {
   useEffect(() => {
     const fetchTeams = async () => {
       try {
-        const res  = await fetch('https://api-inazuma.onrender.com/equipos')
+        const res  = await fetch(`${BASE_URL}/equipos`)
         const data = await res.json()
         setTeams(Array.isArray(data) ? data : (data.teams || []))
       } catch (err) {
@@ -142,7 +143,7 @@ export default function EquiposPage() {
             >
               <div className={styles.modalHeaderGlow} style={{ background: selectedTeam.color_primary || '#3d7eff' }} />
               <div className={styles.modalLogoWrap}>
-                <img src={selectedTeam.image?.url} className={styles.modalLogo} alt={selectedTeam.name} />
+                <img src={imgUrl(selectedTeam.image)} className={styles.modalLogo} alt={selectedTeam.name} />
               </div>
               <div className={styles.modalHeaderText}>
                 <div className={styles.modalSeasons}>
@@ -179,7 +180,7 @@ export default function EquiposPage() {
                         {player.number ? String(player.number).padStart(2, '0') : '??'}
                       </span>
                       <div className={styles.playerThumbWrap}>
-                        <img src={player.image_url} className={styles.playerThumb} alt={player.name} />
+                        <img src={imgUrl(player.image)} className={styles.playerThumb} alt={player.name} />
                       </div>
                       <div className={styles.playerInfo}>
                         <p className={styles.pName}>{player.name}</p>

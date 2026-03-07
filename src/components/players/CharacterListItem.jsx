@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { getElementColor, getNatureColor } from '../../utils/colors'
+import { imgUrl } from '../../config'
 import styles from './CharacterListItem.module.css'
 
 export default function CharacterListItem({ character }) {
@@ -16,7 +17,7 @@ export default function CharacterListItem({ character }) {
       {/* Avatar */}
       <div className={styles.avatarWrap} style={{ background: `linear-gradient(135deg, ${elColor}33, ${natColor}22)` }}>
         {character.image
-          ? <img src={character.image} alt={character.name} className={styles.avatarImg} />
+          ? <img src={imgUrl(character.image)} alt={character.name} className={styles.avatarImg} />
           : <span className={styles.avatarFallback} style={{ background: `linear-gradient(135deg, ${elColor}, ${natColor})` }}>{character.name.charAt(0)}</span>
         }
       </div>
@@ -29,30 +30,20 @@ export default function CharacterListItem({ character }) {
 
       {/* Tags */}
       <div className={styles.tags}>
-
-        {/* Elemento: imagen si existe, badge de color si no */}
         {character.elementImg
-          ? <img src={character.elementImg} alt={character.element} className={styles.tagImg} title={character.element} />
+          ? <img src={imgUrl(character.elementImg)} alt={character.element} className={styles.tagImg} title={character.element} />
           : <span className={styles.tag} style={{ background: elColor }}>{character.element}</span>
         }
-
-        {/* Naturaleza */}
         <span className={styles.tag} style={{ background: natColor }}>{character.nature}</span>
-
-        {/* Posición: imagen si existe, badge si no */}
         {character.positionImg
-          ? <img src={character.positionImg} alt={character.position} className={styles.tagImg} title={character.position} />
+          ? <img src={imgUrl(character.positionImg)} alt={character.position} className={styles.tagImg} title={character.position} />
           : <span className={`${styles.tag} ${styles.tagSecondary}`}>{character.position}</span>
         }
-
-        {/* Temporadas */}
         {seasonLabels.map(s => (
           <span key={s} className={`${styles.tag} ${styles.tagSeason}`}>{s}</span>
         ))}
-
-        {/* Bandera */}
         {character.countryImg && (
-          <img src={character.countryImg} alt={character.country} className={styles.flagTag} title={character.country} />
+          <img src={imgUrl(character.countryImg)} alt={character.country} className={styles.flagTag} title={character.country} />
         )}
       </div>
 

@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import { ArrowLeft, Zap, Heart, Activity, Play, X, ExternalLink, Loader2 } from 'lucide-react' 
 import { useAuth } from '../hooks/useAuth' // Importamos tu hook de auth
 import { getElementColor, getNatureColor } from '../utils/colors'
+import { BASE_URL, imgUrl } from '../config'
 import styles from './PersonajeDetailPage.module.css'
 
 import {
@@ -33,7 +34,7 @@ export default function PersonajeDetailPage() {
     async function fetchCharacter() {
       try {
         // 1. Cambiamos la URL para obtener el jugador específico
-        const res = await fetch(`https://api-inazuma.onrender.com/jugadores/${id}`)
+        const res = await fetch(`/jugadores/${id}`)
         if (!res.ok) throw new Error("Error al cargar el jugador")
         const data = await res.json()
         
@@ -44,7 +45,7 @@ export default function PersonajeDetailPage() {
         if (user && data.character) {
             const userId = user.id || user._id;
             // 2. Cambiamos la URL para obtener los datos del usuario desde Render
-            const userRes = await fetch(`https://api-inazuma.onrender.com/obtener_usuario/${userId}`);
+            const userRes = await fetch(`/obtener_usuario/${userId}`);
             const userData = await userRes.json();
             if (userRes.ok) {
                 const favs = userData.usuario.favoritos || [];
@@ -72,7 +73,7 @@ export default function PersonajeDetailPage() {
     
     setIsLiking(true);
     try {
-        const res = await fetch('https://api-inazuma.onrender.com/toggle_favorito', {
+        const res = await fetch('/toggle_favorito', {
           method: 'POST',
           headers: { 
               'Content-Type': 'application/json',
@@ -166,14 +167,14 @@ export default function PersonajeDetailPage() {
         <aside className={styles.aside}>
           <div className={styles.card}>
             <div className={styles.avatarArea} style={{ background: `linear-gradient(135deg, ${elColor}33, ${natColor}33)` }}>
-              <img src={character.image} alt={character.name} className={styles.characterImg} />
+              <img src={imgUrl(character.image)} alt={character.name} className={styles.characterImg} />
               {/* Badge naturaleza (izquierda) + badge posición con imagen (derecha) */}
               <div className={styles.topBadges}>
                 <span className={styles.badge} style={{ background: natColor }}>
                   {character.nature?.toUpperCase()}
                 </span>
                 {character.positionImg
-                  ? <img src={character.positionImg} alt={character.position} className={styles.positionBadgeImg} title={character.position} />
+                  ? <img src={imgUrl(character.positionImg)} alt={character.position} className={styles.positionBadgeImg} title={character.position} />
                   : <span className={styles.badge} style={{ background: 'var(--primary)' }}>{character.position}</span>
                 }
               </div>
@@ -189,7 +190,7 @@ export default function PersonajeDetailPage() {
                 {character.elementImg
                   ? (
                     <span className={styles.tagElement} style={{ borderColor: `${elColor}55`, background: `${elColor}18` }}>
-                      <img src={character.elementImg} alt={character.element} className={styles.tagElementImg} />
+                      <img src={imgUrl(character.elementImg)} alt={character.element} className={styles.tagElementImg} />
                       <span style={{ color: elColor }}>{character.element}</span>
                     </span>
                   ) : (
@@ -202,7 +203,7 @@ export default function PersonajeDetailPage() {
                 {character.country && (
                   <span className={styles.tagCountry}>
                     {character.countryImg && (
-                      <img src={character.countryImg} alt={character.country} className={styles.flagImg} />
+                      <img src={imgUrl(character.countryImg)} alt={character.country} className={styles.flagImg} />
                     )}
                     {character.country}
                   </span>
@@ -239,7 +240,7 @@ export default function PersonajeDetailPage() {
             {character.country && (
               <div className={styles.countryRow}>
                 {character.countryImg && (
-                  <img src={character.countryImg} alt={character.country} className={styles.flagBig} />
+                  <img src={imgUrl(character.countryImg)} alt={character.country} className={styles.flagBig} />
                 )}
                 <span className={styles.countryName}>{character.country}</span>
               </div>
@@ -304,7 +305,7 @@ export default function PersonajeDetailPage() {
             </div>
             <div className={styles.modalBody}>
                 <video key={selectedTech.videoUrl} autoPlay loop playsInline className={styles.modalVideo}>
-                  <source src={selectedTech.videoUrl} type="video/mp4" />
+                  <source src={imgUrl(selectedTech.videoUrl)} type="video/mp4" />
                 </video>
                 <div className={styles.modalStatsSection}>
                     <div className={styles.modalStatBox}>

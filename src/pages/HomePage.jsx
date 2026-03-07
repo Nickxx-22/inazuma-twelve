@@ -6,6 +6,7 @@ import { getAllPlayers } from '../services/playerService'
 import { getElementColor } from '../utils/colors'
 import SectionHeader from '../components/common/SectionHeader'
 import CharacterCard from '../components/players/CharacterCard'
+import { BASE_URL, imgUrl } from '../config'
 import styles from './HomePage.module.css'
 
 const TYPE_MAP    = { shot: 'Tiro', dribble: 'Regate', defense: 'Defensa', save: 'Parada' }
@@ -62,7 +63,7 @@ function TechFavCard({ tech }) {
               {tech.videoUrl ? (
                 <div className={styles.techVideoWrap}>
                   <video key={tech.videoUrl} autoPlay loop playsInline className={styles.techVideo}>
-                    <source src={tech.videoUrl} type="video/mp4" />
+                    <source src={imgUrl(tech.videoUrl)} type="video/mp4" />
                   </video>
                 </div>
               ) : (
@@ -128,9 +129,9 @@ export default function HomePage() {
         // ✅ Todas las URLs apuntan ahora a tu API en Render
         const [allPlayers, allTecnicas, allTeams, userRes] = await Promise.all([
           getAllPlayers(), // Asegúrate de que esta función también use la URL de Render
-          fetch('https://api-inazuma.onrender.com/tecnicas').then(r => r.json()),
-          fetch('https://api-inazuma.onrender.com/equipos').then(r => r.json()), 
-          userId ? fetch(`https://api-inazuma.onrender.com/obtener_usuario/${userId}`, {
+          fetch(`${BASE_URL}/tecnicas`).then(r => r.json()),
+          fetch(`${BASE_URL}/equipos`).then(r => r.json()), 
+          userId ? fetch(`${BASE_URL}/obtener_usuario/${userId}`, {
             headers: token ? { 'Authorization': `Bearer ${token}` } : {}
           }) : Promise.resolve(null)
         ])
@@ -185,7 +186,7 @@ export default function HomePage() {
             {sliderTeams.map((team, i) => (
               <div key={i} className={styles.teamSlide}>
                 <img 
-                  src={team.image?.url} 
+                  src={imgUrl(team.image)} 
                   alt={team.name} 
                   className={styles.teamSlideImg} 
                   title={team.name}
