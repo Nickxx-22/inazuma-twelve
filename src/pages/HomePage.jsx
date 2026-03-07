@@ -177,9 +177,8 @@ export default function HomePage() {
   const sliderTeams = [...teams, ...teams]
 
   return (
-    <div className={styles.page}>
-
-      {/* --- NUEVO: Carrusel de logos de equipos al principio --- */}
+    <>
+      {/* --- Carrusel de logos de equipos — pegado al Header, fuera del padding del page --- */}
       {teams.length > 0 && (
         <div className={styles.teamSliderContainer}>
           <div className={styles.teamSliderTrack} style={{ '--team-count': teams.length }}>
@@ -197,6 +196,7 @@ export default function HomePage() {
         </div>
       )}
 
+    <div className={styles.page}>
       {/* Hero */}
       <section className={styles.hero}>
         <h1 className={styles.heroTitle}>
@@ -261,5 +261,6 @@ export default function HomePage() {
         )}
       </section>
     </div>
+    </>
   )
 }

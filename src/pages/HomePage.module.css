@@ -1,4 +1,4 @@
-.page { max-width: 1280px; margin: 0 auto; padding: 32px 16px; }
+.page { max-width: 1280px; margin: 0 auto; padding: 0 16px 32px; }
 
 /* ── HERO ── */
 .hero { text-align: center; margin-bottom: 40px; }
@@ -28,6 +28,7 @@
   border-top: 1px solid rgba(61,126,255,0.1);
   border-bottom: 1px solid rgba(61,126,255,0.1);
   padding: 11px 0;
+  margin-top: 0;
   margin-bottom: 32px;
 }
 .teamSliderTrack {
