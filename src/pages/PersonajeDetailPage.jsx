@@ -34,7 +34,7 @@ export default function PersonajeDetailPage() {
     async function fetchCharacter() {
       try {
         // 1. Cambiamos la URL para obtener el jugador específico
-        const res = await fetch(`/jugadores/${id}`)
+        const res = await fetch(`${BASE_URL}/jugadores/${id}`)
         if (!res.ok) throw new Error("Error al cargar el jugador")
         const data = await res.json()
         
@@ -45,7 +45,7 @@ export default function PersonajeDetailPage() {
         if (user && data.character) {
             const userId = user.id || user._id;
             // 2. Cambiamos la URL para obtener los datos del usuario desde Render
-            const userRes = await fetch(`/obtener_usuario/${userId}`);
+            const userRes = await fetch(`${BASE_URL}/obtener_usuario/${userId}`);
             const userData = await userRes.json();
             if (userRes.ok) {
                 const favs = userData.usuario.favoritos || [];
@@ -73,7 +73,7 @@ export default function PersonajeDetailPage() {
     
     setIsLiking(true);
     try {
-        const res = await fetch('/toggle_favorito', {
+        const res = await fetch(`${BASE_URL}/toggle_favorito`, {
           method: 'POST',
           headers: { 
               'Content-Type': 'application/json',
