@@ -1,4 +1,4 @@
-import { BASE_URL } from './config'
+import { BASE_URL } from '../config'
 
 export async function getAllPlayers() {
   const response = await fetch(`${BASE_URL}/jugadores`)
