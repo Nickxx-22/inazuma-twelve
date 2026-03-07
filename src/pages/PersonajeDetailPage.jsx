@@ -28,6 +28,7 @@ export default function PersonajeDetailPage() {
   const [selectedTech, setSelectedTech] = useState(null)
   const [isFavorite, setIsFavorite] = useState(false)
   const [isLiking, setIsLiking] = useState(false)
+  const [teamImages, setTeamImages] = useState({})
 
   // 1. Cargar datos del personaje y verificar si es favorito
   useEffect(() => {
@@ -40,6 +41,22 @@ export default function PersonajeDetailPage() {
         
         setCharacter(data.character)
         setTechniques(data.techniques)
+
+        // Cargar imágenes de los equipos del jugador
+        if (data.character?.teams?.length) {
+          const teamIds = data.character.teams.map(t => t.team_id).filter(Boolean)
+          const imgs = {}
+          await Promise.all(teamIds.map(async tid => {
+            try {
+              const tr = await fetch(`${BASE_URL}/equipos/${tid}`)
+              if (tr.ok) {
+                const td = await tr.json()
+                imgs[tid] = td.image?.url || ''
+              }
+            } catch {}
+          }))
+          setTeamImages(imgs)
+        }
 
         // Verificamos si ya es favorito en los datos del usuario
         if (user && data.character) {
@@ -209,6 +226,28 @@ export default function PersonajeDetailPage() {
                   </span>
                 )}
               </div>
+
+              {/* Tier */}
+              {character.tier && (
+                <div className={styles.tierRow}>
+                  <span className={styles.tierLabel}>TIER</span>
+                  <span className={styles.tierBadge} data-tier={character.tier}>{character.tier}</span>
+                </div>
+              )}
+
+              {/* Equipos */}
+              {character.teams?.length > 0 && (
+                <div className={styles.teamsRow}>
+                  {character.teams.map((t, i) => (
+                    <div key={i} className={styles.teamChip}>
+                      {teamImages[t.team_id] && (
+                        <img src={teamImages[t.team_id]} alt={t.team_id} className={styles.teamChipImg} />
+                      )}
+                      <span className={styles.teamChipName}>{t.team_id?.replace(/_/g, ' ')}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
 
               <p className={styles.desc}>{character.description}</p>
               

@@ -3,13 +3,27 @@ import { getElementColor, getNatureColor } from '../../utils/colors'
 import { imgUrl } from '../../config'
 import styles from './CharacterListItem.module.css'
 
+const TIER_COLORS = {
+  'S+': '#ff6b35', 'S': '#ff9500', 'A+': '#f5c518', 'A': '#f5c518',
+  'B+': '#36d399', 'B': '#36d399', 'C': '#94a3b8', 'D': '#64748b'
+}
+
+const STAT_KEYS = [
+  { key: 'kicking',      label: 'TIR' },
+  { key: 'control',      label: 'CON' },
+  { key: 'technique',    label: 'TEC' },
+  { key: 'pressure',     label: 'PRE' },
+  { key: 'physique',     label: 'FIS' },
+  { key: 'agility',      label: 'AGI' },
+  { key: 'intelligence', label: 'INT' },
+  { key: 'defense',      label: 'DEF' },
+]
+
 export default function CharacterListItem({ character }) {
   const elColor  = getElementColor(character.element)
   const natColor = getNatureColor(character.nature)
-
-  const seasonLabels = Array.isArray(character.seasons)
-    ? character.seasons
-    : character.season ? [character.season] : []
+  const tierColor = TIER_COLORS[character.tier] || '#94a3b8'
+  const stats = character.stats || {}
 
   return (
     <Link to={`/personajes/${character.id}`} className={`${styles.row} card-hover`}>
@@ -22,32 +36,53 @@ export default function CharacterListItem({ character }) {
         }
       </div>
 
-      {/* Nombre */}
+      {/* Nombre + japonés */}
       <div className={styles.nameBlock}>
         <span className={styles.name}>{character.name}</span>
         <span className={styles.jaName}>{character.japaneseName}</span>
       </div>
 
-      {/* Tags */}
-      <div className={styles.tags}>
-        {character.elementImg
-          ? <img src={imgUrl(character.elementImg)} alt={character.element} className={styles.tagImg} title={character.element} />
-          : <span className={styles.tag} style={{ background: elColor }}>{character.element}</span>
-        }
-        <span className={styles.tag} style={{ background: natColor }}>{character.nature}</span>
+      {/* Posición */}
+      <div className={styles.posCol}>
         {character.positionImg
-          ? <img src={imgUrl(character.positionImg)} alt={character.position} className={styles.tagImg} title={character.position} />
-          : <span className={`${styles.tag} ${styles.tagSecondary}`}>{character.position}</span>
+          ? <img src={imgUrl(character.positionImg)} alt={character.position} className={styles.posImg} title={character.position} />
+          : <span className={styles.posBadge}>{character.position}</span>
         }
-        {seasonLabels.map(s => (
-          <span key={s} className={`${styles.tag} ${styles.tagSeason}`}>{s}</span>
-        ))}
-        {character.countryImg && (
-          <img src={imgUrl(character.countryImg)} alt={character.country} className={styles.flagTag} title={character.country} />
+      </div>
+
+      {/* Elemento */}
+      <div className={styles.elCol}>
+        {character.elementImg
+          ? <img src={imgUrl(character.elementImg)} alt={character.element} className={styles.elImg} title={character.element} />
+          : <span className={styles.elBadge} style={{ background: elColor }}>{character.element}</span>
+        }
+      </div>
+
+      {/* Naturaleza */}
+      <div className={styles.natCol}>
+        <span className={styles.natBadge} style={{ background: natColor }}>{character.nature}</span>
+      </div>
+
+      {/* Tier */}
+      <div className={styles.tierCol}>
+        {character.tier && (
+          <span className={styles.tierBadge} style={{ color: tierColor, borderColor: `${tierColor}55`, background: `${tierColor}18` }}>
+            {character.tier}
+          </span>
         )}
       </div>
 
-      {/* Power */}
+      {/* Stats individuales */}
+      <div className={styles.statsRow}>
+        {STAT_KEYS.map(({ key, label }) => (
+          <div key={key} className={styles.statCell}>
+            <span className={styles.statVal}>{stats[key] ?? '—'}</span>
+            <span className={styles.statLbl}>{label}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* PWR total */}
       <div className={styles.power}>
         <span style={{ color: elColor }}>{character.power}</span>
         <small>PWR</small>

@@ -740,3 +740,85 @@
   color: var(--text-dim);
   letter-spacing: 0.03em;
 }
+/* ── TIER ── */
+.tierRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 0 8px;
+}
+.tierLabel {
+  font-size: 0.6rem;
+  font-weight: 800;
+  color: var(--text-dim);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.tierBadge {
+  padding: 4px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  border: 1px solid;
+}
+.tierBadge[data-tier="S+"] { color: #ff6b35; background: rgba(255,107,53,0.15); border-color: rgba(255,107,53,0.4); }
+.tierBadge[data-tier="S"]  { color: #ff9500; background: rgba(255,149,0,0.15);  border-color: rgba(255,149,0,0.4); }
+.tierBadge[data-tier="A+"] { color: #f5c518; background: rgba(245,197,24,0.15); border-color: rgba(245,197,24,0.4); }
+.tierBadge[data-tier="A"]  { color: #f5c518; background: rgba(245,197,24,0.12); border-color: rgba(245,197,24,0.35); }
+.tierBadge[data-tier="B+"] { color: #36d399; background: rgba(54,211,153,0.15); border-color: rgba(54,211,153,0.4); }
+.tierBadge[data-tier="B"]  { color: #36d399; background: rgba(54,211,153,0.12); border-color: rgba(54,211,153,0.35); }
+.tierBadge[data-tier="C"]  { color: #94a3b8; background: rgba(148,163,184,0.1); border-color: rgba(148,163,184,0.3); }
+
+/* ── EQUIPOS ── */
+.teamsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0 12px;
+}
+.teamChip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.2s;
+}
+.teamChip:hover {
+  background: rgba(61,126,255,0.1);
+  border-color: rgba(61,126,255,0.3);
+}
+.teamChipImg {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.5));
+}
+.teamChipName {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+/* ── MÁS COLOR en statsCard ── */
+.statsCard {
+  background: linear-gradient(135deg, rgba(61,126,255,0.06) 0%, rgba(23,23,35,0.8) 60%) !important;
+  border-color: rgba(61,126,255,0.15) !important;
+}
+.techCard {
+  background: linear-gradient(135deg, rgba(255,170,0,0.05) 0%, rgba(23,23,35,0.8) 60%) !important;
+  border-color: rgba(255,170,0,0.12) !important;
+}
+.matchStatCard:first-child {
+  border-color: rgba(54,211,153,0.2) !important;
+  background: rgba(54,211,153,0.05) !important;
+}
+.matchStatCard:last-child {
+  border-color: rgba(61,126,255,0.2) !important;
+  background: rgba(61,126,255,0.05) !important;
+}
