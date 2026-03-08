@@ -11,7 +11,8 @@
 .page {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 20px 16px;
+  overflow-x: hidden;
   color: var(--text-main);
   animation: fadeIn 0.5s ease-out;
 }
@@ -322,9 +323,11 @@
   background: var(--card-bg);
   border-radius: 24px;
   border: 1px solid var(--glass-border);
-  padding: 32px;
+  padding: 20px 16px;
   margin-bottom: 24px;
   backdrop-filter: blur(10px);
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .cardTitle {
@@ -348,8 +351,10 @@
 /* --- MATCH STATS (PE/PT) --- */
 .matchStatsRow {
   display: flex;
-  gap: 16px;
-  margin-bottom: 30px;
+  gap: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .matchStatCard {
@@ -373,7 +378,9 @@
 .statsGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 @media (min-width: 640px) {
@@ -822,3 +829,72 @@
   border-color: rgba(61,126,255,0.2) !important;
   background: rgba(61,126,255,0.05) !important;
 }
+/* ── RESPONSIVE MÓVIL FIX ── */
+@media (max-width: 640px) {
+  .page {
+    padding: 16px 12px;
+    overflow-x: hidden;
+  }
+
+  .statsCard, .techCard {
+    padding: 16px 12px;
+    border-radius: 16px;
+  }
+
+  .radarWrapper {
+    max-width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
+  .matchStatsRow {
+    gap: 8px;
+  }
+
+  .matchStatCard {
+    padding: 12px 8px;
+    font-size: 0.85rem;
+    border-radius: 12px;
+    min-width: 0;
+    flex: 1;
+  }
+
+  .matchStatCard strong {
+    font-size: 1.4rem;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .statBox {
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .countryRow {
+    padding: 8px 10px;
+    border-radius: 10px;
+  }
+
+  .techItem {
+    padding: 12px 14px;
+    border-radius: 12px;
+  }
+
+  .techName {
+    font-size: 0.9rem;
+  }
+
+  .finalPower {
+    font-size: 1.2rem;
+  }
+
+  .cardTitle {
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+  }
+}
+
+.main { min-width: 0; width: 100%; }
