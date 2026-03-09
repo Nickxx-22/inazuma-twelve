@@ -872,7 +872,7 @@ const datos = [
 },
 
 {
-  _id: "",
+  _id: "Dark_Angels",
   name: "Dark angels",
   image: {"url": "/img/equipos/dark_angels.png"},
   country: "Isla Liocott",
@@ -881,17 +881,17 @@ const datos = [
   color_primary: "#c56c06",
   coach_id: null,
   player_ids: [
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    ""
+    "Astaroth_DA",
+    "Hebimos_DA",
+    "Rubu_DA",
+    "Nenel_DA",
+    "Lephiel_DA",
+    "Malphas_DA",
+    "Zanos_DA",
+    "Gaiel_DA",
+    "Wenel_DA",
+    "Destra_DA",
+    "Sael_DA"
   ],
   seasons: [
     "Season_T3"

@@ -6512,7 +6512,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 90
   },
 
@@ -9925,20 +9925,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 88,
-    "control": 96,
-    "technique": 98,
-    "pressure": 95,
-    "physique": 84,
-    "agility": 92,
-    "intelligence": 99,
-    "kicking": 90,
-    "defense": 82,
-    "dispute": 94
+    "power": 125,
+    "control": 120,
+    "technique": 125,
+    "pressure": 125,
+    "physique": 130,
+    "agility": 120,
+    "intelligence": 110,
+    "kicking": 110,
+    "defense": 120,
+    "dispute": 120
   },
 
   "matchStats": {
-    "stamina": 145,
+    "stamina": 125,
     "tension": 100
   },
 
@@ -9999,20 +9999,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 86,
-    "control": 90,
-    "technique": 95,
-    "pressure": 88,
-    "physique": 82,
-    "agility": 94,
-    "intelligence": 90,
-    "kicking": 98,
-    "defense": 55,
-    "dispute": 92
+    "power": 120,
+    "control": 120,
+    "technique": 125,
+    "pressure": 120,
+    "physique": 130,
+    "agility": 120,
+    "intelligence": 110,
+    "kicking": 115,
+    "defense": 115,
+    "dispute": 120
   },
 
   "matchStats": {
-    "stamina": 142,
+    "stamina": 125,
     "tension": 100
   },
 
@@ -12029,20 +12029,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 90,
-    "control": 92,
-    "technique": 95,
-    "pressure": 85,
-    "physique": 84,
-    "agility": 98,
-    "intelligence": 94,
-    "kicking": 96,
-    "defense": 40,
-    "dispute": 90
+    "power": 120,
+    "control": 120,
+    "technique": 115,
+    "pressure": 120,
+    "physique": 110,
+    "agility": 120,
+    "intelligence": 125,
+    "kicking": 115,
+    "defense": 115,
+    "dispute": 120
   },
 
   "matchStats": {
-    "stamina": 145,
+    "stamina": 125,
     "tension": 110
   },
 
@@ -12098,20 +12098,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 95,
-    "control": 88,
-    "technique": 92,
-    "pressure": 90,
-    "physique": 86,
-    "agility": 94,
-    "intelligence": 82,
-    "kicking": 98,
-    "defense": 35,
-    "dispute": 92
+    "power": 125,
+    "control": 120,
+    "technique": 115,
+    "pressure": 120,
+    "physique": 110,
+    "agility": 120,
+    "intelligence": 125,
+    "kicking": 125,
+    "defense": 99,
+    "dispute": 110
   },
 
   "matchStats": {
-    "stamina": 142,
+    "stamina": 125,
     "tension": 110
   },
 
@@ -12169,20 +12169,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 96,
-    "control": 98,
-    "technique": 95,
-    "pressure": 99,
-    "physique": 92,
-    "agility": 80,
-    "intelligence": 90,
-    "kicking": 85,
-    "defense": 98,
-    "dispute": 94
+    "power": 120,
+    "control": 110,
+    "technique": 115,
+    "pressure": 110,
+    "physique": 115,
+    "agility": 110,
+    "intelligence": 125,
+    "kicking": 105,
+    "defense": 125,
+    "dispute": 120
   },
 
   "matchStats": {
-    "stamina": 150,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -12603,20 +12603,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 80,
-    "control": 96,
-    "technique": 98,
-    "pressure": 88,
-    "physique": 82,
-    "agility": 90,
+    "power": 120,
+    "control": 110,
+    "technique": 115,
+    "pressure": 120,
+    "physique": 115,
+    "agility": 120,
     "intelligence": 100,
-    "kicking": 84,
-    "defense": 75,
-    "dispute": 92
+    "kicking": 115,
+    "defense": 105,
+    "dispute": 100
   },
 
   "matchStats": {
-    "stamina": 140,
+    "stamina": 120,
     "tension": 110
   },
 
@@ -12723,20 +12723,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 92,
-    "control": 82,
-    "technique": 90,
-    "pressure": 85,
-    "physique": 88,
-    "agility": 92,
-    "intelligence": 86,
-    "kicking": 105,
-    "defense": 40,
-    "dispute": 94
+    "power": 125,
+    "control": 110,
+    "technique": 125,
+    "pressure": 110,
+    "physique": 125,
+    "agility": 110,
+    "intelligence": 100,
+    "kicking": 115,
+    "defense": 95,
+    "dispute": 110
   },
 
   "matchStats": {
-    "stamina": 145,
+    "stamina": 125,
     "tension": 110
   },
 
@@ -12794,20 +12794,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 85,
-    "control": 88,
-    "technique": 94,
-    "pressure": 92,
-    "physique": 80,
-    "agility": 105,
-    "intelligence": 88,
-    "kicking": 98,
-    "defense": 85,
-    "dispute": 90
+    "power": 130,
+    "control": 120,
+    "technique": 135,
+    "pressure": 110,
+    "physique": 125,
+    "agility": 125,
+    "intelligence": 100,
+    "kicking": 125,
+    "defense": 110,
+    "dispute": 100
   },
 
   "matchStats": {
-    "stamina": 140,
+    "stamina": 120,
     "tension": 110
   },
 
@@ -12866,16 +12866,16 @@ const datos = [
   ],
 
   "stats": {
-    "power": 94,
-    "control": 99,
-    "technique": 100,
-    "pressure": 97,
-    "physique": 90,
-    "agility": 98,
-    "intelligence": 99,
-    "kicking": 96,
-    "defense": 70,
-    "dispute": 95
+    "power": 120,
+    "control": 110,
+    "technique": 130,
+    "pressure": 115,
+    "physique": 125,
+    "agility": 110,
+    "intelligence": 120,
+    "kicking": 125,
+    "defense": 110,
+    "dispute": 105
   },
 
   "matchStats": {
@@ -12996,20 +12996,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 82,
-    "control": 95,
-    "technique": 98,
-    "pressure": 94,
-    "physique": 70,
-    "agility": 110,
-    "intelligence": 85,
-    "kicking": 50,
-    "defense": 92,
-    "dispute": 88
+    "power": 120,
+    "control": 105,
+    "technique": 130,
+    "pressure": 115,
+    "physique": 115,
+    "agility": 120,
+    "intelligence": 115,
+    "kicking": 95,
+    "defense": 125,
+    "dispute": 100
   },
 
   "matchStats": {
-    "stamina": 145,
+    "stamina": 125,
     "tension": 100
   },
 
@@ -13585,11 +13585,11 @@ const datos = [
   ],
 
   "stats": {
-    "power": 112,
-    "control": 105,
-    "technique": 126,
+    "power": 125,
+    "control": 135,
+    "technique": 125,
     "pressure": 120,
-    "physique": 122,
+    "physique": 120,
     "agility": 125,
     "intelligence": 130,
     "kicking": 125,
@@ -13598,8 +13598,8 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 142,
-    "tension": 125
+    "stamina": 145,
+    "tension": 120
   },
 
   "techniques": [
@@ -13661,14 +13661,14 @@ const datos = [
 
   "stats": {
     "power": 135,
-    "control": 102,
+    "control": 140,
     "technique": 140,
     "pressure": 130,
     "physique": 125,
     "agility": 115,
     "intelligence": 120,
     "kicking": 130,
-    "defense": 90,
+    "defense": 100,
     "dispute": 120
   },
 
@@ -13746,6 +13746,10 @@ const datos = [
     "defense": 92,
     "dispute": 78
   },
+  "matchStats": {
+    "stamina": 110,
+    "tension": 110
+  },
 
   "techniques": [
     {
@@ -13807,6 +13811,10 @@ const datos = [
     "defense": 94,
     "dispute": 82
   },
+  "matchStats": {
+    "stamina": 110,
+    "tension": 110
+  },
 
   "techniques": [
     {
@@ -13865,6 +13873,10 @@ const datos = [
     "kicking": 70,
     "defense": 86,
     "dispute": 80
+  },
+  "matchStats": {
+    "stamina": 110,
+    "tension": 110
   },
 
   "techniques": [
@@ -13926,6 +13938,10 @@ const datos = [
     "defense": 90,
     "dispute": 85
   },
+  "matchStats": {
+    "stamina": 110,
+    "tension": 110
+  },
 
   "techniques": [
     {
@@ -13986,6 +14002,10 @@ const datos = [
     "defense": 75,
     "dispute": 88
   },
+  "matchStats": {
+    "stamina": 110,
+    "tension": 110
+  },
 
   "techniques": [
     {
@@ -14044,6 +14064,10 @@ const datos = [
     "defense": 72,
     "dispute": 80
   },
+  "matchStats": {
+    "stamina": 110,
+    "tension": 110
+  },
 
   "techniques": [
     {
@@ -14053,6 +14077,7 @@ const datos = [
     }
   ]
 },
+
 
 
 
@@ -14095,6 +14120,10 @@ const datos = [
     "kicking": 72,
     "defense": 82,
     "dispute": 84
+  },
+  "matchStats": {
+    "stamina": 110,
+    "tension": 110
   },
 
   "techniques": [
@@ -14152,6 +14181,10 @@ const datos = [
     "defense": 70,
     "dispute": 85
   },
+  "matchStats": {
+    "stamina": 110,
+    "tension": 110
+  },
 
   "techniques": [
     {
@@ -14200,16 +14233,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 85,
-    "control": 75,
-    "technique": 92,
-    "pressure": 88,
-    "physique": 80,
-    "agility": 86,
-    "intelligence": 84,
-    "kicking": 94,
-    "defense": 55,
-    "dispute": 82
+    "power": 115,
+    "control": 105,
+    "technique": 110,
+    "pressure": 105,
+    "physique": 100,
+    "agility": 110,
+    "intelligence": 110,
+    "kicking": 125,
+    "defense": 95,
+    "dispute": 100
+  },
+  "matchStats": {
+    "stamina": 110,
+    "tension": 150
   },
 
   "techniques": [
@@ -14264,20 +14301,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 92,
-    "control": 85,
-    "technique": 105,
-    "pressure": 95,
-    "physique": 88,
+    "power": 135,
+    "control": 135,
+    "technique": 145,
+    "pressure": 125,
+    "physique": 135,
     "agility": 120,
-    "intelligence": 96,
-    "kicking": 108,
-    "defense": 82,
-    "dispute": 94
+    "intelligence": 100,
+    "kicking": 135,
+    "defense": 125,
+    "dispute": 135
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 135,
     "tension": 120
   },
 
@@ -14340,7 +14377,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -14391,20 +14428,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 98,
-    "control": 110,
-    "technique": 105,
-    "pressure": 100,
-    "physique": 95,
-    "agility": 90,
-    "intelligence": 92,
-    "kicking": 85,
-    "defense": 108,
-    "dispute": 96
+    "power": 145,
+    "control": 140,
+    "technique": 145,
+    "pressure": 125,
+    "physique": 130,
+    "agility": 120,
+    "intelligence": 120,
+    "kicking": 115,
+    "defense": 145,
+    "dispute": 120
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 140,
     "tension": 120
   },
 
@@ -14485,7 +14522,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -14557,7 +14594,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -14613,7 +14650,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -14670,7 +14707,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -14714,20 +14751,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 102,
-    "control": 60,
-    "technique": 85,
-    "pressure": 95,
-    "physique": 108,
-    "agility": 88,
-    "intelligence": 72,
-    "kicking": 70,
-    "defense": 110,
+    "power": 110,
+    "control": 1000,
+    "technique": 135,
+    "pressure": 115,
+    "physique": 125,
+    "agility": 120,
+    "intelligence": 100,
+    "kicking": 90,
+    "defense": 130,
     "dispute": 115
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 110,
     "tension": 120
   },
 
@@ -14775,20 +14812,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 88,
-    "control": 95,
-    "technique": 102,
-    "pressure": 98,
-    "physique": 82,
-    "agility": 94,
+    "power": 125,
+    "control": 125,
+    "technique": 135,
+    "pressure": 125,
+    "physique": 120,
+    "agility": 115,
     "intelligence": 110,
-    "kicking": 85,
-    "defense": 78,
-    "dispute": 105
+    "kicking": 135,
+    "defense": 130,
+    "dispute": 125
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 130,
     "tension": 120
   },
 
@@ -14848,20 +14885,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 85,
-    "control": 108,
-    "technique": 115,
-    "pressure": 100,
-    "physique": 80,
-    "agility": 98,
+    "power": 135,
+    "control": 140,
+    "technique": 145,
+    "pressure": 120,
+    "physique": 130,
+    "agility": 120,
     "intelligence": 120,
-    "kicking": 92,
-    "defense": 88,
-    "dispute": 102
+    "kicking": 135,
+    "defense": 135,
+    "dispute": 120
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 130,
     "tension": 120
   },
 
@@ -14917,20 +14954,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 90,
-    "control": 92,
-    "technique": 105,
-    "pressure": 95,
-    "physique": 88,
-    "agility": 115,
-    "intelligence": 98,
-    "kicking": 110,
-    "defense": 92,
-    "dispute": 96
+    "power": 145,
+    "control": 140,
+    "technique": 145,
+    "pressure": 130,
+    "physique": 130,
+    "agility": 1450,
+    "intelligence": 120,
+    "kicking": 145,
+    "defense": 140,
+    "dispute": 135
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 145,
     "tension": 120
   },
 
@@ -15010,20 +15047,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 95,
-    "control": 88,
-    "technique": 102,
-    "pressure": 94,
-    "physique": 92,
-    "agility": 105,
-    "intelligence": 90,
-    "kicking": 120,
-    "defense": 60,
-    "dispute": 98
+    "power": 135,
+    "control": 130,
+    "technique": 145,
+    "pressure": 120,
+    "physique": 130,
+    "agility": 135,
+    "intelligence": 120,
+    "kicking": 145,
+    "defense": 100,
+    "dispute": 120
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 130,
     "tension": 120
   },
 
@@ -15066,20 +15103,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 85,
-    "control": 92,
-    "technique": 108,
-    "pressure": 82,
-    "physique": 80,
-    "agility": 105,
-    "intelligence": 88,
-    "kicking": 112,
-    "defense": 55,
-    "dispute": 90
+    "power": 115,
+    "control": 120,
+    "technique": 125,
+    "pressure": 115,
+    "physique": 120,
+    "agility": 115,
+    "intelligence": 100,
+    "kicking": 125,
+    "defense": 115,
+    "dispute": 100
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -15139,7 +15176,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -15196,7 +15233,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -15223,7 +15260,7 @@ const datos = [
   "element": "Bosque",
   "element_image": {"url": "/img/elements/bosque.png"},
   "nature": "Tension",
-  "tier": "S",
+  "tier": "A+",
   "isCaptain": false,
   "ageGroup": "Junior",
   "country": "Japan",
@@ -15252,7 +15289,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 110,
     "tension": 120
   },
 
@@ -15314,7 +15351,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 90
   },
 
@@ -15371,7 +15408,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 90
   },
 
@@ -15429,7 +15466,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 90
   },
 
@@ -15491,7 +15528,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -15548,7 +15585,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -15605,7 +15642,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -15668,7 +15705,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 100
   },
 
@@ -15722,7 +15759,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 80
   },
 
@@ -15766,20 +15803,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 88,
-    "control": 105,
-    "technique": 118,
-    "pressure": 95,
-    "physique": 82,
-    "agility": 108,
-    "intelligence": 110,
-    "kicking": 120,
-    "defense": 65,
-    "dispute": 90
+    "power": 140,
+    "control": 135,
+    "technique": 145,
+    "pressure": 125,
+    "physique": 130,
+    "agility": 120,
+    "intelligence": 120,
+    "kicking": 145,
+    "defense": 105,
+    "dispute": 100
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 150,
     "tension": 120
   },
 
@@ -15843,20 +15880,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 90,
-    "control": 82,
-    "technique": 95,
-    "pressure": 88,
-    "physique": 94,
-    "agility": 98,
-    "intelligence": 80,
-    "kicking": 115,
-    "defense": 50,
-    "dispute": 92
+    "power": 135,
+    "control": 130,
+    "technique": 135,
+    "pressure": 110,
+    "physique": 120,
+    "agility": 130,
+    "intelligence": 110,
+    "kicking": 135,
+    "defense": 100,
+    "dispute": 110
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 130,
     "tension": 120
   },
 
@@ -15910,20 +15947,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 85,
-    "control": 98,
-    "technique": 105,
-    "pressure": 82,
-    "physique": 80,
-    "agility": 112,
-    "intelligence": 92,
-    "kicking": 110,
-    "defense": 55,
-    "dispute": 88
+    "power": 130,
+    "control": 125,
+    "technique": 135,
+    "pressure": 110,
+    "physique": 120,
+    "agility": 130,
+    "intelligence": 110,
+    "kicking": 135,
+    "defense": 100,
+    "dispute": 110
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 130,
     "tension": 120
   },
 
@@ -15993,7 +16030,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 90
   },
 
@@ -16049,7 +16086,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 90
   },
 
@@ -16106,7 +16143,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 80
   },
 
@@ -16163,7 +16200,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 90
   },
 
@@ -16220,7 +16257,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -16282,7 +16319,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 80
   },
 
@@ -16344,7 +16381,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 80
   },
 
@@ -16406,7 +16443,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 90
   },
 
@@ -16462,7 +16499,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 90
   },
 
@@ -16511,20 +16548,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 85,
-    "control": 95,
-    "technique": 115,
-    "pressure": 90,
-    "physique": 82,
-    "agility": 98,
-    "intelligence": 105,
-    "kicking": 125,
-    "defense": 60,
-    "dispute": 94
+    "power": 115,
+    "control": 125,
+    "technique": 135,
+    "pressure": 100,
+    "physique": 120,
+    "agility": 115,
+    "intelligence": 100,
+    "kicking": 135,
+    "defense": 90,
+    "dispute": 110
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 100
   },
 
@@ -16578,7 +16615,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 90
   },
 
@@ -16641,7 +16678,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 90
   },
 
@@ -16684,20 +16721,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 98,
-    "control": 70,
-    "technique": 85,
+    "power": 125,
+    "control": 130,
+    "technique": 135,
     "pressure": 110,
-    "physique": 115,
-    "agility": 80,
-    "intelligence": 95,
-    "kicking": 65,
-    "defense": 125,
-    "dispute": 105
+    "physique": 145,
+    "agility": 120,
+    "intelligence": 110,
+    "kicking": 110,
+    "defense": 145,
+    "dispute": 125
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 130,
     "tension": 120
   },
 
@@ -16754,7 +16791,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 80
   },
 
@@ -16811,7 +16848,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 80
   },
 
@@ -16868,7 +16905,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 80
   },
 
@@ -16923,7 +16960,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 80
   },
 
@@ -16980,7 +17017,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 70
   },
 
@@ -17037,7 +17074,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 80
   },
 
@@ -17099,7 +17136,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 90
   },
 
@@ -17125,7 +17162,7 @@ const datos = [
   "element": "Fuego",
   "element_image": {"url": "/img/elements/fuego.png"},
   "nature": "Tension",
-  "tier": "S",
+  "tier": "A",
   "isCaptain": false,
   "ageGroup": "Junior",
   "country": "Argentina",
@@ -17154,7 +17191,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -17216,7 +17253,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 90
   },
 
@@ -17279,7 +17316,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -17336,7 +17373,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 80
   },
 
@@ -17393,7 +17430,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 90
   },
 
@@ -17450,7 +17487,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 80
   },
 
@@ -17493,20 +17530,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 94,
-    "control": 75,
-    "technique": 88,
-    "pressure": 96,
-    "physique": 105,
-    "agility": 84,
-    "intelligence": 82,
-    "kicking": 65,
-    "defense": 115,
-    "dispute": 102
+    "power": 110,
+    "control": 105,
+    "technique": 100,
+    "pressure": 125,
+    "physique": 125,
+    "agility": 125,
+    "intelligence": 100,
+    "kicking": 90,
+    "defense": 135,
+    "dispute": 120
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 100
   },
 
@@ -17568,7 +17605,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 80
   },
 
@@ -17614,20 +17651,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 88,
+    "power": 110,
     "control": 115,
     "technique": 120,
-    "pressure": 82,
-    "physique": 90,
-    "agility": 110,
-    "intelligence": 118,
-    "kicking": 95,
-    "defense": 78,
+    "pressure": 10,
+    "physique": 100,
+    "agility": 130,
+    "intelligence": 100,
+    "kicking": 120,
+    "defense": 100,
     "dispute": 105
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 110
   },
 
@@ -17699,7 +17736,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 80
   },
 
@@ -17742,20 +17779,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 85,
+    "power": 105,
     "control": 110,
     "technique": 115,
-    "pressure": 90,
-    "physique": 88,
-    "agility": 92,
+    "pressure": 100,
+    "physique": 105,
+    "agility": 115,
     "intelligence": 120,
-    "kicking": 98,
-    "defense": 82,
-    "dispute": 96
+    "kicking": 120,
+    "defense": 90,
+    "dispute": 110
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -17804,20 +17841,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 90,
-    "control": 82,
-    "technique": 95,
-    "pressure": 78,
-    "physique": 85,
-    "agility": 102,
-    "intelligence": 88,
-    "kicking": 112,
-    "defense": 45,
-    "dispute": 92
+    "power": 110,
+    "control": 105,
+    "technique": 125,
+    "pressure": 115,
+    "physique": 105,
+    "agility": 105,
+    "intelligence": 100,
+    "kicking": 115,
+    "defense": 105,
+    "dispute": 100
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -17884,7 +17921,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -17943,7 +17980,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -17999,7 +18036,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -18060,7 +18097,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -18117,7 +18154,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -18174,7 +18211,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -18237,7 +18274,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -18285,20 +18322,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 115,
-    "control": 110,
-    "technique": 118,
-    "pressure": 105,
-    "physique": 120,
-    "agility": 108,
+    "power": 135,
+    "control": 120,
+    "technique": 130,
+    "pressure": 135,
+    "physique": 130,
+    "agility": 135,
     "intelligence": 125,
-    "kicking": 120,
-    "defense": 95,
-    "dispute": 112
+    "kicking": 140,
+    "defense": 100,
+    "dispute": 105
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -18355,7 +18392,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -18411,7 +18448,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -18455,20 +18492,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 98,
-    "control": 115,
-    "technique": 125,
-    "pressure": 92,
-    "physique": 105,
-    "agility": 120,
-    "intelligence": 118,
-    "kicking": 110,
-    "defense": 85,
-    "dispute": 108
+    "power": 135,
+    "control": 135,
+    "technique": 145,
+    "pressure": 135,
+    "physique": 125,
+    "agility": 140,
+    "intelligence": 145,
+    "kicking": 130,
+    "defense": 125,
+    "dispute": 125
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 140,
     "tension": 120
   },
 
@@ -18538,7 +18575,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -18594,7 +18631,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -18651,7 +18688,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -18707,7 +18744,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -18764,7 +18801,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -18820,7 +18857,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -18877,7 +18914,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -18933,7 +18970,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -18995,7 +19032,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -19057,7 +19094,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -19105,20 +19142,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 110,
-    "control": 105,
-    "technique": 115,
-    "pressure": 88,
-    "physique": 112,
-    "agility": 118,
-    "intelligence": 102,
-    "kicking": 120,
-    "defense": 55,
-    "dispute": 108
+    "power": 135,
+    "control": 135,
+    "technique": 125,
+    "pressure": 130,
+    "physique": 140,
+    "agility": 120,
+    "intelligence": 110,
+    "kicking": 130,
+    "defense": 100,
+    "dispute": 105
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -19167,20 +19204,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 90,
-    "control": 82,
-    "technique": 88,
-    "pressure": 75,
-    "physique": 85,
-    "agility": 102,
-    "intelligence": 80,
-    "kicking": 95,
-    "defense": 78,
-    "dispute": 84
+    "power": 150,
+    "control": 150,
+    "technique": 150,
+    "pressure": 150,
+    "physique": 150,
+    "agility": 150,
+    "intelligence": 150,
+    "kicking": 150,
+    "defense": 150,
+    "dispute": 150
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 150,
     "tension": 120
   },
 
@@ -19237,20 +19274,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 120,
-    "control": 118,
-    "technique": 125,
-    "pressure": 110,
-    "physique": 115,
-    "agility": 112,
-    "intelligence": 108,
-    "kicking": 115,
-    "defense": 105,
-    "dispute": 110
+    "power": 145,
+    "control": 120,
+    "technique": 145,
+    "pressure": 130,
+    "physique": 145,
+    "agility": 135,
+    "intelligence": 110,
+    "kicking": 125,
+    "defense": 115,
+    "dispute": 120
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 140,
     "tension": 120
   },
 
@@ -19316,7 +19353,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -19378,7 +19415,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -19436,7 +19473,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -19497,7 +19534,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -19558,7 +19595,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -19616,7 +19653,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -19678,7 +19715,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -19728,20 +19765,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 78,
-    "control": 95,
-    "technique": 98,
-    "pressure": 70,
-    "physique": 74,
-    "agility": 112,
+    "power": 120,
+    "control": 115,
+    "technique": 125,
+    "pressure": 110,
+    "physique": 100,
+    "agility": 135,
     "intelligence": 90,
-    "kicking": 76,
-    "defense": 68,
-    "dispute": 82
+    "kicking": 100,
+    "defense": 105,
+    "dispute": 120
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -19808,7 +19845,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -19864,7 +19901,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -19927,7 +19964,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -19989,7 +20026,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -20046,7 +20083,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -20108,7 +20145,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -20164,7 +20201,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -20226,7 +20263,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -20287,7 +20324,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -20348,7 +20385,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -20409,7 +20446,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -20453,19 +20490,19 @@ const datos = [
 
   "stats": {
     "power": 105,
-    "control": 98,
+    "control": 100,
     "technique": 110,
-    "pressure": 95,
-    "physique": 102,
-    "agility": 92,
+    "pressure": 105,
+    "physique": 105,
+    "agility": 100,
     "intelligence": 115,
-    "kicking": 108,
-    "defense": 82,
-    "dispute": 96
+    "kicking": 120,
+    "defense": 100,
+    "dispute": 95
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -20527,7 +20564,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -20585,7 +20622,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -20642,7 +20679,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -20704,7 +20741,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -20765,7 +20802,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -20821,7 +20858,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -20877,7 +20914,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -20939,7 +20976,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -20995,7 +21032,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -21051,7 +21088,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -21112,7 +21149,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -21161,20 +21198,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 102,
-    "control": 95,
+    "power": 110,
+    "control": 125,
     "technique": 110,
-    "pressure": 90,
-    "physique": 94,
-    "agility": 105,
-    "intelligence": 108,
-    "kicking": 115,
-    "defense": 55,
-    "dispute": 98
+    "pressure": 100,
+    "physique": 115,
+    "agility": 125,
+    "intelligence": 100,
+    "kicking": 125,
+    "defense": 95,
+    "dispute": 105
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -21237,7 +21274,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 110,
     "tension": 120
   },
 
@@ -21298,7 +21335,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -21359,7 +21396,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -21421,7 +21458,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -21483,7 +21520,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -21544,7 +21581,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -21605,7 +21642,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -21666,7 +21703,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -21727,7 +21764,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -21784,7 +21821,7 @@ const datos = [
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -21833,20 +21870,20 @@ const datos = [
   ],
 
   "stats": {
-    "power": 118,
-    "control": 92,
-    "technique": 105,
-    "pressure": 110,
+    "power": 125,
+    "control": 120,
+    "technique": 125,
+    "pressure": 120,
     "physique": 112,
-    "agility": 90,
+    "agility": 120,
     "intelligence": 100,
     "kicking": 120,
-    "defense": 50,
-    "dispute": 108
+    "defense": 100,
+    "dispute": 95
   },
 
   "matchStats": {
-    "stamina": 160,
+    "stamina": 120,
     "tension": 120
   },
 
@@ -21867,12 +21904,690 @@ const datos = [
       "power_modifier": 1.0
     }
   ]
-}
+},
 
 
 
 
 
+//DArk Angles
+//Astaroth
+{
+  "_id": "Astaroth_DA",
+  "name": "Astaroth",
+  "sex": "M",
+  "role": "player",
+  "image": {"url": "/img/jugadores/astaroth_DA.png"},
+  "imageDetail": { "url": "/img/jugadoresID/astaroth.png" },
+  "position": "GK",
+  "position_image": {"url": "/img/positions/gk.png"},
+  "element": "Fuego",
+  "element_image": {"url": "/img/elements/fuego.png"},
+  "nature": "Brecha",
+  "tier": "A+",
+  "isCaptain": false,
+  "ageGroup": "Junior",
+  "country": "Hell",
+  "country_image": {"url": "/img/countries/unknow.png"},
+  "teams": [
+    {
+      "team_id": "Dark_Angels",
+      "seasons": "Season_T3",
+      "to": null,
+      "isCurrent": true,
+      "number": 1
+    }
+  ],
+
+  "stats": {
+    "power": 105,
+    "control": 92,
+    "technique": 88,
+    "pressure": 96,
+    "physique": 102,
+    "agility": 84,
+    "intelligence": 80,
+    "kicking": 50,
+    "defense": 98,
+    "dispute": 85
+  },
+
+  "matchStats": {
+    "stamina": 120,
+    "tension": 120
+  },
+
+  "techniques": [
+    {
+      "technique_id": "El_Olvido",
+      "relation": "creador",
+      "power_modifier": 1.0
+    },
+    {
+      "technique_id": "Araña_Gigante",
+      "relation": "creador",
+      "power_modifier": 1.0
+    }
+  ]
+},
+
+
+
+//Hebimos
+{
+  "_id": "Hebimos_DA",
+  "name": "Hebimos",
+  "sex": "M",
+  "role": "player",
+  "image": {"url": "/img/jugadores/hebimos_DA.png"},
+  "imageDetail": { "url": "/img/jugadoresID/hebimos.png" },
+  "position": "DF",
+  "position_image": {"url": "/img/positions/df.png"},
+  "element": "Bosque",
+  "element_image": {"url": "/img/elements/bosque.png"},
+  "nature": "Afinidad",
+  "tier": "A",
+  "isCaptain": false,
+  "ageGroup": "Junior",
+  "country": "Hell",
+  "country_image": {"url": "/img/countries/unknow.png"},
+  "teams": [
+    {
+      "team_id": "Dark_Angels",
+      "seasons": "Season_T3",
+      "to": null,
+      "isCurrent": true,
+      "number": 2
+    }
+  ],
+
+  "stats": {
+    "power": 90,
+    "control": 75,
+    "technique": 82,
+    "pressure": 92,
+    "physique": 95,
+    "agility": 80,
+    "intelligence": 84,
+    "kicking": 58,
+    "defense": 96,
+    "dispute": 91
+  },
+
+  "matchStats": {
+    "stamina": 110,
+    "tension": 120
+  },
+
+  "techniques": [
+    {
+      "technique_id": "Gravitacion",
+      "relation": "copia",
+      "power_modifier": 0.3
+    },
+    {
+      "technique_id": "Balon_Diabolico",
+      "relation": "heredero",
+      "power_modifier": 0.5
+    }
+  ]
+},
+
+
+
+
+//Rubu
+{
+  "_id": "Rubu_DA",
+  "name": "Rubú",
+  "sex": "M",
+  "role": "player",
+  "image": {"url": "/img/jugadores/rubu_DA.png"},
+  "imageDetail": { "url": "/img/jugadoresID/rubu.png" },
+  "position": "DF",
+  "position_image": {"url": "/img/positions/df.png"},
+  "element": "Montaña",
+  "element_image": {"url": "/img/elements/mountain.png"},
+  "nature": "Justicia",
+  "tier": "A",
+  "isCaptain": false,
+  "ageGroup": "Junior",
+  "country": "Hell",
+  "country_image": {"url": "/img/countries/unknow.png"},
+  "teams": [
+    {
+      "team_id": "Dark_Angels",
+      "seasons": "Season_T3",
+      "to": null,
+      "isCurrent": true,
+      "number": 3
+    }
+  ],
+
+  "stats": {
+    "power": 98,
+    "control": 70,
+    "technique": 85,
+    "pressure": 94,
+    "physique": 102,
+    "agility": 75,
+    "intelligence": 78,
+    "kicking": 55,
+    "defense": 96,
+    "dispute": 90
+  },
+
+  "matchStats": {
+    "stamina": 120,
+    "tension": 120
+  },
+
+  "techniques": [
+    {
+      "technique_id": "Cinto_Astral",
+      "relation": "creador",
+      "power_modifier": 1.0
+    },
+    {
+      "technique_id": "Caida_a_los_Infiernos",
+      "relation": "creador",
+      "power_modifier": 1.0
+    }
+  ]
+},
+
+
+
+//Nenel
+{
+  "_id": "Nenel_DA",
+  "name": "Nenel",
+  "sex": "M",
+  "role": "player",
+  "image": {"url": "/img/jugadores/nenel_DA.png"},
+  "imageDetail": { "url": "/img/jugadoresID/nenel.png" },
+  "position": "DF",
+  "position_image": {"url": "/img/positions/df.png"},
+  "element": "Fuego",
+  "element_image": {"url": "/img/elements/fuego.png"},
+  "nature": "Contraataque",
+  "tier": "A",
+  "isCaptain": false,
+  "ageGroup": "Junior",
+  "country": "Heaven",
+  "country_image": {"url": "/img/countries/unknow.png"},
+  "teams": [
+    {
+      "team_id": "Dark_Angels",
+      "seasons": "Season_T3",
+      "to": null,
+      "isCurrent": true,
+      "number": 4
+    }
+  ],
+
+  "stats": {
+    "power": 82,
+    "control": 88,
+    "technique": 95,
+    "pressure": 90,
+    "physique": 78,
+    "agility": 102,
+    "intelligence": 96,
+    "kicking": 70,
+    "defense": 94,
+    "dispute": 85
+  },
+
+  "matchStats": {
+    "stamina": 120,
+    "tension": 120
+  },
+
+  "techniques": [
+    {
+      "technique_id": "Subida_a_los_Cielos",
+      "relation": "heredero",
+      "power_modifier": 1.0
+    },
+    {
+      "technique_id": "Balon_Angelical",
+      "relation": "heredero",
+      "power_modifier": 0.5
+    }
+  ]
+},
+
+//Lephiel
+{
+  "_id": "Lephiel_DA",
+  "name": "Lephiel",
+  "sex": "M",
+  "role": "player",
+  "image": {"url": "/img/jugadores/lephiel_DA.png"},
+  "imageDetail": { "url": "/img/jugadoresID/lephiel.png" },
+  "position": "DF",
+  "position_image": {"url": "/img/positions/df.png"},
+  "element": "Montaña",
+  "element_image": {"url": "/img/elements/mountain.png"},
+  "nature": "Tension",
+  "tier": "A",
+  "isCaptain": false,
+  "ageGroup": "Junior",
+  "country": "Heaven",
+  "country_image": {"url": "/img/countries/unknow.png"},
+  "teams": [
+    {
+      "team_id": "Dark_Angels",
+      "seasons": "Season_T3",
+      "to": null,
+      "isCurrent": true,
+      "number": 5
+    }
+  ],
+
+  "stats": {
+    "power": 96,
+    "control": 68,
+    "technique": 82,
+    "pressure": 98,
+    "physique": 105,
+    "agility": 70,
+    "intelligence": 75,
+    "kicking": 50,
+    "defense": 92,
+    "dispute": 94
+  },
+
+  "matchStats": {
+    "stamina": 120,
+    "tension": 120
+  },
+
+  "techniques": [
+    {
+      "technique_id": "Subida_a_los_Cielos",
+      "relation": "heredero",
+      "power_modifier": 0.5
+    }
+  ]
+},
+
+//Malphas
+{
+  "_id": "Malphas_DA",
+  "name": "Malphas",
+  "sex": "M",
+  "role": "player",
+  "image": {"url": "/img/jugadores/malphas_DA.png"},
+  "imageDetail": { "url": "/img/jugadoresID/malphas.png" },
+  "position": "MD",
+  "position_image": {"url": "/img/positions/md.png"},
+  "element": "Aire",
+  "element_image": {"url": "/img/elements/aire.png"},
+  "nature": "Contraataque",
+  "tier": "A",
+  "isCaptain": false,
+  "ageGroup": "Junior",
+  "country": "Hell",
+  "country_image": {"url": "/img/countries/unknow.png"},
+  "teams": [
+    {
+      "team_id": "Dark_Angels",
+      "seasons": "Season_T3",
+      "to": null,
+      "isCurrent": true,
+      "number": 6
+    }
+  ],
+
+  "stats": {
+    "power": 82,
+    "control": 90,
+    "technique": 94,
+    "pressure": 88,
+    "physique": 78,
+    "agility": 102,
+    "intelligence": 90,
+    "kicking": 70,
+    "defense": 86,
+    "dispute": 84
+  },
+
+  "matchStats": {
+    "stamina": 120,
+    "tension": 120
+  },
+
+  "techniques": [
+    {
+      "technique_id": "Balon_Diabolico",
+      "relation": "heredero",
+      "power_modifier": 0.5
+    },
+    {
+      "technique_id": "Corte_Diabolico",
+      "relation": "creador",
+      "power_modifier": 1.0
+    }
+  ]
+},
+
+
+//Zanos
+{
+  "_id": "Zanos_DA",
+  "name": "Zanos",
+  "sex": "M",
+  "role": "player",
+  "image": {"url": "/img/jugadores/zanos_DA.png"},
+  "imageDetail": { "url": "/img/jugadoresID/zanos.png" },
+  "position": "FW",
+  "position_image": {"url": "/img/positions/fw.png"},
+  "element": "Bosque",
+  "element_image": {"url": "/img/elements/bosque.png"},
+  "nature": "Tension",
+  "tier": "A",
+  "isCaptain": false,
+  "ageGroup": "Junior",
+  "country": "Hell",
+  "country_image": {"url": "/img/countries/unknow.png"},
+  "teams": [
+    {
+      "team_id": "Dark_Angels",
+      "seasons": "Season_T3",
+      "to": null,
+      "isCurrent": true,
+      "number": 7
+    }
+  ],
+
+  "stats": {
+    "power": 92,
+    "control": 84,
+    "technique": 86,
+    "pressure": 90,
+    "physique": 95,
+    "agility": 88,
+    "intelligence": 82,
+    "kicking": 98,
+    "defense": 45,
+    "dispute": 90
+  },
+
+  "matchStats": {
+    "stamina": 120,
+    "tension": 120
+  },
+
+  "techniques": [
+    {
+      "technique_id": "Balon_Diabolico",
+      "relation": "heredero",
+      "power_modifier": 0.5
+    },
+    {
+      "technique_id": "Carga_Negativa",
+      "relation": "heredero",
+      "power_modifier": 0.5
+    }
+  ]
+},
+
+//Gaiel
+{
+  "_id": "Gaiel_DA",
+  "name": "Gaiel",
+  "sex": "F",
+  "role": "player",
+  "image": {"url": "/img/jugadores/gaiel_DA.png"},
+  "imageDetail": { "url": "/img/jugadoresID/gaiel.png" },
+  "position": "FW",
+  "position_image": {"url": "/img/positions/fw.png"},
+  "element": "Aire",
+  "element_image": {"url": "/img/elements/aire.png"},
+  "nature": "Contraataque",
+  "tier": "A",
+  "isCaptain": false,
+  "ageGroup": "Junior",
+  "country": "Heaven",
+  "country_image": {"url": "/img/countries/unknow.png"},
+  "teams": [
+    {
+      "team_id": "Dark_Angels",
+      "seasons": "Season_T3",
+      "to": null,
+      "isCurrent": true,
+      "number": 8
+    }
+  ],
+
+  "stats": {
+    "power": 94,
+    "control": 82,
+    "technique": 88,
+    "pressure": 85,
+    "physique": 90,
+    "agility": 108,
+    "intelligence": 76,
+    "kicking": 102,
+    "defense": 40,
+    "dispute": 92
+  },
+
+  "matchStats": {
+    "stamina": 120,
+    "tension": 120
+  },
+
+  "techniques": [
+    {
+      "technique_id": "Vuelo_de_Icaro",
+      "relation": "creador",
+      "power_modifier": 1.0
+    },
+    {
+      "technique_id": "Remate_Celestial",
+      "relation": "heredero",
+      "power_modifier": 0.5
+    }
+  ]
+},
+
+
+//Wenel
+{
+  "_id": "Wenel_DA",
+  "name": "Wenel",
+  "sex": "M",
+  "role": "player",
+  "image": {"url": "/img/jugadores/wenel_DA.png"},
+  "imageDetail": { "url": "/img/jugadoresID/wenel.png" },
+  "position": "MD",
+  "position_image": {"url": "/img/positions/md.png"},
+  "element": "Aire",
+  "element_image": {"url": "/img/elements/aire.png"},
+  "nature": "Justicia",
+  "tier": "A",
+  "isCaptain": false,
+  "ageGroup": "Junior",
+  "country": "Heaven",
+  "country_image": {"url": "/img/countries/unknow.png"},
+  "teams": [
+    {
+      "team_id": "Dark_Angels",
+      "seasons": "Season_T3",
+      "to": null,
+      "isCurrent": true,
+      "number": 9
+    }
+  ],
+
+  "stats": {
+    "power": 80,
+    "control": 92,
+    "technique": 94,
+    "pressure": 78,
+    "physique": 75,
+    "agility": 98,
+    "intelligence": 88,
+    "kicking": 82,
+    "defense": 60,
+    "dispute": 80
+  },
+
+  "matchStats": {
+    "stamina": 120,
+    "tension": 120
+  },
+
+  "techniques": [
+    {
+      "technique_id": "Balon_Angelical",
+      "relation": "heredero",
+      "power_modifier": 0.5
+    }
+  ]
+},
+
+
+
+
+//Destra
+{
+  "_id": "Destra_DA",
+  "name": "Destra",
+  "sex": "M",
+  "role": "player",
+  "image": {"url": "/img/jugadores/destra_DA.png"},
+  "imageDetail": { "url": "/img/jugadoresID/destra.png" },
+  "position": "FW",
+  "position_image": {"url": "/img/positions/fw.png"},
+  "element": "Montaña",
+  "element_image": {"url": "/img/elements/mountain.png"},
+  "nature": "Tension",
+  "tier": "S+",
+  "isCaptain": true,
+  "ageGroup": "Junior",
+  "country": "Hell",
+  "country_image": {"url": "/img/countries/unknow.png"},
+  "teams": [
+    {
+      "team_id": "Dark_Angels",
+      "seasons": "Season_T3",
+      "to": null,
+      "isCurrent": true,
+      "number": 10
+    }
+  ],
+
+  "stats": {
+    "power": 125,
+    "control": 130,
+    "technique": 135,
+    "pressure": 130,
+    "physique": 132,
+    "agility": 140,
+    "intelligence": 100,
+    "kicking": 140,
+    "defense": 100,
+    "dispute": 105
+  },
+
+  "matchStats": {
+    "stamina": 120,
+    "tension": 120
+  },
+
+  "techniques": [
+    {
+      "technique_id": "Balon_Diabolico",
+      "relation": "creador",
+      "power_modifier": 1.0
+    },
+    {
+      "technique_id": "Carga_Negativa",
+      "relation": "creador",
+      "power_modifier": 1.0
+    },
+    {
+      "technique_id": "Gravitacion",
+      "relation": "creador",
+      "power_modifier": 1.0
+    },
+    {
+      "technique_id": "Rayo_Oscuro",
+      "relation": "creador",
+      "power_modifier": 1.0
+    }
+  ]
+},
+
+
+//Sael
+{
+  "_id": "Sael_DA",
+  "name": "Sael",
+  "sex": "M",
+  "role": "player",
+  "image": {"url": "/img/jugadores/sael_DA.png"},
+  "imageDetail": { "url": "/img/jugadoresID/sael.png" },
+  "position": "FW",
+  "position_image": {"url": "/img/positions/fw.png"},
+  "element": "Bosque",
+  "element_image": {"url": "/img/elements/bosque.png"},
+  "nature": "Afinidad",
+  "tier": "S+",
+  "isCaptain": false,
+  "ageGroup": "Junior",
+  "country": "Heaven",
+  "country_image": {"url": "/img/countries/unknow.png"},
+  "teams": [
+    {
+      "team_id": "Dark_Angels",
+      "seasons": "Season_T3",
+      "to": null,
+      "isCurrent": true,
+      "number": 11
+    }
+  ],
+
+  "stats": {
+    "power": 130,
+    "control": 125,
+    "technique": 130,
+    "pressure": 130,
+    "physique": 135,
+    "agility": 125,
+    "intelligence": 100,
+    "kicking": 135,
+    "defense": 115,
+    "dispute": 125
+  },
+
+  "matchStats": {
+    "stamina": 130,
+    "tension": 120
+  },
+
+  "techniques": [
+    {
+      "technique_id": "Remate_Celestial_W",
+      "relation": "creador",
+      "power_modifier": 1.0
+    },
+    {
+      "technique_id": "UltraLuna",
+      "relation": "copia",
+      "power_modifier": 0.3
+    },
+    {
+      "technique_id": "Rayo_Oscuro",
+      "relation": "creador",
+      "power_modifier": 1.0
+    }
+  ]
+},
 
 
 ];

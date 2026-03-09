@@ -16,10 +16,11 @@ async function insertarTecnicas() {
 {
   "_id": "Mano_Celestial",
   "name": "Mano Celestial",
-  "videoUrl": {"url": "/tecnicas/mano_Celestial.mp4"},
+  "videoUrl": {"url": "/tecnicas/mano_celestial.mp4"},
   "type": "save",
   "subtype": ["parada"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 60,
 
   "cost": {
@@ -41,6 +42,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 50,
 
   "cost": {
@@ -61,6 +63,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 70,
 
   "isCombo": true,
@@ -94,6 +97,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 50,
 
   "cost": {
@@ -115,6 +119,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 85,
 
   "cost": {
@@ -134,6 +139,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 70,
 
   "isCombo": true,
@@ -164,6 +170,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 100,
 
   "isCombo": true,
@@ -194,6 +201,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 85,
 
   "isCombo": true,
@@ -254,6 +262,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 85,
 
   "isCombo": true,
@@ -284,6 +293,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 85,
 
   "cost": {
@@ -303,6 +313,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 60,
 
   "cost": {
@@ -324,6 +335,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 60,
 
   "isCombo": true,
@@ -367,6 +379,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 70,
 
   "isCombo": true,
@@ -408,6 +421,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["bloqueo", "quitar"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 60,
 
   "cost": {
@@ -428,6 +442,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["bloqueo"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 50,
 
   "cost": {
@@ -447,6 +462,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 60,
 
   "cost": {
@@ -466,6 +482,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 50,
 
   "cost": {
@@ -485,6 +502,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 50,
 
   "cost": {
@@ -505,6 +523,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 50,
 
   "cost": {
@@ -524,6 +543,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 70,
 
   "cost": {
@@ -543,6 +563,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 50,
 
   "cost": {
@@ -562,6 +583,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 70,
 
   "cost": {
@@ -581,6 +603,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 50,
 
   "cost": {
@@ -600,6 +623,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 50,
 
   "cost": {
@@ -619,6 +643,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 50,
 
   "cost": {
@@ -638,6 +663,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 50,
 
   "cost": {
@@ -658,6 +684,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 45,
 
   "cost": {
@@ -678,6 +705,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 60,
 
   "cost": {
@@ -697,6 +725,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 70,
 
   "isCombo": true,
@@ -726,6 +755,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 75,
 
   "isCombo": true,
@@ -755,6 +785,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 50,
 
   "cost": {
@@ -774,6 +805,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 70,
 
   "cost": {
@@ -793,6 +825,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 50,
 
   "cost": {
@@ -812,6 +845,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 60,
 
   "cost": {
@@ -831,6 +865,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 50,
 
   "cost": {
@@ -852,6 +887,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 50,
 
   "cost": {
@@ -871,6 +907,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 50,
 
   "cost": {
@@ -893,6 +930,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 85,
 
   "cost": {
@@ -912,6 +950,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 85,
 
   "isCombo": true,
@@ -956,6 +995,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 100,
   "isCombo": true,
 
@@ -989,6 +1029,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 60,
 
   "cost": {
@@ -1008,6 +1049,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["bloqueo"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 50,
 
   "cost": {
@@ -1027,6 +1069,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 50,
 
   "cost": {
@@ -1046,6 +1089,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 50,
 
   "cost": {
@@ -1065,6 +1109,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 60,
 
   "cost": {
@@ -1084,6 +1129,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 50,
 
   "cost": {
@@ -1103,6 +1149,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 50,
 
   "cost": {
@@ -1122,6 +1169,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 50,
 
   "cost": {
@@ -1141,6 +1189,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 50,
 
   "cost": {
@@ -1161,6 +1210,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 50,
 
   "cost": {
@@ -1181,6 +1231,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 50,
 
   "cost": {
@@ -1201,6 +1252,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 50,
 
   "cost": {
@@ -1221,6 +1273,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 50,
 
   "cost": {
@@ -1242,6 +1295,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 60,
 
   "cost": {
@@ -1262,6 +1316,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 60,
   "cost": { 
     "stamina": 40, 
@@ -1281,6 +1336,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 50,
   "cost": { 
     "stamina": 50,
@@ -1301,6 +1357,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 60,
   "cost": {
     "stamina": 35,
@@ -1320,6 +1377,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 50,
   "cost": {
     "stamina": 30,
@@ -1338,6 +1396,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 60,
 
   "cost": {
@@ -1358,6 +1417,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 60,
 
   "cost": {
@@ -1378,6 +1438,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 70,
 
   "cost": {
@@ -1398,6 +1459,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["bloqueo", "quitar"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 60,
 
   "cost": {
@@ -1418,6 +1480,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["bloqueo"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 50,
 
   "cost": {
@@ -1438,6 +1501,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 70,
 
   "isCombo": true,
@@ -1469,6 +1533,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 50,
 
   "cost": {
@@ -1490,6 +1555,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 50,
 
   "cost": {
@@ -1512,6 +1578,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 50,
 
   "cost": {
@@ -1535,6 +1602,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 50,
 
   "cost": {
@@ -1556,6 +1624,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 50,
 
   "cost": {
@@ -1577,6 +1646,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 60,
 
   "cost": {
@@ -1598,6 +1668,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["bloqueo", "quitar"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 50,
 
   "cost": {
@@ -1619,6 +1690,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 60,
 
   "cost": {
@@ -1641,6 +1713,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro", "combo"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 70,
 
   "isCombo": true,
@@ -1672,6 +1745,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 70,
 
   "cost": {
@@ -1693,6 +1767,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 70,
 
   "cost": {
@@ -1716,6 +1791,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 70,
 
   "cost": {
@@ -1737,6 +1813,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 70,
 
   "cost": {
@@ -1759,6 +1836,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 90,
 
   "cost": {
@@ -1779,6 +1857,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 60,
 
   "cost": {
@@ -1800,6 +1879,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 70,
 
   "cost": {
@@ -1821,6 +1901,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 60,
 
   "cost": {
@@ -1842,6 +1923,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 60,
 
   "cost": {
@@ -1862,6 +1944,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 60,
 
   "cost": {
@@ -1883,6 +1966,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada", "combo"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 100,
   "isCombo": true,
 
@@ -1915,6 +1999,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["bloqueo"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 60,
 
   "cost": {
@@ -1937,6 +2022,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar", "bloqueo"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 70,
 
   "cost": {
@@ -1944,9 +2030,9 @@ async function insertarTecnicas() {
     "tension": 70
   },
 
-  "creador": "Destra",
+  "creador": ["Destra", "Destra_DA"],
   "heredero": [],
-  "copia": ["Oni_Triumvir_T1", "Agor", "Hebimos", "Sachinel", "Zack_Cummings_Neo", "Zohen_G", "Chris_Tytan_T2", "Kiburn_G", "Val_Flamewood_P" ,"Ichabod_Stark_T1", "Jim_Landing_T2", "Kayson_Wattever_T2" ,"Grant_Icewater_T2", "Pat_Box_T2", "Gregory_Saturn_T2", "Izzy_Jupiter_T2"]
+  "copia": ["Oni_Triumvir_T1", "Agor", "Hebimos_DA", "Hebimos", "Sachinel", "Zack_Cummings_Neo", "Zohen_G", "Chris_Tytan_T2", "Kiburn_G", "Val_Flamewood_P" ,"Ichabod_Stark_T1", "Jim_Landing_T2", "Kayson_Wattever_T2" ,"Grant_Icewater_T2", "Pat_Box_T2", "Gregory_Saturn_T2", "Izzy_Jupiter_T2"]
 },
 
 
@@ -1959,6 +2045,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 70,
 
   "cost": {
@@ -1980,6 +2067,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 60,
 
   "cost": {
@@ -2001,6 +2089,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 60,
 
   "cost": {
@@ -2022,6 +2111,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro", "combo"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 100,
   "isCombo": true,
 
@@ -2052,6 +2142,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 60,
 
   "cost": {
@@ -2076,6 +2167,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 60,
 
   "cost": {
@@ -2096,6 +2188,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 75,
   "cost": {
     "stamina": 40,
@@ -2114,6 +2207,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 100,
 
   "cost": {
@@ -2135,6 +2229,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 60,
 
   "cost": {
@@ -2157,6 +2252,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 55,
 
   "cost": {
@@ -2177,6 +2273,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 50,
 
   "cost": {
@@ -2199,6 +2296,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 55,
 
   "cost": {
@@ -2222,6 +2320,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 50,
 
   "cost": {
@@ -2244,6 +2343,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 60,
 
   "cost": {
@@ -2264,6 +2364,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 70,
 
   "cost": {
@@ -2287,6 +2388,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 60,
 
   "cost": {
@@ -2308,6 +2410,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 70,
 
   "cost": {
@@ -2330,6 +2433,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 90,
 
   "cost": {
@@ -2352,6 +2456,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 60,
 
   "cost": {
@@ -2374,6 +2479,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["bloqueo", "quitar"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 70,
 
   "cost": {
@@ -2381,7 +2487,7 @@ async function insertarTecnicas() {
     "tension": 65
   },
 
-  "creador": "Rubu",
+  "creador": ["Rubu", "Rubu_DA"],
   "heredero": [],
   "copia": ["Connor_Shuttle_T2", "Dylan_Bluemoon_T2", "Craven_Kenville_T2", "Kayson_Wattever_T2"]
 },
@@ -2395,6 +2501,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 60,
 
   "cost": {
@@ -2418,6 +2525,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 70,
 
   "isCombo": true,
@@ -2449,6 +2557,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 70,
 
   "cost": {
@@ -2474,6 +2583,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 80,
 
   "cost": {
@@ -2495,6 +2605,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 90,
 
   "cost": {
@@ -2516,6 +2627,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 70,
 
   "cost": {
@@ -2538,6 +2650,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 70,
 
   "cost": {
@@ -2558,6 +2671,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 80,
   "isCombo": true,
 
@@ -2603,6 +2717,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 60,
 
   "cost": {
@@ -2625,6 +2740,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 80,
 
   "cost": {
@@ -2647,6 +2763,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 80,
 
   "cost": {
@@ -2672,6 +2789,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 80,
 
   "cost": {
@@ -2694,6 +2812,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro", "combo"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 100,
   "isCombo": true,
 
@@ -2725,6 +2844,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro", "combo"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 85,
   "isCombo": true,
 
@@ -2760,6 +2880,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 60,
 
   "cost": {
@@ -2782,6 +2903,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 60,
 
   "cost": {
@@ -2804,6 +2926,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 60,
 
   "cost": {
@@ -2824,6 +2947,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 60,
 
   "cost": {
@@ -2845,6 +2969,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 65,
 
   "cost": {
@@ -2868,6 +2993,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 60,
 
   "cost": {
@@ -2889,6 +3015,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 60,
 
   "cost": {
@@ -2911,6 +3038,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 60,
 
   "cost": {
@@ -2933,6 +3061,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 90,
 
   "cost": {
@@ -2953,6 +3082,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 70,
 
   "cost": {
@@ -2975,6 +3105,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 80,
   "isCombo": true,
 
@@ -3018,6 +3149,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 70,
 
   "cost": {
@@ -3040,6 +3172,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 70,
 
   "cost": {
@@ -3062,6 +3195,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 100,
   "isCombo": true,
 
@@ -3093,6 +3227,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar", "bloqueo"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 60,
 
   "cost": {
@@ -3116,6 +3251,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 50,
 
   "cost": {
@@ -3138,6 +3274,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar", "bloqueo"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 60,
 
   "cost": {
@@ -3162,6 +3299,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 60,
 
   "cost": {
@@ -3184,6 +3322,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 70,
 
   "cost": {
@@ -3206,6 +3345,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 70,
 
   "cost": {
@@ -3227,6 +3367,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 100,
   "isCombo": true,
 
@@ -3258,6 +3399,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 70,
 
   "cost": {
@@ -3280,6 +3422,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 80,
 
   "cost": {
@@ -3301,6 +3444,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 70,
 
   "cost": {
@@ -3321,6 +3465,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 80,
 
   "cost": {
@@ -3343,6 +3488,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 80,
 
   "cost": {
@@ -3366,6 +3512,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 70,
 
   "cost": {
@@ -3389,6 +3536,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 100,
   "isCombo": true,
 
@@ -3421,6 +3569,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 100,
   "isCombo": true,
 
@@ -3452,6 +3601,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 100,
   "isCombo": true,
 
@@ -3484,6 +3634,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 90,
   "cost": {
     "stamina": 55,
@@ -3504,6 +3655,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 70,
   "cost": {
     "stamina": 50,
@@ -3525,6 +3677,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["combo", "parada"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 60,
   "isCombo": true,
 
@@ -3556,6 +3709,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 60,
 
   "cost": {
@@ -3578,6 +3732,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 60,
   "cost": {
     "stamina": 45,
@@ -3596,6 +3751,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 60,
   "isCombo": true,
 
@@ -3624,6 +3780,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 50,
 
   "cost": {
@@ -3644,6 +3801,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar", "bloqueo"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 60,
 
   "cost": {
@@ -3664,6 +3822,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 60,
 
   "cost": {
@@ -3684,6 +3843,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 100,
   "isCombo": true,
 
@@ -3717,6 +3877,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 60,
   "cost": {
     "stamina": 40,
@@ -3739,6 +3900,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 100,
   "isCombo": true,
 
@@ -3769,6 +3931,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 70,
   "cost": {
     "stamina": 45,
@@ -3787,6 +3950,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 70,
   "cost": {
     "stamina": 50,
@@ -3805,6 +3969,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 90,
   "cost": {
     "stamina": 60,
@@ -3824,6 +3989,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 100,
   "cost": {
     "stamina": 75,
@@ -3842,6 +4008,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 100,
   "cost": {
     "stamina": 80,
@@ -3861,6 +4028,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 80,
   "cost": {
     "stamina": 40,
@@ -3879,6 +4047,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 70,
   "cost": {
     "stamina": 45,
@@ -3898,6 +4067,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 85,
   "isCombo": true,
 
@@ -3929,6 +4099,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar", "bloqueo"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 70,
   "cost": {
     "stamina": 50,
@@ -3948,6 +4119,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 60,
   "cost": {
     "stamina": 40,
@@ -3966,6 +4138,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar", "bloqueo"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 80,
 
   "cost": {
@@ -3987,6 +4160,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["combo", "regate"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 80,
   "isCombo": true,
 
@@ -4017,6 +4191,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 90,
   "isCombo": true,
   "comboRequirements": {
@@ -4045,6 +4220,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 100,
   "isCombo": true,
 
@@ -4075,6 +4251,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 90,
   "isCombo": true,
   "comboRequirements": {
@@ -4101,6 +4278,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 100,
   "isCombo": true,
   "comboRequirements": {
@@ -4132,6 +4310,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 60,
   "cost": {
     "stamina": 45,
@@ -4152,6 +4331,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 80,
   "cost": { "stamina": 55, "tension": 75 },
   "creador": ["Axel_Blaze_T3"],
@@ -4167,6 +4347,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 85,
   "isCombo": true,
   "comboRequirements": {
@@ -4188,6 +4369,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 100,
   "isCombo": true,
   "comboRequirements": {
@@ -4213,6 +4395,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 60,
   "cost": { "stamina": 40, "tension": 55 },
   "creador": ["Austin_Hobbes_T3"],
@@ -4229,6 +4412,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 70,
   "cost": { "stamina": 50, "tension": 65 },
   "creador": ["Austin_Hobbes_T3"],
@@ -4244,6 +4428,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 85,
   "cost": {
     "stamina": 60,
@@ -4263,6 +4448,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 100,
   "cost": {
     "stamina": 80,
@@ -4282,6 +4468,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 60,
   "cost": {
     "stamina": 40,
@@ -4302,6 +4489,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 60,
   "cost": {
     "stamina": 35,
@@ -4321,6 +4509,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 70,
   "cost": {
     "stamina": 45,
@@ -4340,6 +4529,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 100,
   "cost": { "stamina": 65, "tension": 100 },
   "creador": ["Byron_Love_T3"],
@@ -4356,6 +4546,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 100,
   "isCombo": true,
   "comboRequirements": {
@@ -4386,6 +4577,7 @@ async function insertarTecnicas() {
   "type": "Shot",
   "subtype": ["tiro"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 100,
   "cost": {
     "stamina": 40,
@@ -4404,6 +4596,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 60,
   "cost": {
     "stamina": 40,
@@ -4422,6 +4615,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 60,
   "cost": {
     "stamina": 40,
@@ -4440,6 +4634,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 70,
   "cost": {
     "stamina": 45,
@@ -4447,7 +4642,7 @@ async function insertarTecnicas() {
   },
   "creador": "Marco_Maserati",
   "heredero": [],
-  "copia": ["Peter_Coole", "Gary_Mane", "Paul_Appleton", "Sael"]
+  "copia": ["Peter_Coole", "Gary_Mane", "Paul_Appleton", "Sael", "Sael_DA"]
 },
 
 
@@ -4459,6 +4654,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 50,
   "cost": {
     "stamina": 30,
@@ -4478,6 +4674,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 50,
   "cost": {
     "stamina": 35,
@@ -4496,6 +4693,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 60,
   "cost": {
     "stamina": 50,
@@ -4515,6 +4713,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 70,
   "cost": {
     "stamina": 50,
@@ -4534,6 +4733,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar", "bloqueo"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 70,
   "cost": {
     "stamina": 55,
@@ -4553,6 +4753,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 60,
   "cost": {
     "stamina": 40,
@@ -4574,6 +4775,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 60,
   "cost": {
     "stamina": 40,
@@ -4594,6 +4796,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro", "combo"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 60,
   "isCombo": true,
 
@@ -4626,6 +4829,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 60,
   "cost": {
     "stamina": 45,
@@ -4645,6 +4849,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 80,
   "isCombo": true,
   "comboRequirements": {
@@ -4671,6 +4876,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["combo", "tiro"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 85,
   "isCombo": true,
   "comboRequirements": {
@@ -4698,6 +4904,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 50,
   "cost": {
     "stamina": 35,
@@ -4717,6 +4924,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 60,
   "cost": {
     "stamina": 45,
@@ -4736,6 +4944,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 60,
   "cost": {
     "stamina": 40,
@@ -4755,6 +4964,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 60,
   "cost": {
     "stamina": 40,
@@ -4773,6 +4983,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 100,
   "cost": {
     "stamina": 85,
@@ -4792,6 +5003,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 50,
   "cost": {
     "stamina": 35,
@@ -4810,6 +5022,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 70,
   "cost": { "stamina": 50, "tension": 65 },
   "creador": ["Paolo_Bianchi"],
@@ -4824,6 +5037,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 80,
   "cost": { "stamina": 70, "tension": 90 },
   "creador": ["Paolo_Bianchi"],
@@ -4838,6 +5052,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 60,
   "cost": {
     "stamina": 45,
@@ -4857,6 +5072,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 60,
   "cost": {
     "stamina": 40,
@@ -4877,6 +5093,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 60,
   "cost": {
     "stamina": 45,
@@ -4896,6 +5113,7 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 100,
   "cost": {
     "stamina": 60,
@@ -4912,6 +5130,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 90,
   "cost": {
     "stamina": 65,
@@ -4930,6 +5149,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 80,
   "cost": { "stamina": 60, "tension": 80 },
   "creador": ["Hector_Helio"],
@@ -4942,6 +5162,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 100,
   "cost": { "stamina": 85, "tension": 100 },
   "creador": ["Hector_Helio"],
@@ -4954,6 +5175,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 70,
   "cost": { "stamina": 55, "tension": 75 },
   "creador": ["Hector_Helio"],
@@ -4968,6 +5190,7 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 70,
   "cost": {
     "stamina": 50,
@@ -4986,6 +5209,7 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 60,
   "cost": {
     "stamina": 45,
@@ -5006,6 +5230,7 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 80,
   "cost": {
     "stamina": 60,
@@ -5024,13 +5249,14 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 70,
   "cost": {
     "stamina": 45,
     "tension": 60
   },
   "creador": ["Ekadel"],
-  "heredero": ["Nenel", "Genel", "Lephiel", "Ientel"],
+  "heredero": ["Nenel", "Nenel_DA", "Genel", "Lephiel", "Lephiel_DA", "Ientel"],
   "copia": []
 },
 
@@ -5042,13 +5268,14 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 70,
   "cost": {
     "stamina": 45,
     "tension": 60
   },
   "creador": ["Escavan_Malice_T1"],
-  "heredero": ["Nenel", "Sachinel", "Wenel", "Nuel", "Ientel"],
+  "heredero": ["Nenel", "Nenel_DA", "Sachinel", "Wenel", "Wenel_DA", "Nuel", "Ientel"],
   "copia": []
 },
 
@@ -5060,12 +5287,13 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Fuego",
+"element_image": {"url": "/img/elements/fuego.png"},
   "basePower": 70,
   "cost": {
     "stamina": 45,
     "tension": 60
   },
-  "creador": ["Gaiel"],
+  "creador": ["Gaiel", "Gaiel_DA"],
   "heredero": [],
   "copia": []
 },
@@ -5079,13 +5307,14 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Montaña",
+"element_image": {"url": "/img/elements/mountain.png"},
   "basePower": 70,
   "cost": {
     "stamina": 50,
     "tension": 65
   },
-  "creador": ["Sael"],
-  "heredero": ["Gaiel"],
+  "creador": ["Sael", "Sael_DA"],
+  "heredero": ["Gaiel", "Gaiel_DA"],
   "copia": []
 },
 
@@ -5098,12 +5327,13 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 80,
   "cost": {
     "stamina": 60,
     "tension": 85
   },
-  "creador": ["Astaroth"],
+  "creador": ["Astaroth", "Astaroth_DA"],
   "heredero": [],
   "copia": []
 },
@@ -5117,12 +5347,13 @@ async function insertarTecnicas() {
   "type": "save",
   "subtype": ["parada"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 60,
   "cost": {
     "stamina": 40,
     "tension": 55
   },
-  "creador": ["Astaroth"],
+  "creador": ["Astaroth", "Astaroth_DA"],
   "heredero": [],
   "copia": []
 },
@@ -5135,12 +5366,13 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 70,
   "cost": {
     "stamina": 45,
     "tension": 60
   },
-  "creador": ["Rubu"],
+  "creador": ["Rubu", "Rubu_DA"],
   "heredero": ["Belal", "Borba"],
   "copia": []
 },
@@ -5153,13 +5385,14 @@ async function insertarTecnicas() {
   "type": "dribble",
   "subtype": ["regate"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 70,
   "cost": {
     "stamina": 45,
     "tension": 60
   },
-  "creador": ["Destra"],
-  "heredero": ["Agor", "Hebimos", "Malphas", "Gorja", "Arakune", "Zanos"],
+  "creador": ["Destra", "Destra_DA"],
+  "heredero": ["Agor", "Hebimos", "Malphas", "Malphas_DA", "Gorja", "Arakune", "Zanos", "Zanos_DA", "Hebimos_DA"],
   "copia": []
 },
 
@@ -5171,13 +5404,32 @@ async function insertarTecnicas() {
   "type": "shot",
   "subtype": ["tiro"],
   "element": "Aire",
+"element_image": {"url": "/img/elements/aire.png"},
   "basePower": 60,
   "cost": {
     "stamina": 40,
     "tension": 55
   },
-  "creador": ["Destra"],
-  "heredero": ["Belal", "Zanos"],
+  "creador": ["Destra", "Destra_DA"],
+  "heredero": ["Belal", "Zanos", "Zanos_DA"],
+  "copia": []
+},
+
+{
+  "_id": "Rayo_Oscuro",
+  "name": "Rayo Oscuro",
+  "videoUrl": {"url": "/tecnicas/rayo_oscuro.mp4"},
+  "type": "shot",
+  "subtype": ["tiro"],
+  "element": "Bosque",
+  "element_image": {"url": "/img/elements/bosque.png"},
+  "basePower": 70,
+  "cost": {
+    "stamina": 45,
+    "tension": 60
+  },
+  "creador": ["Sael_DA", "Destra_DA"],
+  "heredero": [],
   "copia": []
 },
 
@@ -5188,12 +5440,13 @@ async function insertarTecnicas() {
   "type": "defense",
   "subtype": ["quitar"],
   "element": "Bosque",
+"element_image": {"url": "/img/elements/bosque.png"},
   "basePower": 70,
   "cost": {
     "stamina": 50,
     "tension": 65
   },
-  "creador": ["Malphas"],
+  "creador": ["Malphas", "Malphas_DA"],
   "heredero": ["Arakune"],
   "copia": []
 }
