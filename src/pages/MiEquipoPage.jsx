@@ -7,7 +7,6 @@ import { getAllPlayers } from '../services/playerService'
 import { BASE_URL, imgUrl } from '../config'
 import styles from './MiEquipoPage.module.css'
 
-// ── PICKER MODAL ──────────────────────────────────────────────────
 function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, onSelect, onClose }) {
   const [search, setSearch] = useState('')
   const [elFilter, setElFilter] = useState('')
@@ -89,12 +88,9 @@ function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, on
   );
 }
 
-// ── HELPER: obtener el ID del usuario de forma fiable ──
 function getUserId(user) {
-  // Primero intenta desde el hook useAuth
   if (user?.id) return user.id;
   if (user?._id) return user._id;
-  // Fallback: leer directo desde localStorage (igual que PrivateRoute)
   try {
     const stored = localStorage.getItem('inazuma-user');
     if (stored) {
@@ -105,7 +101,6 @@ function getUserId(user) {
   return null;
 }
 
-// ── PÁGINA PRINCIPAL ────────────────────────────────────────────────
 export default function MiEquipoPage() {
   const { user } = useAuth()
   const navigate  = useNavigate()
@@ -120,7 +115,6 @@ export default function MiEquipoPage() {
   const [equipoSeleccionado, setEquipoSeleccionado] = useState("")
   const [nombreTemp, setNombreTemp] = useState("")
 
-  // Si el usuario es admin, redirigir al panel de administración
   useEffect(() => {
     const stored = localStorage.getItem('inazuma-user')
     const u = stored ? JSON.parse(stored) : null
@@ -138,16 +132,12 @@ export default function MiEquipoPage() {
 
   const [slots, setSlots] = useState(FORMATION.map(s => ({ ...s, characterId: null })));
 
-  // ── Carga inicial: tolerante a useAuth lento y a rerenders por navegación ──
   useEffect(() => {
     let cancelled = false;
 
     async function loadData() {
-      // Intentamos obtener el userId: primero del hook, luego directo de localStorage
       const userId = getUserId(user);
       if (!userId) {
-        // useAuth aún no hidrato — esperamos un tick y dejamos que la dependencia
-        // [user] vuelva a disparar el effect cuando sí tenga valor
         setLoading(false);
         return;
       }
@@ -159,7 +149,7 @@ export default function MiEquipoPage() {
           fetch(`${BASE_URL}/obtener_usuario/${userId}`)
         ]);
 
-        if (cancelled) return; // componente desmontado mientras esperábamos
+        if (cancelled) return; 
 
         setCharacters(players);
         const data = await userRes.json();
@@ -186,12 +176,8 @@ export default function MiEquipoPage() {
 
     loadData();
 
-    // Limpieza: evita actualizar estado si el componente se desmontó (p.ej. al navegar)
     return () => { cancelled = true; };
 
-  // Escuchamos el objeto `user` completo: si useAuth lo actualiza tarde,
-  // el effect se re-dispara y ya encontrará el userId correcto.
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   const handleSelectTeam = (nombre) => {
@@ -255,7 +241,6 @@ export default function MiEquipoPage() {
     finally { setIsDeleting(false); }
   };
 
-  // Stats
   const usedIds = slots.filter(s => s.characterId).map(s => s.characterId);
   const filledCount = usedIds.length;
 
@@ -272,7 +257,6 @@ export default function MiEquipoPage() {
     ? Math.round(totalPower / filledCount)
     : 0;
 
-  // Rating tier label
   const getRatingTier = (avg) => {
     if (avg >= 90) return { label: 'ÉLITE', color: '#f6ad55' };
     if (avg >= 75) return { label: 'ORO', color: '#ecc94b' };
@@ -292,9 +276,7 @@ export default function MiEquipoPage() {
   return (
     <div className={styles.page}>
 
-      {/* ── MANAGEMENT BAR ── */}
       <div className={styles.managementBar}>
-        {/* Team selector */}
         <div className={styles.teamSelectorGroup}>
           <div className={styles.selectBox}>
             <Folder size={15} className={styles.folderIcon} />
@@ -319,7 +301,6 @@ export default function MiEquipoPage() {
           </button>
         </div>
 
-        {/* Name input */}
         <div className={styles.nameInputWrapper}>
           <input
             value={nombreTemp}
@@ -328,7 +309,6 @@ export default function MiEquipoPage() {
           />
         </div>
 
-        {/* Actions */}
         <div className={styles.actionBtns}>
           <button
             className={`${styles.saveBtn} ${saveStatus === 'success' ? styles.saveBtnSuccess : ''}`}
@@ -357,13 +337,10 @@ export default function MiEquipoPage() {
         </div>
       </div>
 
-      {/* ── MAIN LAYOUT ── */}
       <div className={styles.mainLayout}>
 
-        {/* ── PITCH ── */}
         <div className={styles.pitchWrapper}>
           <div className={styles.pitchInner}>
-            {/* Field markings */}
             <div className={styles.fieldMarkings}>
               <div className={styles.centerLine} />
               <div className={styles.centerCircle} />
@@ -404,7 +381,6 @@ export default function MiEquipoPage() {
           </div>
         </div>
 
-        {/* ── STATS PANEL ── */}
         <div className={styles.statsPanel}>
           <div className={styles.statsPanelTitle}>
             <Shield size={16} />
@@ -453,7 +429,6 @@ export default function MiEquipoPage() {
         </div>
       </div>
 
-      {/* ── PICKER MODAL ── */}
       {selectingSlot !== null && (
         <CharacterPickerModal 
           slotIndex={selectingSlot}

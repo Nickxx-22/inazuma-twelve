@@ -12,7 +12,6 @@ export default function EquiposPage() {
   const [selectedTeam, setSelectedTeam] = useState(null)
   const [seasonFilter, setSeasonFilter] = useState('')
 
-  // Duplicate teams for infinite scroll
   const sliderTeams = teams.length > 0 ? [...teams, ...teams] : []
 
   useEffect(() => {
@@ -43,7 +42,6 @@ export default function EquiposPage() {
   return (
     <div className={styles.page}>
 
-      {/* Header de página */}
       <div className={styles.pageHeader}>
         <div className={styles.titleRow}>
           <h1 className={styles.title}>Equipos</h1>
@@ -53,7 +51,6 @@ export default function EquiposPage() {
           </p>
         </div>
 
-        {/* Filtro rápido por temporada */}
         {allSeasons.length > 0 && (
           <div className={styles.seasonTabs}>
             <button
@@ -76,7 +73,6 @@ export default function EquiposPage() {
         )}
       </div>
 
-      {/* Grid de equipos */}
       <div className={styles.grid}>
         {filtered.map(team => (
           <div
@@ -85,12 +81,10 @@ export default function EquiposPage() {
             onClick={() => setSelectedTeam(team)}
             style={{ '--team-color': team.color_primary || '#3d7eff' }}
           >
-            {/* Background image del equipo */}
             <div
               className={styles.cardBgImage}
               style={{ backgroundImage: `url(${imgUrl(team.image)})` }}
             />
-            {/* Overlay de color */}
             <div className={styles.cardOverlay} style={{ background: `linear-gradient(to top, ${team.color_primary || '#0a0e16'}ee 0%, ${team.color_primary || '#0a0e16'}88 50%, transparent 100%)` }} />
 
             <div className={styles.cardBody}>
@@ -108,7 +102,6 @@ export default function EquiposPage() {
                 )}
               </div>
 
-              {/* Footer de la card */}
               <div className={styles.cardFooter}>
                 <div className={styles.cardMeta}>
                   <span className={styles.metaChip}>
@@ -127,13 +120,11 @@ export default function EquiposPage() {
         ))}
       </div>
 
-      {/* Modal detallado */}
       {selectedTeam && (
         <div className={styles.modalOverlay} onClick={() => setSelectedTeam(null)}>
           <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
             <button className={styles.closeBtn} onClick={() => setSelectedTeam(null)}><X size={18} /></button>
 
-            {/* Header del modal con gradiente del color del equipo */}
             <div
               className={styles.modalHeader}
               style={{ background: `linear-gradient(135deg, ${selectedTeam.color_primary || '#1e293b'}DD 0%, #0a0e16 100%)` }}
@@ -159,7 +150,6 @@ export default function EquiposPage() {
               </div>
             </div>
 
-            {/* Lista de jugadores */}
             <div className={styles.modalBody}>
               <p className={styles.playerListTitle}>
                 <Zap size={13} style={{ color: '#ffaa00' }} /> PLANTILLA

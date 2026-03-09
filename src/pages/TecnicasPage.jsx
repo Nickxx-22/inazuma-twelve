@@ -36,7 +36,6 @@ export default function TecnicasPage() {
   useEffect(() => {
     async function load() {
       try {
-        // 1. Cambiamos la URL de las técnicas generales
         const res  = await fetch(`${BASE_URL}/tecnicas`)
         if (!res.ok) throw new Error('Error API')
         const data = await res.json()
@@ -46,7 +45,6 @@ export default function TecnicasPage() {
         const userId = su?.id || su?._id
         
         if (userId && token) {
-          // 2. Cambiamos la URL para obtener los datos del usuario
           const uRes  = await fetch(`${BASE_URL}/obtener_usuario/${userId}`, {
             headers: { 'Authorization': `Bearer ${token}` }
           })

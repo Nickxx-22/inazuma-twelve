@@ -13,7 +13,6 @@ function getToken() {
 const ROLE_LABELS = { admin: 'Admin', user: 'Usuario', banned: 'Baneado' }
 const ROLE_COLORS = { admin: '#f59e0b', user: '#3d7eff', banned: '#ef4444' }
 
-// ── Modal de confirmación ───────────────────────────────────────
 function ConfirmModal({ message, onConfirm, onCancel }) {
   return (
     <div className={styles.modalOverlay} onClick={onCancel}>
@@ -29,7 +28,6 @@ function ConfirmModal({ message, onConfirm, onCancel }) {
   )
 }
 
-// ── Fila de usuario ─────────────────────────────────────────────
 function UserRow({ user, onDelete, onRoleChange }) {
   const [open,      setOpen]      = useState(false)
   const [loading,   setLoading]   = useState(false)
@@ -56,18 +54,15 @@ function UserRow({ user, onDelete, onRoleChange }) {
 
   return (
     <div className={`${styles.userRow} ${user.role === 'banned' ? styles.banned : ''}`}>
-      {/* Avatar inicial */}
       <div className={styles.avatar} style={{ background: `${roleColor}22`, borderColor: `${roleColor}44` }}>
         <span style={{ color: roleColor }}>{user.username.charAt(0).toUpperCase()}</span>
       </div>
 
-      {/* Info principal */}
       <div className={styles.userInfo}>
         <span className={styles.username}>{user.username}</span>
         <span className={styles.email}>{user.email}</span>
       </div>
 
-      {/* Estadísticas rápidas */}
       <div className={styles.userStats}>
         <span className={styles.statPill} title="Jugadores favoritos">
           <Star size={10} /> {user.favoritos}
@@ -80,7 +75,6 @@ function UserRow({ user, onDelete, onRoleChange }) {
         </span>
       </div>
 
-      {/* Role selector */}
       <div className={styles.roleWrap}>
         <button
           ref={btnRef}
@@ -109,7 +103,6 @@ function UserRow({ user, onDelete, onRoleChange }) {
         )}
       </div>
 
-      {/* Eliminar */}
       <button className={styles.deleteRowBtn} onClick={() => onDelete(user)} title="Eliminar usuario">
         <Trash2 size={15} />
       </button>
@@ -117,7 +110,6 @@ function UserRow({ user, onDelete, onRoleChange }) {
   )
 }
 
-// ── Página principal ─────────────────────────────────────────────
 export default function AdminPage() {
   const { user }          = useAuth()
   const navigate          = useNavigate()
@@ -127,7 +119,6 @@ export default function AdminPage() {
   const [search,  setSearch]  = useState('')
   const [confirm, setConfirm] = useState(null)   // { id, username }
 
-  // Redirigir si no es admin
   useEffect(() => {
     const stored = localStorage.getItem('inazuma-user')
     const u = stored ? JSON.parse(stored) : null
@@ -196,7 +187,6 @@ export default function AdminPage() {
 
   return (
     <div className={styles.page}>
-      {/* Header */}
       <div className={styles.header}>
         <div className={styles.titleRow}>
           <div className={styles.titleIcon}><Shield size={20} /></div>
@@ -206,7 +196,6 @@ export default function AdminPage() {
           </div>
         </div>
 
-        {/* Stats cards */}
         <div className={styles.statsRow}>
           <div className={styles.statCard}>
             <Users size={16} className={styles.statIcon} />
@@ -226,7 +215,6 @@ export default function AdminPage() {
         </div>
       </div>
 
-      {/* Barra de búsqueda + refresh */}
       <div className={styles.toolbar}>
         <input
           className={styles.searchInput}
@@ -239,7 +227,6 @@ export default function AdminPage() {
         </button>
       </div>
 
-      {/* Lista */}
       <div className={styles.list}>
         {loading && (
           <div className={styles.centered}>
@@ -266,7 +253,6 @@ export default function AdminPage() {
         ))}
       </div>
 
-      {/* Modal confirmación eliminar */}
       {confirm && (
         <ConfirmModal
           message={`¿Eliminar permanentemente a "${confirm.username}"? Esta acción no se puede deshacer.`}

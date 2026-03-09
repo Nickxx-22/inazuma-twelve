@@ -31,7 +31,6 @@ export default function LoginPage() {
   return (
     <div className={styles.splitPage}>
 
-      {/* Panel izquierdo decorativo */}
       <div className={styles.leftPanel}>
         <div className={styles.leftOverlay} />
         <div className={styles.leftContent}>
@@ -58,7 +57,6 @@ export default function LoginPage() {
         </div>
       </div>
 
-      {/* Formulario centrado */}
       <div className={styles.rightPanel}>
         <div className={styles.formCard}>
 

@@ -90,7 +90,6 @@ export default function RegistroPage() {
   return (
     <div className={styles.splitPage}>
 
-      {/* Panel izquierdo — versión Registro */}
       <div className={`${styles.leftPanel} ${styles.leftPanelRegister}`}>
         <div className={styles.leftOverlay} />
         <div className={styles.leftContent}>
@@ -114,7 +113,6 @@ export default function RegistroPage() {
         </div>
       </div>
 
-      {/* Formulario */}
       <div className={styles.rightPanel}>
         <div className={`${styles.formCard} ${styles.formCardOrange}`}>
 
@@ -127,7 +125,6 @@ export default function RegistroPage() {
 
           <form onSubmit={handleSubmit} className={styles.form} noValidate>
 
-            {/* Username + Email en fila */}
             <div className={styles.pwdRow}>
               <div className={styles.field}>
                 <label className={styles.label}>Usuario</label>
@@ -158,7 +155,6 @@ export default function RegistroPage() {
               </div>
             </div>
 
-            {/* Passwords */}
             <div className={styles.pwdRow}>
               <div className={styles.field}>
                 <label className={styles.label}>Contrasena</label>

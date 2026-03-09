@@ -12,7 +12,6 @@ import styles from './HomePage.module.css'
 const TYPE_MAP    = { shot: 'Tiro', dribble: 'Regate', defense: 'Defensa', save: 'Parada' }
 const TYPE_COLORS = { Tiro: '#ff6b35', Parada: '#3d7eff', Regate: '#36d399', Defensa: '#f471b5' }
 
-// ── Mini card de técnica favorita con modal de vídeo ───────────────
 function TechFavCard({ tech }) {
   const [open, setOpen] = useState(false)
   const color        = getElementColor(tech.element)
@@ -46,7 +45,6 @@ function TechFavCard({ tech }) {
         </div>
       </div>
 
-      {/* Modal con video */}
       {open && (
         <div className={styles.techModalOverlay} onClick={() => setOpen(false)}>
           <div className={styles.techModalContent} onClick={e => e.stopPropagation()}>
@@ -116,7 +114,6 @@ export default function HomePage() {
   const [favTecnicas,   setFavTecnicas]   = useState([]) 
   const [loadingTecFavs, setLoadingTecFavs] = useState(true)
 
-  // --- NUEVO ESTADO PARA EQUIPOS ---
   const [teams, setTeams] = useState([])
 
   useEffect(() => {
@@ -127,9 +124,8 @@ export default function HomePage() {
       const userId = su?.id || su?._id
 
       try {
-        // ✅ Todas las URLs apuntan ahora a tu API en Render
         const [allPlayers, allTecnicas, allTeams, userRes] = await Promise.all([
-          getAllPlayers(), // Asegúrate de que esta función también use la URL de Render
+          getAllPlayers(), 
           fetch(`${BASE_URL}/tecnicas`).then(r => r.json()),
           fetch(`${BASE_URL}/equipos`).then(r => r.json()), 
           userId ? fetch(`${BASE_URL}/obtener_usuario/${userId}`, {
@@ -139,7 +135,6 @@ export default function HomePage() {
 
         if (cancelled) return
 
-        // Guardamos los equipos
         if (Array.isArray(allTeams)) {
           setTeams(allTeams)
         }
@@ -174,12 +169,10 @@ export default function HomePage() {
     return () => { cancelled = true }
   }, [user])
 
-  // Duplicamos los equipos para el efecto de scroll infinito
   const sliderTeams = [...teams, ...teams]
 
   return (
     <>
-      {/* --- Carrusel de logos de equipos — pegado al Header, fuera del padding del page --- */}
       {teams.length > 0 && (
         <div className={styles.teamSliderContainer}>
           <div className={styles.teamSliderTrack} style={{ '--team-count': teams.length }}>
@@ -198,7 +191,6 @@ export default function HomePage() {
       )}
 
     <div className={styles.page}>
-      {/* Hero */}
       <section className={styles.hero}>
         <h1 className={styles.heroTitle}>
           <span className="neon-text-blue">Descubre</span> el universo{' '}
@@ -210,7 +202,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Carrusel de imágenes (Axel, Shawn, etc) */}
       <div className={styles.sliderContainer}>
         <div className={styles.sliderTrack}>
           {[...SLIDER_IMAGES, ...SLIDER_IMAGES].map((img, i) => (
@@ -221,10 +212,8 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Sección de Jugadores Favoritos */}
       <section className={styles.section}>
         <SectionHeader title="Jugadores Favoritos" subtitle="Tus estrellas personalizadas del campo" href="/personajes" />
-        {/* Lógica de carga de favoritos... */}
         {!user ? (
           <div className={styles.placeholder}>
             <Heart size={32} style={{ color: '#ff4d4d' }} />
@@ -241,7 +230,6 @@ export default function HomePage() {
         )}
       </section>
 
-      {/* Sección de Tecnicas Favoritas */}
       <section className={styles.section}>
         <SectionHeader title="Tecnicas Favoritas" subtitle="Tus supertecnicas preferidas" href="/tecnicas" />
         {!user ? (

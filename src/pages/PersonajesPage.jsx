@@ -25,12 +25,11 @@ export default function PersonajesPage() {
   const [seasonFilter,    setSeasonFilter]    = useState('')
   const [sortBy,          setSortBy]          = useState('name')
   const [viewMode,        setViewMode]        = useState('grid')
-  const [showFilters,     setShowFilters]     = useState(false) // ← ocultos por defecto
+  const [showFilters,     setShowFilters]     = useState(false) 
 
   useEffect(() => {
     async function fetchPlayers() {
       try {
-        // ✅ Cambiamos la URL local por la de producción en Render
         const res  = await fetch(`${BASE_URL}/jugadores`)
         const data = await res.json()
         setCharacters(data)
@@ -47,8 +46,6 @@ export default function PersonajesPage() {
     let result = characters.filter(c => {
       const q = search.toLowerCase()
 
-      // seasonFilter: el jugador tiene un array "seasons" ["IE1","IE2",...]
-      // Si hay filtro activo, el jugador debe tener esa season en su array
       const seasonMatch = !seasonFilter
         || (Array.isArray(c.seasons) ? c.seasons.includes(seasonFilter) : c.season === seasonFilter)
 
@@ -109,7 +106,6 @@ export default function PersonajesPage() {
           </button>
         </div>
 
-        {/* Filtros — solo se muestran si showFilters es true */}
         {showFilters && (
           <div className={styles.filterGrid}>
             <FilterSelect label="Elemento"  value={elementFilter}  onChange={setElementFilter}  options={ELEMENTS} />

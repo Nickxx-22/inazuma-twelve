@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { ArrowLeft, Zap, Heart, Activity, Play, X, ExternalLink, Loader2 } from 'lucide-react' 
-import { useAuth } from '../hooks/useAuth' // Importamos tu hook de auth
+import { useAuth } from '../hooks/useAuth' 
 import { getElementColor, getNatureColor } from '../utils/colors'
 import { BASE_URL, imgUrl } from '../config'
 import styles from './PersonajeDetailPage.module.css'
@@ -30,11 +30,9 @@ export default function PersonajeDetailPage() {
   const [isLiking, setIsLiking] = useState(false)
   const [teamImages, setTeamImages] = useState({})
 
-  // 1. Cargar datos del personaje y verificar si es favorito
   useEffect(() => {
     async function fetchCharacter() {
       try {
-        // 1. Cambiamos la URL para obtener el jugador específico
         const res = await fetch(`${BASE_URL}/jugadores/${id}`)
         if (!res.ok) throw new Error("Error al cargar el jugador")
         const data = await res.json()
@@ -42,7 +40,6 @@ export default function PersonajeDetailPage() {
         setCharacter(data.character)
         setTechniques(data.techniques)
 
-        // Cargar imágenes de los equipos del jugador
         if (data.character?.teams?.length) {
           const teamIds = data.character.teams.map(t => t.team_id).filter(Boolean)
           const imgs = {}
@@ -58,10 +55,8 @@ export default function PersonajeDetailPage() {
           setTeamImages(imgs)
         }
 
-        // Verificamos si ya es favorito en los datos del usuario
         if (user && data.character) {
             const userId = user.id || user._id;
-            // 2. Cambiamos la URL para obtener los datos del usuario desde Render
             const userRes = await fetch(`${BASE_URL}/obtener_usuario/${userId}`);
             const userData = await userRes.json();
             if (userRes.ok) {
@@ -78,7 +73,6 @@ export default function PersonajeDetailPage() {
     fetchCharacter()
   }, [id, user])
 
-  // 2. Manejar el click en Favoritos (Toggle)
     const handleLike = async () => {
     if (!user) {
       alert("Debes iniciar sesión para añadir a favoritos")
@@ -96,14 +90,12 @@ export default function PersonajeDetailPage() {
               'Content-Type': 'application/json',
               'Authorization': `Bearer ${token}`
           },
-          // Asegúrate de que 'id' coincida con lo que espera tu backend (personaje_id)
           body: JSON.stringify({ user_id: userId, personaje_id: id }) 
         });
 
       const data = await res.json();
 
       if (res.ok) {
-        // Usamos lo que el servidor nos diga que es la realidad
         setIsFavorite(data.isFavorite);
       } else {
         console.error("Error del servidor:", data.message);
@@ -125,7 +117,6 @@ export default function PersonajeDetailPage() {
   const elColor  = getElementColor(character.element)
   const natColor = getNatureColor(character.nature)
 
-  // Configuración del Radar (usando stats del JSON)
   const radarData = {
     labels: ['Tiro', 'Físico', 'Control', 'Defensa', 'Velocidad', 'Técnica'],
     datasets: [
@@ -180,12 +171,10 @@ export default function PersonajeDetailPage() {
       </Link>
 
       <div className={styles.layout}>
-        {/* PANEL IZQUIERDO: Info Básica */}
         <aside className={styles.aside}>
           <div className={styles.card}>
             <div className={styles.avatarArea} style={{ background: `linear-gradient(135deg, ${elColor}33, ${natColor}33)` }}>
               <img src={imgUrl(character.image)} alt={character.name} className={styles.characterImg} />
-              {/* Badge naturaleza (izquierda) + badge posición con imagen (derecha) */}
               <div className={styles.topBadges}>
                 <span className={styles.badge} style={{ background: natColor }}>
                   {character.nature?.toUpperCase()}
@@ -201,9 +190,7 @@ export default function PersonajeDetailPage() {
               <h1 className={styles.name}>{character.name}</h1>
               <p className={styles.jaName}>{character.japaneseName}</p>
 
-              {/* Fila de tags: elemento (con img) · rol · país (con bandera) */}
               <div className={styles.tags}>
-                {/* Elemento */}
                 {character.elementImg
                   ? (
                     <span className={styles.tagElement} style={{ borderColor: `${elColor}55`, background: `${elColor}18` }}>
@@ -214,9 +201,7 @@ export default function PersonajeDetailPage() {
                     <span className={styles.tag} style={{ background: elColor }}>{character.element}</span>
                   )
                 }
-                {/* Rol */}
                 <span className={`${styles.tag} ${styles.tagSecondary}`}>{character.role}</span>
-                {/* País con bandera */}
                 {character.country && (
                   <span className={styles.tagCountry}>
                     {character.countryImg && (
@@ -227,7 +212,6 @@ export default function PersonajeDetailPage() {
                 )}
               </div>
 
-              {/* Tier */}
               {character.tier && (
                 <div className={styles.tierRow}>
                   <span className={styles.tierLabel}>TIER</span>
@@ -235,7 +219,6 @@ export default function PersonajeDetailPage() {
                 </div>
               )}
 
-              {/* Equipos */}
               {character.teams?.length > 0 && (
                 <div className={styles.teamsRow}>
                   {character.teams.map((t, i) => (
@@ -256,7 +239,6 @@ export default function PersonajeDetailPage() {
                   <span className={styles.powerNum}>{character.power}</span>
                   <small>POTENCIA</small>
                 </div>
-                {/* Botón de Like con feedback de carga */}
                 <button 
                     className={`${styles.iconBtn} ${!user ? styles.disabled : ''} ${isFavorite ? styles.activeLike : ''}`} 
                     onClick={handleLike}
@@ -269,13 +251,11 @@ export default function PersonajeDetailPage() {
           </div>
         </aside>
 
-        {/* PANEL DERECHO: Stats y Técnicas */}
         <div className={styles.main}>
           <div className={styles.statsCard}>
             <h2 className={styles.cardTitle}>Estadísticas</h2>
             <div className={styles.radarWrapper}><Radar data={radarData} options={radarOptions} /></div>
             
-            {/* Pais del jugador */}
             {character.country && (
               <div className={styles.countryRow}>
                 {character.countryImg && (
@@ -285,7 +265,6 @@ export default function PersonajeDetailPage() {
               </div>
             )}
 
-            {/* Campo matchStats requerido */}
             <div className={styles.matchStatsRow}>
               <div className={styles.matchStatCard}><Activity size={16} /> PE: <strong>{character.matchStats?.stamina || 100}</strong></div>
               <div className={styles.matchStatCard}><Zap size={16} /> PT: <strong>{character.matchStats?.tension || 80}</strong></div>
@@ -334,7 +313,6 @@ export default function PersonajeDetailPage() {
         </div>
       </div>
 
-      {/* MODAL DE VIDEO (Igual que antes pero limpio) */}
       {selectedTech && (
         <div className={styles.modalOverlay} onClick={() => setSelectedTech(null)}>
           <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
