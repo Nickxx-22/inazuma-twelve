@@ -116,16 +116,11 @@ export default function TecnicasPage() {
   return (
     <div className={styles.page}>
       <div className={styles.pageHeader}>
-        <div className={styles.titleRow}>
-          <div className={styles.titleIcon}><Zap size={20} /></div>
-          <div>
-            <h1 className={styles.title}>Tecnicas</h1>
-            <p className={styles.subtitle}>
-              Base de datos oficial de supertecnicas
-              <span className={styles.countBadge}>{techniques.length} tecnicas</span>
-            </p>
-          </div>
-        </div>
+        <h1 className={styles.title}>Técnicas</h1>
+        <p className={styles.subtitle}>
+          Base de datos oficial de supertecnicas
+          <span className={styles.countBadge}>{techniques.length} técnicas</span>
+        </p>
       </div>
 
       <div className={styles.typeStats}>

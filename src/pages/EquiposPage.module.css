@@ -5,13 +5,6 @@
 .pageHeader { margin-bottom: 28px; display: flex; flex-direction: column; gap: 16px; }
 @media (min-width: 768px) { .pageHeader { flex-direction: row; align-items: center; justify-content: space-between; } }
 
-.titleRow { display: flex; align-items: center; gap: 14px; }
-.titleIcon {
-  width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
-  background: linear-gradient(135deg, #f59e0b, #d97706);
-  display: flex; align-items: center; justify-content: center;
-  color: #fff; box-shadow: 0 4px 16px rgba(245,158,11,0.4);
-}
 .title    { font-size: 1.8rem; font-weight: 900; letter-spacing: -0.02em; margin: 0; }
 .subtitle { font-size: 0.8rem; color: #4a5568; margin-top: 2px; display: flex; align-items: center; gap: 8px; }
 .countBadge {

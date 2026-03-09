@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useAuth } from '../hooks/useAuth'
 import { useNavigate } from 'react-router-dom'
 import { Shield, Trash2, ChevronDown, Users, Star, Zap, Folder, RefreshCw, Loader2, X, AlertTriangle } from 'lucide-react'
@@ -31,10 +31,20 @@ function ConfirmModal({ message, onConfirm, onCancel }) {
 
 // ── Fila de usuario ─────────────────────────────────────────────
 function UserRow({ user, onDelete, onRoleChange }) {
-  const [open,    setOpen]    = useState(false)
-  const [loading, setLoading] = useState(false)
+  const [open,      setOpen]      = useState(false)
+  const [loading,   setLoading]   = useState(false)
+  const [dropPos,   setDropPos]   = useState({ top: 0, right: 0 })
+  const btnRef = useRef(null)
 
   const roleColor = ROLE_COLORS[user.role] || '#888'
+
+  function handleOpen() {
+    if (btnRef.current) {
+      const rect = btnRef.current.getBoundingClientRect()
+      setDropPos({ top: rect.bottom + 4, right: window.innerWidth - rect.right })
+    }
+    setOpen(v => !v)
+  }
 
   const handleRoleChange = async (newRole) => {
     if (newRole === user.role) { setOpen(false); return }
@@ -73,9 +83,10 @@ function UserRow({ user, onDelete, onRoleChange }) {
       {/* Role selector */}
       <div className={styles.roleWrap}>
         <button
+          ref={btnRef}
           className={styles.roleBtn}
           style={{ background: `${roleColor}18`, color: roleColor, borderColor: `${roleColor}44` }}
-          onClick={() => setOpen(v => !v)}
+          onClick={handleOpen}
           disabled={loading}
         >
           {loading ? <Loader2 size={12} className={styles.spin} /> : null}
@@ -83,7 +94,7 @@ function UserRow({ user, onDelete, onRoleChange }) {
           <ChevronDown size={12} />
         </button>
         {open && (
-          <div className={styles.roleDropdown}>
+          <div className={styles.roleDropdown} style={{ top: dropPos.top, right: dropPos.right }}>
             {Object.entries(ROLE_LABELS).map(([key, label]) => (
               <button
                 key={key}

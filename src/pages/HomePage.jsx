@@ -93,7 +93,8 @@ function TechFavCard({ tech }) {
 
 const SLIDER_IMAGES = [
   'axel.png', 'axel_capucha.png', 'byron_love.gif',
-  'inazuma_japon.png', 'shawn_ventisca.gif', 'xavier_descenso.gif',
+  'inazuma_japon.png', 'shawn_ventisca.gif', 'xavier_descenso.gif', 'dd.gif', 'mark_w.gif',
+  'La_Aurora.gif', 'shawn.gif',
 ]
 
 function getStoredSession() {

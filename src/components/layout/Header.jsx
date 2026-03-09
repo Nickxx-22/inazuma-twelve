@@ -1,25 +1,25 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { Home, Users, Shield, Swords, Menu, X, LogIn, LogOut, Settings, User, Zap, BookOpen } from 'lucide-react'
+import { LogIn, LogOut } from 'lucide-react'
 import { useAuth } from '../../hooks/useAuth'
 import { logoutUser } from '../../services/authService'
 import logoImg from '../img/inazuma_japon.png'
 import styles from './Header.module.css'
 
 const NAV_ITEMS_USER = [
-  { href: '/',           label: 'Inicio',    icon: Home,    accent: '#3d7eff' },
-  { href: '/personajes', label: 'Jugadores', icon: Users,   accent: '#36d399' },
-  { href: '/tecnicas',   label: 'Tecnicas',  icon: BookOpen, accent: '#f59e0b' },
-  { href: '/equipos',    label: 'Equipos',   icon: Swords,  accent: '#f471b5' },
-  { href: '/mi-equipo',  label: 'Mi Equipo', icon: Shield,  accent: '#a78bfa' },
+  { href: '/',           label: 'Inicio',    accent: '#3d7eff' },
+  { href: '/personajes', label: 'Jugadores', accent: '#36d399' },
+  { href: '/tecnicas',   label: 'Tecnicas',  accent: '#f59e0b' },
+  { href: '/equipos',    label: 'Equipos',   accent: '#f471b5' },
+  { href: '/mi-equipo',  label: 'Mi Equipo', accent: '#a78bfa' },
 ]
 
 const NAV_ITEMS_ADMIN = [
-  { href: '/',           label: 'Inicio',    icon: Home,     accent: '#3d7eff' },
-  { href: '/personajes', label: 'Jugadores', icon: Users,    accent: '#36d399' },
-  { href: '/tecnicas',   label: 'Tecnicas',  icon: BookOpen, accent: '#f59e0b' },
-  { href: '/equipos',    label: 'Equipos',   icon: Swords,   accent: '#f471b5' },
-  { href: '/admin',      label: 'Admin',     icon: Settings, accent: '#ff8c00' },
+  { href: '/',           label: 'Inicio',    accent: '#3d7eff' },
+  { href: '/personajes', label: 'Jugadores', accent: '#36d399' },
+  { href: '/tecnicas',   label: 'Tecnicas',  accent: '#f59e0b' },
+  { href: '/equipos',    label: 'Equipos',   accent: '#f471b5' },
+  { href: '/admin',      label: 'Admin',     accent: '#ff8c00' },
 ]
 
 export default function Header() {
@@ -65,7 +65,7 @@ export default function Header() {
 
         {/* Desktop nav — píldoras con acento de color */}
         <nav className={styles.desktopNav}>
-          {NAV_ITEMS.map(({ href, label, icon: Icon, accent }) => {
+          {NAV_ITEMS.map(({ href, label, accent }) => {
             const active = isActive(href)
             return (
               <Link
@@ -74,9 +74,6 @@ export default function Header() {
                 className={`${styles.navLink} ${active ? styles.navLinkActive : ''}`}
                 style={active ? { '--accent': accent } : {}}
               >
-                <span className={styles.navIcon} style={active ? { color: accent } : {}}>
-                  <Icon size={14} />
-                </span>
                 <span className={styles.navLabel}>{label}</span>
                 {active && <span className={styles.navDot} style={{ background: accent }} />}
               </Link>
@@ -117,7 +114,7 @@ export default function Header() {
       {open && (
         <nav className={styles.mobileNav}>
           <div className={styles.mobileGrid}>
-            {NAV_ITEMS.map(({ href, label, icon: Icon, accent }) => {
+            {NAV_ITEMS.map(({ href, label, accent }) => {
               const active = isActive(href)
               return (
                 <Link
@@ -127,7 +124,6 @@ export default function Header() {
                   className={`${styles.mobileCard} ${active ? styles.mobileCardActive : ''}`}
                   style={active ? { borderColor: accent, background: `${accent}12` } : {}}
                 >
-                  <Icon size={20} style={active ? { color: accent } : {}} />
                   <span>{label}</span>
                 </Link>
               )

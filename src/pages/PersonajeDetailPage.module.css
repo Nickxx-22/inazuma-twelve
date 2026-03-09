@@ -12,7 +12,6 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px 16px;
-  overflow-x: hidden;
   color: var(--text-main);
   animation: fadeIn 0.5s ease-out;
 }
@@ -57,8 +56,13 @@
 /* --- PANEL IZQUIERDO (LA CARTA) --- */
 .aside {
   position: sticky;
-  top: 20px;
+  top: 76px;
+  align-self: start;
+  max-height: calc(100vh - 96px);
+  overflow-y: auto;
+  scrollbar-width: none;
 }
+.aside::-webkit-scrollbar { display: none; }
 
 .card {
   border-radius: 24px;
@@ -833,7 +837,6 @@
 @media (max-width: 640px) {
   .page {
     padding: 16px 12px;
-    overflow-x: hidden;
   }
 
   .statsCard, .techCard {

@@ -89,7 +89,6 @@
   color: #e2e8f0;
 }
 
-.navIcon { display: flex; align-items: center; transition: color 0.18s; }
 .navLabel { transition: color 0.18s; }
 
 /* Punto indicador de la página activa */

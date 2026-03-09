@@ -115,6 +115,7 @@
   border-radius: 12px;
   transition: border-color 0.2s, background 0.2s;
   position: relative;
+  overflow: visible;
 }
 .userRow:hover {
   border-color: rgba(255,255,255,0.1);
@@ -164,26 +165,25 @@
 .roleBtn:disabled { opacity: 0.6; cursor: default; }
 
 .roleDropdown {
-  position: absolute;
-  top: calc(100% + 4px); right: 0;
-  z-index: 20;
-  background: var(--card);
-  border: 1px solid var(--border);
+  position: fixed;
+  z-index: 9999;
+  background: #0d1020;
+  border: 1px solid rgba(255,255,255,0.15);
   border-radius: 10px;
   overflow: hidden;
-  min-width: 120px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  min-width: 130px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.05);
 }
 .roleOption {
   display: block; width: 100%;
-  padding: 9px 14px; text-align: left;
-  font-size: 0.75rem; font-weight: 600;
-  color: var(--muted);
+  padding: 10px 16px; text-align: left;
+  font-size: 0.8rem; font-weight: 700;
+  color: #94a3b8;
   background: transparent;
   border: none; cursor: pointer;
   transition: background 0.15s, color 0.15s;
 }
-.roleOption:hover { background: rgba(255,255,255,0.05); color: var(--foreground); }
+.roleOption:hover { background: rgba(255,255,255,0.1); color: var(--foreground); }
 .roleOption.roleOptionActive { color: var(--rc, var(--foreground)); background: rgba(255,255,255,0.04); }
 
 /* Delete button */

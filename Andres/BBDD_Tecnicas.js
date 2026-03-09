@@ -2840,7 +2840,7 @@ async function insertarTecnicas() {
 
 {
   "_id": "acelerrelampago",
-  "name": "acelerrelampago",
+  "name": "Acelerrelampago",
   "videoUrl": {"url": "/tecnicas/acelerrelampago.mp4"},
   "type": "dribble",
   "subtype": ["regate"],

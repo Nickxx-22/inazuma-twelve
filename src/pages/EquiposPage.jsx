@@ -46,14 +46,11 @@ export default function EquiposPage() {
       {/* Header de página */}
       <div className={styles.pageHeader}>
         <div className={styles.titleRow}>
-          <div className={styles.titleIcon}><Trophy size={20} /></div>
-          <div>
-            <h1 className={styles.title}>Equipos</h1>
-            <p className={styles.subtitle}>
-              Todos los equipos del universo Inazuma Eleven
-              <span className={styles.countBadge}>{teams.length} equipos</span>
-            </p>
-          </div>
+          <h1 className={styles.title}>Equipos</h1>
+          <p className={styles.subtitle}>
+            Todos los equipos del universo Inazuma Eleven
+            <span className={styles.countBadge}>{teams.length} equipos</span>
+          </p>
         </div>
 
         {/* Filtro rápido por temporada */}

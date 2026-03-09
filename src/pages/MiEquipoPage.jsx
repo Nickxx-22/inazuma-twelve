@@ -383,10 +383,10 @@ export default function MiEquipoPage() {
                     <div className={styles.playerCard}>
                       <div className={styles.avatarCircle} style={{ borderColor: getElementColor(char.element) }}>
                         <img src={imgUrl(char.image)} alt={char.name} />
-                        <button className={styles.remove} onClick={(e) => handleRemoveCharacter(i, e)}>
-                          <X size={10} />
-                        </button>
                       </div>
+                      <button className={styles.remove} onClick={(e) => handleRemoveCharacter(i, e)}>
+                        <X size={10} />
+                      </button>
                       <div className={styles.nameTag}>{char.name.split(' ')[0]}</div>
                       <div className={styles.posTag} style={{ background: getElementColor(char.element) }}>
                         {slot.position.substring(0, 2).toUpperCase()}

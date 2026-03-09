@@ -286,23 +286,24 @@
 }
 
 /* Positions */
-.p0  { bottom: 8%;  left: 50%; }
-.p1  { bottom: 26%; left: 20%; }
-.p2  { bottom: 26%; left: 40%; }
-.p3  { bottom: 26%; left: 60%; }
-.p4  { bottom: 26%; left: 80%; }
-.p5  { bottom: 50%; left: 15%; }
-.p6  { bottom: 50%; left: 38%; }
-.p7  { bottom: 50%; left: 62%; }
-.p8  { bottom: 50%; left: 85%; }
-.p9  { top: 20%;    left: 35%; }
-.p10 { top: 20%;    left: 65%; }
+.p0  { bottom: 5%;  left: 50%; }
+.p1  { bottom: 24%; left: 13%; }
+.p2  { bottom: 24%; left: 38%; }
+.p3  { bottom: 24%; left: 63%; }
+.p4  { bottom: 24%; left: 88%; }
+.p5  { bottom: 50%; left: 10%; }
+.p6  { bottom: 50%; left: 37%; }
+.p7  { bottom: 50%; left: 63%; }
+.p8  { bottom: 50%; left: 90%; }
+.p9  { top: 18%;    left: 32%; }
+.p10 { top: 18%;    left: 68%; }
 
 /* Player card */
 .playerCard {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
   animation: popIn 0.28s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -313,7 +314,7 @@
   border: 3px solid #fff;
   background: #000;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   box-shadow: 0 3px 12px rgba(0,0,0,0.6);
 }
 
@@ -321,28 +322,29 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 50%;
 }
 
 .remove {
   position: absolute;
-  top: -3px;
-  right: -3px;
+  top: 0px;
+  right: 0px;
   background: #ef4444;
   color: white;
   border: 2px solid #111;
   border-radius: 50%;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 10;
+  z-index: 20;
   opacity: 0;
   transition: opacity 0.15s, transform 0.15s;
 }
 
-.avatarCircle:hover .remove {
+.playerCard:hover .remove {
   opacity: 1;
 }
 
@@ -839,4 +841,61 @@
     flex: none;
     width: 100%;
   }
+}
+/* ── MÓVIL: slots más grandes ── */
+@media (max-width: 600px) {
+  .pitchWrapper {
+    padding: 16px 10px;
+  }
+  .pitchInner {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 2 / 3.2;
+  }
+  .slot {
+    width: 58px;
+    height: 58px;
+  }
+  .avatarCircle {
+    width: 44px;
+    height: 44px;
+    border-width: 2px;
+  }
+  .emptySlot {
+    width: 44px;
+    height: 44px;
+    font-size: 8px;
+    border-width: 2px;
+  }
+  .nameTag {
+    font-size: 8px;
+    max-width: 68px;
+    padding: 2px 5px;
+  }
+  .posTag {
+    font-size: 8px;
+    padding: 1px 5px;
+  }
+  .remove {
+    width: 22px;
+    height: 22px;
+    opacity: 1 !important;
+    top: -5px;
+    right: -5px;
+  }
+}
+
+/* ── MÓVIL: posiciones más separadas ── */
+@media (max-width: 600px) {
+  .p0  { bottom: 4%;  left: 50%; }
+  .p1  { bottom: 22%; left: 12%; }
+  .p2  { bottom: 22%; left: 38%; }
+  .p3  { bottom: 22%; left: 63%; }
+  .p4  { bottom: 22%; left: 88%; }
+  .p5  { bottom: 47%; left: 10%; }
+  .p6  { bottom: 47%; left: 37%; }
+  .p7  { bottom: 47%; left: 63%; }
+  .p8  { bottom: 47%; left: 90%; }
+  .p9  { top: 16%;    left: 30%; }
+  .p10 { top: 16%;    left: 70%; }
 }

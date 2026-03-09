@@ -12,13 +12,6 @@
 
 /* ── HEADER ── */
 .pageHeader { margin-bottom: 24px; }
-.titleRow   { display: flex; align-items: center; gap: 14px; }
-.titleIcon  {
-  width: 44px; height: 44px; border-radius: 12px;
-  background: linear-gradient(135deg, #ff9900, #ff6600);
-  display: flex; align-items: center; justify-content: center;
-  color: #fff; box-shadow: 0 4px 16px rgba(255,153,0,0.4); flex-shrink: 0;
-}
 .title    { font-size: 1.8rem; font-weight: 900; letter-spacing: -0.02em; margin: 0; }
 .subtitle { font-size: 0.8rem; color: #4a5568; margin-top: 2px; display: flex; align-items: center; gap: 8px; }
 .countBadge {
@@ -228,7 +221,7 @@
   animation: slideUp 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .closeBtn {
-  position: absolute; top: 16px; right: 16px; z-index: 10;
+  position: absolute; top: 16px; right: 16px; z-index: 10; margin-bottom: 0;
   background: rgba(0,0,0,0.5); border: none; color: #fff;
   width: 36px; height: 36px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
@@ -253,7 +246,7 @@
   color: rgba(255,255,255,0.6); border-radius: 12px;
   width: 44px; height: 44px;
   display: flex; align-items: center; justify-content: center;
-  cursor: pointer; transition: all 0.2s; margin-top: 4px;
+  cursor: pointer; transition: all 0.2s; margin-top: 52px;
 }
 .modalFavBtn:hover   { background: rgba(255,77,77,0.2); border-color: #ff4d4d; color: #ff4d4d; }
 .modalFavActive      { color: #ff4d4d !important; background: rgba(255,77,77,0.2) !important; border-color: #ff4d4d !important; }
