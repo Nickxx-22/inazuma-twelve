@@ -82,7 +82,7 @@ export default function LoginPage() {
             </div>
 
             <div className={styles.field}>
-              <label className={styles.label}>Contrasena</label>
+              <label className={styles.label}>Contraseña</label>
               <div className={styles.inputWrap}>
                 <Lock size={15} className={styles.inputIcon} />
                 <input

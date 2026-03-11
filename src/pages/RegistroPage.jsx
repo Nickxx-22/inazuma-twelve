@@ -157,7 +157,7 @@ export default function RegistroPage() {
 
             <div className={styles.pwdRow}>
               <div className={styles.field}>
-                <label className={styles.label}>Contrasena</label>
+                <label className={styles.label}>Contraseña</label>
                 <div className={`${styles.inputWrap} ${touched.password && errors.password ? styles.inputError : touched.password && !errors.password ? styles.inputOk : ''}`}>
                   <Lock size={14} className={styles.inputIcon} />
                   <input type={showPwd ? 'text' : 'password'} name="password" value={fields.password}
