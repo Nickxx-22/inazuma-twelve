@@ -28,7 +28,8 @@ export default function Header() {
   const { user, refresh } = useAuth()
   const [open, setOpen]   = useState(false)
 
-  const NAV_ITEMS = user?.role === 'admin' ? NAV_ITEMS_ADMIN : NAV_ITEMS_USER
+  const BASE_ITEMS = user?.role === 'admin' ? NAV_ITEMS_ADMIN : NAV_ITEMS_USER
+  const NAV_ITEMS = user ? BASE_ITEMS : BASE_ITEMS.filter(i => i.href !== '/mi-equipo')
 
   useEffect(() => {
     const onAuthChange = () => refresh()
