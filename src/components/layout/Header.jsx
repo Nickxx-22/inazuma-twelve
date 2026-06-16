@@ -12,6 +12,7 @@ const NAV_ITEMS_USER = [
   { href: '/tecnicas',   label: 'Tecnicas',  accent: '#f59e0b' },
   { href: '/equipos',    label: 'Equipos',   accent: '#f471b5' },
   { href: '/mi-equipo',  label: 'Mi Equipo', accent: '#a78bfa' },
+  { href: '/torneo',     label: 'Torneo',    accent: '#ff3535' },
 ]
 
 const NAV_ITEMS_ADMIN = [
@@ -29,7 +30,7 @@ export default function Header() {
   const [open, setOpen]   = useState(false)
 
   const BASE_ITEMS = user?.role === 'admin' ? NAV_ITEMS_ADMIN : NAV_ITEMS_USER
-  const NAV_ITEMS = user ? BASE_ITEMS : BASE_ITEMS.filter(i => i.href !== '/mi-equipo')
+  const NAV_ITEMS = user ? BASE_ITEMS : BASE_ITEMS.filter(i => ![ '/mi-equipo', '/torneo' ].includes(i.href))
 
   useEffect(() => {
     const onAuthChange = () => refresh()

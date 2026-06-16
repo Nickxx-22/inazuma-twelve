@@ -899,3 +899,212 @@
   .p9  { top: 16%;    left: 30%; }
   .p10 { top: 16%;    left: 70%; }
 }
+/* ── BOTÓN HISTORIAL DE TORNEOS ──────────────────────────────── */
+.historialBtn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(245,158,11,0.1);
+  border: 1px solid rgba(245,158,11,0.3);
+  border-radius: 8px;
+  padding: 9px 14px;
+  color: #f59e0b;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.historialBtn:hover {
+  background: rgba(245,158,11,0.18);
+  border-color: rgba(245,158,11,0.5);
+  transform: translateY(-1px);
+}
+
+/* ── LISTA DE HISTORIAL ──────────────────────────────────────── */
+.historialList {
+  padding: 12px 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.historialRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+.historialRow:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.15);
+  transform: translateY(-1px);
+}
+.historialRowCampeon {
+  background: rgba(245,158,11,0.06);
+  border-color: rgba(245,158,11,0.25);
+}
+.historialRowCampeon:hover {
+  background: rgba(245,158,11,0.1);
+  border-color: rgba(245,158,11,0.4);
+}
+
+.historialRowIcon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.historialRowInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.historialRowEquipo {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.historialRowMeta {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  color: #6b7a9e;
+}
+.historialEnCurso {
+  color: #3d7eff;
+  font-weight: 700;
+}
+
+.historialRowResultado {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  flex-shrink: 0;
+}
+.historialRowRonda {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #e2e8f0;
+}
+.historialRowGoles {
+  font-size: 0.7rem;
+  color: #6b7a9e;
+}
+
+/* ── MODAL DE DETALLE DE TORNEO ──────────────────────────────── */
+.historialDetailModal {
+  background: #0d111e;
+  border: 1px solid #2a3545;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 900px;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+.historialDetailBody {
+  padding: 16px 20px 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.historialStatsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.historialStatBox {
+  background: rgba(255,255,255,0.04);
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.historialStatNum {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #e2e8f0;
+}
+.historialStatLbl {
+  font-size: 0.62rem;
+  color: #6b7a9e;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.historialGoleadores {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.historialSectionTitle {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #6b7a9e;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+.historialGoleadorRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 8px;
+}
+.historialRank {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #6b7a9e;
+  min-width: 22px;
+}
+.historialGoleadorNombre {
+  flex: 1;
+  font-size: 0.82rem;
+  color: #e2e8f0;
+}
+.historialGoleadorGoles {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #36d399;
+}
+
+.historialError {
+  background: rgba(239,68,68,0.1);
+  border: 1px solid rgba(239,68,68,0.3);
+  color: #fca5a5;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 0.85rem;
+  margin: 8px 0;
+}

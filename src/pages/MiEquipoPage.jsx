@@ -1,10 +1,11 @@
 import { useState, useEffect, useMemo } from 'react'
-import { Plus, X, Save, Trash2, Search, Loader2, Folder, PlusCircle, Check, Shield } from 'lucide-react'
+import { Plus, X, Save, Trash2, Search, Loader2, Folder, PlusCircle, Check, Shield, Trophy, Star, Calendar } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { useNavigate } from 'react-router-dom'
 import { getElementColor } from '../utils/colors'
 import { getAllPlayers } from '../services/playerService'
 import { BASE_URL, imgUrl } from '../config'
+import CuadroBracket from './BracketView'
 import styles from './MiEquipoPage.module.css'
 
 function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, onSelect, onClose }) {
@@ -88,6 +89,194 @@ function CharacterPickerModal({ slotIndex, slotPosition, usedIds, characters, on
   );
 }
 
+// ── Modal de detalle de un torneo del historial ────────────────
+function DetalleTorneoModal({ torneoId, token, onClose }) {
+  const [detalle, setDetalle] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
+
+  useEffect(() => {
+    let cancelled = false
+    async function cargar() {
+      try {
+        const res = await fetch(`${BASE_URL}/torneos/${torneoId}`, {
+          headers: { Authorization: `Bearer ${token}` }
+        })
+        const data = await res.json()
+        if (!res.ok) throw new Error(data.message || 'Error al cargar el torneo')
+        if (!cancelled) setDetalle(data)
+      } catch (e) {
+        if (!cancelled) setError(e.message)
+      } finally {
+        if (!cancelled) setLoading(false)
+      }
+    }
+    cargar()
+    return () => { cancelled = true }
+  }, [torneoId, token])
+
+  return (
+    <div className={styles.overlay} onClick={onClose}>
+      <div className={styles.historialDetailModal} onClick={e => e.stopPropagation()}>
+        <div className={styles.pickerHeader}>
+          <div>
+            <h3 className={styles.pickerTitle}>{detalle?.nombre_equipo || 'Torneo'}</h3>
+            <span className={styles.pickerCount}>
+              {detalle?.estadisticas?.campeon ? '🏆 Campeón del torneo' : `Ronda alcanzada: ${detalle?.ronda_actual || '—'}`}
+            </span>
+          </div>
+          <button onClick={onClose} className={styles.closeBtn}><X size={20} /></button>
+        </div>
+
+        <div className={styles.historialDetailBody}>
+          {loading && (
+            <div className={styles.loader} style={{ minHeight: 200 }}>
+              <Loader2 size={32} className={styles.spin} />
+              <span>Cargando torneo...</span>
+            </div>
+          )}
+          {error && <div className={styles.historialError}>{error}</div>}
+
+          {detalle && !loading && (
+            <>
+              <div className={styles.historialStatsRow}>
+                <div className={styles.historialStatBox}>
+                  <span className={styles.historialStatNum}>{detalle.estadisticas?.partidos_jugados ?? 0}</span>
+                  <span className={styles.historialStatLbl}>Partidos</span>
+                </div>
+                <div className={styles.historialStatBox}>
+                  <span className={styles.historialStatNum} style={{ color: '#36d399' }}>{detalle.estadisticas?.partidos_ganados ?? 0}</span>
+                  <span className={styles.historialStatLbl}>Victorias</span>
+                </div>
+                <div className={styles.historialStatBox}>
+                  <span className={styles.historialStatNum} style={{ color: '#ff6b35' }}>{detalle.estadisticas?.goles_marcados ?? 0}</span>
+                  <span className={styles.historialStatLbl}>Goles</span>
+                </div>
+                <div className={styles.historialStatBox}>
+                  <span className={styles.historialStatNum} style={{ color: '#f471b5' }}>{detalle.estadisticas?.goles_recibidos ?? 0}</span>
+                  <span className={styles.historialStatLbl}>Recibidos</span>
+                </div>
+              </div>
+
+              <CuadroBracket cuadro={detalle.cuadro} />
+
+              {detalle.estadisticas?.goleadores?.length > 0 && (
+                <div className={styles.historialGoleadores}>
+                  <h4 className={styles.historialSectionTitle}>⚽ Goleadores del torneo</h4>
+                  {detalle.estadisticas.goleadores.map((g, i) => (
+                    <div key={i} className={styles.historialGoleadorRow}>
+                      <span className={styles.historialRank}>#{i + 1}</span>
+                      <span className={styles.historialGoleadorNombre}>{g.nombre}</span>
+                      <span className={styles.historialGoleadorGoles}>{g.goles} goles</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// ── Modal de historial de torneos del usuario ──────────────────
+function HistorialTorneosModal({ token, onClose }) {
+  const [torneos, setTorneos] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
+  const [verDetalle, setVerDetalle] = useState(null)
+
+  useEffect(() => {
+    let cancelled = false
+    async function cargar() {
+      try {
+        const res = await fetch(`${BASE_URL}/torneos/historial`, {
+          headers: { Authorization: `Bearer ${token}` }
+        })
+        const data = await res.json()
+        if (!res.ok) throw new Error(data.message || 'Error al cargar el historial')
+        if (!cancelled) setTorneos(Array.isArray(data) ? data : [])
+      } catch (e) {
+        if (!cancelled) setError(e.message)
+      } finally {
+        if (!cancelled) setLoading(false)
+      }
+    }
+    cargar()
+    return () => { cancelled = true }
+  }, [token])
+
+  const formatFecha = (iso) => {
+    if (!iso) return ''
+    try {
+      const d = new Date(iso)
+      return d.toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' })
+    } catch { return '' }
+  }
+
+  return (
+    <>
+      <div className={styles.overlay} onClick={onClose}>
+        <div className={styles.pickerModal} onClick={e => e.stopPropagation()}>
+          <div className={styles.pickerHeader}>
+            <div>
+              <h3 className={styles.pickerTitle}>HISTORIAL DE TORNEOS</h3>
+              <span className={styles.pickerCount}>{torneos.length} torneos jugados</span>
+            </div>
+            <button onClick={onClose} className={styles.closeBtn}><X size={20} /></button>
+          </div>
+
+          <div className={styles.historialList}>
+            {loading && (
+              <div className={styles.loader} style={{ minHeight: 160 }}>
+                <Loader2 size={28} className={styles.spin} />
+                <span>Cargando historial...</span>
+              </div>
+            )}
+            {error && <div className={styles.historialError}>{error}</div>}
+            {!loading && !error && torneos.length === 0 && (
+              <div className={styles.emptyPicker}>
+                <Trophy size={28} style={{ opacity: 0.4, display: 'block', margin: '0 auto 10px' }} />
+                <p>Todavía no has jugado ningún torneo</p>
+              </div>
+            )}
+
+            {torneos.map(t => (
+              <div
+                key={t.torneo_id}
+                className={`${styles.historialRow} ${t.campeon ? styles.historialRowCampeon : ''}`}
+                onClick={() => setVerDetalle(t.torneo_id)}
+              >
+                <div className={styles.historialRowIcon}>
+                  {t.campeon ? <Trophy size={20} style={{ color: '#f59e0b' }} /> : <Shield size={20} style={{ color: '#6b7a9e' }} />}
+                </div>
+                <div className={styles.historialRowInfo}>
+                  <span className={styles.historialRowEquipo}>{t.nombre_equipo}</span>
+                  <span className={styles.historialRowMeta}>
+                    <Calendar size={11} /> {formatFecha(t.creado_en)}
+                    {t.estado === 'en_curso' && <span className={styles.historialEnCurso}>· En curso</span>}
+                  </span>
+                </div>
+                <div className={styles.historialRowResultado}>
+                  <span className={styles.historialRowRonda} style={t.campeon ? { color: '#f59e0b' } : {}}>
+                    {t.ronda_nombre}
+                  </span>
+                  <span className={styles.historialRowGoles}>{t.goles_marcados} goles</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {verDetalle && (
+        <DetalleTorneoModal torneoId={verDetalle} token={token} onClose={() => setVerDetalle(null)} />
+      )}
+    </>
+  )
+}
+
 function getUserId(user) {
   if (user?.id) return user.id;
   if (user?._id) return user._id;
@@ -114,6 +303,7 @@ export default function MiEquipoPage() {
   const [misEquipos, setMisEquipos] = useState({})
   const [equipoSeleccionado, setEquipoSeleccionado] = useState("")
   const [nombreTemp, setNombreTemp] = useState("")
+  const [showHistorial, setShowHistorial] = useState(false)
 
   useEffect(() => {
     const stored = localStorage.getItem('inazuma-user')
@@ -299,6 +489,14 @@ export default function MiEquipoPage() {
           >
             <PlusCircle size={18} />
           </button>
+          <button
+            className={styles.historialBtn}
+            title="Historial de torneos"
+            onClick={() => setShowHistorial(true)}
+          >
+            <Trophy size={16} />
+            <span>Torneos</span>
+          </button>
         </div>
 
         <div className={styles.nameInputWrapper}>
@@ -440,6 +638,13 @@ export default function MiEquipoPage() {
             setSelectingSlot(null);
           }}
           onClose={() => setSelectingSlot(null)}
+        />
+      )}
+
+      {showHistorial && (
+        <HistorialTorneosModal
+          token={localStorage.getItem('inazuma-token')}
+          onClose={() => setShowHistorial(false)}
         />
       )}
     </div>
