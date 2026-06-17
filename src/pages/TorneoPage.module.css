@@ -17,11 +17,13 @@
 
 /* Imagen de fondo (FFI.png) — capa propia detrás de los focos/líneas, con su propia
    opacidad y oscurecido para que el título y el botón sigan siendo legibles encima */
-.heroField::before {
-  content: "";
+/* Imagen de fondo (FFI.png) — capa propia detrás de los focos/líneas, con su propia
+   opacidad y oscurecido para que el título y el botón sigan siendo legibles encima.
+   La url() se aplica desde el JSX (style inline) para evitar problemas de resolución
+   de rutas absolutas dentro de archivos .module.css con algunos bundlers. */
+.heroBgImage {
   position: absolute;
   inset: 0;
-  background-image: url('/FFI.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

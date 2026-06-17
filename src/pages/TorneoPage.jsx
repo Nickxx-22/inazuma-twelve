@@ -397,6 +397,10 @@ export default function TorneoPage() {
     <div className={styles.page}>
       <div className={styles.heroSection}>
         <div className={styles.heroField}>
+          <div
+            className={styles.heroBgImage}
+            style={{ backgroundImage: `url(/FFI.png)` }}
+          />
           <div className={styles.heroSpotlight} />
           <div className={styles.heroSpotlightAlt} />
           <div className={styles.heroFieldLines} />
