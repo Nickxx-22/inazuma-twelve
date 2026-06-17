@@ -346,10 +346,16 @@ export default function TorneoPage() {
       const ronda_key = `ronda_${torneo.ronda_actual || 1}`
       const enf       = torneo.cuadro?.[ronda_key] || []
       const match     = enf.find(e => e.local?.es_usuario || e.visitante?.es_usuario)
-      const nombreLocal     = match?.local?.nombre     || equipoSel
-      const nombreVisitante = match?.visitante?.nombre || 'Rival'
-      const imagenLocal     = match?.local?.imagen     || ''
-      const imagenVisitante = match?.visitante?.imagen || ''
+      // ✅ FIX: "local"/"visitante" del cuadro no implica que TU equipo sea el local del
+      // enfrentamiento. Identificamos tu equipo y el rival por es_usuario, así el feed
+      // siempre pinta a tu equipo a la izquierda sin importar el sorteo del bracket.
+      const esUsuarioLocal  = !!match?.local?.es_usuario
+      const tuEquipo        = esUsuarioLocal ? match?.local     : match?.visitante
+      const rivalReal       = esUsuarioLocal ? match?.visitante : match?.local
+      const nombreLocal     = tuEquipo?.nombre  || equipoSel
+      const nombreVisitante = rivalReal?.nombre || 'Rival'
+      const imagenLocal     = tuEquipo?.imagen  || ''
+      const imagenVisitante = rivalReal?.imagen || ''
 
       setEventos(data.eventos || [])
       setMarcador({
