@@ -14,8 +14,8 @@ function getStoredSession() {
 }
 
 const RONDA_NOMBRES = {
-  1: 'Dieciseisavos', 2: 'Octavos',
-  3: 'Cuartos', 4: 'Semifinal', 5: 'Final'
+  1: 'Dieciseisavos De Final', 2: 'Octavos De Final',
+  3: 'Cuartos De Final', 4: 'Semifinal', 5: 'Final'
 }
 
 // ── Evento del partido (feed con línea central) ────────────────
@@ -390,9 +390,25 @@ export default function TorneoPage() {
   if (fase === 'inicio') return (
     <div className={styles.page}>
       <div className={styles.heroSection}>
-        <div className={styles.heroIcon}><Trophy size={40} /></div>
-        <h1 className={styles.heroTitle}>Modo Torneo</h1>
-        <p className={styles.heroSub}>Selecciona tu equipo y compite en un torneo de 16 equipos</p>
+        <div className={styles.heroField}>
+          <div className={styles.heroSpotlight} />
+          <div className={styles.heroSpotlightAlt} />
+          <div className={styles.heroFieldLines} />
+          <div className={styles.heroCenterCircle} />
+          <div className={styles.heroCenterDot} />
+          <div className={styles.heroArcLeft} />
+          <div className={styles.heroArcRight} />
+          <div className={styles.heroVignette} />
+
+          <div className={styles.heroContent}>
+            <span className={styles.heroEyebrow}>Temporada en curso · 16 equipos</span>
+            <h1 className={styles.heroTitle}>Modo Torneo</h1>
+            <p className={styles.heroSub}>Elige tu once titular y abre camino hasta la final</p>
+            <div className={styles.heroTrophyGlow}>
+              <Trophy size={34} />
+            </div>
+          </div>
+        </div>
       </div>
       {error && <div className={styles.error}>{error}</div>}
       {Object.keys(misEquipos).length === 0 ? (
