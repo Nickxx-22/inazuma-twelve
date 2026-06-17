@@ -76,49 +76,56 @@ Para cambiar la API en local, modifica `BASE_URL` directamente en ese archivo.
 ```
 inazuma-twelve/
 │
-├── public/
+├── .github/                        # Configuración de GitHub Actions y flujos de trabajo
+├── .gitignore                      # Archivos ignorados por Git
+├── App.css                         # Estilos globales de la aplicación
+├── App.jsx                         # Rutas con React Router + guards de admin
+├── README.md                       # Documentación del proyecto
+├── config.js                       # Configuración de Vite/Capacitor
+├── index.css                       # Variables CSS globales, gradientes, tema oscuro
+├── main.jsx                        # Punto de entrada de la app
+├── package-lock.json               # Dependencias instaladas exactas
+├── package.json                    # Scripts y dependencias del proyecto
+├── public/                         #Imagenes de fondo
 │   ├── fonts/
 │   │   └── Bangers-Regular.ttf     # Fuente de títulos
 │   └── icons/                      # Iconos PWA para instalación
 │
 └── src/
-    ├── config.js                   # BASE_URL + helper imgUrl()
-    ├── index.css                   # Variables CSS globales, gradientes, tema oscuro
-    ├── App.jsx                     # Rutas con React Router + guards de admin
-    ├── main.jsx                    # Punto de entrada de la app
-    │
+    ├── assets/                     # Imágenes, logos y recursos estáticos de la app
     ├── components/
+    │   ├── common/
+    │   │   ├── EmptyState.jsx      # Estado vacío
+    │   │   ├── FilterSelect.jsx    # Select de filtros reutilizable
+    │   │   └── SectionHeader.jsx   # Cabecera de sección con enlace
     │   ├── layout/
-    │   │   ├── Layout.jsx          # Shell con Outlet
+    │   │   ├── Footer.jsx          # Pie de página con redes
     │   │   ├── Header.jsx          # Navegación principal sticky
-    │   │   └── Footer.jsx          # Pie de página con redes
-    │   ├── players/
-    │   │   ├── CharacterCard.jsx        # Tarjeta en vista grid
-    │   │   └── CharacterListItem.jsx    # Fila en vista lista con stats
-    │   └── common/
-    │       ├── FilterSelect.jsx    # Select de filtros reutilizable
-    │       ├── EmptyState.jsx      # Estado vacío
-    │       └── SectionHeader.jsx   # Cabecera de sección con enlace
+    │   │   └── Layout.jsx          # Shell con Outlet
+    │   └── players/
+    │       ├── CharacterCard.jsx        # Tarjeta en vista grid
+    │       └── CharacterListItem.jsx    # Fila en vista lista con stats
     │
-    ├── pages/
-    │   ├── HomePage.jsx            # Inicio con carruseles de equipos y técnicas
-    │   ├── PersonajesPage.jsx      # Listado de jugadores con filtros y vista lista/grid
-    │   ├── PersonajeDetailPage.jsx # Detalle de jugador: radar, stats, técnicas, equipos
-    │   ├── TecnicasPage.jsx        # Catálogo de técnicas con modal de video
-    │   ├── EquiposPage.jsx         # Listado de equipos con tarjetas
-    │   ├── MiEquipoPage.jsx        # Constructor de equipo con campo visual interactivo
-    │   ├── AdminPage.jsx           # Panel de administración de usuarios (solo admin)
-    │   ├── LoginPage.jsx           # Login de usuario
-    │   └── RegistroPage.jsx        # Registro de usuario
-    │
+    ├── config.js                   # BASE_URL + helper imgUrl()
+    ├── data/                       # Datos locales y constantes de la app
     ├── hooks/
     │   ├── useAuth.js              # Lee el usuario del localStorage
     │   └── useMyTeam.js            # Gestión del equipo (slots, save, clear)
-    │
+    ├── pages/
+    │   ├── AdminPage.jsx           # Panel de administración de usuarios (solo admin)
+    │   ├── BracketView.jsx         # Vista de bracket/torneo
+    │   ├── EquiposPage.jsx         # Listado de equipos con tarjetas
+    │   ├── HomePage.jsx            # Inicio con carruseles de equipos y técnicas
+    │   ├── LoginPage.jsx           # Login de usuario
+    │   ├── MiEquipoPage.jsx        # Constructor de equipo con campo visual interactivo
+    │   ├── PersonajeDetailPage.jsx # Detalle de jugador: radar, stats, técnicas, equipos
+    │   ├── PersonajesPage.jsx      # Listado de jugadores con filtros y vista lista/grid
+    │   ├── RegistroPage.jsx        # Registro de usuario
+    │   ├── TecnicasPage.jsx        # Catálogo de técnicas con modal de video
+    │   └── TorneoPage.jsx          # Página de torneo y bracket
     ├── services/
     │   ├── authService.js          # login, logout, register contra la API
     │   └── teamStorage.js          # saveTeam, loadTeam, clearTeam
-    │
     └── utils/
         └── colors.js               # getElementColor, getNatureColor
 ```
