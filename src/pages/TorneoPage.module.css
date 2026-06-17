@@ -879,7 +879,9 @@
   .marcadorScore { font-size: 1.9rem; gap: 8px; }
   .marcadorEscudo { width: 32px; height: 32px; }
 
-  /* Feed de eventos: la card del lado activo crece más, menos hueco muerto */
+  /* Feed de eventos: en móvil sí colapsamos el lado vacío a 0, así la card
+     activa puede usar casi todo el ancho de la fila sin desbordar el viewport */
+  .eventoSide:empty { flex: 0 0 0; padding: 0 !important; }
   .eventoCard { max-width: none; padding: 7px 10px; gap: 6px; }
   .eventoDesc { font-size: 0.74rem; }
   .eventoSideLeft  { padding-right: 6px; }
