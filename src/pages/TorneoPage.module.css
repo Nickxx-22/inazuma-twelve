@@ -551,13 +551,6 @@
   flex: 1 1 0;
   min-width: 0;
 }
-/* Si el lado no tiene card dentro (el evento es del otro equipo), lo colapsamos
-   a 0 para que la card del lado activo pueda usar casi todo el ancho disponible
-   en vez de dejar media fila vacía. */
-.eventoSide:empty {
-  flex: 0 0 0;
-  padding: 0 !important;
-}
 .eventoSideLeft  { justify-content: flex-end; padding-right: 12px; }
 .eventoSideRight { justify-content: flex-start; padding-left: 12px; }
 
