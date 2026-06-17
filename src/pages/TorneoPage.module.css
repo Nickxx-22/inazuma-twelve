@@ -15,6 +15,21 @@
   justify-content: center;
 }
 
+/* Imagen de fondo (FFI.png) — capa propia detrás de los focos/líneas, con su propia
+   opacidad y oscurecido para que el título y el botón sigan siendo legibles encima */
+.heroField::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/FFI.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.4;
+  filter: saturate(0.9) brightness(0.85);
+  z-index: 0;
+}
+
 /* Foco de luz cenital — simula la luz de los reflectores del estadio cayendo sobre el campo */
 .heroSpotlight {
   position: absolute;
