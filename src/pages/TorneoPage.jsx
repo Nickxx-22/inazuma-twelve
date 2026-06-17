@@ -408,7 +408,7 @@ export default function TorneoPage() {
           <div className={styles.heroVignette} />
 
           <div className={styles.heroContent}>
-            <span className={styles.heroEyebrow}>Temporada en curso · 16 equipos</span>
+            <span className={styles.heroEyebrow}>Compite contra · 15 equipos</span>
             <h1 className={styles.heroTitle}>Modo Torneo</h1>
             <p className={styles.heroSub}>Elige tu once titular y abre camino hasta la final</p>
             <div className={styles.heroTrophyGlow}>

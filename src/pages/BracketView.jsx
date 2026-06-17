@@ -203,10 +203,10 @@ function CuadroBracket({ cuadro }) {
       >
         {/* Etiquetas */}
         {[
-          { label: 'OCTAVOS',   x: xL[0]+CW/2 }, { label: 'CUARTOS',   x: xL[1]+CW/2 },
+          { label: 'OCTAVOS DE FINAL',   x: xL[0]+CW/2 }, { label: 'CUARTOS DE FINAL',   x: xL[1]+CW/2 },
           { label: 'SEMIFINAL', x: xL[2]+CW/2 }, { label: 'FINAL',     x: xFinal+CW/2 },
-          { label: 'SEMIFINAL', x: xR[2]+CW/2 }, { label: 'CUARTOS',   x: xR[1]+CW/2 },
-          { label: 'OCTAVOS',   x: xR[0]+CW/2 },
+          { label: 'SEMIFINAL', x: xR[2]+CW/2 }, { label: 'CUARTOS DE FINAL',   x: xR[1]+CW/2 },
+          { label: 'OCTAVOS DE FINAL',   x: xR[0]+CW/2 },
         ].map(({ label, x }, i) => (
           <text key={i} {...labelStyle} x={x} y={18} textAnchor="middle">{label}</text>
         ))}
